@@ -1,0 +1,21 @@
+.fab{
+    opacity: 0.5;
+    transition: all 0.3s;
+    color: white;
+    font-size: 35px;
+    width: 30px;
+    height: 30px;
+    margin: 0 45px 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.fab:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
