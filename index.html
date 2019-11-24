@@ -14,36 +14,34 @@
 </head>
 
 <body>
-   
-    
+
+
     <div class="main parallax-window" data-speed="0.4" data-parallax="scroll" data-image-src="assets/images/background_with_text.jpg">
-       <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a href="#" class="header__logo"></a>
-                <nav class="nav">
-                   <input type="checkbox" name="toggle" id="menu" class="toggleMenu">
-                   <label for="menu" class="toggleMenu"><i class="fas fa-bars"></i>Menu</label>
-                    <a class="nav__link" href="#">Home</a>
-                    <a class="nav__link" href="#what-we-offer">What we offer</a>
-                    <a class="nav__link" href="#gallery">Gallery</a>
-                    <a class="nav__link" href="#about-us">About us</a>
-                    <a class="nav__link" href="#testimonials">Testimonials</a>
-                    <a class="nav__link" href="#contact-us">Contact us</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-        <div class="intro">
+        <header class="header">
             <div class="container">
-                <div class="container__content">
-                    <p>The countdown to ski season has begun! So, it is high
-                        time to improve your skills to have maximum fun this winter</p>
-                    <a href="#" class="button">Online booking</a>
+                <div class="header__inner">
+                    <a href="#" class="header__logo"></a>
+                    <nav class="nav">
+                        <input type="checkbox" name="toggle" id="menu" class="toggleMenu">
+                        <label for="menu" class="toggleMenu"><i class="fas fa-bars"></i>Menu</label>
+                        <a class="nav__link" href="#what-we-offer">What we offer</a>
+                        <a class="nav__link" href="#gallery">Gallery</a>
+                        <a class="nav__link" href="#about-us">About us</a>
+                        <a class="nav__link" href="#testimonials">Testimonials</a>
+                        <a class="nav__link" href="#contact-us">Contact us</a>
+                    </nav>
                 </div>
+            </div>
+        </header>
+        <div class="intro">
+            <div class="container__second">
+                <p>The countdown to ski season has begun! So, it is high
+                    time to improve your skills to have maximum fun this winter</p>
+                <a href="#" class="button">Online booking</a>
             </div>
         </div>
     </div>
+
 
     <section class="section">
         <div class="container">
@@ -51,34 +49,42 @@
                 <h2 class="section__title" id="what-we-offer">What we offer</h2>
                 <p>Skiing and snowboarding still rank among the undisputed winter sport highlights for all ages and ability levels. The perfectly groomed ski slopes makes a real heaven for skiers and riders. Our professional ski and snowboard instructors can show you all the little details while improving your skiing techniques and riding skills.</p>
             </div>
-            <div class="offer-i">
-                <div class="offer__item">
-                    <div class="offer__img">
-                        <img src="assets/images/offer/offer_first.jpg" alt="">
-                        <h2 class="offer__sup__title">New to skiing?</h2>
-                        <h1 class="offer__title">Private lessons for beginners</h1>
-                        <a href="#" class="button btn">From $250</a>
+            <div class="offer-i owl-carousel owl-theme">
+                <div class="item">
+                    <div class="offer__item">
+                        <div class="offer__img">
+                            <img src="assets/images/offer/offer_first.jpg" alt="">
+                            <h2 class="offer__sup__title">New to skiing?</h2>
+                            <h1 class="offer__title">Private lessons for beginners</h1>
+                            <a href="#" class="button btn">From $250</a>
+                        </div>
                     </div>
                 </div>
-                <div class="offer__item">
-                    <div class="offer__img">
-                        <img src="assets/images/offer/offer_second.jpg" alt="">
-                        <h2 class="offer__sup__title">Need a crew?</h2>
-                        <h1 class="offer__title">Group lessons for beginners</h1>
-                        <a href="#" class="button btn">From $150</a>
+                <div class="item">
+                    <div class="offer__item">
+                        <div class="offer__img">
+                            <img src="assets/images/offer/offer_second.jpg" alt="">
+                            <h2 class="offer__sup__title">Need a crew?</h2>
+                            <h1 class="offer__title">Group lessons for beginners</h1>
+                            <a href="#" class="button btn">From $150</a>
+                        </div>
                     </div>
                 </div>
-                <div class="offer__item">
-                    <div class="offer__img">
-                        <img src="assets/images/offer/offer_third.jpg" alt="">
-                        <h2 class="offer__sup__title">Wanna more?</h2>
-                        <h1 class="offer__title">Advanced group lessons</h1>
-                        <a href="#" class="button btn">From $450</a>
+                <div class="item">
+                    <div class="offer__item">
+                        <div class="offer__img">
+                            <img src="assets/images/offer/offer_third.jpg" alt="">
+                            <h2 class="offer__sup__title">Wanna more?</h2>
+                            <h1 class="offer__title">Advanced group lessons</h1>
+                            <a href="#" class="button btn">From $450</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <div class="big-pict">
         <div class="pictures" id="gallery">
@@ -109,6 +115,7 @@
         </div>
     </div>
 
+    <!--
     <section class="crew">
         <div class="crew__head">
             <h1 class="crew__title__head">Meet out crew</h1>
@@ -144,6 +151,8 @@
             </div>
         </div>
     </section>
+-->
+
 
     <div class="about">
         <div class="about__item">
@@ -175,47 +184,30 @@
         </div>
     </div>
 
-<!--
     <section class="testimonials">
         <div class="testimonials__header" id="testimonials">
             <h1 class="testimonials__title__head">Testimonials</h1>
         </div>
         <div class="testimonials__user">
             <div class="testimonials__user__logo">
-               <img src="assets/images/testimonials.jpg" alt="">
+                <img src="assets/images/testimonials.jpg" alt="">
                 <div class="owl-carousel owl-theme">
-                    <div class="testimonials__user__content">
-                        <h1 class="testimonials__title">Alexa Smith</h1>
-                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                    <div class="item">
+                        <h4>Alexa Smith</h4>
+                        <span>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</span>
                     </div>
-                    <div class="testimonials__user__content">
-                        <h1 class="testimonials__title">Peter Hill</h1>
-                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                    <div class="item">
+                        <h4>Alex Mercer</h4>
+                        <span>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</span>
                     </div>
-                    <div class="testimonials__user__content">
-                        <h1 class="testimonials__title">Jack Ford</h1>
-                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                    </div>
-                    <div class="testimonials__user__content">
-                        <h1 class="testimonials__title">Andrew Gab</h1>
-                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                    </div>
-                    <div class="testimonials__user__content">
-                        <h1 class="testimonials__title">Lex Luthor</h1>
-                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                    <div class="item">
+                        <h4>Gabe Newell</h4>
+                        <span>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat condimentum velit class aptent taciti sociosqu ad litora torquent per conubia nostra.</span>
                     </div>
                 </div>
-                <ul class="testimonials__mini__slider">
-                        <li class="btn__slider"></li>
-                        <li class="btn__slider"></li>
-                        <li class="btn__slider"></li>
-                        <li class="btn__slider"></li>
-                        <li class="btn__slider"></li>
-                </ul>
             </div>
         </div>
     </section>
--->
 
     <div class="contact-us">
         <div class="contact-us__items" id="contact-us">
@@ -240,7 +232,7 @@
                 </div>
             </div>
             <div class="contact-us__second">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2679.5064493297914!2d13.046347515637592!3d47.810402379198656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4776907ec1069e8b%3A0x15981222c4c66ab6!2zUGFyYWNlbHN1c3N0cmHDn2UgMjYsIDUwMjAgU2FsemJ1cmcsINCQ0LLRgdGC0YDQuNGP!5e0!3m2!1sru!2sua!4v1572783969156!5m2!1sru!2sua" width="1280" height="530" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2679.5064493297914!2d13.046347515637592!3d47.810402379198656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4776907ec1069e8b%3A0x15981222c4c66ab6!2zUGFyYWNlbHN1c3N0cmHDn2UgMjYsIDUwMjAgU2FsemJ1cmcsINCQ0LLRgdGC0YDQuNGP!5e0!3m2!1sru!2sua!4v1572783969156!5m2!1sru!2sua" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>

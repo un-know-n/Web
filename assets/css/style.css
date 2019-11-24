@@ -24,6 +24,11 @@ h6 {
     margin: 0 auto;
 }
 
+iframe{
+    width: 100%;
+    min-height: 630px;
+}
+
 /* Container */
 
 .container {
@@ -34,21 +39,24 @@ h6 {
     margin: 0 auto;
 }
 
-.container__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+.container__second {
+    width: 60%;
+    height: 100%;
+    max-width: 1680px;
+    max-height: 1080px;
+    display: block;
+    margin-top: 100px;
+    padding: 50px;
 }
 
-.container__content p {
+.container__second p {
     color: #fff;
-    max-width: 575px;
-    font-style: 'Muli', sans-serif;
+    font-family: 'Muli', sans-serif;
+    width: 100%;
     font-weight: 400;
     font-size: 24px;
     text-transform: none;
-    margin: 550px 0 0 200px;
+    display: block;
 }
 
 /* Main */
@@ -62,13 +70,13 @@ h6 {
 /* Intro */
 
 .intro {
-    max-width: 1920px;
+    width: 100%;
     min-height: 1120px;
     width: 100%;
     height: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     line-height: 1.2;
@@ -162,6 +170,27 @@ h6 {
     transition: color .5s;
 }
 
+.nav input {
+    display: none;
+}
+
+.nav label.toggleMenu {
+    color: #fff;
+    display: block;
+    padding: 10px 40px;
+    text-transform: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav label.toggleMenu .fas {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    font-size: 18px;
+}
+
 .nav__link:hover {
     color: darkorange;
 
@@ -189,18 +218,25 @@ h6 {
 /* Offer */
 
 .offer-i {
-    margin: 0 200px;
+    margin: 0 auto;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
+    max-height: 500px;
 }
 
 .offer__item {
     width: 100%;
+    height: 100%;
     max-width: 270px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 70px;
+    display: inline-block;
+    margin: 10px 70px;
     text-align: center;
+}
+
+.offer__img img{
+    width: 210px;
+    height: 180px;
 }
 
 /* Title & sup-title */
@@ -292,7 +328,7 @@ h6 {
     font-size: 60px;
     color: #fff;
     text-transform: uppercase;
-    margin: 30px 0 0 0;
+    margin-top: 30px;
 }
 
 .contact-us__sup__title {
@@ -301,7 +337,7 @@ h6 {
     font-size: 18px;
     color: #fff;
     text-transform: uppercase;
-    margin: 30px 0 0 0;
+    margin-top: 30px;
     width: 300px;
     position: relative;
 }
@@ -379,7 +415,6 @@ h6 {
 
 .about__header {
     width: 100%;
-    max-width: 725px;
     padding: 200px 0 50px 0;
 }
 
@@ -426,8 +461,7 @@ h6 {
     margin: 0 auto;
     background-color: #2f2f2f;
     max-width: 1920px;
-    min-height: 530px;
-    max-height: 640px;
+    height: 630px;
     width: 100%;
     height: 100%;
 }
@@ -436,13 +470,12 @@ h6 {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .contact-us__first {
-    width: 100%;
-    max-width: 570px;
-    max-height: 640px;
-    margin: 10px 0 0 120px;
+    width: 20%;
+    max-height: 630px;
 }
 
 .contact-us__all__data {
@@ -450,6 +483,7 @@ h6 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
 }
 
 .contact-us__all__data li::before {
@@ -461,14 +495,26 @@ h6 {
 }
 
 .contact-us__second {
+    width: 74%;
+    height: 630px;
+}
+
+/* Item */
+
+.item h4{
+    font-family: 'Catamaran', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 18px;
+}
+.item span{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.offer-i .item{
     display: flex;
-    align-items: stretch;
-    width: 1280px;
-    height: 530px;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 auto;
+    justify-content: center;
 }
 
 /* Icons */
@@ -484,10 +530,18 @@ h6 {
     margin: 0 55px 0 0;
 }
 
+.icons i:last-child{
+    margin: 0;
+}
+
 .phone:before {
     background: url("../images/contact_icons/icon_first.jpg") center no-repeat;
 }
-
+.testimonials__user__logo {
+    max-width: 1280px;
+    width: 100%;
+    overflow: hidden;
+}
 .address:before {
     background: url("../images/contact_icons/icon_second.jpg") center no-repeat;
 }
@@ -505,7 +559,7 @@ h6 {
 .button {
     width: 250px;
     height: 50px;
-    margin: 35px 0 0 200px;
+/*    margin: 35px 0 0 200px;*/
     padding: 15px 48px;
     box-shadow: 3px 4px 0px 0px #8a2a21;
     background: linear-gradient(to bottom, #ff6b0f 5%, #f24437 100%);
@@ -514,7 +568,7 @@ h6 {
     text-decoration: none;
     text-transform: uppercase;
     border: 0px solid #d02718;
-    display: inline-block;
+    display: block;
     cursor: pointer;
     color: #ffffff;
     font-size: 17px;
