@@ -54,6 +54,11 @@
 }
 
 @media screen and (max-width: 1440px) {
+    
+    .user__logo{
+        margin-bottom: 80px;
+    }
+    
     .about__item {
         padding: 0;
         margin: 0;
@@ -97,6 +102,11 @@
 }
 
 @media screen and (max-width: 1280px) {
+    
+    .crew__user{
+        flex-wrap: wrap;
+    }
+    
     .about__item {
         margin: 0;
         padding: 0;
@@ -281,6 +291,10 @@
     .icons {
         justify-content: center;
     }
+    
+    .crew__title__head{
+        font-size: 44px;
+    }
 
     .about__awards {
         width: 100%;
@@ -408,7 +422,15 @@
     .testimonials__title {
         font-size: 14px;
     }
-
+    
+    .crew__title__head{
+        font-size: 28px;
+    }
+    
+    .user__logo{
+        margin: 0 20px 80px;
+    }
+    
     .about__award h1 {
         font-size: 40px;
     }

@@ -10,6 +10,7 @@
 .owl-theme .owl-dots .owl-dot {
     display: inline-block;
     zoom: 1;
+    border: none;
 }
 
 .owl-theme .owl-dots .owl-dot span {
@@ -21,10 +22,14 @@
     -webkit-backface-visibility: visible;
     transition: all .2s ease;
     border-radius: 30px;
+    outline: none;
+    border: none;
 }
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
     background-color: #ff6b0f;
     transform: scale(1.2);
+    outline: none;
+    border: none;
 }
