@@ -58,7 +58,7 @@
     .user__logo{
         margin-bottom: 80px;
     }
-    
+
     .about__item {
         padding: 0;
         margin: 0;
@@ -80,14 +80,14 @@
         margin: 0 auto;
     }
 
-    .contact-us__title{
+    .contact-us__title {
         font-size: 45px;
     }
 
-    .contact-us__sup__title{
+    .contact-us__sup__title {
         font-size: 17px;
     }
-    
+
     .contact-us__first {
         width: 30%;
     }
@@ -102,11 +102,16 @@
 }
 
 @media screen and (max-width: 1280px) {
-    
-    .crew__user{
+
+    .crew__user {
         flex-wrap: wrap;
     }
-    
+
+    .user__logo {
+        width: 50%;
+        margin: 35px 0;
+    }
+
     .about__item {
         margin: 0;
         padding: 0;
@@ -149,15 +154,15 @@
     .contact-us__first {
         width: 35%;
     }
-    
-    .contact-us__title{
+
+    .contact-us__title {
         font-size: 35px;
     }
 
-    .contact-us__sup__title{
+    .contact-us__sup__title {
         font-size: 17px;
     }
-    
+
     .contact-us__second {
         width: 65%;
     }
@@ -291,8 +296,8 @@
     .icons {
         justify-content: center;
     }
-    
-    .crew__title__head{
+
+    .crew__title__head {
         font-size: 44px;
     }
 
@@ -391,11 +396,16 @@
     .about__content {
         font-size: 17px;
     }
-
+    
+    .user__logo {
+    width: 100%;
+    margin: 35px 0;
+}
+    
     .icons {
         justify-content: center;
     }
-    
+
     .button {
         width: 200px;
         height: 40px;
@@ -422,15 +432,15 @@
     .testimonials__title {
         font-size: 14px;
     }
-    
-    .crew__title__head{
+
+    .crew__title__head {
         font-size: 28px;
     }
-    
-    .user__logo{
+
+    .user__logo {
         margin: 0 20px 80px;
     }
-    
+
     .about__award h1 {
         font-size: 40px;
     }
