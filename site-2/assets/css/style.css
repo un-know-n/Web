@@ -132,7 +132,6 @@ body {
 
 .first {
     z-index: 2;
-    transition: all .2s;
     box-shadow: -8px 36px 124px -41px rgba(0, 0, 0, 0.61);
 }
 
@@ -167,7 +166,7 @@ body {
     grid-template-columns: 1fr 3fr 4fr;
     grid-template-areas:
         ". section-text keep-in-touch-img";
-    margin-bottom: 5%;
+    margin-left:12%;
 }
 
 .keep-in-touch-img {
@@ -185,20 +184,13 @@ body {
 .first-in-touch {
     z-index: 3;
     margin-top: 17%;
-    margin-right: 45%;
+    margin-right: 40%;
     box-shadow: -8px 36px 124px -41px rgba(0, 0, 0, 0.61);
 }
 
 .second-in-touch {
     z-index: 2;
     box-shadow: -8px 36px 124px -41px rgba(0, 0, 0, 0.61);
-}
-
-.section-title {
-    font-weight: 900;
-    font-size: 60px;
-    color: #363636;
-    margin-bottom: 50px;
 }
 
 .section-title span {
@@ -209,11 +201,12 @@ body {
 
 .what-people-say {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas:
         ". section-text ."
         ". section-users .";
+    max-height: 720px;
 }
 
 .what-people-say .section-text {
@@ -317,6 +310,10 @@ body {
     margin-right: 5%;
 }
 
+.ssection-items:last-child{
+    margin-right: 0;
+}
+
 .section-users {
     grid-area: section-users;
     display: flex;
@@ -375,35 +372,88 @@ body {
 .features {
     background: url("../img/features/bg-features.jpg") center no-repeat;
     background-size: cover;
-    display: grid;
-    grid-template-columns: 1fr 2fr 4fr 2fr 1fr;
-    grid-template-areas:
-        ". first-col features-phone last-col ."
+    /*    width: 100%;*/
+/*        max-height: 520px;*/
 }
 
-.features-text h1 {
+.features-items {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    grid-template-areas:
+        /*        ". conversation features-phone take-a-picture ."*/
+        ". first-col second-col third-col .";
+    justify-items: center;
+    align-items: center;
+    position: relative;
+}
+
+.features-items h1 {
     font-weight: 900;
-    font-size: 24px;
+    font-size: 34px;
     color: #fff;
 }
 
-.features-text p {
+.features-items p {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 19px;
     color: #fff;
     opacity: .5;
 }
 
-.features-phone {
-    grid-area: features-phone;
-}
-
 .first-col {
     grid-area: first-col;
+    text-align: right;
+    max-width: 290px;
+    max-height: 520px;
+    line-height: 1.6;
+    position: relative;
 }
 
-.last-col {
-    grid-area: last-col;
+.conversation{
+    margin-bottom: 25%;
+}
+
+.conversation img{
+    position: absolute;
+    top: 1%;
+    right: -35%;
+}
+
+.make-a-call img{
+    position: absolute;
+    top: 61%;
+    right: -35%;
+}
+
+.second-col {
+    grid-area: second-col;
+    max-width: 430px;
+    margin-top: 12%;
+}
+
+.third-col {
+    grid-area: third-col;
+    text-align: left;
+    max-width: 290px;
+    max-height: 520px;
+    line-height: 1.6;
+    position: relative;
+}
+
+.take-a-picture{
+    margin-bottom: 25%;
+}
+
+.take-a-picture img{
+    position: absolute;
+    top: 1%;
+    left: -35%;
+}
+
+.send-video img{
+    position: absolute;
+    top: 61%;
+    left: -35%;
 }
 
 .first-col img {
@@ -430,6 +480,7 @@ body {
 */
     max-height: 500px;
     text-align: center;
+    margin-top: 5%;
 }
 
 .subscribe-input-settings {
@@ -478,7 +529,6 @@ body {
 
 .download-available {
     margin-top: 3%;
-    //margin-bottom: 10%;
 }
 
 /* Footer */
@@ -487,7 +537,7 @@ body {
     width: 100%;
     height: 100px;
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 4fr 2fr;
     grid-template-areas:
         "footer-nav footer-select";
     align-items: center;
@@ -505,7 +555,7 @@ body {
     grid-area: footer-select;
     position: relative;
     justify-self: right;
-    width: 30%;
+    width: 50%;
 }
 
 .footer-select select {
@@ -549,7 +599,7 @@ body {
 
 .footer-select_arrow {
     position: absolute;
-    top: 14px;
+    top: 18px;
     right: 35%;
     width: 9px;
     height: 9px;
@@ -608,7 +658,7 @@ body {
     font-size: 18px;
     position: absolute;
     left: 95%;
-    top: -5%;
+    top: -6%;
 }
 
 .button-subscribe:hover {
