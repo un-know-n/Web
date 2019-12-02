@@ -625,9 +625,13 @@
     }
 
     .section-items {
-        margin-bottom: 7%;
+        margin-bottom: 10%;
         margin-right: 0;
         width: 100%;
+    }
+    
+    .section-items:last-child {
+        margin-bottom: 0;
     }
 
     .features {
