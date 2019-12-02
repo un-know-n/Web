@@ -611,7 +611,7 @@
         grid-template-areas:
             "section-text"
             "section-users";
-        min-height: 1200px;
+        min-height: 1300px;
     }
 
     .section-users {
@@ -625,7 +625,7 @@
     }
 
     .section-items {
-        margin-bottom: 5%;
+        margin-bottom: 7%;
         margin-right: 0;
         width: 100%;
     }
