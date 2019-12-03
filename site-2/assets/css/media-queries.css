@@ -1,6 +1,109 @@
+@media screen and (max-width: 2560px) {
+    .what-people-say .section-title{
+        margin-bottom: 0;
+    }
+    
+    .features-items {
+        grid-template-columns: 5fr 2fr 5fr;
+        grid-template-areas:
+            "first-col second-col third-col";
+    }
+
+    .first-col {
+        margin-top: 10%;
+        text-align: right;
+        max-width: 275px;
+    }
+
+    .second-col {
+        top: -21%;
+    }
+
+    .third-col {
+        margin-top: 10%;
+        max-width: 275px;
+    }
+
+    .subscribe {
+        display: block;
+        /*        max-width: 1920px;*/
+        width: 100%;
+        max-height: 500px;
+        text-align: center;
+        margin: 5% auto;
+    }
+
+    .subscribe-input-settings {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-areas:
+            ". subscribe-input .";
+        text-align: left;
+        width: 100%;
+    }
+
+    .subscribe-input {
+        grid-area: subscribe-input;
+        margin: 7% 20%;
+        padding: 16px;
+        width: 700px;
+        color: #9c9c9c;
+        background-color: #f8f8f8;
+        position: relative;
+        border-color: #f8f8f8;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 23px;
+    }
+
+    .subscribe-input input {
+        font-size: 18px;
+        border: none;
+        background-color: #f8f8f8;
+    }
+
+    .subscribe-input input:focus {
+        outline: none;
+    }
+
+    /* Download */
+
+    .download {
+        display: block;
+        /*        max-width: 1920px;*/
+        width: 100%;
+        max-height: 500px;
+        text-align: center;
+        margin: 5% auto;
+    }
+
+    .download-available {
+        margin-top: 3%;
+    }
+}
+
 @media screen and (max-width: 1920px) {
     .features-items {
-        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-columns: 5fr 2fr 5fr;
+        grid-template-areas:
+            "first-col second-col third-col";
+    }
+
+    .first-col {
+        margin-top: 14%;
+        text-align: right;
+        max-width: 275px;
+    }
+
+    .third-col {
+        margin-top: 14%;
+        max-width: 275px;
+    }
+}
+
+@media screen and (max-width: 1490px) {
+    .features-items {
+        grid-template-columns: 3fr 2fr 3fr;
         grid-template-areas:
             "first-col second-col third-col";
     }
@@ -25,6 +128,14 @@
     .section-users {
         margin: 0 5%;
     }
+
+    .features {
+        margin-bottom: 100px;
+    }
+
+    .second-col {
+        top: -23%;
+    }
 }
 
 @media screen and (max-width: 1360px) {
@@ -38,6 +149,12 @@
 
     .easy-messaging .section-text {
         max-width: 500px;
+    }
+
+    .features-items {
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-areas:
+            "first-col second-col third-col";
     }
 
     .keep-in-touch {
@@ -69,7 +186,7 @@
     }
 
     .first-col {
-        margin: 10% 0;
+        margin-top: 19%;
         text-align: right;
         max-width: 400px;
     }
@@ -79,7 +196,7 @@
     }
 
     .third-col {
-        margin: 10% 0;
+        margin-top: 19%;
         max-width: 400px;
     }
 
@@ -107,6 +224,10 @@
 @media screen and (max-width: 1280px) {
     .features-items {
         grid-column-gap: 150px;
+    }
+    
+    .section-items {
+        margin: 0 2%;
     }
 }
 
@@ -232,7 +353,7 @@
     }
 
     .features-items {
-        grid-column-gap: 280px;
+        grid-column-gap: 220px;
     }
 
 }
@@ -332,7 +453,7 @@
 
 
     .first-col {
-        margin: 10% 0;
+        margin: 25% 0;
         text-align: right;
         max-width: 400px;
     }
@@ -482,13 +603,39 @@
     }
 
     .features {
-        max-height: 400px;
+        max-height: 350px;
     }
 
     .subscribe-input {
         margin: 7% 4%;
         padding: 15px;
         width: 450px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .what-people-say {
+        display: grid;
+        grid-template-rows: 1fr 3fr;
+        grid-template-columns: 1fr 18fr 1fr;
+        grid-template-areas:
+            ". section-text ."
+            ". section-users .";
+    }
+
+    .what-people-say .section-title {
+        font-size: 40px;
+    }
+
+    .section-user .section-feedback-text p {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .section-items {
+        max-width: 350px;
+        margin-right: 5%;
+        margin-bottom: 35px;
     }
 }
 
@@ -625,18 +772,18 @@
     }
 
     .section-items {
-        margin-bottom: 10%;
+        margin-bottom: 7%;
         margin-right: 0;
         width: 100%;
     }
-    
+
     .section-items:last-child {
         margin-bottom: 0;
     }
 
     .features {
-        min-height: 850px;
-        max-height: 851px;
+        min-height: 700px;
+        max-height: 750px;
     }
 
     .features-items {
@@ -661,7 +808,7 @@
 
 
     .first-col {
-        margin: 10% 0;
+        margin: 0;
         text-align: right;
         max-width: 400px;
     }
@@ -671,7 +818,8 @@
     }
 
     .third-col {
-        margin: 10% 0;
+        margin-top: 13%;
+        margin-bottom: 0;
         max-width: 400px;
     }
 
@@ -789,7 +937,7 @@
     .footer-nav__link {
         font-size: 13px;
     }
-    
+
     .button-subscribe {
         font-size: 17px;
         padding: 16px 51px;
@@ -911,12 +1059,23 @@
         margin: 0 3%;
     }
 
+    .features {
+        min-height: 800px;
+        max-height: 771px;
+    }
+
     .first-col {
         text-align: center;
     }
 
     .third-col {
         text-align: center;
+    }
+
+    .section-items {
+        margin-bottom: 10%;
+        margin-right: 0;
+        width: 100%;
     }
 
     .conversation img {
@@ -972,21 +1131,21 @@
         font-size: 15px;
         margin: 0 5%;
     }
-    
-    .footer{
+
+    .footer {
         height: 200px;
         width: 100%;
     }
-    
-    .footer-nav{
+
+    .footer-nav {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
             "footer-nav__link";
         justify-items: center;
         align-items: center;
     }
-    
+
     .footer-nav__link {
         font-size: 18px;
         margin-left: 65%;
@@ -1015,7 +1174,7 @@
     }
 }
 
-@media screen and (max-width: 370px) {    
+@media screen and (max-width: 370px) {
     .subscribe .section-title {
         font-size: 24px;
     }
@@ -1024,7 +1183,7 @@
         font-size: 15px;
         margin-right: 20px;
     }
-    
+
     .footer-nav__link {
         font-size: 16px;
         margin-left: 59%;

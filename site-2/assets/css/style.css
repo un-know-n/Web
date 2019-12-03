@@ -22,7 +22,7 @@ h6 {
 
 body {
     width: 100%;
-    max-width: 1920px;
+/*    max-width: 1920px;*/
     font-family: 'Lato', sans-serif;
 }
 
@@ -369,6 +369,8 @@ body {
 .features {
     background: url("../img/features/bg-features.jpg") center no-repeat;
     background-size: cover;
+    min-height: 519px;
+    max-height: 520px;
 }
 
 .features-items {
@@ -377,19 +379,18 @@ body {
     grid-template-areas:
         ". first-col second-col third-col .";
     justify-items: center;
-    align-items: center;
     position: relative;
 }
 
 .features-items h1 {
     font-weight: 900;
-    font-size: 34px;
+    font-size: 24px;
     color: #fff;
 }
 
 .features-items p {
     font-weight: 400;
-    font-size: 19px;
+    font-size: 16px;
     color: #fff;
     opacity: .5;
 }
@@ -422,7 +423,9 @@ body {
 .second-col {
     grid-area: second-col;
     max-width: 430px;
-    margin-top: 12%;
+/*    margin-top: 12%;*/
+    position: absolute;
+    top: -21%;
 }
 
 .third-col {
