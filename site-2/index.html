@@ -7,6 +7,7 @@
     <title>HeyU</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/media-queries.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900|Ubuntu&display=swap" rel="stylesheet">
 </head>
@@ -32,9 +33,9 @@
     </header>
 
     <section class="easy-messaging">
-        <img src="assets/img/show/messages.png" alt="messages" class="message-img first">
-        <img src="assets/img/show/conversation.png" alt="conversation" class="message-img second">
-        <div class="section-text">
+        <img src="assets/img/show/messages.png" alt="messages" class="message-img first animated wow fadeInLeft" data-wow-delay="0.3s">
+        <img src="assets/img/show/conversation.png" alt="conversation" class="message-img second animated wow fadeInLeft" data-wow-delay="0.3s">
+            <div class="section-text animated wow fadeInRight" data-wow-delay="0.3s">
             <h1 class="section-title">Easy Messaging <span>.</span></h1>
             <span class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -43,17 +44,17 @@
     </section>
 
     <section class="keep-in-touch">
-        <div class="section-text">
+        <div class="section-text animated wow fadeInLeft" data-wow-delay="0.3s">
             <h1 class="section-title">Keep in touch <span>.</span></h1>
             <span class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat.</span>
         </div>
-        <img src="assets/img/show/groups.png" alt="groups" class="keep-in-touch-img second-in-touch">
-        <img src="assets/img/show/contacts_copy.png" alt="contacts-copy" class="keep-in-touch-img first-in-touch">
+        <img src="assets/img/show/groups.png" alt="groups" class="keep-in-touch-img second-in-touch animated wow fadeInRight" data-wow-delay="0.3s">
+        <img src="assets/img/show/contacts_copy.png" alt="contacts-copy" class="keep-in-touch-img first-in-touch animated wow fadeInRight" data-wow-delay="0.3s">
     </section>
 
-    <section class="what-people-say">
+    <section class="what-people-say animated wow fadeInUp" data-wow-delay="0.5s">
         <div class="section-text">
             <h1 class="section-title">What people say <span>.</span></h1>
         </div>
@@ -75,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="section-items">
                 <div class="section-user second-user">
                     <div class="section-feedback-text">
@@ -93,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="section-items">
                 <div class="section-user third-user">
                     <div class="section-feedback-text">
@@ -115,9 +116,9 @@
     </section>
 
 
-    <section class="features">
+    <section class="features animated wow fadeIn" data-wow-delay="0.5s">
         <div class="features-items">
-            <div class="first-col">
+            <div class="first-col animated wow fadeInLeft" data-wow-delay="0.3s">
                 <div class="conversation">
                     <h1>Start conversation</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
@@ -130,11 +131,11 @@
                 </div>
             </div>
 
-            <div class="second-col">
+            <div class="second-col animated wow fadeInUp" data-wow-delay="0.3s">
                 <img src="assets/img/features/iphone.png" alt="iphone" class="features-phone">
             </div>
 
-            <div class="third-col">
+            <div class="third-col animated wow fadeInRight" data-wow-delay="0.3s">
                 <div class="take-a-picture">
                     <img src="assets/img/features/picture.png" alt="features">
                     <h1>Take a picture</h1>
@@ -150,7 +151,7 @@
     </section>
 
 
-    <section class="subscribe">
+    <section class="subscribe animated wow zoomIn" data-wow-delay="0.3s">
         <div class="subscribe-title">
             <h1 class="section-title">Subscribe to our newsletter <span>.</span></h1>
         </div>
@@ -165,7 +166,7 @@
         </div>
     </section>
 
-    <section class="download">
+    <section class="download animated wow fadeInUp" data-wow-delay="0.3s">
         <img src="assets/img/download/app-icon.png" alt="app-icon">
         <div class="subscribe-title">
             <h1 class="section-title">Download the app <span>.</span></h1>
@@ -178,7 +179,7 @@
 
     <footer class="footer">
         <nav class="footer-nav">
-<!--
+            <!--
            <input type="checkbox" name="toggle" id="menu" class="toggleMenu">
             <label for="menu" class="toggleMenu"><i class="fas fa-bars"></i> Menu</label>
 -->
@@ -202,4 +203,9 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/7ce0d68e44.js" crossorigin="anonymous"></script>
+    <script src="assets/js/wow.js"></script>
+    <script>
+        var wow = new WOW;
+        wow.init();
+    </script>
 </body></html>
