@@ -1,0 +1,434 @@
+@media screen and (max-width: 1440px) {
+
+    /*    Header    */
+
+    .header-logo {
+        font-size: 40px;
+    }
+
+    .header-nav__link {
+        font-size: 12px;
+    }
+
+    .header-title {
+        font-size: 54px;
+    }
+
+    .header-suptitle {
+        font-size: 20px;
+    }
+
+    /*    Know about us    */
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+
+    .our-blog .section-title:after {
+        width: 7%;
+        left: 47%;
+    }
+
+    /*    We are the best    */
+
+    .section-watb-title {
+        font-size: 22px;
+    }
+
+    .section-watb-subtitle {
+        font-size: 14px;
+    }
+
+    /*    Services we provide     */
+
+    .section-serv-title {
+        font-size: 22px;
+    }
+
+    .section-serv-subtitle {
+        font-size: 15px;
+    }
+
+    .feature-title {
+        font-size: 16px;
+    }
+
+    .feature-subtitle {
+        font-size: 15px;
+    }
+
+    /*    Our skills     */
+
+    .skill {
+        font-size: 16px;
+        margin-top: 20px;
+        text-align: center;
+        width: 165px;
+    }
+
+    /*     Footer     */
+
+    .footer-main {
+        width: 250px;
+    }
+
+    .footer-post {
+        width: 230px;
+    }
+
+    .post {
+        width: 230px;
+    }
+
+    .footer-twit {
+        width: 230px;
+    }
+
+    .twit {
+        width: 230px;
+    }
+
+    .footer-adr {
+        width: 250px;
+    }
+
+    /*    Button    */
+
+    .button {
+        font-size: 16px;
+        padding: 15px 60px;
+    }
+
+    .watb-button {
+        font-size: 16px;
+        padding: 16px 35px;
+    }
+}
+
+
+@media screen and (max-width: 1215px) {
+
+    /*    Header    */
+
+    .header-logo {
+        font-size: 36px;
+    }
+
+    .header-nav__link {
+        font-size: 12px;
+        margin-right: 30px;
+    }
+
+    .header-title {
+        font-size: 48px;
+    }
+
+    .header-suptitle {
+        font-size: 20px;
+    }
+
+    /*    Know about us    */
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+
+    .our-blog .section-title:after {
+        width: 7%;
+        left: 47%;
+    }
+
+    /*    We are the best    */
+
+    .section-watb-title {
+        font-size: 22px;
+    }
+
+    .section-watb-subtitle {
+        font-size: 14px;
+    }
+
+    /*    Services we provide     */
+
+    .section-serv-title {
+        font-size: 22px;
+    }
+
+    .section-serv-subtitle {
+        font-size: 14px;
+    }
+
+    .feature-title {
+        font-size: 15px;
+    }
+
+    .feature-subtitle {
+        font-size: 15px;
+    }
+
+    .feature img {
+        left: 43%;
+    }
+
+    /*    Our skills     */
+
+    .skill {
+        font-size: 16px;
+        margin-top: 20px;
+        text-align: center;
+        width: 165px;
+    }
+
+    /*     Footer     */
+
+    .footer-main {
+        width: 230px;
+    }
+
+    .footer-post {
+        width: 210px;
+    }
+
+    .post {
+        width: 210px;
+    }
+
+    .footer-twit {
+        width: 210px;
+    }
+
+    .twit {
+        width: 210px;
+    }
+
+    .footer-adr {
+        width: 230px;
+    }
+
+    .adr p {
+        margin-bottom: 40px;
+    }
+
+    .adr-icons h3 {
+        font-size: 13px;
+    }
+
+    /*    Button    */
+
+    .button {
+        font-size: 15px;
+        padding: 15px 60px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    /*    Header    */
+
+    .header-logo {
+        font-size: 36px;
+    }
+
+    .header-nav__link {
+        font-size: 12px;
+        margin-right: 20px;
+    }
+
+    .header-title {
+        font-size: 46px;
+    }
+
+    .header-suptitle {
+        font-size: 20px;
+    }
+
+    /*    Know about us    */
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+
+    .our-blog .section-title:after {
+        width: 7%;
+        left: 47%;
+    }
+
+    /*    We are the best    */
+
+    .section-watb-title {
+        font-size: 22px;
+    }
+
+    .section-watb-subtitle {
+        font-size: 14px;
+    }
+
+    /*    Services we provide     */
+
+    .section-serv-title {
+        font-size: 22px;
+    }
+
+    .section-serv-subtitle {
+        font-size: 14px;
+    }
+
+    .feature-title {
+        font-size: 15px;
+    }
+
+    .feature-subtitle {
+        font-size: 14px;
+    }
+
+    .feature img {
+        left: 43%;
+    }
+
+    /*    Our skills     */
+
+    .skill {
+        font-size: 16px;
+        width: 150px;
+    }
+
+    /*    What our clients are saying    */
+
+    .clients-title {
+        font-size: 22px;
+    }
+
+    .clients-comment {
+        font-size: 15px;
+    }
+
+    .clients-name {
+        font-size: 17px;
+    }
+
+    .clients-link {
+        font-size: 17px;
+    }
+
+    /*    Our members    */
+
+    .member-item {
+        width: 250px;
+        height: 250px;
+    }
+
+    .member-title {
+        font-size: 19px;
+        width: 208px;
+    }
+
+    .member-subtitle {
+        font-size: 12px;
+    }
+
+    /*    Our blog    */
+
+    .our-blog .section-title:after {
+        width: 8%;
+        left: 46%;
+    }
+
+    .blog-data {
+        font-size: 14px;
+    }
+
+    .blog-title {
+        font-size: 20px;
+    }
+
+    .blog-subtitle {
+        font-size: 15px;
+    }
+
+    .blog-subspan {
+        font-size: 15px;
+    }
+
+    /*    Contact    */
+
+    .first-row input {
+        width: 270px;
+    }
+
+    .second-row textarea {
+        width: 575px;
+    }
+
+    /*     Footer     */
+
+    .footer {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            ". footer-items ."
+            ". footer-items .";
+        align-items: flex-start;
+        justify-items: center;
+    }
+
+    .footer-items {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "footer-post footer-twit"
+            "footer-main footer-adr";
+        align-items: center;
+        justify-items: center;
+    }
+
+    .footer-main {
+        width: 300px;
+        margin-top: 30px;
+    }
+
+    .footer-post {
+        width: 300px;
+    }
+
+    .post {
+        width: 300px;
+    }
+
+    .footer-twit {
+        width: 300px;
+    }
+
+    .twit {
+        width: 300px;
+    }
+
+    .footer-adr {
+        margin-top: 30px;
+        width: 300px;
+    }
+
+    .adr p {
+        margin-bottom: 40px;
+    }
+
+    .adr-icons h3 {
+        font-size: 13px;
+    }
+
+    /*    Button    */
+
+    .button {
+        font-size: 15px;
+        padding: 15px 60px;
+    }
+}

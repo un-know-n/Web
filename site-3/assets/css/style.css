@@ -25,10 +25,8 @@ h6 {
 
 body {
     width: 100%;
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
 }
-
-/* Section */
 
 /* Header */
 
@@ -79,7 +77,7 @@ body {
 .header-nav__link {
     text-decoration: none;
     color: #fff;
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 14px;
     font-weight: 300;
     margin-right: 40px;
@@ -112,7 +110,7 @@ body {
 }
 
 .header-title {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 300;
     font-size: 66px;
     color: #fff;
@@ -124,7 +122,7 @@ body {
 }
 
 .header-suptitle {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 24px;
     color: #fff;
@@ -159,7 +157,7 @@ body {
 
 .section-title {
     grid-area: section-title;
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 600;
     font-size: 40px;
     color: #7b6c63;
@@ -181,7 +179,7 @@ body {
 
 .section-subtitle {
     grid-area: section-subtitle;
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 300;
     font-size: 18px;
     margin-top: 80px;
@@ -209,7 +207,7 @@ body {
 }
 
 .section-watb-title {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 24px;
     color: #7b6c63;
@@ -218,7 +216,7 @@ body {
 }
 
 .section-watb-subtitle {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 16px;
     margin-top: 40px;
@@ -249,7 +247,7 @@ body {
 }
 
 .section-serv-title {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 24px;
     color: #7b6c63;
@@ -257,7 +255,7 @@ body {
 }
 
 .section-serv-subtitle {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 16px;
     margin-top: 25px;
@@ -277,6 +275,7 @@ body {
     margin-top: 150px;
     position: relative;
     line-height: 1.6;
+    margin-right: 20px;
 }
 
 .feature img {
@@ -286,7 +285,7 @@ body {
 }
 
 .feature-title {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #7b6c63;
@@ -294,7 +293,7 @@ body {
 }
 
 .feature-subtitle {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #949494;
@@ -334,7 +333,7 @@ body {
 
 .our-skills h1 {
     grid-area: our-skills-header;
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: #fff;
@@ -353,7 +352,7 @@ body {
 
 .skill {
     color: #fff;
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 16px;
     margin-top: 20px;
@@ -437,7 +436,7 @@ body {
 }
 
 .twitter-title {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: #fff;
@@ -497,12 +496,12 @@ body {
     grid-template-areas:
         "first-m second-m third-m";
     margin-top: 100px;
-    margin-bottom: 70px;
+    margin-bottom: 120px;
 }
 
 .member-item {
     background: url("../img/team-member/director.jpg") no-repeat center;
-    width: 310px;
+    width: 300px;
     height: 300px;
     background-size: cover;
     display: flex;
@@ -510,6 +509,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: all .5s;
+    position: relative;
 }
 
 .icons i {
@@ -557,12 +557,15 @@ body {
     border: 3px solid #e4e4e4;
     padding: 10px 20px;
     transition: all .5s;
+    position: absolute;
+    top: 100%;
 }
 
 .member-title {
-    font-family: "Railway", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 24px;
+    width: 256px;
     color: #000;
     text-transform: uppercase;
     text-align: center;
@@ -599,7 +602,6 @@ body {
     justify-items: center;
     background-color: #1a1a1a;
     height: 400px;
-    margin-top: 50px;
 }
 
 .clients-item {
@@ -613,7 +615,7 @@ body {
 
 .clients-header {
     grid-area: clients-header;
-    margin-top: 40px;
+    margin-top: 55px;
 }
 
 .clients-title {
@@ -667,6 +669,18 @@ body {
     margin: 50px 0;
 }
 
+.our-blog .section-title:after {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 5px;
+    width: 10%;
+    background: #7b6c63;
+    left: 45%;
+    bottom: -40px;
+    margin: 0 auto;
+}
+
 .our-blog-blocks {
     grid-area: our-blog-blocks;
     width: 100%;
@@ -686,7 +700,7 @@ body {
     flex-direction: column;
     line-height: 1.4;
     margin-right: 10px;
-    max-width: 50%
+    max-width: 50%;
 }
 
 .our-blog-text:nth-child(2n) {
@@ -799,9 +813,9 @@ body {
 .footer {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
-        ". footer-main footer-post footer-twit footer-adr .";
+        ". footer-items .";
     align-items: flex-start;
     justify-items: center;
     background-color: #222222;
@@ -809,9 +823,21 @@ body {
     padding: 50px 0;
 }
 
+.footer-items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-areas:
+        "footer-main footer-post footer-twit footer-adr";
+    align-items: flex-start;
+    justify-items: center;
+    grid-area: footer-items;
+}
+
 .footer-main {
     grid-area: footer-main;
     line-height: 1.6;
+    width: 300px;
+    margin-right: 20px;
 }
 
 .main-title {
@@ -829,6 +855,7 @@ body {
 
 .footer-post {
     grid-area: footer-post;
+    margin-right: 20px;
 }
 
 .post-title {
@@ -868,6 +895,7 @@ body {
 
 .footer-twit {
     grid-area: footer-twit;
+    margin-right: 20px;
 }
 
 .twit-title {
@@ -911,6 +939,7 @@ body {
 
 .footer-adr {
     grid-area: footer-adr;
+    width: 300px;
 }
 
 .adr-title {
@@ -922,23 +951,24 @@ body {
 }
 
 .adr{
-    border-bottom: 1px solid #393939;
-    width: 300px;
     margin-top: 30px;
 }
 
 .adr p{
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .adr-icons{
     font-family: "Raleway", sans-serif;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .adr-icons h3{
-    margin-bottom: 10px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: 15px;
 }
 
 .adr-icons h3:last-child{
