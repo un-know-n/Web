@@ -75,6 +75,7 @@ body {
 }
 
 .header-nav__link {
+    grid-area: header-nav__link;
     text-decoration: none;
     color: #fff;
     font-family: "Raleway", sans-serif;
@@ -100,6 +101,10 @@ body {
 
 .header-nav__link:hover:before {
     width: 100%;
+}
+
+.header-nav__link:last-child{
+    margin: 0;
 }
 
 .header-text {
@@ -244,6 +249,7 @@ body {
     line-height: 1.6;
     word-spacing: 4px;
     justify-items: center;
+    height: 200px;
 }
 
 .section-serv-title {
@@ -327,7 +333,6 @@ body {
     grid-template-areas:
         ". our-skills-header ."
         ". skills .";
-
     height: 465px;
 }
 
@@ -657,7 +662,7 @@ body {
 .our-blog {
     width: 100%;
     display: grid;
-    grid-template-columns: 6fr 2fr 6fr;
+    grid-template-columns: 2fr 2fr 2fr;
     grid-template-areas:
         ". section-text ."
         ". our-blog-blocks .";
@@ -686,7 +691,8 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-items: space-around;
+    align-items: center;
 }
 
 .our-blog-items {
@@ -695,17 +701,37 @@ body {
     margin-bottom: 30px;
 }
 
-.our-blog-text {
+.our-blog-items:nth-child(2n) {
     display: flex;
-    flex-direction: column;
-    line-height: 1.4;
-    margin-right: 10px;
-    max-width: 50%;
+    flex-direction: row-reverse;
+    margin-bottom: 30px;
 }
 
-.our-blog-text:nth-child(2n) {
-    margin-left: 50px;
-    margin-right: 0;
+.our-blog-img{
+    width: 400px;
+    grid-area: our-blog-img;
+    display: grid;
+    justify-items: left;
+    //margin-right: 30px;
+}
+
+.our-blog-text {
+    width: 400px;
+    grid-area: our-blog-text;
+    display: grid;
+    align-items: right;
+    line-height: 1.4;
+    margin-left: 60px;
+}
+
+.our-blog-text-second {
+    width: 400px;
+    grid-area: our-blog-text;
+    display: grid;
+    align-self: right;
+    text-align: right;
+    line-height: 1.4;
+    margin-right: 60px;
 }
 
 .blog-data {
@@ -720,7 +746,6 @@ body {
     font-weight: 400;
     font-size: 24px;
     color: #000;
-    margin: 20px 0;
 }
 
 .blog-subtitle {
