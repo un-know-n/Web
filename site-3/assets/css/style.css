@@ -501,7 +501,7 @@ body {
     grid-template-areas:
         "first-m second-m third-m";
     margin-top: 100px;
-    margin-bottom: 120px;
+    //margin-bottom: 120px;
 }
 
 .member-item {
@@ -814,6 +814,14 @@ body {
     margin-right: 0;
 }
 
+.first-input{
+    grid-area: first-input;
+}
+
+.second-input{
+    grid-area: second-input;
+}
+
 .second-row textarea {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -872,7 +880,7 @@ body {
     color: #7b6c63;
 }
 
-.main-suptitle {
+.main-subtitle {
     font-family: "Raleway", sans-serif;
     font-size: 14px;
     font-weight: 400;

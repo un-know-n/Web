@@ -1120,8 +1120,20 @@
 
     /*    Know about us    */
 
+    .know-about-us {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr 8fr 2fr;
+        grid-template-areas:
+            ". section-text ."
+            ". section-text .";
+        align-items: center;
+        justify-items: center;
+        height: 300px;
+    }
+
     .section-title {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .section-subtitle {
@@ -1223,6 +1235,20 @@
         margin: 0;
     }
 
+    /* Some recent projects */
+
+    .some-recent-projects {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr 8fr 2fr;
+        grid-template-areas:
+            ". section-text ."
+            ". section-text .";
+        align-items: center;
+        justify-items: center;
+        height: 300px;
+    }
+
     /*    What our clients are saying    */
 
     .what-our-clients-are-saying {
@@ -1271,8 +1297,8 @@
         display: block;
         margin-top: 100px;
     }
-    
-    .member{
+
+    .member {
         margin: 0 auto;
     }
 
@@ -1505,7 +1531,7 @@
     }
 
     .header-title {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .header-suptitle {
@@ -1515,23 +1541,57 @@
     /*    Know about us    */
 
     .section-title {
-        font-size: 28x;
+        font-size: 24x;
     }
 
     .section-subtitle {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     /*    We are the best    */
 
     .section-watb-title {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .section-watb-subtitle {
-        font-size: 14px;
+        font-size: 13px;
     }
-    
+
+    /* Latest from twitter */
+
+    .latest-from-twitter {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr 8fr 2fr;
+        grid-template-areas:
+            ". twitter-text .";
+        align-items: center;
+        justify-items: center;
+        background-color: #1a1a1a;
+        height: 400px;
+    }
+
+    .twitter-text {
+        grid-area: twitter-text;
+        display: grid;
+        line-height: 1.6;
+        word-spacing: 4px;
+        justify-items: center;
+    }
+
+    .twitter-title {
+        font-size: 20px;
+    }
+
+    .twitter-subtitle {
+        font-size: 16px;
+    }
+
+    .twitter-link {
+        font-size: 16px;
+    }
+
     /*    Contact    */
 
     .first-row input {
@@ -1561,7 +1621,7 @@
         text-align: center;
         justify-items: center;
     }
-    
+
     .footer-main {
         width: 400px;
         margin: 0 auto;
@@ -1595,5 +1655,690 @@
     .button {
         font-size: 13px;
         padding: 15px 40px;
+    }
+}
+
+@media screen and (min-width: 575px) {
+    #menu {
+        display: none;
+    }
+
+    label.toggleMenu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+
+    /*    Menu     */
+
+    #menu {
+        display: none;
+    }
+
+    .header-nav {
+        overflow: hidden;
+    }
+
+    .header-nav a {
+        display: none;
+    }
+
+    .header-nav label.toggleMenu {
+        display: block;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    label.toggleMenu i {
+        margin-right: 5px;
+        transition: all 1s;
+    }
+
+    label.toggleMenu:hover i {
+        transform: rotate(360deg);
+    }
+
+    input.toggleMenu:checked ~ a {
+        display: inline-block;
+        margin: 10px;
+        font-size: 12px;
+    }
+
+    /*    Header    */
+
+    .header-top {
+        grid-template-rows: 1fr 2fr;
+        grid-template-areas:
+            "header-logo"
+            "header-nav";
+        width: 100%;
+        height: 155px;
+        align-items: center;
+    }
+
+    .header-logo {
+        font-size: 38px;
+        justify-self: center;
+    }
+
+    .header-nav {
+        grid-area: header-nav;
+        text-transform: uppercase;
+        justify-self: space-between;
+        align-self: center;
+    }
+
+    .header-nav__link {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    .header-text {
+        justify-self: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .header-title {
+        font-size: 32px;
+    }
+
+    .header-suptitle {
+        font-size: 15px;
+    }
+
+    /*    Know about us    */
+
+    .section-title {
+        font-size: 24x;
+    }
+
+    .section-subtitle {
+        font-size: 14px;
+    }
+
+    /*    We are the best    */
+
+    .section-watb-title {
+        font-size: 22px;
+    }
+
+    .section-watb-subtitle {
+        font-size: 13px;
+    }
+
+    /*    Services we provide     */
+
+    .feature {
+        margin-top: 60px;
+        margin-right: 0;
+    }
+
+    .services-features {
+        display: block;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .second-f {
+        display: block;
+    }
+
+    .section-serv-title {
+        font-size: 22px;
+    }
+
+    .section-serv-subtitle {
+        font-size: 14px;
+    }
+
+    .feature-title {
+        font-size: 15px;
+    }
+
+    .feature-subtitle {
+        font-size: 14px;
+    }
+
+    .feature img {
+        left: 45%;
+    }
+
+    /* Latest from twitter */
+
+    .latest-from-twitter {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr 8fr 2fr;
+        grid-template-areas:
+            ". twitter-text .";
+        align-items: center;
+        justify-items: center;
+        background-color: #1a1a1a;
+        height: 400px;
+    }
+
+    .twitter-text {
+        grid-area: twitter-text;
+        display: grid;
+        line-height: 1.6;
+        word-spacing: 4px;
+        justify-items: center;
+    }
+
+    .twitter-title {
+        font-size: 20px;
+    }
+
+    .twitter-subtitle {
+        font-size: 16px;
+    }
+
+    .twitter-link {
+        font-size: 16px;
+    }
+
+    /*    Contact    */
+
+    .contact {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            ". contact-text ."
+            ". contact-info .";
+        align-items: center;
+        justify-items: center;
+        background-color: #f5f5f5;
+    }
+
+    .contact-text {
+        margin: 50px 0;
+        grid-area: contact-text;
+    }
+
+    .contact-info {
+        grid-area: contact-info;
+        display: grid;
+        grid-template-areas:
+            "first-row"
+            "second-row"
+            "info-button";
+    }
+
+    .first-row input {
+        display: block;
+        width: 400px;
+    }
+
+    .second-row textarea {
+        width: 400px;
+    }
+
+    /*     Footer     */
+
+    .footer-main {
+        width: 400px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    .main-title {
+        font-size: 40px;
+    }
+
+    .main-subtitle {
+        //font-size: 12px;
+    }
+
+    .footer-adr {
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 400px;
+    }
+
+    .adr-title {
+        font-size: 18px;
+    }
+
+    .adr p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .adr-icons h3 {
+        font-size: 13px;
+    }
+
+    /*    Button    */
+
+    .button {
+        font-size: 13px;
+        padding: 15px 40px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+
+    /*    Fotorama    */
+
+    .fotorama {
+        display: none;
+    }
+
+    /*    Header    */
+
+    .header-logo {
+        font-size: 34px;
+        justify-self: center;
+    }
+
+    .header-nav__link {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 28px;
+    }
+
+    .header-suptitle {
+        font-size: 14px;
+    }
+
+    /*    Know about us    */
+
+    .section-title {
+        font-size: 20x;
+    }
+
+    .section-subtitle {
+        font-size: 14px;
+    }
+
+    /*    We are the best    */
+
+    .section-watb-title {
+        font-size: 22px;
+    }
+
+    .section-watb-subtitle {
+        font-size: 13px;
+    }
+
+    /*    Services we provide     */
+
+    .feature {
+        margin-top: 60px;
+        margin-right: 0;
+    }
+
+    .services-features {
+        display: block;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .second-f {
+        display: block;
+    }
+
+    .section-serv-title {
+        font-size: 18px;
+    }
+
+    .section-serv-subtitle {
+        font-size: 14px;
+    }
+
+    .feature-title {
+        font-size: 15px;
+    }
+
+    .feature-subtitle {
+        font-size: 14px;
+    }
+
+    .feature img {
+        left: 45%;
+    }
+
+    /*    Our skills     */
+
+    .our-skills h1 {
+        font-size: 24px;
+    }
+
+    .skill {
+        font-size: 16px;
+        width: 150px;
+        margin-top: 0;
+        margin-right: 30px;
+    }
+
+    /* Latest from twitter */
+
+    .twitter-title {
+        font-size: 18px;
+    }
+
+    .twitter-subtitle {
+        font-size: 15px;
+    }
+
+    .twitter-link {
+        font-size: 15px;
+    }
+
+    /*    What our clients are saying    */
+
+    .clients-item {
+        width: 300px;
+        height: 100%;
+        text-align: center;
+        line-height: 2;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .clients-header {
+        grid-area: clients-header;
+        margin-top: 50px;
+    }
+
+    .clients-title {
+        font-size: 18px;
+    }
+
+    .clients-comment {
+        font-size: 13px;
+    }
+
+    .clients-name {
+        font-size: 16px;
+    }
+
+    .clients-link {
+        font-size: 16px;
+    }
+
+    /*    Our blog    */
+    .our-blog-text {
+        width: 300px;
+    }
+
+    .our-blog-text-second {
+        width: 300px;
+    }
+
+    /*    Contact    */
+
+    .contact-text {
+        margin: 50px 0;
+        grid-area: contact-text;
+    }
+
+    .contact-info {
+        grid-area: contact-info;
+        display: grid;
+        grid-template-areas:
+            "first-row"
+            "second-row"
+            "info-button";
+    }
+
+    .first-row input {
+        display: block;
+        width: 300px;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .second-row textarea {
+        width: 300px;
+        text-align: center;
+    }
+
+    /*     Footer     */
+
+    .footer-main {
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    .main-title {
+        font-size: 40px;
+    }
+
+    .footer-adr {
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 300px;
+    }
+
+    .adr-title {
+        font-size: 18px;
+    }
+
+    .adr p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .adr-icons h3 {
+        font-size: 13px;
+    }
+
+    /*    Button    */
+
+    .button {
+        font-size: 13px;
+        padding: 15px 40px;
+    }
+
+    .watb-button {
+        font-size: 14px;
+        padding: 16px 35px;
+    }
+}
+
+
+@media screen and (max-width: 385px) {
+
+    /*    Header    */
+
+    .header-nav__link {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 24px;
+    }
+
+    .header-suptitle {
+        font-size: 12px;
+    }
+
+    /*    Know about us    */
+
+    .section-title {
+        font-size: 10x;
+    }
+
+    .section-subtitle {
+        font-size: 14px;
+    }
+
+    /*    We are the best    */
+
+    .section-watb-title {
+        font-size: 18px;
+    }
+
+    .section-watb-subtitle {
+        font-size: 12px;
+    }
+
+    /*    Services we provide     */
+
+    .services-features {
+        display: block;
+        text-align: center;
+        margin-top: 150px;
+    }
+
+    .second-f {
+        display: block;
+    }
+
+    .section-serv-title {
+        font-size: 16px;
+    }
+
+    /*    Our skills     */
+
+    .our-skills h1 {
+        font-size: 24px;
+    }
+
+    .skill {
+        font-size: 16px;
+        width: 130px;
+        margin-top: 0;
+        margin-right: 20px;
+    }
+
+    /* Latest from twitter */
+
+    .twitter-title {
+        font-size: 16px;
+    }
+
+    .twitter-subtitle {
+        font-size: 14px;
+    }
+
+    .twitter-link {
+        font-size: 14px;
+    }
+
+    /*    What our clients are saying    */
+
+    .clients-item {
+        width: 300px;
+        height: 100%;
+        text-align: center;
+        line-height: 2;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .clients-header {
+        grid-area: clients-header;
+        margin-top: 50px;
+    }
+
+    .clients-title {
+        font-size: 18px;
+    }
+
+    .clients-comment {
+        font-size: 12px;
+    }
+
+    .clients-name {
+        font-size: 16px;
+    }
+
+    .clients-link {
+        font-size: 16px;
+    }
+
+    /*    Our blog    */
+    .our-blog-text {
+        width: 300px;
+    }
+
+    .our-blog-text-second {
+        width: 300px;
+    }
+
+    /*    Contact    */
+
+    .contact-text {
+        margin: 50px 0;
+        grid-area: contact-text;
+    }
+
+    .contact-info {
+        grid-area: contact-info;
+        display: grid;
+        grid-template-areas:
+            "first-row"
+            "second-row"
+            "info-button";
+    }
+
+    .first-row input {
+        display: block;
+        width: 280px;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .second-row textarea {
+        width: 280px;
+        text-align: center;
+    }
+
+    /*     Footer     */
+
+    .footer-main {
+        width: 280px;
+    }
+
+    .footer-adr {
+        width: 280px;
+    }
+
+    .adr-title {
+        font-size: 18px;
+    }
+
+    .adr p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .adr-icons h3 {
+        font-size: 13px;
+    }
+
+    /*    Button    */
+
+    .button {
+        font-size: 13px;
+        padding: 15px 40px;
+    }
+
+    .watb-button {
+        font-size: 14px;
+        padding: 16px 35px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+
+    /*    Header    */
+
+    .header-title {
+        font-size: 22px;
+    }
+
+    .header-suptitle {
+        font-size: 12px;
     }
 }
