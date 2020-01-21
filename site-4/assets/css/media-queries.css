@@ -1,0 +1,2747 @@
+@media screen and (max-width: 1440px) {
+
+    /*Categories*/
+
+    .categories {
+        display: none;
+    }
+
+    /*    Bestsellers*/
+
+    .bests-items {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-areas:
+            "first-i second-i"
+            "third-i fourth-i";
+        flex-direction: row;
+        justify-items: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .bests-item {
+        position: relative;
+        margin-right: 3%;
+        width: 262px;
+        margin: 0 auto;
+    }
+
+    .bests-link {
+        right: -1px;
+    }
+
+    .first-i {
+        grid-area: first-i;
+        margin-bottom: 60px;
+        margin-right: 3%;
+    }
+
+    .second-i {
+        grid-area: second-i;
+        margin-bottom: 60px;
+        margin-left: 3%;
+    }
+
+    .third-i {
+        grid-area: third-i;
+        margin-right: 3%;
+    }
+
+    .fourth-i {
+        grid-area: fourth-i;
+        margin-left: 3%;
+    }
+
+    /*    Process*/
+
+    .process {
+        width: 100%;
+        margin-top: 150px;
+    }
+
+    .process-items {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .first-itm {
+        display: none;
+    }
+
+    .second-itm {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .process-text {
+        position: static;
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 49px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 33px;
+        margin-bottom: 50px;
+    }
+
+    .process-prop {
+        display: block;
+        position: static;
+    }
+
+    .prop {
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .prop h3 {
+        font-size: 30px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .meet-our-workers {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 150px;
+        position: relative;
+    }
+
+    .mow-header {
+        text-align: center;
+        line-height: 1.5;
+        margin-bottom: 50px;
+    }
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 49px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 32px;
+    }
+
+    .mow-workers {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .worker {
+        position: relative;
+    }
+
+    .first-w {
+        margin: 0 auto;
+        margin-bottom: 100px;
+    }
+
+    .second-w {
+        margin: 0 auto;
+    }
+
+    .first-w .worker-info {
+        position: absolute;
+        top: 170px;
+        right: 100px;
+    }
+
+    .second-w .worker-info {
+        position: absolute;
+        top: 170px;
+        right: 100px;
+    }
+
+    .worker-text h1 {
+        font-size: 31px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 20px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 20px;
+        left: 75px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 190px;
+        left: 150px;
+    }
+
+}
+
+@media screen and (max-width: 1440px) {
+
+    /* Header */
+
+    .header-logo {
+        grid-area: header-logo;
+        position: absolute;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        justify-self: center;
+        background-color: #81c14b;
+    }
+
+    .header-text {
+        grid-area: header-text;
+        line-height: 1.2;
+        justify-self: center;
+        align-self: center;
+        width: 750px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20%;
+    }
+
+    .header-title {
+        font-size: 76px;
+    }
+
+    .header-subtitle {
+        font-weight: 400;
+        font-size: 28px;
+        color: #fff;
+    }
+
+    /*    Process*/
+
+    .process {
+        width: 100%;
+        margin-top: 150px;
+    }
+
+    .process-items {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .first-itm {
+        display: none;
+    }
+
+    .second-itm {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .process-text {
+        position: static;
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 40px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 28px;
+        margin-bottom: 50px;
+    }
+
+    .process-prop {
+        display: block;
+        position: static;
+    }
+
+    .prop {
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .prop h3 {
+        font-size: 25px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 39px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 27px;
+    }
+
+    .worker-text h1 {
+        font-size: 27px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 20px;
+        left: 90px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 190px;
+        left: 165px;
+    }
+
+    /*Clients*/
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        width: 525px;
+        margin-right: 0;
+        background-color: #daefb3;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .client-text {
+        height: 175px;
+    }
+
+    /*Questions*/
+
+    .questions {
+        display: none;
+    }
+    
+/*    Location*/
+    
+    .contacts{
+        right: 10.5%;
+        top: 110px;
+    }
+
+}
+
+
+@media screen and (max-width: 1235px) {
+
+    /*Honey sales*/
+
+    .honey-sales {
+        width: 100%;
+        background: url("../img/honey-sales/hs-bg.jpg") left no-repeat;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        height: 725px;
+        margin-bottom: 100px;
+    }
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 650px;
+        height: 565px;
+        margin: 0 auto;
+        margin-top: 7%;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 8%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 1.2;
+        margin-bottom: 50px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 1.4;
+    }
+
+    /*    Process*/
+
+    .process {
+        width: 100%;
+        margin-top: 150px;
+    }
+
+    .process-items {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .first-itm {
+        display: none;
+    }
+
+    .second-itm {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .process-text {
+        position: static;
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 40px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 28px;
+        margin-bottom: 50px;
+    }
+
+    .process-prop {
+        display: block;
+        position: static;
+    }
+
+    .prop {
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .prop h3 {
+        font-size: 25px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 39px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 27px;
+    }
+
+    .worker-text h1 {
+        font-size: 27px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 20px;
+        left: 90px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 190px;
+        left: 165px;
+    }
+
+    /*Clients*/
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        width: 525px;
+        margin-right: 0;
+        background-color: #daefb3;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .client-text {
+        height: 175px;
+    }
+
+    /*Questions*/
+
+    .questions {
+        display: none;
+    }
+    
+/*    Location*/
+    
+    .contacts{
+        right: 10%;
+        top: 110px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+/*    Location*/
+    
+    .contacts{
+        right: 7%;
+        top: 110px;
+    }
+    
+    /*Buy the best*/
+
+    .buy {
+        display: none;
+    }
+    
+    /*Footer*/
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .footer-item {
+        margin-right: 0;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .footer-item:first-child {
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .footer-item:last-child {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .footer-item:nth-child(2n) {
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .footer-title {
+        font-family: "Ovo", sans-serif;
+        font-weight: 400;
+        font-size: 61px;
+        color: #81c14b;
+        margin-top: 30px;
+    }
+
+    .footer-info {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 35px;
+    }
+
+    .footer-adr {
+        font-weight: 400;
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    /*Honey sales*/
+
+    .honey-sales {
+        margin-top: 50px;
+    }
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 550px;
+        height: 465px;
+        margin: 0 auto;
+        margin-top: 12%;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 8%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 50px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 1.4;
+    }
+
+    /*Food basket*/
+
+    .food-basket {
+        height: 525px;
+    }
+
+    .f-info {
+        position: absolute;
+        top: -50px;
+        margin: 0 auto;
+        width: 745px;
+        height: 445px;
+        background: url("../img/food-basket/fb-bg.jpg") center no-repeat;
+        background-size: contain;
+    }
+
+    .fb-text {
+        text-align: left;
+        margin: 6%;
+    }
+
+    .fb-title {
+        width: 470px;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .fb-subtitle {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 1.4;
+    }
+
+    .fb-btn {
+        margin-top: 50px;
+    }
+
+    /*Partners*/
+
+    .partners {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .partner-item {
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-areas:
+            ". first-row ."
+            ". second-row .";
+        margin: 0 auto;
+    }
+
+    .partner {
+        width: 130px;
+        margin-left: 10%;
+        margin-right: 0;
+
+    }
+
+    .first-row {
+        display: flex;
+        justify-items: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .first-row:last-child {
+        margin-right: 0;
+    }
+
+    .second-row {
+        display: block;
+    }
+
+/*    Location*/
+    
+    .contacts{
+        right: 7%;
+        top: 110px;
+    }
+    
+    /*    Button*/
+
+    .ft-button {
+        font-size: 25px;
+    }
+
+    .button {
+        font-size: 25px;
+    }
+
+    .ct-button {
+        font-size: 25px;
+    }
+
+    .hi-button {
+        font-size: 19px;
+    }
+
+    .fb-button {
+        font-size: 19px;
+    }
+
+    .bs-button {
+        font-size: 25px;
+    }
+
+    .cl-button {
+        font-size: 25px;
+    }
+
+    .by-button {
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 854px) {
+
+    /* Header */
+
+    .header-logo {
+        grid-area: header-logo;
+        position: absolute;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        justify-self: center;
+        background-color: #81c14b;
+    }
+
+    .header-text {
+        grid-area: header-text;
+        line-height: 1.2;
+        justify-self: center;
+        align-self: center;
+        width: 550px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 30%;
+    }
+
+    .header-title {
+        font-size: 56px;
+    }
+
+    .header-subtitle {
+        font-weight: 400;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    /*Honey sales*/
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 500px;
+        height: 415px;
+        margin: 0 auto;
+        margin-top: 13%;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 8%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+    /*Food basket*/
+
+    .f-info {
+        position: absolute;
+        top: -75px;
+        margin: 0 auto;
+        width: 665px;
+        height: 445px;
+        background: url("../img/food-basket/fb-bg.jpg") center no-repeat;
+        background-size: contain;
+    }
+
+    .fb-text {
+        text-align: left;
+        margin: 6%;
+    }
+
+    .fb-title {
+        width: 470px;
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .fb-subtitle {
+        font-weight: 400;
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+    .fb-btn {
+        margin-top: 50px;
+    }
+
+    /*    Process*/
+
+    .process-text {
+        position: static;
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 35px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 25px;
+        margin-bottom: 50px;
+    }
+
+    .process-prop {
+        display: block;
+        position: static;
+    }
+
+    .prop {
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .prop h3 {
+        font-size: 25px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .mow-header {
+        width: 600px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 35px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 25px;
+    }
+
+    .worker-text h1 {
+        font-size: 27px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 20px;
+        left: 90px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 190px;
+        left: 165px;
+    }
+
+    /*Clients*/
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        width: 425px;
+        margin-right: 0;
+        background-color: #daefb3;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .client-text {
+        height: 195px;
+    }
+
+    /*Partners*/
+
+    .partners {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .partner-item {
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-areas:
+            ". first-row ."
+            ". second-row .";
+        margin: 0 auto;
+    }
+
+    .partner {
+        width: 140px;
+        margin-left: 20%;
+    }
+
+    .first-row {
+        display: flex;
+        justify-items: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .first-row:last-child {
+        margin-right: 0;
+    }
+
+    .second-row {
+        display: block;
+    }
+    
+/*    Location*/
+    .contacts{
+        right: 7%;
+        top: 110px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    /*Honey sales*/
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 500px;
+        height: 415px;
+        margin: 0 auto;
+        margin-top: 13%;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 8%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+    /*Food basket*/
+
+    .f-info {
+        position: absolute;
+        top: -75px;
+        margin: 0 auto;
+        width: 565px;
+        height: 345px;
+        background: url("../img/food-basket/fb-bg.jpg") center no-repeat;
+        background-size: contain;
+    }
+
+    .fb-text {
+        text-align: left;
+        margin: 6%;
+    }
+
+    .fb-title {
+        width: 470px;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .fb-subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .fb-btn {
+        margin-top: 30px;
+    }
+
+    /*    Bestsellers*/
+
+    .bests-items {
+        display: flex;
+        flex-direction: column;
+        flex-direction: column;
+        justify-items: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .bests-item {
+        position: relative;
+        width: 262px;
+        margin: 0;
+    }
+
+    .bests-link {
+        right: -1px;
+    }
+
+    .first-i {
+        grid-area: first-i;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .second-i {
+        grid-area: second-i;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .third-i {
+        grid-area: third-i;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .fourth-i {
+        grid-area: fourth-i;
+        margin: 0 auto;
+        margin-left: 0;
+    }
+
+
+    /*    Process*/
+
+    .process-text {
+        position: static;
+        width: 450px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 32px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 23px;
+        margin-bottom: 50px;
+    }
+
+    .prop h3 {
+        font-size: 23px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .mow-header {
+        width: 500px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 32px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 23px;
+    }
+
+    .worker-text h1 {
+        font-size: 27px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 20px;
+        left: 90px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 190px;
+        left: 165px;
+    }
+
+    /*Clients*/
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        width: 425px;
+        margin-right: 0;
+        background-color: #daefb3;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .client-text {
+        height: 195px;
+    }
+
+    /*Partners*/
+
+    .partners {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .partner-item {
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-areas:
+            ". first-row ."
+            ". second-row .";
+        margin: 0 auto;
+    }
+
+    .partner {
+        width: 130px;
+        margin-left: 16%;
+    }
+
+    .first-row {
+        display: flex;
+        justify-items: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .first-row:last-child {
+        margin-right: 0;
+    }
+
+    .second-row {
+        display: block;
+    }
+
+/*    Location*/
+    
+    .contacts {
+        display: block;
+        background: url("../img/location/bg.jpg") 0 bottom no-repeat;
+        background-size: cover;
+        position: static;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    /*Footer*/
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .footer-item {
+        margin-right: 0;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .footer-item:first-child {
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .footer-item:last-child {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .footer-item:nth-child(2n) {
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .footer-title {
+        font-family: "Ovo", sans-serif;
+        font-weight: 400;
+        font-size: 51px;
+        color: #81c14b;
+        margin-top: 30px;
+    }
+
+    .footer-info {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 30px;
+    }
+
+    .footer-adr {
+        font-weight: 400;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    /* Header */
+
+    .header {
+        height: 900px;
+    }
+
+    .header-logo {
+        grid-area: header-logo;
+        position: absolute;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        justify-self: center;
+        background-color: #81c14b;
+    }
+
+    .header-text {
+        grid-area: header-text;
+        line-height: 1.2;
+        justify-self: center;
+        align-self: center;
+        width: 450px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 30%;
+    }
+
+    .header-title {
+        font-size: 46px;
+    }
+
+    .header-subtitle {
+        font-weight: 400;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    /*Honey sales*/
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 400px;
+        height: 315px;
+        margin: 0 auto;
+        margin-top: 28%;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 8%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    /*Food basket*/
+
+    .f-info {
+        position: absolute;
+        top: -95px;
+        margin: 0 auto;
+        width: 465px;
+        height: 365px;
+        background: url("../img/food-basket/fb-bg.jpg") center no-repeat;
+        background-size: contain;
+    }
+
+    .fb-text {
+        text-align: left;
+        margin: 0;
+        padding: 6%;
+        margin-top: 6%;
+    }
+
+    .fb-title {
+        width: 370px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .fb-subtitle {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .fb-btn {
+        margin-top: 30px;
+    }
+
+    /*    Bestsellers*/
+
+    .bests-items {
+        display: flex;
+        flex-direction: column;
+        flex-direction: column;
+        justify-items: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .bests-item {
+        position: relative;
+        width: 262px;
+        margin: 0;
+    }
+
+    .bests-link {
+        right: -1px;
+    }
+
+    .first-i {
+        grid-area: first-i;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .second-i {
+        grid-area: second-i;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .third-i {
+        grid-area: third-i;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .fourth-i {
+        grid-area: fourth-i;
+        margin: 0 auto;
+        margin-left: 0;
+    }
+
+    .bests-header {
+        font-weight: 600;
+        font-size: 28px;
+    }
+
+    .bests-text h1 {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 1.4;
+    }
+
+    .bests-text h3 {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    /*    Process*/
+
+    .process-text {
+        position: static;
+        width: 420px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 28px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 18px;
+        margin-bottom: 50px;
+    }
+
+    .prop h3 {
+        font-size: 18px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .mow-header {
+        width: 430px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 28px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .worker-bg {
+        width: 425px;
+    }
+
+    .first-w .worker-info {
+        position: absolute;
+        top: 140px;
+        right: 62px;
+    }
+
+    .second-w .worker-info {
+        position: absolute;
+        top: 140px;
+        right: 62px;
+    }
+
+    .worker-info img {
+        width: 300px;
+    }
+
+    .worker-text h1 {
+        font-size: 25px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 20px;
+        left: 68px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 160px;
+        left: 112px;
+    }
+
+    /*Clients*/
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        width: 375px;
+        margin-right: 0;
+        background-color: #daefb3;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .client-text {
+        height: 195px;
+    }
+
+    /*Partners*/
+
+    .partners {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        margin-bottom: 50px;
+        height: 400px;
+    }
+
+    .partners-title {
+        font-weight: 400;
+        font-size: 29px;
+        margin-bottom: 30px;
+    }
+
+    /*
+    .partner-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            ". f-r ."
+            ". s-r ."
+            ". t-r .";
+        margin: 0 auto;
+    }
+*/
+
+    /*
+    .partner {
+        display: block;
+        width: 140px;
+        margin-left: 10%;
+        margin-bottom: 30px;
+    }
+    
+    .f-r{
+        grid-area: f-r;
+    }
+    
+    .s-r{
+        grid-area: s-r;
+    }
+    
+    .t-r{
+        grid-area: t-r;
+    }
+*/
+
+    .partner-item {
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-areas:
+            ". first-row ."
+            ". second-row .";
+        margin: 0 auto;
+        transform: rotate(90deg);
+    }
+
+    .partner {
+        width: 120px;
+        margin-left: 16%;
+        margin: 0;
+        transform: rotate(-90deg);
+    }
+
+    .first-row {
+        display: flex;
+        justify-items: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+    }
+
+    .first-row:last-child {
+        margin-right: 0;
+    }
+
+    .second-row {
+        display: block;
+    }
+
+    /*    Location*/
+
+    .location-title {
+        font-weight: 400;
+        font-size: 29px;
+    }
+
+    .contacts {
+        display: block;
+        background: url("../img/location/bg.jpg") 0 bottom no-repeat;
+        background-size: cover;
+        position: static;
+        width: 100%;
+        height: 230px;
+        padding: 30px;
+    }
+
+    .contacts-header {
+        margin-bottom: 10px;
+    }
+
+    .contacts-title {
+        font-weight: 400;
+        font-size: 26px;
+    }
+
+    .contacts-text {
+        width: 300px;
+        line-height: 1.6;
+    }
+
+
+    .contacts-text h4 {
+        font-weight: 400;
+        font-size: 19px;
+    }
+
+    /*Footer*/
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .footer-item {
+        margin-right: 0;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .footer-item:first-child {
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .footer-item:last-child {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .footer-item:nth-child(2n) {
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .footer-title {
+        font-family: "Ovo", sans-serif;
+        font-weight: 400;
+        font-size: 41px;
+        color: #81c14b;
+        margin-top: 30px;
+    }
+
+    .footer-info {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 25px;
+    }
+
+    .footer-adr {
+        font-weight: 400;
+        font-size: 19px;
+    }
+
+    /*    Button*/
+
+    .ft-button {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 400;
+        font-size: 23px;
+        background: #c7141d;
+        padding: 10px 40px;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    /* Header */
+
+    .header {
+        height: 600px;
+    }
+
+    .header-logo {
+        grid-area: header-logo;
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        justify-self: center;
+        background-color: #81c14b;
+    }
+
+    .header-inner-logo img {
+        width: 80px;
+    }
+
+    .header-inner-logo {
+        padding: 10%;
+    }
+
+    .header-text {
+        grid-area: header-text;
+        line-height: 1.2;
+        justify-self: center;
+        align-self: center;
+        width: 310px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20%;
+    }
+
+    .header-title {
+        font-size: 36px;
+    }
+
+    .header-subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    /*Honey sales*/
+
+    .honey-sales {
+        height: 400px;
+    }
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 350px;
+        height: 315px;
+        margin: 0 auto;
+        margin-top: 8%;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 8%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    /*Food basket*/
+
+    .food-basket {
+        height: 400px;
+    }
+
+    .f-info {
+        position: absolute;
+        top: -95px;
+        margin: 0 auto;
+        width: 405px;
+        height: 365px;
+        background: url("../img/food-basket/fb-bg.jpg") center no-repeat;
+        background-size: contain;
+    }
+
+    .fb-text {
+        text-align: left;
+        margin: 0;
+        padding: 8%;
+        margin-top: 9%;
+    }
+
+    .fb-title {
+        width: 370px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .fb-subtitle {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .fb-btn {
+        margin-top: 20px;
+    }
+
+    /*    Bestsellers*/
+
+    .bests-items {
+        display: flex;
+        flex-direction: column;
+        flex-direction: column;
+        justify-items: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .bests-header {
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    .bests-text h1 {
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    .bests-text h3 {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    /*    Process*/
+
+    .process-text {
+        position: static;
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 24px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 17px;
+        margin-bottom: 50px;
+    }
+
+    .prop h3 {
+        font-size: 17px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .mow-header {
+        width: 320px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 24px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 17px;
+    }
+
+    .worker-bg {
+        width: 365px;
+    }
+
+    .first-w .worker-info {
+        position: absolute;
+        top: 110px;
+        right: 52px;
+    }
+
+    .second-w .worker-info {
+        position: absolute;
+        top: 110px;
+        right: 52px;
+    }
+
+    .worker-info img {
+        width: 260px;
+    }
+
+    .worker-text h1 {
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 16px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 15px;
+        left: 58px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 125px;
+        left: 96px;
+    }
+
+    /*Clients*/
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        width: 315px;
+        margin-right: 0;
+        background-color: #daefb3;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .clients-title {
+        font-weight: 400;
+        font-size: 27px;
+    }
+
+    .client-text {
+        height: 195px;
+    }
+
+    .client-text h1 {
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .client-info-text a {
+        font-weight: 400;
+        font-style: italic;
+        font-size: 18px;
+        color: #000;
+    }
+
+    /*Partners*/
+
+    .partners {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        margin-bottom: 50px;
+        height: 400px;
+    }
+
+    .partners-title {
+        font-weight: 400;
+        font-size: 27px;
+        margin-bottom: 30px;
+    }
+
+    .partner-item {
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-areas:
+            ". first-row ."
+            ". second-row .";
+        margin: 0 auto;
+        transform: rotate(90deg);
+    }
+
+    .partner {
+        width: 120px;
+        margin-left: 16%;
+        margin: 0;
+        transform: rotate(-90deg);
+    }
+
+    .first-row {
+        display: flex;
+        justify-items: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+    }
+
+    .first-row:last-child {
+        margin-right: 0;
+    }
+
+    .second-row {
+        display: block;
+    }
+
+    /*    Location*/
+
+    .location-title {
+        font-weight: 400;
+        font-size: 27px;
+    }
+
+    .contacts {
+        display: block;
+        background: url("../img/location/bg.jpg") 0 bottom no-repeat;
+        background-size: cover;
+        position: static;
+        width: 100%;
+        height: 230px;
+        padding: 30px;
+    }
+
+    .contacts-header {
+        margin-bottom: 10px;
+    }
+
+    .contacts-title {
+        font-weight: 400;
+        font-size: 23px;
+    }
+
+    .contacts-text {
+        width: 300px;
+        line-height: 1.6;
+    }
+
+
+    .contacts-text h4 {
+        font-weight: 400;
+        font-size: 17px;
+    }
+
+    /*Footer*/
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+    }
+
+    .footer-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .footer-title {
+        font-size: 36px;
+    }
+
+    .footer-info {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 23px;
+    }
+
+    .footer-adr {
+        font-weight: 400;
+        font-size: 17px;
+    }
+
+    /*    Button*/
+
+    .ft-button {
+        font-size: 20px;
+    }
+
+    .button {
+        font-size: 20px;
+    }
+
+    .ct-button {
+        font-size: 20px;
+    }
+
+    .hi-button {
+        font-size: 16px;
+    }
+
+    .fb-button {
+        font-size: 16px;
+    }
+
+    .bs-button {
+        font-size: 20px;
+    }
+
+    .cl-button {
+        font-size: 20px;
+    }
+
+    .by-button {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    /* Header */
+
+    .header {
+        height: 600px;
+    }
+
+    .header-logo {
+        grid-area: header-logo;
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        justify-self: center;
+        background-color: #81c14b;
+    }
+
+    .header-inner-logo img {
+        width: 80px;
+    }
+
+    .header-inner-logo {
+        padding: 10%;
+    }
+
+    .header-text {
+        grid-area: header-text;
+        line-height: 1.2;
+        justify-self: center;
+        align-self: center;
+        width: 310px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20%;
+    }
+
+    .header-title {
+        font-size: 36px;
+    }
+
+    .header-subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    /*Honey sales*/
+
+    .honey-sales {
+        height: 400px;
+    }
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 90%;
+        margin: 0;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 8% 6%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    /*Food basket*/
+
+    .food-basket {
+        height: 400px;
+    }
+
+    .f-info {
+        position: absolute;
+        top: -45px;
+        margin: 0 auto;
+        width: 90%;
+        height: 300px;
+        background: url("../img/food-basket/fb-bg.jpg") bottom no-repeat;
+        background-size: cover;
+    }
+
+    .fb-text {
+        text-align: left;
+        margin: 0;
+        padding: 25px;
+        margin-top: 0;
+    }
+
+    .fb-title {
+        width: 100%;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .fb-subtitle {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .fb-btn {
+        margin-top: 20px;
+    }
+
+    /*    Bestsellers*/
+
+    .bests-items {
+        display: flex;
+        flex-direction: column;
+        flex-direction: column;
+        justify-items: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .bests-header {
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    .bests-text h1 {
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    .bests-text h3 {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    /*    Process*/
+
+    .process-text {
+        position: static;
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    .process-title {
+        font-weight: 400;
+        font-size: 24px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    .process-subtitle {
+        line-height: 1.4;
+        font-size: 17px;
+        margin-bottom: 50px;
+    }
+
+    .prop h3 {
+        font-size: 17px;
+    }
+
+    .prop img {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    /*Meet our workers*/
+
+    .mow-header {
+        width: 320px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .mow-title {
+        font-weight: 400;
+        font-size: 24px;
+    }
+
+    .mow-subtitle {
+        font-weight: 400;
+        font-size: 17px;
+    }
+
+    .worker-bg {
+        width: 310px;
+    }
+
+    .first-w .worker-info {
+        position: absolute;
+        top: 110px;
+        right: 45px;
+    }
+
+    .second-w .worker-info {
+        position: absolute;
+        top: 110px;
+        right: 45px;
+    }
+
+    .worker-info img {
+        width: 220px;
+    }
+
+    .worker-text h1 {
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .worker-text a {
+        font-size: 14px;
+        font-weight: 400;
+        font-style: italic;
+        color: #373737;
+    }
+
+    .first-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 10px;
+        left: 54px;
+    }
+
+    .second-w .worker-text {
+        position: absolute;
+        text-align: center;
+        line-height: 2;
+        top: 125px;
+        left: 80px;
+    }
+
+    /*Clients*/
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client {
+        width: 315px;
+        margin-right: 0;
+        background-color: #daefb3;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .clients-title {
+        font-weight: 400;
+        font-size: 27px;
+    }
+
+    .client-text {
+        height: 195px;
+    }
+
+    .client-text h1 {
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .client-info-text a {
+        font-weight: 400;
+        font-style: italic;
+        font-size: 18px;
+        color: #000;
+    }
+
+    /*Partners*/
+
+    .partners {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        margin-bottom: 50px;
+        height: 850px;
+    }
+
+    .partners-title {
+        font-weight: 400;
+        font-size: 27px;
+        margin-bottom: 0;
+    }
+
+    .partner-item {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        transform: rotate(0deg);
+    }
+
+    .partner {
+        width: 120px;
+        margin-left: 0;
+        margin: 0;
+        transform: rotate(0deg);
+    }
+
+    .first-row {
+        display: flex;
+        justify-items: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .second-row {
+        display: flex;
+        justify-items: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    /*    Location*/
+
+    .location-title {
+        font-weight: 400;
+        font-size: 27px;
+    }
+
+    .contacts {
+        display: block;
+        background: url("../img/location/bg.jpg") 0 bottom no-repeat;
+        background-size: cover;
+        position: static;
+        width: 100%;
+        height: 230px;
+        padding: 30px;
+    }
+
+    .contacts-header {
+        margin-bottom: 10px;
+    }
+
+    .contacts-title {
+        font-weight: 400;
+        font-size: 22px;
+    }
+
+    .contacts-text {
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .contacts-text h4 {
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    /*Footer*/
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+    }
+
+    .footer-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .footer-title {
+        font-size: 36px;
+    }
+
+    .footer-info {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 23px;
+    }
+
+    .footer-adr {
+        font-weight: 400;
+        font-size: 17px;
+    }
+
+    /*    Button*/
+
+    .ft-button {
+        font-size: 20px;
+    }
+
+    .button {
+        font-size: 20px;
+    }
+
+    .ct-button {
+        font-size: 20px;
+    }
+
+    .hi-button {
+        font-size: 16px;
+    }
+
+    .fb-button {
+        font-size: 16px;
+    }
+
+    .bs-button {
+        font-size: 20px;
+    }
+
+    .cl-button {
+        font-size: 20px;
+    }
+
+    .by-button {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    /*Honey sales*/
+
+    .honey-sales {
+        height: 400px;
+    }
+
+    .honey-info {
+        position: static;
+        display: flex;
+        width: 90%;
+        margin: 0;
+    }
+
+    .hi-text {
+        text-align: center;
+        margin: 15% 6%;
+    }
+
+    .hi-title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .hi-subtitle {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    .hi-btn {
+        margin-top: 10px;
+    }
+    
+    /*Footer*/
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+    }
+
+    .footer-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .footer-title {
+        font-size: 36px;
+    }
+
+    .footer-info {
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 23px;
+    }
+
+    .footer-adr {
+        font-weight: 400;
+        font-size: 17px;
+    }
+}
