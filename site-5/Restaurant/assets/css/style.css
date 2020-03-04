@@ -1,0 +1,1531 @@
+*,
+*:after,
+*:before {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+*,
+*:focus,
+*:active {
+   outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   width: 100%;
+   font-family: Arial, sans-serif;
+}
+
+/* Header */
+
+.header {
+   width: 100%;
+   background: url("../img/header/header-main-bg.jpg") right bottom no-repeat;
+   background-size: cover;
+   display: grid;
+   grid-template-columns: 1fr 1fr 2fr 9fr 2fr;
+   grid-template-rows: 2fr 25fr 15fr;
+   grid-template-areas:
+      "header-left-nav . header-logo header-nav ."
+      "header-left-nav . header-text . ."
+      "header-left-nav . . . .";
+   align-items: center;
+   height: 980px;
+   position: relative;
+   z-index: 2;
+}
+
+.header-logo {
+   margin-top: 50px;
+   grid-area: header-logo;
+   text-decoration: none;
+   text-transform: uppercase;
+   font-size: 25px;
+   font-weight: 400;
+   font-family: "CerebriSans", sans-serif;
+   color: #fff;
+   justify-self: left;
+}
+
+.header-text {
+   grid-area: header-text;
+   line-height: 1.2;
+   justify-self: center;
+   align-items: top;
+}
+
+.header-left-nav {
+   grid-area: header-left-nav;
+   justify-self: left;
+   align-items: center;
+}
+
+.nav-item {
+   overflow: hidden;
+   margin-bottom: 10px;
+   width: 15px;
+   height: 3px;
+   border-radius: 25px;
+   background-color: #ccc;
+   margin-left: 35px;
+   cursor: pointer;
+}
+
+.active-nav-item {
+   background-color: #fff;
+   width: 40px;
+}
+
+.header-nav {
+   margin-top: 50px;
+   grid-area: header-nav;
+   justify-self: right;
+}
+
+.header-nav__link {
+   text-decoration: none;
+   color: #fff;
+   font-size: 16px;
+   font-weight: 500;
+   font-family: "CerebriSans", sans-serif;
+   margin-right: 55px;
+   transition: all .5s;
+   position: relative;
+}
+
+.header-nav__link:before {
+   display: block;
+   position: absolute;
+   content: "";
+   height: 3px;
+   border-radius: 5px;
+   width: 0;
+   background: #fff;
+   transition: width 0.3s ease-in-out;
+   left: 0;
+   bottom: -5px;
+}
+
+.header-nav__link:hover:before {
+   width: 100%;
+}
+
+.header-title {
+   font-weight: 400;
+   width: 650px;
+   font-size: 60px;
+   font-family: "Cookie", sans-serif;
+   color: #fff;
+}
+
+.header-title span {
+   text-transform: uppercase;
+   font-weight: 400;
+   font-size: 100px;
+   font-family: "CerebriSans", sans-serif;
+   color: #fff;
+}
+
+.header-button {
+   margin-top: 60px;
+}
+
+/* Advantages */
+
+.advantages {
+   width: 100%;
+   display: grid;
+   grid-template-columns: 1fr 6fr 1fr;
+   grid-template-areas:
+      ". adv-items ."
+      ". adv-info .";
+   position: relative;
+   background: url("../img/advantages/main-bg.jpg") 0 -20px no-repeat;
+   background-size: cover;
+   z-index: 30000;
+}
+
+.adv-items {
+   width: 100%;
+   grid-area: adv-items;
+   display: flex;
+   justify-content: space-around;
+   position: absolute;
+   top: -60px;
+}
+
+.adv-item {
+   margin-right: 2%;
+   width: 450px;
+   text-align: center;
+   background-color: #fff;
+   height: 375px;
+   padding: 70px 10px;
+   box-shadow: #ccc 0 20px 10px -10px;
+   border-top-left-radius: 25px;
+   border-top-right-radius: 25px;
+   transition: all .3s;
+}
+
+.adv-item:hover {
+   transform: translateY(-30%);
+}
+
+.adv-item:last-child {
+   margin-right: 0;
+}
+
+.adv-i-text {
+   margin: 0 auto;
+   width: 400px;
+   height: 150px;
+   align-self: baseline;
+}
+
+.adv-item img {
+   align-self: baseline;
+   margin-bottom: 20px;
+   width: 80px;
+}
+
+.adv-item:nth-child(2n) img {
+   align-self: baseline;
+   margin-bottom: 50px;
+   width: 80px;
+}
+
+.adv-i-title {
+   text-transform: uppercase;
+   font-size: 24px;
+   font-weight: 700;
+   margin-bottom: 30px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.adv-i-subtitle {
+   font-size: 16px;
+   font-weight: 500;
+   color: #ccc;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.adv-info {
+   grid-area: adv-info;
+   margin-top: 400px;
+   position: relative;
+}
+
+.adv-info img {
+   width: 800px;
+   margin-bottom: 60px;
+}
+
+.info-text {
+   padding: 30px 120px;
+   position: absolute;
+   right: 0;
+   top: 150px;
+   width: 810px;
+   height: 560px;
+   background-color: #fff;
+}
+
+.info-title {
+   font-weight: 400;
+   font-size: 60px;
+   width: 290px;
+   font-family: "Cookie", sans-serif;
+}
+
+.info-title span {
+   font-weight: 700;
+   font-size: 46px;
+   text-transform: uppercase;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.info-subtitle {
+   font-weight: 400;
+   font-size: 14px;
+   color: #707070;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.info-supperson {
+   text-transform: uppercase;
+   font-size: 12px;
+   font-weight: 700;
+   margin-top: 50px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.info-person {
+   font-size: 60px;
+   font-weight: 400;
+   font-family: "Cookie", sans-serif;
+}
+
+.info-text p {
+   font-size: 16px;
+   font-weight: 500;
+   margin: 15px 0;
+   font-family: "CerebriSans", sans-serif;
+}
+
+/* Dishes */
+
+.dishes {
+   width: 100%;
+   background: url("../img/dishes/main-bg.png") no-repeat;
+   background-size: cover;
+   display: grid;
+   grid-template-columns: 1fr 6fr 1fr;
+   grid-template-areas:
+      ". dishes-text ."
+      ". dishes-type-choise ."
+      ". dishes-select ."
+      ". dishes-button .";
+   text-align: center;
+}
+
+.dishes-text {
+   margin-top: 50px;
+   grid-area: dishes-text;
+}
+
+.dishes-title {
+   text-transform: uppercase;
+   font-size: 42px;
+   font-weight: 400;
+   font-family: "Cookie", sans-serif;
+}
+
+.dishes-subtitle {
+   text-transform: uppercase;
+   font-size: 46px;
+   font-weight: 700;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.dishes-type-choise {
+   grid-area: dishes-type-choise;
+   display: flex;
+   justify-content: center;
+   margin: 80px 0;
+   /* width: 825px;
+   height: 160px; */
+}
+
+.meals:first-child {
+   border-top-left-radius: 25px;
+   border-bottom-left-radius: 25px;
+   background-color: #292929;
+}
+
+.meals:last-child {
+   border-top-right-radius: 25px;
+   border-bottom-right-radius: 25px;
+}
+
+.meals {
+   background-color: #fff;
+   width: 165px;
+   height: 160px;
+   padding: 50px;
+   cursor: pointer;
+   transition: all .3s;
+}
+
+.meals:hover {
+   background-color: #292929;
+}
+
+.meals:hover h3 {
+   color: #fff;
+}
+
+.meals-text {
+   margin-top: 55px;
+}
+
+.first-m {
+   background: url("../img/dishes/e1(v2).png") center 42px no-repeat;
+}
+
+.second-m {
+   background: url("../img/dishes/e2(v1).png") center 42px no-repeat;
+}
+
+.third-m {
+   background: url("../img/dishes/e3(v1).png") center 42px no-repeat;
+}
+
+.fourth-m {
+   background: url("../img/dishes/e4(v1).png") center 42px no-repeat;
+}
+
+.fifth-m {
+   background: url("../img/dishes/e5(v1).png") center 42px no-repeat;
+}
+
+.second-m:hover {
+   background-color: #292929;
+   background-image: url("../img/dishes/e2(v2).png");
+}
+
+.third-m:hover {
+   background-color: #292929;
+   background-image: url("../img/dishes/e3(v2).png");
+}
+
+.fourth-m:hover {
+   background-color: #292929;
+   background-image: url("../img/dishes/e4(v2).png");
+}
+
+.fifth-m:hover {
+   background-color: #292929;
+   background-image: url("../img/dishes/e5(v2).png");
+}
+
+.dishes-name {
+   color: #292929;
+   font-weight: 600;
+   font-size: 16px;
+   transition: all .3s;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.active-text {
+   color: #fff;
+   font-weight: 600;
+   font-size: 16px;
+   transition: all .3s;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.dishes-select {
+   grid-area: dishes-select;
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+
+.dishes-search {
+   width: 298px;
+   height: 380px;
+   position: relative;
+}
+
+.dishes-search-title {
+   font-weight: 400;
+   font-size: 18px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.dishes-search-subtitle {
+   font-size: 16px;
+   font-weight: 400;
+   margin-bottom: 20px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.dishes-search-price {
+   position: absolute;
+   top: -15px;
+   right: 25px;
+   background-color: #292929;
+   line-height: 2.6;
+   width: 40px;
+   height: 40px;
+   text-decoration: none;
+   color: #fff;
+   border-radius: 25px;
+   font-family: "Poppins", sans-serif;
+}
+
+.dishes-button {
+   grid-area: dishes-button;
+   margin-bottom: 60px;
+}
+
+/* Menu */
+
+.menu {
+   width: 100%;
+   background: url("../img/Menu/main-bg(v2).jpg") no-repeat;
+   background-size: cover;
+   position: static;
+   display: block;
+   z-index: -100;
+   padding-top: 100px;
+   padding-bottom: 100px;
+}
+
+.first-menu {
+   display: flex;
+   justify-content: left;
+   position: relative;
+   margin-right: 41%;
+   margin-left: 12%;
+   margin-bottom: 100px;
+}
+
+.first-menu-text {
+   background-color: #fff;
+   padding: 70px 40px 100px 110px;
+   width: 690px;
+   height: 680px;
+   position: absolute;
+   top: 70px;
+   left: 700px;
+}
+
+.second-menu {
+   display: flex;
+   justify-content: right;
+   position: relative;
+   margin-left: 43%;
+   margin-right: 8%;
+}
+
+.second-menu-text {
+   background-color: #fff;
+   padding: 70px 40px 100px 110px;
+   width: 690px;
+   height: 680px;
+   position: absolute;
+   top: 70px;
+   left: -590px;
+}
+
+.menu-main-text {
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+.menu-title {
+   font-size: 42px;
+   font-weight: 400;
+   font-family: "Cookie", sans-serif;
+}
+
+.menu-subtitle {
+   font-size: 46px;
+   font-weight: 700;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.menu-name {
+   text-align: left;
+   font-size: 18px;
+   font-weight: 500;
+   color: #292929;
+   margin-top: 50px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.menu-subname {
+   font-weight: 400;
+   font-size: 14px;
+   color: #707070;
+   margin-bottom: 35px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.menu-name span.price {
+   font-weight: 700;
+   text-align: left;
+   font-family: "CerebriSans", sans-serif;
+}
+
+/* Comments */
+
+.comments {
+   width: 100%;
+   background: #292929;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   /* height: 603px; */
+}
+
+.comments-slider {
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+}
+
+.comment-item {
+   /* width: 700px; */
+   width: 80%;
+   height: 100%;
+   text-align: center;
+   line-height: 1.5;
+   margin: 0 auto;
+   margin-top: 50px;
+}
+
+.carousel-img {
+   width: 100%;
+   margin: 0 auto;
+   grid-area: carousel-img;
+   justify-content: center;
+   display: flex;
+}
+
+.comment {
+   grid-area: comment;
+   text-align: center;
+   display: flex;
+   width: 100%;
+}
+
+.comments-img {
+   width: 50%;
+   grid-area: comments-img;
+   display: flex;
+   padding: 0;
+}
+
+.comments-img img{
+   width: 100%;
+}
+
+.clients-comment {
+   font-weight: 700;
+   font-family: "CerebriSans", sans-serif;
+   font-size: 24px;
+   color: #fff;
+   margin-top: 65px;
+   margin-bottom: 45px;
+}
+
+.clients-name {
+   font-weight: 500;
+   font-size: 14px;
+   margin-bottom: 45px;
+   color: #fff;
+   position: relative;
+   font-family: "CerebriSans", sans-serif;
+}
+
+/* .clients-name:before {
+   content: "";
+   display: block;
+   width: 30px;
+   height: 1px;
+   color: #707070;
+   position: absolute;
+   left: -10px;
+   transition: width 0.3s ease-in-out;
+} */
+
+/* Recipes */
+
+.recipes {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   background: url("../img/recipes/main-bg.png") 0 -20px no-repeat;
+   background-size: cover;
+   z-index: 900;
+   position: relative;
+}
+
+.recipes-header {
+   margin-top: 50px;
+   margin-bottom: 50px;
+   text-align: center;
+}
+
+.recipes-title {
+   font-weight: 400;
+   font-size: 42px;
+   font-family: "Cookie", sans-serif;
+}
+
+.recipes-subtitle {
+   font-weight: 700;
+   font-size: 46px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.recipes-recent {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+}
+
+.recipes-recent img {
+   display: block;
+   margin: 10px;
+   margin-right: 0;
+}
+
+.recipes-button {
+   margin-bottom: 50px;
+   margin-top: 50px;
+}
+
+/* Recipe-workers */
+
+.recipes-workers {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.recipes-w-header {
+   margin-top: 50px;
+   margin-bottom: 50px;
+   text-align: center;
+}
+
+.recipes-w-title {
+   font-weight: 400;
+   font-size: 42px;
+   font-family: "Cookie", sans-serif;
+}
+
+.recipes-w-subtitle {
+   font-weight: 700;
+   font-size: 46px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.recipes-worker {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
+.worker {
+   background-color: #F5F5F5;
+   background-position: 0 -20px;
+   border-bottom-left-radius: 25px;
+   border-bottom-right-radius: 25px;
+   text-align: center;
+   margin-right: 2%;
+}
+
+.worker a {
+   display: none;
+}
+
+/* .worker img{
+   background-color: #F5F5F5;
+   background-position: 0 -20px;
+} */
+
+.worker:last-child {
+   margin-right: 0;
+}
+
+/* .worker:hover .worker-text{
+   background-color: #292929;
+   border-bottom-left-radius: 25px;
+   border-bottom-right-radius: 25px;
+   height: 120px;
+   z-index: 9090;
+} */
+
+.worker-text {
+   margin: 27px 0 27px 0;
+   transition: all .3s;
+   /* background-color: #F5F5F5;
+   border-bottom-left-radius: 25px;
+   border-bottom-right-radius: 25px;
+   height: 120px; */
+}
+
+.worker-name {
+   font-size: 24px;
+   font-weight: 700;
+   margin-bottom: 15px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.worker-rank {
+   font-size: 16px;
+   font-weight: 600;
+   color: #707070;
+   font-family: "CerebriSans", sans-serif;
+}
+
+/* Info */
+
+.info {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   background: url("../img/info/main-bg.png") center repeat-x;
+   background-size: cover;
+   margin: 100px 0 100px 0;
+   padding: 120px;
+   text-align: center;
+}
+
+.info-item {
+   margin-right: 10%;
+   width: 200px;
+   text-align: center;
+}
+
+.info-item:last-child {
+   margin-right: 0;
+}
+
+.info-main {
+   color: #fff;
+   font-size: 46px;
+   font-weight: 400;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.info-submain {
+   color: #fff;
+   font-weight: 400;
+   font-size: 20px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+/* Registration */
+
+.registration {
+   width: 100%;
+   height: 1250px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.registration-text {
+   margin-top: 50px;
+   margin-bottom: 50px;
+   text-align: center;
+}
+
+.reg-title {
+   font-size: 42px;
+   font-weight: 400;
+   font-family: "Cookie", sans-serif;
+}
+
+.reg-subtitle {
+   font-size: 46px;
+   font-weight: 700;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.registration-info {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   position: relative;
+}
+
+.registration-info img {
+   position: absolute;
+   right: 0;
+   top: 0;
+}
+
+.reg-form {
+   width: 690px;
+   height: 700px;
+   display: flex;
+   padding: 100px 60px;
+   /* justify-content: center; */
+   align-items: center;
+   flex-direction: column;
+   background-color: #F5F5F5;
+   position: absolute;
+   right: -550px;
+   top: 125px;
+}
+
+.first-row {
+   margin-bottom: 47px;
+   position: relative;
+}
+
+.first-row input {
+   width: 240px;
+   height: 45px;
+   border: none;
+   font-size: 20px;
+   font-weight: 400;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.first-row label {
+   margin-right: 20px;
+}
+
+.first-row label:last-child {
+   margin-right: 0;
+}
+
+.first-row label span {
+   position: absolute;
+   top: -20px;
+}
+
+.second-row {
+   margin-bottom: 47px;
+   position: relative;
+}
+
+.second-row input,
+select {
+   width: 240px;
+   height: 45px;
+   border: none;
+   font-size: 20px;
+   font-weight: 400;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.second-row label {
+   margin-right: 20px;
+}
+
+.second-row label span {
+   position: absolute;
+   top: -20px;
+}
+
+.second-row span {
+   position: absolute;
+   top: -20px;
+}
+
+.third-row {
+   margin-bottom: 47px;
+   position: relative;
+}
+
+.third-row select {
+   width: 505px;
+   height: 45px;
+   border: none;
+   font-size: 20px;
+   font-weight: 400;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.third-row span {
+   position: absolute;
+   top: -20px;
+}
+
+.fourth-row {
+   margin-bottom: 47px;
+   position: relative;
+}
+
+.fourth-row input {
+   width: 240px;
+   height: 45px;
+   border: none;
+   font-size: 20px;
+   font-weight: 400;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.fourth-row label {
+   margin-right: 20px;
+}
+
+.fourth-row label:last-child {
+   margin-right: 0;
+}
+
+.fourth-row label span {
+   position: absolute;
+   top: -20px;
+}
+
+.fifth-row {
+   position: relative;
+}
+
+.fifth-row textarea {
+   width: 505px;
+   height: 100px;
+   border: none;
+   font-size: 20px;
+   font-weight: 400;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.fifth-row span {
+   position: absolute;
+   top: -20px;
+}
+
+.registration-button {
+   position: absolute;
+   bottom: 50px;
+   left: 90px;
+}
+
+/* Blog */
+
+.blog {
+   width: 100%;
+   height: 980px;
+   display: flex;
+   justify-content: top;
+   align-items: center;
+   flex-direction: column;
+   background: url("../img/blog/main-bg.png") no-repeat;
+   background-size: cover;
+   position: relative;
+}
+
+.blog-text {
+   margin-top: 50px;
+   margin-bottom: 50px;
+   text-align: center;
+}
+
+.blog-title {
+   font-weight: 400;
+   font-size: 42px;
+   font-family: "Cookie", sans-serif;
+}
+
+.blog-subtitle {
+   font-size: 46px;
+   font-weight: 700;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.blog-items {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: row;
+}
+
+.blog-item {
+   width: 330px;
+   margin-right: 30px;
+   background-color: #fff;
+}
+
+.blog-item:last-child {
+   margin-right: 0;
+}
+
+.blog-i-text {
+   padding: 20px;
+}
+
+.blog-i-data {
+   color: #707070;
+   font-weight: 500;
+   font-size: 14px;
+   text-transform: uppercase;
+   margin-top: 25px;
+   margin-bottom: 15px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.blog-i-title {
+   font-weight: 700;
+   font-size: 20px;
+   margin-bottom: 20px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.blog-i-subtitle {
+   color: #707070;
+   font-weight: 400;
+   font-size: 16px;
+   margin-bottom: 24px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.blog-read-more {
+   font-weight: 700;
+   font-size: 14px;
+   cursor: pointer;
+   text-transform: uppercase;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.blog-read-more span {
+   color: #707070;
+   font-size: 14px;
+   font-weight: 200;
+}
+
+/* Newsletter */
+
+.newsletter {
+   position: absolute;
+   bottom: -200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   background: url("../img/newsletter/main-bg.png") repeat-x;
+   background-size: cover;
+   height: 333px;
+   padding: 91px 135px;
+   margin: 0 auto;
+   margin-top: 100px;
+   box-shadow: #000 0 25px 35px -15px;
+}
+
+.news-text {
+   width: 480px;
+   margin-right: 125px;
+}
+
+.news-title {
+   font-weight: 700;
+   font-size: 46px;
+   color: #fff;
+   text-transform: uppercase;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.news-subtitle {
+   font-weight: 400;
+   font-size: 16px;
+   color: #fff;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.newsletter input {
+   width: 400px;
+   height: 45px;
+   border: none;
+   font-size: 14px;
+   font-weight: 400;
+   border-radius: 5px;
+}
+
+.newsletter label {
+   margin-right: 20px;
+}
+
+/* Footer */
+
+.footer {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   background: url("../img/footer/main-bg.png") repeat-x;
+   background-size: cover;
+   padding-top: 260px;
+   padding-bottom: 50px;
+}
+
+.footer-items {
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   flex-direction: row;
+}
+
+.footer-info {
+   width: 300px;
+   margin-right: 40px;
+}
+
+.footer-title {
+   font-weight: 700;
+   font-size: 40px;
+   color: #fff;
+   margin-bottom: 25px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.footer-subtitle {
+   font-weight: 400;
+   font-size: 16px;
+   color: #fff;
+   line-height: 1.6;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.footer-icons{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: row;
+   margin-top: 30px;
+   width: 200px;
+}
+
+.footer-icon{
+   width: 40px;
+   height: 40px;
+   text-align: center;
+   line-height: 2.3;
+   background-color: #fff;
+   border: 1px solid #fff ;
+   border-radius: 25px;
+   color: #000;
+   font-size: 18px;
+   cursor: pointer;
+   transition: all .2s;
+}
+
+.footer-icon:hover{
+   background-color: transparent;
+   color: #fff;
+}
+
+.footer-hours {
+   width: 300px;
+   margin-right: 70px;
+   
+}
+
+.open-hours-title {
+   margin-top: 13px;
+   font-weight: 700;
+   font-size: 18px;
+   margin-bottom: 35px;
+   color: #fff;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.open-hours {
+   font-size: 16px;
+   font-weight: 400;
+   color: #fff;
+   line-height: 1.6;
+   margin-bottom: 15px;
+   margin-left: 35px;
+   position: relative;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.open-hours span{
+   position: absolute;
+   left: -35px;
+}
+
+.open-hours:last-child{
+   margin-bottom: 0;
+}
+
+.footer-contact {
+   width: 300px;
+   margin-right: 70px;
+}
+
+.contact-info-title {
+   margin-top: 13px;
+   font-size: 18px;
+   font-weight: 700;
+   text-transform: uppercase;
+   margin-bottom: 35px;
+   color: #fff;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.contact-info {
+   font-weight: 400;
+   font-size: 16px;
+   color: #fff;
+   line-height: 1.6;
+   margin-bottom: 20px;
+   margin-left: 35px;
+   position: relative;
+   font-family: "CerebriSans", sans-serif;
+}
+
+.contact-info span{
+   position: absolute;
+   left: -35px;
+}
+
+.contact-info:last-child{
+   margin-bottom: 0;
+}
+
+.footer-instagram {
+   width: 330px;
+   display: block;
+}
+
+.footer-instagram-title {
+   margin-top: 13px;
+   color: #fff;
+   margin-bottom: 35px;
+   font-weight: 700;
+   font-size: 18px;
+   font-family: "CerebriSans", sans-serif;
+}
+
+/* Button */
+
+.button {
+   text-decoration: none;
+   color: #fff;
+   font-size: 16px;
+   font-weight: 400;
+   transition: all .5s;
+   position: relative;
+   margin-left: 60px;
+   font-family: "Poppins", sans-serif;
+}
+
+.button:before {
+   display: block;
+   position: absolute;
+   content: "";
+   height: 3px;
+   border-radius: 5px;
+   width: 40px;
+   background: #ccc;
+   transition: width 0.3s ease-in-out;
+   left: -50px;
+   bottom: 8px;
+}
+
+.button:hover:before {
+   background: #fff;
+   width: 0;
+}
+
+.special-button {
+   text-transform: uppercase;
+   font-size: 17px;
+   font-weight: 400;
+   color: #000;
+   border: 1px solid #fff;
+   padding: 10px 30px;
+   transition: all .5s;
+   cursor: pointer;
+   font-family: "Poppins", sans-serif;
+}
+
+.special-button:hover {
+   color: #fff;
+   background-color: transparent;
+}
+
+.dishes-search-button {
+   text-transform: uppercase;
+   font-size: 16px;
+   font-weight: 500;
+   color: #292929;
+   border: 1px solid #292929;
+   background-color: transparent;
+   padding: 10px 30px;
+   transition: all .5s;
+   cursor: pointer;
+   font-family: "Poppins", sans-serif;
+}
+
+.dishes-search-button:hover {
+   color: #fff;
+   border: 1px solid #292929;
+   background-color: #292929;
+}
+
+.dishes-view-button {
+   font-size: 18px;
+   font-weight: 400;
+   color: #fff;
+   border: 1px solid #292929;
+   background-color: #292929;
+   padding: 10px 50px;
+   transition: all .5s;
+   cursor: pointer;
+   font-family: "Poppins", sans-serif;
+}
+
+.dishes-view-button:hover {
+   color: #292929;
+   background-color: transparent;
+}
+
+.rec-button {
+   font-size: 18px;
+   text-transform: uppercase;
+   font-weight: 400;
+   color: #fff;
+   border: 1px solid #292929;
+   background-color: #292929;
+   padding: 10px 50px;
+   transition: all .5s;
+   cursor: pointer;
+   font-family: "Poppins", sans-serif;
+}
+
+.rec-button:hover {
+   color: #292929;
+   background-color: transparent;
+}
+
+.reg-button {
+   font-size: 18px;
+   text-transform: uppercase;
+   font-weight: 400;
+   color: #fff;
+   border: 1px solid #292929;
+   background-color: #292929;
+   padding: 10px 20px;
+   transition: all .5s;
+   cursor: pointer;
+   font-family: "Poppins", sans-serif;
+}
+
+.reg-button:hover {
+   color: #292929;
+   background-color: transparent;
+}
+
+.news-button {
+   font-size: 18px;
+   text-transform: uppercase;
+   font-weight: 400;
+   color: #292929;
+   border: 1px solid #fff;
+   background-color: #fff;
+   border-radius: 5px;
+   padding: 10px 20px;
+   transition: all .5s;
+   cursor: pointer;
+   font-family: "Poppins", sans-serif;
+}
+
+/* Font Face */
+
+/* Montserrat-regular - latin */
+@font-face {
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 400;
+   src: url('../fonts/montserrat-v14-latin-regular.eot');
+   /* IE9 Compat Modes */
+   src: local('Montserrat Regular'), local('Montserrat-Regular'),
+      url('../fonts/montserrat-v14-latin-regular.eot?#iefix') format('embedded-opentype'),
+      /* IE6-IE8 */
+      url('../fonts/montserrat-v14-latin-regular.woff2') format('woff2'),
+      /* Super Modern Browsers */
+      url('../fonts/montserrat-v14-latin-regular.woff') format('woff'),
+      /* Modern Browsers */
+      url('../fonts/montserrat-v14-latin-regular.ttf') format('truetype'),
+      /* Safari, Android, iOS */
+      url('../fonts/montserrat-v14-latin-regular.svg#Montserrat') format('svg');
+   /* Legacy iOS */
+}
+
+/* Cookie */
+
+@font-face {
+   font-family: 'Cookie';
+   src: url('cookie-regular-webfont.woff2') format('woff2'),
+      url('cookie-regular-webfont.woff') format('woff');
+   font-weight: 400;
+   font-style: normal;
+}
+
+/* Cerebri Sans */
+
+@font-face {
+   font-family: 'CerebriSans';
+   font-style: normal;
+   font-weight: 400;
+   src: url("../fonts/CerebriSans-Regular.woff2");
+}
+
+@font-face {
+   font-family: 'CerebriSans';
+   font-style: normal;
+   font-weight: 600;
+   src: url("../fonts/CerebriSans-SemiBold.woff2");
+}
+
+@font-face {
+   font-family: 'CerebriSans';
+   font-style: normal;
+   font-weight: 500;
+   src: url("../fonts/CerebriSans-Medium.woff2");
+}
+
+@font-face {
+   font-family: 'CerebriSans';
+   font-style: normal;
+   font-weight: 700;
+   src: url("../fonts/CerebriSans-Bold.woff2");
+}
+
+@font-face {
+   font-family: 'CerebriSans';
+   font-style: normal;
+   font-weight: 900;
+   src: url("../fonts/CerebriSans-ExtraBold.woff2");
+}
+
+/* Lato */
+
+@font-face {
+   font-family: 'Lato';
+   font-style: normal;
+   font-weight: 700;
+   src: url("../fonts/Lato-Bold.woff2");
+   src: local('Lato Bold'), local('Lato-Bold'),
+      url('../fonts/Lato-Bold.eot') format('embedded-opentype'),
+      url('../fonts/Lato-Bold.woff') format('woff'),
+      url('../fonts/Lato-Bold.ttf') format('truetype'),
+}
+
+/* Poppins */
+
+@font-face {
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 400;
+   src: url("../fonts/Poppins-Regular.woff");
+}
+
+@font-face {
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 500;
+   src: url("../fonts/Poppins-Medium.woff");
+}
+
+@font-face {
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 600;
+   src: url("../fonts/Poppins-SemiBold.woff");
+}
