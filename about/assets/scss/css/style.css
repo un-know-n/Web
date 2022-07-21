@@ -38,7 +38,9 @@ button {
     text-decoration: none;
 }
 
-/* Main Part */
+/* ----Main Part---- */
+
+/* Header */
 
 header {
     display: flex;
@@ -49,34 +51,37 @@ header {
     top: 0;
 }
 
-header .logo {
+header .header__logo {
     font-family: "Poppins-Semibold", sans-serif;
     max-width: 200px;
     color: #7562E0;
     margin-right: 10%;
 }
 
-header .top-menu {
+header .header__menu-navigation {
     max-width: 550px;
+}
+
+header .header__menu {
     display: flex;
     justify-content: space-between;
 }
 
-header .top-menu li {
+header .header__menu li {
     text-align: center;
 }
 
-header .top-menu li:last-child {
+header .header__menu li:last-child {
     margin-right: none;
 }
 
-header .top-menu li a {
+header .header__menu li a {
     position: relative;
     font-family: "Poppins-Semibold", sans-serif;
     color: white;  
 }
 
-header .top-menu li a:before {
+header .header__menu li a:before {
     display: block;
     position: absolute;
     content: "";
@@ -89,9 +94,23 @@ header .top-menu li a:before {
     bottom: -5px; 
 }
 
-header .top-menu li a:hover:before {
+header .header__menu li a:hover:before {
     width: 100%;
 }
+
+/* Main */
+
+main {
+    margin-top: 100px;
+    
+}
+
+
+
+
+
+
+
 
 
 /* Font-Face */
@@ -115,3 +134,4 @@ header .top-menu li a:hover:before {
     font-style: normal;
 
 }
+
