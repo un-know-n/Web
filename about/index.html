@@ -10,70 +10,67 @@
     <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
     <!-- style linking -->
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"> 
 
     <!-- title -->
     <title>Portfolio</title>
 </head>
 <body>
 
-    <input type="text" list="list">
-    <datalist id="list">
-        <option value="rfe"></option>
-        <option value="dfg"></option>
-        <option value="nfguh"></option>
-    </datalist>
-
     <!-- Header -->
-    <header>
+    <header class="header">
 
-        <a href="/" class="header__logo"><span>John Doe</span></a>
-        <nav class="header__menu-navigation">
-            <ul class="header__menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="header__link inactive">Resume</a>
-
+        <div class="wrapper">
+            <nav class="header__menu-navigation">
+                <a href="/" class="header__logo"><span>John Doe</span></a>
+                <div class="header__menu">
+                    <ul class="header__links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About me</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <a href="#" class="header__button inactive">Resume</a>
+                </div>
+            </nav>
+        </div>
+        
     </header>
 
     <!-- Main -->
-    <main>
+    <main class="main">
 
-        <!-- Section-1 -->
-        <section class="introduction" id="home">  
-            <div class="wrapper">
+        <div class="wrapper">
+            <!-- Section-1 -->
+            <section class="introduction" id="home">  
                 <div class="introduction__left-part">
-                    <h2>Hello, i'm</h2>
-                    <h1 class="big-text">John D. Doe</h1>
-                    <p class="secondary-text">Freelance UI designer, Fullstack developer, & Data Miner. I create seamless web experiences for end-users.</p>
-                    <a href="#about" class="introduction__link active">
-                        <span></span>
-                        <img src="" alt="">
-                    </a>
-                    <a href="#projects" class="introduction__link inactive">
-                        <span></span>
-                        <img src="" alt="">
-                    </a>
+                    <h2 class="sup-text">Hello, my name is</h2>
+                    <h1 class="sub-text">John D. Doe</h1>
+
+                    <p class="introduction__description secondary-text">Freelance UI designer, Fullstack developer, & Data Miner. I create seamless web experiences for end-users.</p>
+                    <a href="#about" class="introduction__link active">About me <i class="fa-regular fa-user"></i></a>
+                    <a href="#about" class="introduction__link inactive">Projects <i class="fa-regular fa-eye"></i></a>
                 </div>
                 <div class="introduction__right-part">
-                    <picture>
-                        <source media="" srcset="">
-                        <source media="" srcset="">
-                        <source media="" srcset="">
-                        <img src="" alt="">
-                    </picture>
-                </div>
-            </div>          
-        </section>
+                    <div class="picture-square">
+                        <div class="picture-square__person-image">
+                            <!-- <picture>
+                                <source media="" srcset="">
+                                <source media="" srcset="">
+                                <source media="" srcset="">
+                                <img src="assets/images/main/person.png" alt="person">
+                            </picture> -->
+                            <img src="assets/images/main/person.png" alt="person">
+                        </div>
+                    </div>
+                </div>        
+            </section>
 
-        <!-- Section-2 -->
-        <section class="about" id="about">
-            <div class="wrapper">
+            <!-- Section-2 -->
+            <section class="about" id="about">
                 <h2 class="main-heading">About me:</h2>
                 <p class="secondary-text">Hi, my name is John Doe, i am a Fullstack web developer, UI designer, and Mobile developer. I jhave honed my skills in Web Development and advance i have core understanding of advance UI design principles. 
                         Here are the major skiills i have. </p>
@@ -86,50 +83,46 @@
                 </div>
                 <div class="about__skills-part">
                     <ul class="skills-list">
-                        <li class="skills-list__item"><button role="tab">Frontend</button></li>
-                        <li class="skills-list__item"><button role="tab">Backend</button></li>
-                        <li class="skills-list__item"><button role="tab">Photoshop, Figma, Adobe XD</button></li>
-                        <li class="skills-list__item"><button role="tab">Communication</button></li>
+                        <li class="skills-list__item subtitle"><button role="tab">Frontend</button></li>
+                        <li class="skills-list__item subtitle"><button role="tab">Backend</button></li>
+                        <li class="skills-list__item subtitle"><button role="tab">Photoshop, Figma, Adobe XD</button></li>
+                        <li class="skills-list__item subtitle"><button role="tab">Communication</button></li>
                     </ul>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Section-3 -->
-        <section class="services">
-            <div class="wrapper">
+            <!-- Section-3 -->
+            <section class="services">
                 <h2 class="main-heading">The services i offer:</h2>
                 <div class="services__list">
                     <div class="item-service">
                         <div class="item-service__icon">
                             <img src="" alt="Service icon">
                         </div>
-                        <h3 class="item-service__title"></h3>
+                        <h3 class="item-service__title subtitle"></h3>
                         <p class="item-service__description secondary-text"></p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Section-3 -->
-        <section class="projects" id="projects">
-            <div class="wrapper">
-                <h2 class="main-heading">Featured projects:</h2>
-                <p class="secondary-text">I have worked on many projects over the course of being a Web Developer, here are a few of my live, real-world projects</p>
-                <div class="projects__carousel"></div>
-                <div class="projects__info">
-                    <p class="secondary-text">Want to see more?</p>
-                    <a href="#" class="projects__link inactive">Go to Archive</a>
-                </div>
-            </div>
-        </section>
+            <!-- Section-4 -->
+            <section class="projects" id="projects">
+                    <h2 class="main-heading">Featured projects:</h2>
+                    <p class="secondary-text">I have worked on many projects over the course of being a Web Developer, here are a few of my live, real-world projects</p>
+                    <div class="projects__carousel"></div>
+                    <div class="projects__info">
+                        <p class="secondary-text">Want to see more?</p>
+                        <a href="#" class="projects__link inactive">Go to Archive</a>
+                    </div>
+            </section>
+        </div>
 
     </main>    
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
 
-        <div class="footer-container" id="contact">
+        <div class="footer-container wrapper" id="contact">
             <div class="footer-container__connect">
                 <h2 class="main-heading">Connect with me:</h2>
                 <p class="secondary-text">Satisfied with me? Please contact me</p>
@@ -142,10 +135,12 @@
             </div>
             <div class="footer-container__contact">
                 <h3>Contact me, let's make magic together</h3>
-                <input type="text">
-                <input type="email">
-                <input type="text">
-                <button class="footer-container__send-answer"></button>
+                <form action="">
+                    <input name="Name" type="text" placeholder="Name:">
+                    <input name="Email" type="email" placeholder="Email:">
+                    <textarea name="Message" id="" cols="30" rows="10" placeholder="Message:"></textarea>
+                    <button class="footer-container__send-answer active">Send</button>
+                </form>
             </div>
             <div class="footer-container__text-below">
                 <ul class="footer-container__list">
