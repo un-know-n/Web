@@ -1,2 +1,2 @@
 # un-know-n.github.io
-Landing Web Pages
+Landing Web Pages and JavaScript projects
