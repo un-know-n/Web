@@ -37,6 +37,8 @@ button {
   cursor: pointer;
   color: inherit;
   text-decoration: none;
+  background: transparent;
+  border: none;
 }
 
 i {
@@ -45,12 +47,13 @@ i {
 
 /* ----Main Part---- */
 .wrapper {
-  padding: 0 5%;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .inactive, .active {
   background-color: transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid #7562E0;
   font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -68,9 +71,15 @@ i {
   background-color: transparent;
 }
 
+#active-skill {
+  background-color: #7562E0;
+  color: #fff;
+}
+
 .secondary-text {
   font-family: "Poppins-Medium", Arial, Helvetica, sans-serif;
   font-size: 18px;
+  margin: 20px 0;
 }
 
 .main-heading {
@@ -81,7 +90,7 @@ i {
 
 .subtitle {
   font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   text-transform: uppercase;
 }
 
@@ -92,8 +101,9 @@ header {
   background-color: rgba(24, 24, 36, 0.85);
   box-shadow: 0px 10px 30px -10px rgba(0, 0, 0, 0.75);
   height: 70px;
-  padding: 8px 0;
+  padding: 12px 0;
   position: fixed;
+  z-index: 999;
   top: 0;
 }
 header .header__menu-navigation {
@@ -101,6 +111,7 @@ header .header__menu-navigation {
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
+  padding: 0 5%;
 }
 header .header__menu-navigation .header__logo {
   font-size: 28px;
@@ -138,7 +149,7 @@ header .header__menu-navigation .header__menu .header__links li a:before {
   position: absolute;
   content: "";
   height: 2px;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 0;
   left: 0;
   background: #fff;
@@ -150,18 +161,18 @@ header .header__menu-navigation .header__menu .header__links li a:hover:before {
 }
 header .header__menu-navigation .header__button {
   flex-basis: 100px;
+  padding: 8px 16px;
 }
 
 /* Main */
-main {
-  padding-top: 5%;
+main section {
+  margin-bottom: 6%;
 }
 main .introduction {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   min-height: 100vh;
-  margin-bottom: 10%;
 }
 main .introduction__left-part {
   width: 75%;
@@ -183,19 +194,132 @@ main .introduction__link {
   margin-right: 20px;
 }
 main .introduction__right-part {
-  width: 700px;
+  max-width: 550px;
   flex-shrink: 2;
 }
 main .introduction__right-part .picture-square {
+  background: rgba(117, 98, 224, 0.7);
+  border-radius: 10px;
+  filter: grayscale(40%);
+  position: relative;
   transition: all 0.4s ease;
-  background: rgba(24, 24, 36, 0.85);
 }
 main .introduction__right-part .picture-square:hover {
-  background: transparent;
-  filter: grayscale(20%);
-  opacity: 0.95;
-  transform: scale(0.95);
+  background: rgba(0, 0, 0, 0);
+  filter: grayscale(0);
 }
-main .introduction__right-part .picture-square__person-image {
-  border: 5px solid green;
+main .introduction__right-part .picture-square:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 5%;
+  left: 5%;
+  border-collapse: separate;
+  border: 5px solid rgb(117, 98, 224);
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+main .introduction__right-part .picture-square:hover:after {
+  top: 0;
+  left: 0;
+}
+main .introduction__right-part .picture-square__person-image img {
+  opacity: 0.5;
+  transform: scale(0.95);
+  transition: all 0.4s ease;
+}
+main .introduction__right-part .picture-square__person-image:hover img {
+  opacity: 1;
+  transform: scale(1);
+}
+main .about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+main .about .about__experience-part {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+main .about .about__experience-part .about__experience-time {
+  flex-basis: 8%;
+  margin-right: 30px;
+}
+main .about .about__experience-part .about__experience-time h2 {
+  font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
+  font-size: 96px;
+  color: #7562E0;
+}
+main .about .about__skills-part .skills-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .about .about__skills-part .skills-list .skills-list__item {
+  background-color: #bdbdbd;
+  border-radius: 10px;
+  width: 24%;
+  height: 200px;
+  box-shadow: 5px 7px 30px -10px #000000;
+  color: #7562E0;
+}
+main .about .about__skills-part .skills-list .skills-list__item button {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px;
+  background-image: linear-gradient(45deg, #7562E0 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 280%;
+  transition: all 0.7s ease;
+}
+main .about .about__skills-part .skills-list .skills-list__item button:hover {
+  background-position: 0;
+  color: #fff;
+}
+main .about .about__skills-part .skills-list .skills-list__item button i {
+  margin-bottom: 20px;
+  font-size: 42px;
+  display: block !important;
+}
+main .services {
+  margin: 0;
+}
+main .services .services__list {
+  display: grid;
+  grid-template-columns: 32.5% 32.5% 32.5%;
+  grid-template-rows: 45% 45%;
+  grid-gap: 1.2%;
+  align-items: center;
+  padding-top: 30px;
+}
+main .services .services__list .item-service {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  width: 100%;
+  height: 100%;
+}
+main .services .services__list .item-service i {
+  font-size: 52px;
+}
+main .services .services__list .item-service .item-service__title {
+  margin-top: 10px;
+  color: #7562E0;
+}
+main .services .services__list .item-service:nth-child(odd) {
+  border-color: #7562E0;
+  color: #fff;
+}
+main .services .services__list .item-service:nth-child(odd) .item-service__title {
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
