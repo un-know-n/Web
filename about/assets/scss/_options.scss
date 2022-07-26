@@ -1,0 +1,58 @@
+// Fonts
+$medium-font-family: "Poppins-Medium", Arial, Helvetica, sans-serif;
+$semibold-font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
+
+// Colors
+$bg-color: #181824;
+$text-input-color: #93939a;
+$purple-color: #7562E0;
+$white-color: #fff;
+$telegram-main-color:#0d81ce;
+$telegram-border-color: #5b97be;
+$linkedin-main-color:#01548b;
+$linkedin-border-color: #406d8b;
+$discord-main-color:#5553d3;
+$discord-border-color: #7289da;
+$google-main-color:#dd3131;
+$google-border-color: #b45959;
+
+// Sizes
+$button-text-size: 16px;
+$normal-text-size: 18px;
+$subtitle-text-size: 24px;
+$title-text-size: 32px;
+$default-border-radius: 10px;
+$default-transition: all .4s ease;
+
+// Mixins
+@mixin medium-normal-text($color: $white-color){
+    font-family: $medium-font-family;
+    font-size: $normal-text-size;
+    @if $color != $white-color{
+        color: $color;
+    }
+}
+
+@mixin default-input-styles{
+    margin: 8px 0;
+    border-radius: $default-border-radius;
+    border: 1px solid rgba(0, 0, 0, 0.85);
+    background-color: #32323f;
+    padding: 19px 16px;
+    color: $white-color;
+
+    ::placeholder {
+        color: $text-input-color;
+    }
+}
+
+@mixin font-specified-text($font: $medium-font-family, $size: $normal-text-size, $color: $white-color, $property: null, $value: null){
+    font-family: $font;
+    font-size: $size;
+    @if $color != $white-color{
+        color: $color;
+    }
+    @if($property != null){
+        #{$property}: $value;
+    }
+}
