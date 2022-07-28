@@ -6,7 +6,6 @@
 *,
 *:after,
 *:before {
-  width: 100%;
   scroll-behavior: smooth;
   scroll-margin-block-start: 10vh;
   box-sizing: border-box;
@@ -34,6 +33,7 @@
 }
 
 body {
+  width: 100%;
   font-family: "Poppins-Medium", Arial, Helvetica, sans-serif;
   font-size: 18px;
   position: relative;
@@ -127,6 +127,7 @@ i {
 
 /* Header */
 header {
+  width: 100%;
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
   background-color: rgba(24, 24, 36, 0.85);
@@ -148,9 +149,8 @@ header .header__menu-navigation .header__logo {
   font-size: 28px;
   transition: all 0.4s ease;
   font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
-  max-width: 200px;
+  flex-basis: 200px;
   color: #7562E0;
-  margin-right: 10%;
 }
 header .header__menu-navigation .header__logo:hover {
   color: #fff;
@@ -159,9 +159,12 @@ header .header__menu-navigation .header__menu {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 100%;
 }
 header .header__menu-navigation .header__menu .header__links {
   display: flex;
+  justify-content: space-evenly;
+  flex-shrink: 10;
   flex-basis: 500px;
 }
 header .header__menu-navigation .header__menu .header__links li {
@@ -196,6 +199,9 @@ header .header__menu-navigation .header__button {
 }
 
 /* Main */
+main {
+  width: 100%;
+}
 main section {
   margin-bottom: 6%;
 }
@@ -413,7 +419,7 @@ main .services .services__wrapper .item-service:nth-child(odd) .item-service__ti
 }
 main .projects .projects__carousel {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 0 auto;
 }
@@ -421,15 +427,29 @@ main .projects .projects__carousel .item-projects {
   margin: 0 5px;
   background-color: #31313f;
   border-radius: 10px;
-  box-shadow: 1px 5px 18px -6px #000000;
   padding: 16px;
-  margin-bottom: 10px;
+}
+main .projects .projects__carousel .item-projects .item-projects__image {
+  width: 100%;
+  height: 100%;
+  max-height: 165px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border: 1px solid #7562E0;
+  border-radius: 10px;
 }
 main .projects .projects__carousel .item-projects .item-projects__title {
   color: #7562E0;
+  margin-top: 10px;
+}
+main .projects .projects__carousel .item-projects .item-projects__description {
+  margin-top: 0;
 }
 main .projects .projects__carousel .item-projects .item-projects__links {
   white-space: nowrap;
+  margin-bottom: 10px;
 }
 main .projects .projects__info {
   display: flex;
@@ -454,6 +474,7 @@ footer .footer-container {
 }
 footer .footer-container .footer-container__connect {
   height: 380px;
+  width: 100%;
 }
 footer .footer-container .footer-container__connect .footer-container__links-list {
   display: grid;
@@ -547,12 +568,14 @@ footer .footer-container .footer-container__connect .footer-container__links-lis
 }
 footer .footer-container .footer-container__contact {
   height: 380px;
+  width: 100%;
 }
 footer .footer-container .footer-container__contact .footer-container__second-title {
   font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
   font-size: 24px;
 }
 footer .footer-container .footer-container__contact .footer-container__contact-form input {
+  width: 100%;
   margin: 8px 0;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.85);
@@ -570,6 +593,7 @@ footer .footer-container .footer-container__contact .footer-container__contact-f
   color: #93939a;
 }
 footer .footer-container .footer-container__contact .footer-container__contact-form textarea {
+  width: 100%;
   margin: 8px 0;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.85);

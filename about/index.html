@@ -10,12 +10,13 @@
     <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
     <!-- style linking -->
-    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/libs/normalize.css">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"> 
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
+    <!-- <link rel="stylesheet" href="assets/css/libs/animate.css"> -->
+    <link rel="stylesheet" href="assets/css/libs/slick.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
 
     <!-- title -->
     <title>Portfolio</title>
@@ -27,15 +28,15 @@
 
         <!-- <div class="wrapper"> -->
             <nav class="header__menu-navigation">
-                <a href="/" class="header__logo wow animate__animated animate__fadeInDown"><span>John Doe</span></a>
+                <a href="/" class="header__logo animate__animated animate__fadeInDown"><span>John Doe</span></a>
                 <div class="header__menu">
                     <ul class="header__links">
-                        <li class="wow animate__animated animate__fadeInDown animate__delay-1s"><a href="#home">Home</a></li>
-                        <li class="wow animate__animated animate__fadeInDown animate__delay-2s"><a href="#about">About me</a></li>
-                        <li class="wow animate__animated animate__fadeInDown animate__delay-3s"><a href="#projects">Projects</a></li>
-                        <li class="wow animate__animated animate__fadeInDown animate__delay-4s"><a href="#contact">Contact</a></li>
+                        <li class="animate__animated animate__fadeInDown animate__delay-1s"><a href="#home">Home</a></li>
+                        <li class="animate__animated animate__fadeInDown animate__delay-2s"><a href="#about">About me</a></li>
+                        <li class="animate__animated animate__fadeInDown animate__delay-3s"><a href="#projects">Projects</a></li>
+                        <li class="animate__animated animate__fadeInDown animate__delay-4s"><a href="#contact">Contact</a></li>
                     </ul>
-                    <a href="#" class="header__button inactive wow animate__animated animate__fadeInDown animate__delay-5s">Resume</a>
+                    <a href="#" class="header__button inactive animate__animated animate__fadeInDown animate__delay-5s">Resume</a>
                 </div>
             </nav>
         <!-- </div> -->
@@ -81,7 +82,7 @@
 
             <!-- Section-2 -->
             <section class="about wow animate__animated animate__fadeIn" id="about">
-                <h2 class="main-heading">About me:</h2>
+                <h2 class="main-heading">About me</h2>
                 <p class="secondary-text">Hi, my name is John Doe, i am a Fullstack web developer, UI designer, and Mobile developer. I jhave honed my skills in Web Development and advance i have core understanding of advance UI design principles. 
                         Here are the major skiills i have. </p>
                 <div class="about__experience-part">
@@ -92,7 +93,7 @@
                         web experience for end users.</p>
                 </div>
                 <div class="about__skills-part" id="tabs">
-                    <ul class="skills-list">
+                    <ul class="skills-list" role="tablist">
                         <li data-li="frontend" class="skills-list__item" id="active-skill"><button class="skills-list__button subtitle" role="tab"><i class="fa-solid fa-code"></i> Frontend Development</button></li>
                         <li data-li="backend" class="skills-list__item"><button class="skills-list__button subtitle" role="tab"><i class="fa-solid fa-server"></i> Backend Development</button></li>
                         <li data-li="design" class="skills-list__item"><button class="skills-list__button subtitle" role="tab"><i class="fa-solid fa-wand-magic-sparkles"></i> UI & UX Designing</button></li>
@@ -108,7 +109,7 @@
                     <div class="frontend services__wrapper">
                         <div class="item-service">
                             <i class="fa-brands fa-css3 item-service__icon"></i>
-                            <h3 class="item-service__title subtitle">HTML & CSS. Preprocessors. BEM</h3>
+                            <h3 class="item-service__title subtitle">HTML & CSS. Preprocessors.</h3>
                             <p class="item-service__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, asperiores beatae? </p>
                         </div>
                         <div class="item-service">
@@ -118,7 +119,7 @@
                         </div>
                         <div class="item-service">
                             <i class="fa-brands fa-css3 item-service__icon"></i>
-                            <h3 class="item-service__title subtitle">React. Node.js. NPM</h3>
+                            <h3 class="item-service__title subtitle">Frameworks</h3>
                             <p class="item-service__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, asperiores beatae? Accusamus corrupti totam obcaecati?</p>
                         </div>
                         <div class="item-service">
@@ -137,7 +138,7 @@
                             <p class="item-service__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, asperiores beatae? Accusamus corrupti totam obcaecati?</p>
                         </div>
                     </div>
-                    <div class="backend services__wrapper" id="hide">
+                    <div class="backend services__wrapper hide" >
                         <div class="item-service">
                             <i class="fa-brands fa-css3 item-service__icon"></i>
                             <h3 class="item-service__title subtitle">HTML & CSS</h3>
@@ -169,7 +170,7 @@
                             <p class="item-service__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, asperiores beatae? Accusamus corrupti totam obcaecati?</p>
                         </div>
                     </div>
-                    <div class="design services__wrapper" id="hide">
+                    <div class="design services__wrapper hide">
                         <div class="item-service">
                             <i class="fa-brands fa-css3 item-service__icon"></i>
                             <h3 class="item-service__title subtitle">HTML & CSS</h3>
@@ -201,7 +202,7 @@
                             <p class="item-service__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, asperiores beatae? Accusamus corrupti totam obcaecati?</p>
                         </div>
                     </div>
-                    <div class="communication services__wrapper" id="hide">
+                    <div class="communication services__wrapper hide">
                         <div class="item-service">
                             <i class="fa-brands fa-css3 item-service__icon"></i>
                             <h3 class="item-service__title subtitle">HTML & CSS</h3>
@@ -243,7 +244,7 @@
                     <div class="projects__carousel">
                         <div class="item-projects">
                             <div class="item-projects__image">
-                                <img src="" alt="Project image">
+                                <img src="assets/images/main/example.png" alt="Project image">
                             </div>
                             <h3 class="item-projects__title subtitle">TITLE</h3>
                             <p class="item-projects__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, commodi!</p>
@@ -254,7 +255,7 @@
                         </div>
                         <div class="item-projects">
                             <div class="item-projects__image">
-                                <img src="" alt="Project image">
+                                <img src="assets/images/main/example.png" alt="Project image">
                             </div>
                             <h3 class="item-projects__title subtitle">TITLE</h3>
                             <p class="item-projects__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, commodi!</p>
@@ -265,7 +266,7 @@
                         </div>
                         <div class="item-projects">
                             <div class="item-projects__image">
-                                <img src="" alt="Project image">
+                                <img src="assets/images/main/example.png" alt="Project image">
                             </div>
                             <h3 class="item-projects__title subtitle">TITLE</h3>
                             <p class="item-projects__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, commodi!</p>
@@ -276,7 +277,7 @@
                         </div>
                         <div class="item-projects">
                             <div class="item-projects__image">
-                                <img src="" alt="Project image">
+                                <img src="assets/images/main/example.png" alt="Project image">
                             </div>
                             <h3 class="item-projects__title subtitle">TITLE</h3>
                             <p class="item-projects__description secondary-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, commodi!</p>
@@ -314,7 +315,7 @@
                 <form class="footer-container__contact-form" action="">
                     <input name="Name" type="text" placeholder="Name:">
                     <input name="Email" type="email" placeholder="Email:">
-                    <textarea name="Message" id="" cols="30" rows="10" placeholder="Message:"></textarea>
+                    <textarea name="Message" id="footer-textarea" cols="30" rows="10" placeholder="Message:"></textarea>
                     <button class="footer-container__send-answer active">Send</button>
                 </form>
             </div>
@@ -330,9 +331,9 @@
     </footer>
 
     
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/libs/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/libs/slick.min.js"></script>
+    <script src="assets/js/libs/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
-</html>
+<!-- </html> -->
