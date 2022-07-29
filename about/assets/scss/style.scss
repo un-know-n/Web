@@ -1,4 +1,4 @@
-@use 'options';
+@use 'options/options';
 
 /* Initialization */
 
@@ -32,20 +32,20 @@
 
 ::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.8);
-    border: 1px solid $white-color;
-    border-radius: $default-border-radius;
+    border: 1px solid options.$white-color;
+    border-radius: options.$default-border-radius;
     
 }
 
 body {
     width: 100%;
-    @include medium-normal-text;
+    @include options.medium-normal-text;
     position: relative;
     line-height: 1.65;
     overflow-x: hidden;
     opacity: 1;
-    background-color: $bg-color;
-    color: $white-color;
+    background-color: options.$bg-color;
+    color: options.$white-color;
 }
 
 img {
@@ -78,19 +78,19 @@ i{
 
 .inactive{
     background-color: transparent;
-	border-radius: $default-border-radius;
-	border: 2px solid $purple-color;
-	@include font-specified-text($semibold-font-family, $button-text-size);
+	border-radius: options.$default-border-radius;
+	border: 2px solid options.$purple-color;
+	@include options.font-specified-text(options.$semibold-font-family, options.$button-text-size);
 	padding: 12px 16px;
-    transition: $default-transition;
+    transition: options.$default-transition;
     &:hover{
-        background-color: $purple-color;
+        background-color: options.$purple-color;
     }
 }
 
 .active{
     @extend .inactive;
-    background-color: $purple-color;
+    background-color: options.$purple-color;
 
     &:hover{
         background-color: transparent;
@@ -98,34 +98,34 @@ i{
 }
 
 #active-skill {
-    background-color: $purple-color;
-    color: $white-color;
+    background-color: options.$purple-color;
+    color: options.$white-color;
 }
 
 #inactive-skill {
     background-color: #bdbdbd;
-    color: $purple-color;
+    color: options.$purple-color;
 }
 
 .secondary-text{
-    @include medium-normal-text;
+    @include options.medium-normal-text;
     margin: 20px 0;
 }
 
 .main-heading{
-    @include font-specified-text($semibold-font-family, $title-text-size, $purple-color);
+    @include options.font-specified-text(options.$semibold-font-family, options.$title-text-size, options.$purple-color);
 }
 
 .subtitle{
-    @include font-specified-text($semibold-font-family, $subtitle-text-size, $white-color, text-transform, uppercase);
+    @include options.font-specified-text(options.$semibold-font-family, options.$subtitle-text-size, options.$white-color, text-transform, uppercase);
 }
 
-#show {
-    display: grid;
+.show {
+    display: grid !important;
 }
 
-#hide {
-    display: none;
+.hide {
+    display: none !important;
 }
 
 
@@ -151,13 +151,13 @@ header {
 
     .header__logo{
         font-size: 28px;
-        transition: $default-transition;
-        font-family: $semibold-font-family;
+        transition: options.$default-transition;
+        font-family: options.$semibold-font-family;
         flex-basis: 200px;
-        color: $purple-color;
+        color: options.$purple-color;
 
         &:hover{
-            color: $white-color;
+            color: options.$white-color;
         }
     }
 
@@ -182,19 +182,19 @@ header {
         
                 a{
                     position: relative;
-                    @include font-specified-text($semibold-font-family, $button-text-size);
+                    @include options.font-specified-text(options.$semibold-font-family, options.$button-text-size);
         
                     &:before{
                         display: block;
                         position: absolute;
                         content: "";
                         height: 2px;
-                        border-radius: $default-border-radius;
+                        border-radius: options.$default-border-radius;
                         width: 0;
                         left: 0;
                         background: #fff;
                         bottom: -5px; 
-                        transition: $default-transition;
+                        transition: options.$default-transition;
                     }
         
                     &:hover:before{
@@ -235,11 +235,11 @@ main {
             width: 75%;
 
             .sup-text{
-                @include font-specified-text($semibold-font-family, $subtitle-text-size);
+                @include options.font-specified-text(options.$semibold-font-family, options.$subtitle-text-size);
             }
 
             .sub-text{
-                @include font-specified-text($semibold-font-family, 62px);
+                @include options.font-specified-text(options.$semibold-font-family, 62px);
                 margin: 0;
             }
             
@@ -259,10 +259,10 @@ main {
             flex-shrink: 2;
             .picture-square{
                 background: rgba(117, 98, 224, 0.7);
-                border-radius: $default-border-radius;
+                border-radius: options.$default-border-radius;
                 filter: grayscale(40%);
                 position: relative;
-                transition: $default-transition;
+                transition: options.$default-transition;
 
                 &:hover{
                     background: rgba(0, 0, 0, 0);
@@ -280,10 +280,10 @@ main {
                     left: 5%;
                     border-collapse: separate;
                     border: 5px solid rgba(117, 98, 224, 1);
-                    border-radius: $default-border-radius;
+                    border-radius: options.$default-border-radius;
                     //border-image-slice: 1;
                     //border-image-source: linear-gradient(to right, #F97794, #623AA2);
-                    transition: $default-transition;
+                    transition: options.$default-transition;
                 }
 
                 &:hover:after{
@@ -295,7 +295,7 @@ main {
                     img{
                         opacity: 0.5;
                         transform: scale(0.95);
-                        transition: $default-transition;
+                        transition: options.$default-transition;
                     }
                     &:hover{
                         img{
@@ -316,8 +316,8 @@ main {
                 display: inline-block;
                 width: 20px;
                 height: 30px;
-                border: 2px solid $white-color;
-                border-radius: $default-border-radius;
+                border: 2px solid options.$white-color;
+                border-radius: options.$default-border-radius;
                 text-align: center;
 
                 &:before {
@@ -326,10 +326,10 @@ main {
                     height: 5px;
                     position: absolute;
                     top: 5px;
-                    background: $white-color;
+                    background: options.$white-color;
                     left: 10px;
                     transform: translateX(-50%);
-                    border-radius: $default-border-radius;
+                    border-radius: options.$default-border-radius;
                     opacity: 1;
                     animation: mouse 2s infinite;
                     z-index: -1;
@@ -339,8 +339,8 @@ main {
                     display: block;
                     width: 10px;
                     height: 10px;
-                    border-right: 1px solid $white-color;
-                    border-bottom: 1px solid $white-color;
+                    border-right: 1px solid options.$white-color;
+                    border-bottom: 1px solid options.$white-color;
                     transform: rotate(45deg);
                     margin-left: 3px;
                     animation: down-arrows 2s infinite;
@@ -385,7 +385,7 @@ main {
                 margin-right: 30px;
 
                 h2{
-                    @include font-specified-text($semibold-font-family, 96px, $purple-color);
+                    @include options.font-specified-text(options.$semibold-font-family, 96px, options.$purple-color);
                 }
             }
         }
@@ -399,21 +399,21 @@ main {
 
                 .skills-list__item{
                     background-color: #bdbdbd;
-                    border-radius: $default-border-radius;
+                    border-radius: options.$default-border-radius;
                     width: 24%;
                     height: 200px;
                     box-shadow: 5px 7px 30px -10px #000000;
-                    color: $purple-color;
+                    color: options.$purple-color;
                     
 
                     button{
                         width: 100%;
                         height: 100%;
                         text-align: center;
-                        border-radius: $default-border-radius;
+                        border-radius: options.$default-border-radius;
                         padding: 15px;
                         background: {
-                            image: linear-gradient(45deg, $purple-color 50%, transparent 50%);
+                            image: linear-gradient(45deg, options.$purple-color 50%, transparent 50%);
                             position: 100%;
                             size: 280%;
                           }
@@ -421,7 +421,7 @@ main {
 
                         &:hover {
                             background-position: 0;
-                            color: $white-color;
+                            color: options.$white-color;
                         }
 
                         i{
@@ -449,9 +449,9 @@ main {
             padding-top: 30px;
             
             .item-service {
-                border: 2px solid $white-color;
-                border-radius: $default-border-radius;
-                color: $white-color;
+                border: 2px solid options.$white-color;
+                border-radius: options.$default-border-radius;
+                color: options.$white-color;
                 text-align: center;
                 padding: 30px 20px;
                 width: 100%;
@@ -464,14 +464,14 @@ main {
 
                 .item-service__title {
                     margin-top: 10px;
-                    color: $purple-color;
+                    color: options.$purple-color;
                 }
 
                 &:nth-child(odd) {
-                    border-color: $purple-color;
-                    color: $white-color;
+                    border-color: options.$purple-color;
+                    color: options.$white-color;
                     .item-service__title {
-                        color: $white-color;
+                        color: options.$white-color;
                     }
                 }
             }
@@ -489,25 +489,28 @@ main {
             .item-projects{
                 margin: 0 5px;
                 background-color: #31313f;
-                border-radius: $default-border-radius;
+                border-radius: options.$default-border-radius;
                 padding: 16px;
 
                 .item-projects__image {
                     width: 100%;
                     height: 100%;
-                    max-height: 165px;
+                    max-height: 195px;
+                    overflow: hidden;
                     
-                    border: 1px solid $purple-color;
-                    border-radius: $default-border-radius;
+                    border: 2px solid options.$purple-color;
+                    border-radius: options.$default-border-radius;
 
                     img {
+                        width: 100%;
+                        height: 100%;
                         object-fit: cover;
-                        object-position: center;
+                        object-position: top;
                     }
                 }
 
                 .item-projects__title {
-                    color: $purple-color;
+                    color: options.$purple-color;
                     margin-top: 10px;
                 }
 
@@ -570,7 +573,7 @@ footer {
                     text-align: center;
                     padding-top: 18px;
                     transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
-                    transition: $default-transition;
+                    transition: options.$default-transition;
                     margin-bottom: 70px;
                     box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
 
@@ -581,7 +584,7 @@ footer {
                         left: -20px;
                         height: 100%;
                         width: 20px;
-                        transition: $default-transition;
+                        transition: options.$default-transition;
                         transform: rotate(0deg) skewY(-45deg);
                     }
 
@@ -592,14 +595,14 @@ footer {
                         left: -10px;
                         height: 20px;
                         width: 100%;
-                        transition: $default-transition;
+                        transition: options.$default-transition;
                         transform: rotate(0deg) skewX(-45deg);
                     }
 
                     &:hover {
                         transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
                         box-shadow: -50px 50px 10px rgba(0, 0, 0, 0.5);
-                        background: $white-color;
+                        background: options.$white-color;
 
                         &:after, &:before{
                             background: #b1b1b1;
@@ -611,63 +614,63 @@ footer {
                     i {
                         font-size: 40px;
                         // color: #262626;
-                        color: $white-color;
-                        transition: $default-transition;
+                        color: options.$white-color;
+                        transition: options.$default-transition;
                     }
                 }
 
                 .telegram {
-                    background: $telegram-main-color;
+                    background: options.$telegram-main-color;
                 
                     &:before, &:after {
-                        background: $telegram-border-color;
+                        background: options.$telegram-border-color;
                     }
 
                     &:hover {
                         i {
-                            color: $telegram-main-color;
+                            color: options.$telegram-main-color;
                         }
                     }
                 }
 
                 .linkedin {
-                    background: $linkedin-main-color;
+                    background: options.$linkedin-main-color;
                 
                     &:before, &:after {
-                        background: $linkedin-border-color;
+                        background: options.$linkedin-border-color;
                     }
 
                     &:hover {
                         i {
-                            color: $linkedin-main-color;
+                            color: options.$linkedin-main-color;
                         }
                     }
                 }
 
                 .discord {
-                    background: $discord-main-color;
+                    background: options.$discord-main-color;
                 
                     &:before, &:after {
-                        background: $discord-border-color;
+                        background: options.$discord-border-color;
                     }
 
                     &:hover {
                         i {
-                            color: $discord-main-color;
+                            color: options.$discord-main-color;
                         }
                     }
                 }
 
                 .google {
-                    background: $google-main-color;
+                    background: options.$google-main-color;
                 
                     &:before, &:after {
-                        background: $google-border-color;
+                        background: options.$google-border-color;
                     }
 
                     &:hover {
                         i {
-                            color: $google-main-color;
+                            color: options.$google-main-color;
                         }
                     }
                 }
@@ -680,19 +683,19 @@ footer {
             width: 100%;
 
             .footer-container__second-title {
-                @include font-specified-text($semibold-font-family, $subtitle-text-size);
+                @include options.font-specified-text(options.$semibold-font-family, options.$subtitle-text-size);
             }
 
             .footer-container__contact-form {
 
                 input {
                     width: 100%;
-                    @include default-input-styles;
+                    @include options.default-input-styles;
                 }
 
                 textarea {
                     width: 100%;
-                    @include default-input-styles;
+                    @include options.default-input-styles;
                     max-height: 195px;
                     resize: none;
                 }
@@ -712,7 +715,7 @@ footer {
             align-items: center;
             justify-content: space-between;
             text-align: center;
-            color: $text-input-color;
+            color: options.$text-input-color;
         }
     }
 }
