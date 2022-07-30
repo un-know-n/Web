@@ -48,3 +48,13 @@
         transform: rotate(45deg) translate(5px, 5px);
     }
 }
+
+@keyframes body-blur {
+    0% {
+        backdrop-filter: blur(1px);
+    }
+
+    100% {
+        backdrop-filter: blur(8px);
+    }
+}

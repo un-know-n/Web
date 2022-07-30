@@ -26,18 +26,24 @@
     <!-- Header -->
     <header class="header">
 
-            <nav class="header__menu-navigation">
+            <div class="header__menu">
                 <a href="/" class="header__logo animate__animated animate__fadeInDown"><span>John Doe</span></a>
-                <div class="header__menu">
+                <div class="header__burger">
+                    <span></span>
+                </div>
+                <nav class="header__menu-navigation">
                     <ul class="header__links">
                         <li class="animate__animated animate__fadeInDown animate__delay-1s"><a href="#home">Home</a></li>
                         <li class="animate__animated animate__fadeInDown animate__delay-2s"><a href="#about">About me</a></li>
                         <li class="animate__animated animate__fadeInDown animate__delay-3s"><a href="#projects">Projects</a></li>
                         <li class="animate__animated animate__fadeInDown animate__delay-4s"><a href="#contact">Contact</a></li>
                     </ul>
-                    <a href="#" class="header__button inactive animate__animated animate__fadeInDown animate__delay-5s">Resume</a>
-                </div>
-            </nav>
+                    <div class="header__button inactive animate__animated animate__fadeInDown animate__delay-5s">
+                        <a href="#">Resume</a>
+                    </div>
+                    
+                </nav>
+            </div>
         
     </header>
 
@@ -95,7 +101,7 @@
                         <li data-li="frontend" class="skills-list__item" id="active-skill"><button class="skills-list__button subtitle" role="tab"><i class="fa-solid fa-code"></i> Frontend Development</button></li>
                         <li data-li="backend" class="skills-list__item"><button class="skills-list__button subtitle" role="tab"><i class="fa-solid fa-server"></i> Backend Development</button></li>
                         <li data-li="design" class="skills-list__item"><button class="skills-list__button subtitle" role="tab"><i class="fa-solid fa-wand-magic-sparkles"></i> UI & UX Designing</button></li>
-                        <li data-li="communication" class="skills-list__item"><button class="skills-list__button subtitle" role="tab"><i class="fa-regular fa-comments"></i> Skills of Communication</button></li>
+                        <li data-li="communication" class="skills-list__item"><button class="skills-list__button subtitle" role="tab"><i class="fa-regular fa-comments"></i> Social skills</button></li>
                     </ul>
                 </div>
             </section>
@@ -297,33 +303,35 @@
     <!-- Footer -->
     <footer class="footer">
 
-        <div class="footer-container wrapper wow animate__animated animate__fadeIn" id="contact">
-            <div class="footer-container__connect">
-                <h2 class="main-heading">Connect with me:</h2>
-                <p class="secondary-text">Satisfied with me? Please contact me</p>
-                <ul class="footer-container__links-list">
-                    <li><a href="#" class="footer-container__link telegram" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
-                    <li><a href="#" class="footer-container__link linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-                    <li><a href="#" class="footer-container__link discord" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
-                    <li><a href="#" class="footer-container__link google" target="_blank"><i class="fa-brands fa-google"></i></a></li>
+        <div class="wrapper wow animate__animated animate__fadeIn" id="contact">
+            <h2 class="main-heading">Connect with me </h2>
+            <div class="footer-container">
+                <div class="footer-container__connect">
+                    <p class="secondary-text">Satisfied with me? Please contact me</p>
+                    <ul class="footer-container__links-list">
+                        <li><a href="#" class="footer-container__link telegram" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
+                        <li><a href="#" class="footer-container__link linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="#" class="footer-container__link discord" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
+                        <li><a href="#" class="footer-container__link google" target="_blank"><i class="fa-brands fa-google"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-container__contact">
+                    <h2 class="footer-container__second-title">Contact me, let's make magic together</h2>
+                    <form class="footer-container__contact-form" action="formHandler.php">
+                        <input name="Name" type="text" placeholder="Name:">
+                        <input name="Email" type="email" placeholder="Email:">
+                        <textarea name="Message" id="footer-textarea" cols="30" rows="10" placeholder="Message:"></textarea>
+                        <button class="footer-container__send-answer active">Send</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__text-below wrapper">
+                <ul class="footer-container__list">
+                    <li>@2023 John Doe</li>
+                    <li>Web Developer</li>
+                    <li>Created by me</li>
                 </ul>
             </div>
-            <div class="footer-container__contact">
-                <h2 class="footer-container__second-title">Contact me, let's make magic together</h2>
-                <form class="footer-container__contact-form" action="formHandler.php">
-                    <input name="Name" type="text" placeholder="Name:">
-                    <input name="Email" type="email" placeholder="Email:">
-                    <textarea name="Message" id="footer-textarea" cols="30" rows="10" placeholder="Message:"></textarea>
-                    <button class="footer-container__send-answer active">Send</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer__text-below wrapper">
-            <ul class="footer-container__list">
-                <li>@2023 John Doe</li>
-                <li>Web Developer</li>
-                <li>Created by me</li>
-            </ul>
         </div>
 
     </footer>

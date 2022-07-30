@@ -138,47 +138,50 @@ header {
   z-index: 999;
   top: 0;
 }
-header .header__menu-navigation {
+header .header__menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
   padding: 0 5%;
 }
-header .header__menu-navigation .header__logo {
+header .header__menu .header__logo {
   font-size: 28px;
   transition: all 0.4s ease;
   font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
   flex-basis: 200px;
   color: #7562E0;
 }
-header .header__menu-navigation .header__logo:hover {
+header .header__menu .header__logo:hover {
   color: #fff;
 }
-header .header__menu-navigation .header__menu {
+header .header__menu .header__burger {
+  display: none;
+}
+header .header__menu .header__menu-navigation {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
 }
-header .header__menu-navigation .header__menu .header__links {
+header .header__menu .header__menu-navigation .header__links {
   display: flex;
   justify-content: space-evenly;
   flex-shrink: 10;
   flex-basis: 500px;
 }
-header .header__menu-navigation .header__menu .header__links li {
+header .header__menu .header__menu-navigation .header__links li {
   text-align: center;
 }
-header .header__menu-navigation .header__menu .header__links li:last-child {
+header .header__menu .header__menu-navigation .header__links li:last-child {
   margin-right: none;
 }
-header .header__menu-navigation .header__menu .header__links li a {
+header .header__menu .header__menu-navigation .header__links li a {
   position: relative;
   font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
-header .header__menu-navigation .header__menu .header__links li a:before {
+header .header__menu .header__menu-navigation .header__links li a:before {
   display: block;
   position: absolute;
   content: "";
@@ -190,10 +193,10 @@ header .header__menu-navigation .header__menu .header__links li a:before {
   bottom: -5px;
   transition: all 0.4s ease;
 }
-header .header__menu-navigation .header__menu .header__links li a:hover:before {
+header .header__menu .header__menu-navigation .header__links li a:hover:before {
   width: 100%;
 }
-header .header__menu-navigation .header__button {
+header .header__menu .header__button {
   flex-basis: 100px;
   padding: 8px 16px;
 }
@@ -234,6 +237,7 @@ main .introduction__link {
 main .introduction__right-part {
   max-width: 550px;
   flex-shrink: 2;
+  cursor: pointer;
 }
 main .introduction__right-part .picture-square {
   background: rgba(117, 98, 224, 0.7);
@@ -418,6 +422,9 @@ main .services .services__wrapper .item-service:nth-child(odd) {
 main .services .services__wrapper .item-service:nth-child(odd) .item-service__title {
   color: #fff;
 }
+main .projects {
+  margin-bottom: 4%;
+}
 main .projects .projects__carousel {
   display: flex;
   justify-content: space-between;
@@ -473,14 +480,20 @@ footer {
   height: 520px;
   margin-bottom: 50px;
 }
+footer .main-heading {
+  margin-bottom: 2%;
+  text-align: left;
+}
 footer .footer-container {
   display: flex;
   justify-content: center;
   height: 100%;
 }
 footer .footer-container .footer-container__connect {
-  height: 380px;
   width: 100%;
+}
+footer .footer-container .footer-container__connect .secondary-text {
+  margin-top: 0;
 }
 footer .footer-container .footer-container__connect .footer-container__links-list {
   display: grid;
@@ -573,7 +586,6 @@ footer .footer-container .footer-container__connect .footer-container__links-lis
   color: #dd3131;
 }
 footer .footer-container .footer-container__contact {
-  height: 380px;
   width: 100%;
 }
 footer .footer-container .footer-container__contact .footer-container__second-title {
@@ -620,6 +632,11 @@ footer .footer-container .footer-container__contact .footer-container__contact-f
 }
 footer .footer-container .footer-container__contact .footer-container__contact-form button {
   width: 35%;
+}
+footer .footer__text-below {
+  display: block;
+  height: 100%;
+  margin: 25px 0;
 }
 footer .footer__text-below .footer-container__list {
   display: flex;

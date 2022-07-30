@@ -1,11 +1,10 @@
-
 preventAnchorScroll();
 /**
  * Prevent automatic scrolling of page to anchor by browser after loading of page.
  * Do not call this function in $(...) or $(window).on('load', ...),
  * it should be called earlier, as soon as possible.
  */
- function preventAnchorScroll() {
+function preventAnchorScroll() {
   var scrollToTop = function () {
       $(window).scrollTop(0);
   };
@@ -39,39 +38,52 @@ wow = new WOW(
 wow.init();
 
 $(document).ready(function(){
-    $('.projects__carousel').slick({
-        dots: false,
-        infinite: true,
-        fade: false,
-        arrows: false,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-            }
-          },
-          {
-            breakpoint: 870,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
+
+  $('.header__burger').click(function(event) {
+    $('.header__burger, .header__menu-navigation').toggleClass('change-menu');
+    $('body').toggleClass('lock');
+  });
+
+  $('.header__link').click(function(event) {
+    if($('body').hasClass('lock')) {
+      $('.header__burger, .header__menu-navigation').toggleClass('change-menu');
+      $('body').toggleClass('lock');
+    }
+  }); 
+
+  $('.projects__carousel').slick({
+      dots: false,
+      infinite: true,
+      fade: false,
+      arrows: false,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
           }
-        ]
-      });
+        },
+        {
+          breakpoint: 870,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 570,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
 });
 
 var li_elements = document.querySelectorAll(".skills-list__button");
