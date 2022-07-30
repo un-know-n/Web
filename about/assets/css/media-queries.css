@@ -576,11 +576,12 @@
     grid-column-gap: 2%;
   }
   main .about .about__skills-part .skills-list .skills-list__item {
-    padding: 5px 0;
+    padding: 0;
     width: 100%;
     height: 100%;
   }
   main .about .about__skills-part .skills-list .skills-list__item button {
+    padding: 20px 0;
     font-size: 16px;
   }
   main .projects .projects__info {
