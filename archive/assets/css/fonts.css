@@ -1,0 +1,50 @@
+/* Font-Face */
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('../fonts/poppins-medium-webfont.woff2') format('woff2'),
+         url('../fonts/poppins-medium-webfont.woff') format('woff'),
+         url('../fonts/poppins-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Poppins-Semibold';
+    src: url('../fonts/poppins-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/poppins-semibold-webfont.woff') format('woff'),
+         url('../fonts/poppins-semibold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Animations */
+@keyframes mouse {
+    from {
+        opacity: 1;
+        top: 5px;
+    }
+
+    to {
+        opacity: 0;
+        top: 20px;
+    }
+}
+
+@keyframes down-arrows{
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+}
