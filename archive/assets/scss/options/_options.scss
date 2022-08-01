@@ -4,6 +4,7 @@ $semibold-font-family: "Poppins-Semibold", Arial, Helvetica, sans-serif;
 
 // Colors
 $bg-color: #181824;
+$bg-second-color: #13131d;
 $text-input-color: #93939a;
 $purple-color: #7562E0;
 $white-color: #fff;
@@ -54,5 +55,25 @@ $default-transition: all .4s ease;
     }
     @if($property != null){
         #{$property}: $value;
+    }
+}
+
+@mixin cardsOpen() {
+    &::before {
+      background: rgba(10,72,112, 0.6);
+    }
+    .main-cards__book {
+      .main-cards__content {
+        opacity: 1;
+
+        transform: translateY(0px);
+      }
+    }
+
+    .main-cards__info-container {      
+      transform: translateY(0px);
+      .main-cards__more-info {
+        opacity: 1;
+      }
     }
 }

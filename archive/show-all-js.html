@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- default meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- document favicon in browser tab -->
+    <link rel="icon" type="image/x-icon" href="assets/images/archive.ico">
+
+    <!-- style linking -->
+    <link rel="stylesheet" href="assets/css/libs/normalize.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"> 
+    <!-- <link rel="stylesheet" href="assets/css/libs/animate.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- title -->
     <title>JS Projects</title>
 </head>
 <body>
@@ -11,22 +24,27 @@
 <header class="header">
 
     <div class="header__menu">
-        <a href="/" class="header__logo animate__animated animate__fadeInDown">Archive by <span>John Doe</span></a>
+        <a href="index.html" class="header__logo animate__animated animate__fadeInDown"><small>Archive by</small> <span>John Doe</span></a>
         <nav class="header__menu-navigation">
             <ul class="header__links">
-                <li class="animate__animated animate__fadeInDown animate__delay-1s"><a class="header__link" href="#">Telegram</a></li>
-                <li class="animate__animated animate__fadeInDown animate__delay-2s"><a class="header__link" href="#">LinkedIn</a></li>
-                <li class="animate__animated animate__fadeInDown animate__delay-3s"><a class="header__link" href="#">Discord</a></li>
-                <li class="animate__animated animate__fadeInDown animate__delay-4s"><a class="header__link" href="#">Mail</a></li>
+                <li class="animate__animated animate__fadeInDown animate__delay-1s"><a class="active header__link telegram" href="#">Telegram <i class="fa-brands fa-telegram"></i></a></li>
+                <li class="animate__animated animate__fadeInDown animate__delay-2s"><a class="active header__link linkedin" href="#">LinkedIn <i class="fa-brands fa-linkedin"></i></a></li>
+                <li class="animate__animated animate__fadeInDown animate__delay-3s"><a class="active header__link discord" href="#">Discord <i class="fa-brands fa-discord"></i></a></li>
+                <li class="animate__animated animate__fadeInDown animate__delay-4s"><a class="active header__link google" href="#">Mail <i class="fa-brands fa-google"></i></a></li>
             </ul>
             <div class="header__button inactive animate__animated animate__fadeInDown animate__delay-5s">
-                <a class="header__link" href="#">Say Hi</a>
+                <a class="header__link" href="#">Say Hi <i class="fa-solid fa-hand"></i></a>
             </div>
             
         </nav>
     </div>
     
 </header>
+
+<!-- Main -->
+<main class="main" id="pages-main">
+
+</main>
 
 <!-- Footer -->
 <footer class="footer">
