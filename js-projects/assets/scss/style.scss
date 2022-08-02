@@ -1,4 +1,5 @@
 @use 'options/options';
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 /* Initialization */
 
@@ -62,3 +63,41 @@ button {
 i{
     display: inline !important;
 }
+
+// Start
+
+.wrapper {
+    display: block;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+// Main
+main {
+    margin-top: 100px;
+
+    .introduction {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    
+        .introduction__title {
+            color: options.$white-color;
+            font-size: 60px;
+        }
+    
+        .introduction__frame {
+            width: 100%;
+            height: 40vh;
+            margin: 50px 0;
+            background-color: transparent;
+            border: 10px solid options.$purple-color;
+            border-radius: options.$default-border-radius;
+        }
+    }
+}
+
