@@ -1,98 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- default meta -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <!-- document favicon in browser tab -->
-    <link rel="icon" type="image/x-icon" href="assets/images/archive.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/archive.ico" />
 
     <!-- style linking -->
-    <link rel="stylesheet" href="assets/css/libs/normalize.css">
-    <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"> 
+    <link rel="stylesheet" href="assets/css/libs/normalize.css" />
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
     <!-- <link rel="stylesheet" href="assets/css/libs/animate.css"> -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/temporary.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- title -->
     <title>Templates</title>
-</head>
-<body>
-
-<!-- Header -->
-<header class="header">
-
-    <div class="header__menu">
-        <a href="index.html" class="header__logo animate__animated animate__fadeInDown"><small>Archive by</small> <span>John Doe</span></a>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header__menu">
+        <a
+          href="index.html"
+          class="header__logo"
+          ><small>Archive by</small> <span>John Doe</span></a
+        >
         <nav class="header__menu-navigation">
-            <ul class="header__links">
-                <li class="animate__animated animate__fadeInDown animate__delay-1s"><a class="active header__link telegram" href="#">Telegram <i class="fa-brands fa-telegram"></i></a></li>
-                <li class="animate__animated animate__fadeInDown animate__delay-2s"><a class="active header__link linkedin" href="#">LinkedIn <i class="fa-brands fa-linkedin"></i></a></li>
-                <li class="animate__animated animate__fadeInDown animate__delay-3s"><a class="active header__link discord" href="#">Discord <i class="fa-brands fa-discord"></i></a></li>
-                <li class="animate__animated animate__fadeInDown animate__delay-4s"><a class="active header__link google" href="#">Mail <i class="fa-brands fa-google"></i></a></li>
-            </ul>
-            <div class="header__button inactive animate__animated animate__fadeInDown animate__delay-5s">
-                <a class="header__link" href="#">Say Hi <i class="fa-solid fa-hand"></i></a>
-            </div>
-            
+          <ul class="header__links">
+            <li class="">
+              <a class="active header__link telegram" href="#"
+                >Telegram <i class="fa-brands fa-telegram"></i
+              ></a>
+            </li>
+            <li class="">
+              <a class="active header__link linkedin" href="#"
+                >LinkedIn <i class="fa-brands fa-linkedin"></i
+              ></a>
+            </li>
+            <li class="">
+              <a class="active header__link discord" href="#"
+                >Discord <i class="fa-brands fa-discord"></i
+              ></a>
+            </li>
+            <li class="">
+              <a class="active header__link google" href="#"
+                >Mail <i class="fa-brands fa-google"></i
+              ></a>
+            </li>
+          </ul>
+          <div
+            class="header__button inactive"
+          >
+            <a class="header__link" href="#"
+              >Say Hi <i class="fa-solid fa-hand"></i
+            ></a>
+          </div>
         </nav>
-    </div>
-    
-</header>
+      </div>
+    </header>
 
-<!-- Main -->
-<main class="main" id="pages-main">
+    <!-- Main -->
+    <main class="main" id="pages-main">
+      <div class="wrapper">
 
-    <div class="wrapper">
-        <!-- <section class="main-cards">
-            <div class="main-cards__item">
-                
-            </div>
-        </section> -->
-        <ul>
-            <li class="booking-card" style="background-image: url(assets/images/main/Screenshot_1.png);">
-              <div class="book-container">
-                <div class="content">
-                  <button class="btn">Réserver</button>
+        <div class="main__search-container">
+            <div class="search">
+                <input type="text" placeholder="Search for any project you need to" />
+                <div class="symbol">
+                  <svg class="cloud">
+                    <use xlink:href="#cloud" />
+                  </svg>
+                  <svg class="lens">
+                    <use xlink:href="#lens" />
+                  </svg>
                 </div>
               </div>
-              <div class="informations-container">
-                <h2 class="title">Now I'm a ticket but in english</h2>
-                <p class="sub-title">And me, call me "sub-title" now</p>
-                <p class="price">From 0 to 15 €</p>
-                <div class="more-information">
-                  <div class="info-and-date-container">
-                    <div class="box info">
-          
-                      <p>Centre Pompidou at PARIS</p>
-                    </div>
-                    <div class="box date">
-                      <p>From October to December 2020</p>
-                    </div>
-                  </div>
-                  <p class="disclaimer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi eveniet perferendis culpa. Expedita architecto nesciunt, rem distinctio</p>
+                
+              <!-- SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="cloud">
+                  <path d="M31.714,25.543c3.335-2.17,4.27-6.612,2.084-9.922c-1.247-1.884-3.31-3.077-5.575-3.223h-0.021
+                  C27.148,6.68,21.624,2.89,15.862,3.931c-3.308,0.597-6.134,2.715-7.618,5.708c-4.763,0.2-8.46,4.194-8.257,8.919
+                  c0.202,4.726,4.227,8.392,8.991,8.192h4.873h13.934C27.784,26.751,30.252,26.54,31.714,25.543z" />
+                </symbol>
+                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="lens">
+                  <path d="M15.656,13.692l-3.257-3.229c2.087-3.079,1.261-7.252-1.845-9.321c-3.106-2.068-7.315-1.25-9.402,1.83
+                  s-1.261,7.252,1.845,9.32c1.123,0.748,2.446,1.146,3.799,1.142c1.273-0.016,2.515-0.39,3.583-1.076l3.257,3.229
+                  c0.531,0.541,1.404,0.553,1.95,0.025c0.009-0.008,0.018-0.017,0.026-0.025C16.112,15.059,16.131,14.242,15.656,13.692z M2.845,6.631
+                  c0.023-2.188,1.832-3.942,4.039-3.918c2.206,0.024,3.976,1.816,3.951,4.004c-0.023,2.171-1.805,3.918-3.995,3.918
+                  C4.622,10.623,2.833,8.831,2.845,6.631L2.845,6.631z" />
+                </symbol>
+              </svg>
+        </div>
+
+        <section class="main-cards">
+          <ul class="main-cards__list">
+            <li class="main-cards__item"
+              style="background-image: url(assets/images/main/Screenshot_1.png)">
+              <div class="main-cards__item-container">
+                <div class="content">
+                  <a class="content__link">
+                    View Live <i class="fa-solid fa-satellite-dish"></i></a>
+                </div>
+              </div>
+              <div class="main-cards__info-container">
+                <h2 class="title">Dev Restaurant</h2>
+                <p class="subtitle">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+                  expedita?
+                </p>
+                <div class="main-cards__more-info">
+                  <ul class="main-cards__technologies">
+                    <li class="technology">HTML & CSS <i class="fa-brands fa-html5"></i></li>
+                    <li class="technology">Javascript <i class="fa-brands fa-js"></i></li>
+                    <li class="technology">SASS <i class="fa-brands fa-sass"></i></li>
+                    <li class="technology">Bootstrap <i class="fa-brands fa-bootstrap"></i></li>
+                  </ul>
+                  <div class="main-cards__info-link">
+                    <a href="#" class="info-link">GitHub Repo <i class="fa-brands fa-github-alt"></i></a>
+                  </div>    
+                </div>
+              </div>
+            </li>
+            <li class="main-cards__item"
+              style="background-image: url(assets/images/main/Screenshot_1.png)">
+              <div class="main-cards__item-container">
+                <div class="content">
+                  <a class="content__link">
+                    View Live <i class="fa-solid fa-satellite-dish"></i></a>
+                </div>
+              </div>
+              <div class="main-cards__info-container">
+                <h2 class="title">Dev Restaurant</h2>
+                <p class="subtitle">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+                  expedita?
+                </p>
+                <div class="main-cards__more-info">
+                  <ul class="main-cards__technologies">
+                    <li class="technology">HTML & CSS <i class="fa-brands fa-html5"></i></li>
+                    <li class="technology">Javascript <i class="fa-brands fa-js"></i></li>
+                    <li class="technology">SASS <i class="fa-brands fa-sass"></i></li>
+                    <li class="technology">Bootstrap <i class="fa-brands fa-bootstrap"></i></li>
+                  </ul>
+                  <div class="main-cards__info-link">
+                    <a href="#" class="info-link">GitHub Repo <i class="fa-brands fa-github-alt"></i></a>
+                  </div>    
+                </div>
+              </div>
+            </li>
+            <li class="main-cards__item"
+              style="background-image: url(assets/images/main/Screenshot_1.png)">
+              <div class="main-cards__item-container">
+                <div class="content">
+                  <a class="content__link">
+                    View Live <i class="fa-solid fa-satellite-dish"></i></a>
+                </div>
+              </div>
+              <div class="main-cards__info-container">
+                <h2 class="title">Dev Restaurant</h2>
+                <p class="subtitle">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+                  expedita?
+                </p>
+                <div class="main-cards__more-info">
+                  <ul class="main-cards__technologies">
+                    <li class="technology">HTML & CSS <i class="fa-brands fa-html5"></i></li>
+                    <li class="technology">Javascript <i class="fa-brands fa-js"></i></li>
+                    <li class="technology">SASS <i class="fa-brands fa-sass"></i></li>
+                    <li class="technology">Bootstrap <i class="fa-brands fa-bootstrap"></i></li>
+                  </ul>
+                  <div class="main-cards__info-link">
+                    <a href="#" class="info-link">GitHub Repo <i class="fa-brands fa-github-alt"></i></a>
+                  </div>    
+                </div>
+              </div>
+            </li>
+            <li class="main-cards__item"
+              style="background-image: url(assets/images/main/Screenshot_1.png)">
+              <div class="main-cards__item-container">
+                <div class="content">
+                  <a class="content__link">
+                    View Live <i class="fa-solid fa-satellite-dish"></i></a>
+                </div>
+              </div>
+              <div class="main-cards__info-container">
+                <h2 class="title">Dev Restaurant</h2>
+                <p class="subtitle">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+                  expedita?
+                </p>
+                <div class="main-cards__more-info">
+                  <ul class="main-cards__technologies">
+                    <li class="technology">HTML & CSS <i class="fa-brands fa-html5"></i></li>
+                    <li class="technology">Javascript <i class="fa-brands fa-js"></i></li>
+                    <li class="technology">SASS <i class="fa-brands fa-sass"></i></li>
+                    <li class="technology">Bootstrap <i class="fa-brands fa-bootstrap"></i></li>
+                  </ul>
+                  <div class="main-cards__info-link">
+                    <a href="#" class="info-link">GitHub Repo <i class="fa-brands fa-github-alt"></i></a>
+                  </div>    
                 </div>
               </div>
             </li>
           </ul>
-    </div>
+        </section>
+      </div>
+    </main>
 
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="wrapper">
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="wrapper">
         <div class="footer__text-below wrapper">
-            <ul class="footer-container__list">
-                <li>@2023 John Doe</li>
-                <li>Web Developer</li>
-                <li>Created by me</li>
-            </ul>
+          <ul class="footer-container__list">
+            <li>@2023 John Doe</li>
+            <li>Web Developer</li>
+            <li>Created by me</li>
+          </ul>
         </div>
-    </div>
-</footer>
-
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

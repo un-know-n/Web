@@ -60,12 +60,11 @@ $default-transition: all .4s ease;
 
 @mixin cardsOpen() {
     &::before {
-      background: rgba(10,72,112, 0.6);
+      background: rgba(32, 10, 112, 0.548);
     }
-    .main-cards__book {
-      .main-cards__content {
+    .main-cards__item-container {
+      .content {
         opacity: 1;
-
         transform: translateY(0px);
       }
     }
