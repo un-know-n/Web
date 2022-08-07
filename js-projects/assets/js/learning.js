@@ -4,7 +4,7 @@
 =====================Session #1=======================
 
 literals - fixed values, constants and variables
-(ab|ba) - regular expression
+("A-Z|a-z") - regular expression
 
 -------Very Start-------
 
@@ -113,7 +113,7 @@ operator ! has the highest priority
 ----------------------------------------------------------------
 
 operator ?? compares first value with undefined / null, and returns
-first if true, second - if false
+first if false, second - if true
 
 console.log(name ?? "No name"); ---> No name
 
@@ -527,6 +527,267 @@ If u need to have a part of substring - use method slice(start pos, end pos)
 ----------------Arrays-----------------
 
 let arr = new Array();
-let arr = [];
+let arr = [val1, val2...];
+
+Arrays can include values of different types:
+
+let arrTwo = [
+    "Someone",
+    {
+        type: "js",
+        age: 100000000
+    },
+    true,
+    function() {
+        console.log("Hello");
+    }
+];
+
+console.log(arrTwo);
+console.log(arrTwo.length);
+console.log(arrTwo[1].type); ---> js
+arrTwo[3]();
+
+Array acts like object, so it has the same options, like
+copying as link
+
+let someArr =....;
+let anotherArr = someArr;
+
+someArr[0] = 1;
+console.log(anotherArr[0]); ---> 1
+
+-----------Methods of arrays
+
+push - add element(s) to the end of the array
+let arr = [1, 2, 3, 4, 5, 6];
+console.log(arr.push(7, 8, 9));
+
+shift - delete first element in the array
+console.log(arr.shift());
+
+pop - delete last element in the array
+console.log(arr.pop());
+
+unshift - add element(s) into the start of an array
+console.log(arr.unshift(0, 1));
+
+-----------Changing of the specific elements
+
+let arr = [1, 2, 3, 4, 5, 6];
+delete arr[1];
+console.log(arr); ---> [1, empty, 3, 4...]
+
+----Method splice
+Syntax: arr.splice(index, deleteCount, elem1, ...., elemN);
+
+Delete element
+arr.splice(1, 1);
+
+Add element 
+arr.splice(1, 0, '23', '43');
+
+Delete from the end
+arr.splice(-1, 1);
+
+Change elements
+arr.splice(0, 1, 'Changed');
+
+-----Copying the array!!
+Syntax: slice(start, end); end - not included, if copying partly
+
+let anotherArr = arr.slice(); ---> full copy
+let anotherArr = arr.slice(1, 2); --->certain elems
+
+-----Copying the array with adding the value into the end!!
+Syntax: concat(arg1, arg2, arg3);
+
+let anotherArr = arr.concat('Added value');
+console.log(anotherArr); ---> [....., Added value]
+
+----Show the index
+Syntax: indexOf(item, from), lastIndexOf(right to left), includes(item, from) - true if right, 
+false if not;
+
+-----Search the array with specific queries(find & findIndex)
+Syntax: let result = arr.find(function(item, index, array) {
+    1)returns current elem - if found
+    2)returns undefined if not
+});
+
+let arr = [
+    { name: 'Some', age: 18 },
+    { name: 'Sfgh', age: 35 },
+    { name: 'Adesfs', age: 65 }
+]
+
+let resultOne = arr.find(function(item, index, array) {
+    return item.age === 18;
+});
+console.log(resultOne); ---> object
+
+let resultTwo = arr.findIndex(item => item.age === 18);
+console.log(resultTwo); ---> 1
+
+------Search the array with filter
+Syntax: let result = arr.filter(function(item, index, array) {
+    1)returns current elements - if found
+    2)returns empty array if nothing is found
+});
+
+The difference between filter and find is that "find" can 
+only return one options, but with "filter" you get all of them
+
+let resultOne = arr.find(function(item, index, array) {
+    return item.age >= 18;
+});
+console.log(resultOne); ---> 2 arrays
+
+----------------Sorting in the array
+Syntax: arr.sort(fn);
+
+let arr = [8, 22, 1];
+console.log(arr.sort()); ---> [1, 22, 8]
+Because it sorts out the array as string
+
+To set things right we have to code our own function:
+
+function compareNumeric(a, b) {
+    console.log(`Compare ${a} and ${b}`);
+    // if(a > b) return 1;
+    // if(a == b) return 0;
+    // if(a < b) return -1;
+
+    OR WE CAN WRITE:
+
+    return a - b;
+}
+console.log(arr.sort(compareNumeric)); ---> [1, 8, 22]
+||
+console.log(arr.sort((a, b) => a - b)); ---> [1, 8, 22]
+
+Also there is a metod .reverse - understandable in which cases to use
+
+-----------Usage of map
+It calls a function to apply to every element of an array. Example:
+
+let arr = ['Hello', 'World!'];
+let result = arr.map(function(item, index, array) {
+    return item[0];
+});
+console.log(result); ---> ["H", "W"];
+
+---------------Usage of split & join
+"Split" can translate string into array with specific separator, 
+also we can stricly define number of elements in array;
+
+let str = 'Lorem,ipsum,dolor';
+let arr = str.split(',');
+let arr = str.split(',', 2);
+
+"Join" can translate array into string with specific separator
+
+let arr = ["Lorem","ipsum","dolor"];
+let str = arr.join(',');
+||
+let str = String(arr);
+
+----------------Check if that is array
+Arrays are based on objects, so to define what is what,
+we need to use Array.isArray();
+
+if(Array.isArray(arr)){
+    .....do smth
+}
+
+-----------------Usage of loops with array
+
+Use default for | while | do while....
+
+----Use FOR....OF
+let arr = ['Hello', 'World!'];
+
+for(let arrItem of arr) {
+    console.log(arrItem);
+}
+
+----Use ForEach
+arr.forEach(function(item, index, array) {
+    console.log(`Element ${item} is under ${index} index`);
+})
+
+Arrow func
+arr.forEach((item, index, array) => {
+    console.log(`Element ${item} is under ${index} index`);
+});
+
+--------------------Usage of reduce metod
+Reduce is more complicated than map, or loops, but similar to them
+We use it to calculate some value from the entire array. Example:
+
+let arrOne = [1, 2, 3, 4];
+let result = arrOne.reduce(function(previousValue, item, index, array) {
+    return item + previousValue;
+}, 0 - '[initial]');
+console.log(result); ---> 10
+
+reduceRight works similarly, but from the right to the left
+
+!!!!!!!The most important - don't work with arrays like with objects
+
+Practice part:
+
+let users = ["Vanya", "Ishtvan"];
+users.push("Olya");
+let result = users.findIndex(function(item, index, array) {
+    if(item === "Ishtvan") return index;
+});
+users[result] = "Petya";
+let delElem = users.shift();
+users.unshift("Masha", "Pasha");
+
+console.log(users);
+console.log(delElem);
+
 
 */
+
+//Challenges from codewars
+
+// function descendingOrder(n) {
+//     let arr = String(n).split("").map((n) => {
+//         return Number(n);
+//     });
+//     arr.sort();
+//     arr.reverse();
+//     let str = arr.join("");
+//     let number = parseInt(str);
+//     return number;
+// }
+
+// let result = descendingOrder(15);
+// console.log(result);
+
+
+// function duplicateCount(text){
+//     let counter = 0;
+//     let secondArr = [""];
+//     let arr = text.toLowerCase().split("");
+//     for(let i = 0; i < arr.length; i++) {
+//         secondFor: for (let j = i+1; j < arr.length; j++) {
+//             if(arr[i] == arr[j]) {
+//                 for (let k = 0; k < secondArr.length; k++) {
+//                     if(secondArr[k] == arr[j]) break secondFor;
+//                     else {
+//                         secondArr.push(arr[j]);
+//                         counter++;
+//                     }    
+//                 }
+//             }
+//         }
+//     }
+//     return counter;
+// }
+
+// let resultTwo = duplicateCount("ABBA");
+// console.log(resultTwo);
