@@ -1,6 +1,9 @@
-"use strict"
+"use strict";
 
 /*
+____________Freelancer-life-style course____________
+
+
 =====================Session #1=======================
 
 literals - fixed values, constants and variables
@@ -156,6 +159,10 @@ firstFor: for(let num = 0; num < 4; num++) {
 
 -----Functions-----
 
+If you transfer the function, than you dont need to execute it
+(just "function", not "function()")!
+
+
 ---------------Function Declaration
 showMsg('Message!');
 function showMsg (msg) {
@@ -239,10 +246,10 @@ setInterval(func or code, timeout(ms), params);
 let showMsg = (text, name) => console.log(`${text} ${name}!`);
 showMsg('Hello', 'World');
 
-setTimeout(showMsg(), 3000, 'Hello', 'World');
+setTimeout(showMsg, 3000, 'Hello', 'World');
 
 Clears Timeout/Interval:
-let timeId = setTimeout(showMsg(), 3000, 'Hello', 'World');
+let timeId = setTimeout(showMsg, 3000, "Hello", "World");
 clearTimeout/Interval(timeId);
 
 Difference is setTimeout acts only once, but setInterval executes
@@ -529,7 +536,7 @@ If u need to have a part of substring - use method slice(start pos, end pos)
 let arr = new Array();
 let arr = [val1, val2...];
 
-Arrays can include values of different types:
+Arrays can include values of different types, but it's not preferable
 
 let arrTwo = [
     "Someone",
@@ -635,13 +642,18 @@ Syntax: let result = arr.filter(function(item, index, array) {
     2)returns empty array if nothing is found
 });
 
-The difference between filter and find is that "find" can 
-only return one options, but with "filter" you get all of them
+.find() will look and stop after the first match, whereas, .filter() 
+will continue searching through the entire array
+
+The main difference between them is that "find" returns an object,
+but "filter" returns an array of objects.
+And if search fails, find will return undefined while filter will 
+return an empty array []
 
 let resultOne = arr.find(function(item, index, array) {
     return item.age >= 18;
 });
-console.log(resultOne); ---> 2 arrays
+console.log(resultOne); ---> 2 objects
 
 ----------------Sorting in the array
 Syntax: arr.sort(fn);
@@ -749,8 +761,266 @@ users.unshift("Masha", "Pasha");
 console.log(users);
 console.log(delElem);
 
+=========================Session #5==========================
+JavaScript: Array, Object, Function...
+BOM(Browser Object Model): navigator, location, history...
+DOM(Document Object Model): document...
+
+--------------------BOM-----------------------
+
+console.log(navigator.userAgent);
+console.log(navigator.platform);
+if(navigator.userAgent.includes("Chrome")) console.log("Browser Chrome");
+console.log(location.href);
+history.back();
+history.forward();
+
+alert("Hello");
+const confirmRes = confirm("Cookies?");
+const promptRes = prompt("Who r u?")
+
+----------------------DOM---------------------------
+
+Everything that html has is part DOM tree
+
+const htmlElement = document.documentElement;
+const headElement = document.head;
+const bodyElement = document.body;
+
+const firstBodyNode = bodyElement.firstChild;
+const lastBodyNode = bodyElement.lastChild;
+
+------Take collection of every child node
+const childNodes = bodyElement.childNodes;
+console.log(bodyElement.hasChildNodes());
+
+!!Attention: childNodes is similar to array, but it's not,
+it's a collection, pseudo-array. The difference is that methods 
+of an array won't work with that(understandable), and we can use 
+for...of with collection
+
+const parentNode = bodyElement.parentNode;(also previousSibling, nextSibling)
+
+-----Take collection of every child tag
+const bodyChildren = bodyElement.children;
+
+!To every method there's a way to see element, not node(firstElementChild,
+lastElementChild...)
+
+-----------Search for random element
+Syntax: document.querySelectorAll(CSS);
+
+const specElem = document.querySelectorAll('li.selected-item');
+const specElem = document.querySelectorAll('.session-list>li');
+const specElem = document.querySelectorAll('[data-item="85"]');
+
+console.log(specElem[2]);
+
+for(const item of specElem){
+    console.log(item);
+}
+
+We can look for elems not only in "document"
+const subList = document.querySelectorAll('.session__list');
+const subItems = subList[0].querySelectorAll('li');
+
+Difference between querySelectorAll & querySelector is that
+the second one can return only one element
+
+!!!So, there's a few methods that we can use too(use everything with 
+!!!"document. "!!!): 
+*They return a "live" collection
+-getElementById(id);
+-getElementsByClassName(className);
+-getElementsByTagName(tag); ELEMENTS!!!
+-getElementsByName(name);
+
+!!!Attention "querySelectorAll" doesn't return a "live" collection
+
+We can find closest parent of the element:
+(difference between parentElement & closest is that
+the first one returns only immediate parent, meanwhile
+closest finds specific parent up to ierarchy)
+
+---------Check the CSS-Selector
+const elems = document.querySelectorAll('.session-list');
+for(elem of elems) {
+    (elem.matches('[class$="item-red"]')) ? console.log("Red") : console.log("Other color");
+}
+
+---------------------Changing the HTML---------------------
+
+------------Inner HTML
+const textElement = document.querySelector('.lesson_text');
+const textElementContent = textElement.innerHTML;
+
+textElement.innerHTML = "Something new...";
+||
+textElement.innerHTML = `<p>${textElementContent}</p>
+<p>Also something new....</p>`;
+
+--------------Outer HTML
+!!Difference between inner & outer is that "outer" takes whole 
+!element, but "inner" takes only inner part
+
+textElement.outerHTML = "Something new...";
+
+-----------Text changing
+It grants us the abbility to change text "safely"
+
+const textElement = document.querySelector(...);
+const textElementContent = textElement.textContent;
+console.log(..); --> only text
+
+The "data" property gives us abillity to take text from the 
+comments in HTML
+
+const getComment = textElement.nextSibling;
+console.log(getComment.data);
+
+--------------Tags/elements creation and insertion
+
+const newElement = document.createElement('div');
+console.log(newElement);
+
+const newText = document.createTextNode('Hello!');
+
+---------Insertion part
+
+const textElement = document.querySelector(...);
+
+textElement.before(newElement);
+textElement.after(newElement);
+textElement.prepend(newElement); - inside & start
+textElement.append(newElement); - inside & end
+
+*More effective tool is insertAdjacentHTMl/Text/Element
+
+textElement.insertAdjacentHTML(
+    'afterend',
+    `some HTML...`
+);
+
+textElement.insertAdjacentText(
+    'afterend',
+    `some "safe" text(maybe with tags)`
+);
+
+textElement.insertAdjacentElement(
+    'afterend',
+    newElement
+);
+
+Options to insert:
+-"beforebegin"
+-"afterbegin"
+-"beforeend"
+-"afterend"
+
+--------------Transportation of the existing elements
+
+!!All methods of transportation automatically delete nodes
+!from the old places
+
+const title = document.querySelector('h3');
+someElement.append(title);
+
+*Also we can use .cloneNode() to clone some element and paste it
+*wherever we need to. (Attention: to make full copy we need
+*to type .cloneNode(true));
+
+To remove element we need to write elem.remove();
+
+------------------Styles and Classes(className & classList)------
+
+const title = document.querySelector('h3');
+title.className = 'red';
+
+!Difference between className & classList is that with "classList"
+!you can add new classes to the existing ones
+
+title.classList.add('red');
+title.classList.remove('red');
+title.classList.toggle('red'); - disable/enable class
+title.classList.contains('red'); - check if exists
+
+*ClassList is enumerable, so we can use for...of
+
+for(let className of title.classList) {
+    console.log(className);
+}
+
+---------Style property
+
+!It uses inline styles
+
+title.style.color = 'red';
+title.style.marginBottom = '10px';
+
+A lot of styles:
+
+title.style.cssText = `
+margin-bottom: 30px;
+color: red;`;
+
+----------Get styles
+
+!We can only read those values
+
+const elementStyle = getComputedStyle(title);
+const elementAfterStyle = getComputedStyle(title, "::after");
+console.log(elementStyle.fontSize);
+
+------------------------Attributes & properties
+
+const link = document.querySelector('.session__link');
+console.log(link.href);
+console.dir(link); - to look through all the values
+
+---------Properties part
+
+link.hasAttribute('name');
+link.getAttribute('name');
+link.setAttribute('name', 'value');
+link.removeAttribute('name');
+
+link.setAttribute('id', '123');
+console.log(input.id); ---> 123
+
+input.id = '312';
+console.log(input.getAttribute('id')); ---> 312
+
+!To get data-attr we need to use .dataset....
+
+------------Usefull properties
+
+.tagName - shows the name of the tag
+.hidden - allows you to hid elem
+
+============================Session #6========================
+
+
+
+
+
+
+
+
+
 
 */
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Challenges from codewars
 
@@ -791,3 +1061,4 @@ console.log(delElem);
 
 // let resultTwo = duplicateCount("ABBA");
 // console.log(resultTwo);
+
