@@ -72,6 +72,18 @@ i{
     margin: 0 auto;
 }
 
+// Header
+
+header {
+    .navbar {
+        .navbar-collapse {
+            .nav-link {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
 // Main
 main {
     margin-top: 100px;

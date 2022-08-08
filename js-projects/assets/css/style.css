@@ -10988,6 +10988,10 @@ i {
   margin: 0 auto;
 }
 
+header .navbar .navbar-collapse .nav-link {
+  padding-bottom: 0;
+}
+
 main {
   margin-top: 100px;
 }

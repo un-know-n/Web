@@ -162,7 +162,6 @@ firstFor: for(let num = 0; num < 4; num++) {
 If you transfer the function, than you dont need to execute it
 (just "function", not "function()")!
 
-
 ---------------Function Declaration
 showMsg('Message!');
 function showMsg (msg) {
@@ -781,7 +780,7 @@ const promptRes = prompt("Who r u?")
 
 ----------------------DOM---------------------------
 
-Everything that html has is part DOM tree
+Everything that html has is part of DOM tree
 
 const htmlElement = document.documentElement;
 const headElement = document.head;
@@ -795,9 +794,9 @@ const childNodes = bodyElement.childNodes;
 console.log(bodyElement.hasChildNodes());
 
 !!Attention: childNodes is similar to array, but it's not,
-it's a collection, pseudo-array. The difference is that methods 
-of an array won't work with that(understandable), and we can use 
-for...of with collection
+!it's a collection, pseudo-array. The difference is that methods 
+!of an array won't work with that(understandable), and we can use 
+!for...of with collection
 
 const parentNode = bodyElement.parentNode;(also previousSibling, nextSibling)
 
@@ -805,7 +804,7 @@ const parentNode = bodyElement.parentNode;(also previousSibling, nextSibling)
 const bodyChildren = bodyElement.children;
 
 !To every method there's a way to see element, not node(firstElementChild,
-lastElementChild...)
+!lastElementChild...)
 
 -----------Search for random element
 Syntax: document.querySelectorAll(CSS);
@@ -999,6 +998,133 @@ console.log(input.getAttribute('id')); ---> 312
 
 ============================Session #6========================
 
+---------------------Size, scroll, coordinates-------------------
+
+*Usable sizes of the window(only that we can see):
+const mainElement = document.documentElement;
+console.log(mainElement.clientWidth);
+console.log(mainElement.clientHeight);
+
+*To have sizes of the window with scrollbars, we need to use:
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+
+!To take all usable size of client window, we need to code
+!a func, that return us the maximum value of it
+
+-----------Amount of scrolled pixels
+!Only for reading
+
+const windowScrollTop = window.pageYOffset;
+const windowScrollLeft = window.pageXOffset;
+
+-----------Control of the scroll on the page
+
+function setScrollBy() {
+    window.scrollBy(0, 50); - we can use it many times to move lower
+    *it can be stacked
+}
+
+function setScrollTo() {
+    window.scrollTo({
+        top: 100,
+        left: 0,
+        behavior: "smooth"
+    });
+    window.scrollTo(0, 150);
+}
+
+----Scroll to the specific element
+
+!If scrollIntoView(true) - it scrolls elem to the search border,
+!scrollIntoView(false) - to the bottom of the page
+
+function setScrollIntoView(top) {
+    const selectedElem = document.querySelector(...);
+    selectedElem.scrollIntoView(top);
+    selectedElem.scrollIntoView({
+        block: "center", - vertical pos
+        inline: "nearest", - horizontal pos
+        behavior: "smooth"
+    });
+}
+
+----To disable the scroll
+
+function disableScroll() {
+    document.body.style.overflow = "hidden";
+}
+
+-----------------Metrics of the elements on the page
+
+----Usage of offsetParent, offsetLeft & offsetTop
+
+const block = document.query....;
+const elementOffsetParent = block.offsetParent; (parent with positioning: absolute, fixed... || body || table, td, th)
+*That is outer offset of the element (mar-left, mar-top), due to parent
+console.log(block.offsetLeft);
+console.log(block.offsetTop);
+
+----General(with borders/margins) sizes of element
+
+console.log(block.offsetWidth);
+console.log(block.offsetHeight);
+
+----Offsets(border size) of inner part of an element
+
+console.log(block.clientTop);
+console.log(block.clientLeft);
+
+----Client(only inner block, without borders/margins) sizes of element
+
+console.log(block.clientWidth);
+console.log(block.clientHeight);
+
+----Full sizes of scroll area
+
+console.log(block.scrollWidth);
+console.log(block.scrollHeight);
+
+----Sizes of hidden scrolled area
+!Can be changed(not only for reading)
+console.log(block.scrollLeft);
+console.log(block.scrollTop);
+
+*You should use all of these properties to take sizes of an object,
+*instead of "getComputedStyles"
+
+---------------------Coords
+
+?Systems of coordinates:
+-From the browser window(clientX/clientY): position: fixed
+left top corner of inner window
+-From the document(pageX/pageY): position: absolute
+left top corner of document
+
+----Coordinates, depending in clients window
+
+const item = document.query...;
+const getItemCoords = item.getBoundingClientRect(); - .left/.right
+console.log(getItemCoords);
+
+!If u want to get coordinated\s depending on document:
+
+const getItemCoords = item.getBoundingClientRect() + window.pageYOffset;
+
+----Show element on coords(depending on window position)
+
+const elem = document.elementFromPoint(100, 100);
+console.log(elem);
+
+
+------------------------Events-------------------------------
+
+
+
+
+
+
+
 
 
 
@@ -1010,13 +1136,72 @@ console.log(input.getAttribute('id')); ---> 312
 
 */
 
+const button = document.querySelector('.introduction__button');
 
+// button.onclick = function() {
+//     console.log('Click happened');
+// }
 
+// function showConsole() {
+//     console.log('Click happened');
+// }
 
+// button.onclick = showConsole;
 
+//----addEventListener & removeEventListener
 
+// button.addEventListener('click', function(e) {
+//     console.log('click');
+// });
 
+// button.addEventListener('click' showConsole);
+// button.removeEventListener('click' showConsole);
 
+//----Parameters
+
+// const options = {
+//     "capture": false, //specific phase
+//     "once": true, //automatically delete
+//     "passive": false //if true - never preventDefault()
+// };
+
+// button.addEventListener('click', showConsole, options);
+
+//----Object event
+
+function showConsole(event) {
+    // //Type of event
+    // console.log(event.type);
+    // //Object which called an event
+    // console.log(event.target);
+    // //Object to whict was tied specific listener
+    // console.log(event.currentTarget);
+    // //Cursor x position
+    // console.log(event.clientX);
+    // //Cursor y position
+    // console.log(event.clientY);
+
+    //All the details
+    console.log(event);
+}
+
+button.addEventListener('click', showConsole);
+
+//----Ascent and Descent
+
+//!If there are many listeners(element inside other element), then
+//!we can see how every listener reacts if we tap on the latest children(element)
+
+//*If we want to stop ascent, then we need to write(in the very child elem):
+//*event.stopPropagation()
+
+//!The descent gives us ability to override the order of acting in eventListeners
+//!if we type {"capture": true}, then this listener will take off first and then the next
+
+//----Event delegation
+
+//That thing is usable when we want to make many elements react on 
+//the same event similarly
 
 
 
