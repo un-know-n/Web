@@ -159,8 +159,8 @@ firstFor: for(let num = 0; num < 4; num++) {
 
 -----Functions-----
 
-If you transfer the function, than you dont need to execute it
-(just "function", not "function()")!
+!If you transfer the function, than you dont need to execute it
+!(just "function", not "function()")!
 
 ---------------Function Declaration
 showMsg('Message!');
@@ -611,11 +611,11 @@ Syntax: concat(arg1, arg2, arg3);
 let anotherArr = arr.concat('Added value');
 console.log(anotherArr); ---> [....., Added value]
 
-----Show the index
+?----Show the index
 Syntax: indexOf(item, from), lastIndexOf(right to left), includes(item, from) - true if right, 
 false if not;
 
------Search the array with specific queries(find & findIndex)
+?-----Search the array with specific queries(find & findIndex)
 Syntax: let result = arr.find(function(item, index, array) {
     1)returns current elem - if found
     2)returns undefined if not
@@ -635,7 +635,7 @@ console.log(resultOne); ---> object
 let resultTwo = arr.findIndex(item => item.age === 18);
 console.log(resultTwo); ---> 1
 
-------Search the array with filter
+?------Search the array with filter
 Syntax: let result = arr.filter(function(item, index, array) {
     1)returns current elements - if found
     2)returns empty array if nothing is found
@@ -1010,7 +1010,7 @@ console.log(window.innerWidth);
 console.log(window.innerHeight);
 
 !To take all usable size of client window, we need to code
-!a func, that return us the maximum value of it
+!a func, that returns us the maximum value of it
 
 -----------Amount of scrolled pixels
 !Only for reading
@@ -1101,13 +1101,13 @@ left top corner of inner window
 -From the document(pageX/pageY): position: absolute
 left top corner of document
 
-----Coordinates, depending in clients window
+----Coordinates, depending on clients window
 
 const item = document.query...;
 const getItemCoords = item.getBoundingClientRect(); - .left/.right
 console.log(getItemCoords);
 
-!If u want to get coordinated\s depending on document:
+!If u want to get coordinates depending on document:
 
 const getItemCoords = item.getBoundingClientRect() + window.pageYOffset;
 
@@ -1117,17 +1117,334 @@ const elem = document.elementFromPoint(100, 100);
 console.log(elem);
 
 
+========================Session #7=============================
+
 ------------------------Events-------------------------------
 
+const button = document.querySelector('.introduction__button');
+const frame = document.querySelector('.introduction__frame');
+
+button.onclick = function() {
+    console.log('Click happened');
+}
+
+function showConsole() {
+    console.log('Click happened');
+}
+
+button.onclick = showConsole;
+
+----addEventListener & removeEventListener
+
+button.addEventListener('click', function(e) {
+    console.log('click');
+});
+
+button.addEventListener('click' showConsole);
+button.removeEventListener('click' showConsole);
+
+----Parameters
+
+const options = {
+    "capture": false, //specific phase
+    "once": true, //automatically delete
+    "passive": false //if true - never use preventDefault()
+};
+
+button.addEventListener('click', showConsole, options);
+
+----Object event
+
+function showConsole(event) {
+    //Type of event
+    console.log(event.type);
+    //Object which called an event
+    console.log(event.target);
+    //Object to whict was tied specific listener
+    console.log(event.currentTarget);
+    //Cursor x position
+    console.log(event.clientX);
+    //Cursor y position
+    console.log(event.clientY);
+
+    //All the details
+    console.log(event);
+
+    console.log("Yay");
+}
+
+button.addEventListener('click', showConsole);
+
+----Ascent and Descent
+
+!If there are many listeners(element inside other element), then
+!we can see how every listener reacts if we tap on the latest children(element)
+
+*If we want to stop ascent, then we need to write(in the very child elem):
+*event.stopPropagation()
+
+!The descent gives us ability to override the order of acting in eventListeners
+!if we type {"capture": true}, then this listener will take off first and then the next
+
+----Event delegation
+
+That thing is usable when we want to make many elements react on 
+the same event similarly
+
+!Wrong way:
+
+button.forEach(buttonItem => {
+    buttonItem.addEventListener("click", showConsole);
+});
+
+*Right way:
+
+frame.addEventListener('click', function (event){
+    if(event.target.closest('.introduction__button')) {
+        showConsole();
+    }
+});
+
+----USEFULL PART
+
+const menuBody = document.querySelector('.menu');
+
+document.addEventListener('click', menu);
+
+function menu(event) {
+    if (event.target.closest('.menu__button')) {
+        menuBody.classList.toggle('_active');
+    } 
+    if (!event.target.closest('.menu')) {
+        menuBody.classList.remove('_active');
+    }
+}
+
+----Default browser actions
+
+! event.preventDefault(); - gives us abillity to discard default 
+! browser actions (or "return false;" if .onclick)
+? Also we can use it to forbid user do something(send form, etc...)
+
+-----------Types of events
+
+----Mouse events
+We can divide events on "simple" & "complex"
+"Simple" are:
+
+mousedown / mouseup - pressed/released on element
+mouseover / mouseout - shows over elem/get off it
+* for mouseover: .target - moved to element, .relatedTarget - from which passed(relatedTarget -> target)
+* for mouseout: .target - from which passed, .relatedTarget - moved to element(target -> relatedTarget)
+mouseenter / mouseleave - shows over elem/get off it
+!The difference is that they don't ascend(dont count entering on other elems);
+mousemove - every move of mouse over elem
+contextmenu - if u want to open context menu
+
+"Complex" are(they are done from the simple ones):
+
+click - if mousedown & mouseup over the same elem
+dblclick - understandable
+
+const blockForMouse = document.querySelector('.block-for-mouse');
+
+blockForMouse.addEventListener('mousemove', function(event) {
+    blockForMouse.innerHTML = 
+    `clientX: ${event.clientX} <br> clientY: ${event.clientY}`;
+})
+
+!But mouseover / mouseout have advantage in delegation:
+
+blockForMouse.addEventListener('mouseover', function(event) {
+    let target = event.target.closest('span');
+    if(!target) return;
+    target.style.cssText = `background-color: #77608d; `;
+});
+
+blockForMouse.addEventListener('mouseout', function(event) {
+    let target = event.target.closest('span');
+    if(!target) return;
+    target.style.cssText = ``;
+});
+
+----Keyboard events(keydown & keyup)
+Also usable: event.code(depends on pressed key) 
+& event.key(depends on sys language)
+event.repeat - if key is pressed many times
+
+const txtItem = document.querySelector('.textarea__item');
+const txtItemLimit = txtItem.getAttribute('maxlength');
+const txtCounter = document.querySelector('.textarea__counter span');
+
+txtCounter.innerHTML = txtItemLimit;
+
+txtItem.addEventListener("keyup", txtSetCounter);
+
+txtItem.addEventListener("keydown", function(event) {
+    if(event.repeat) txtSetCounter();
+})
+
+function txtSetCounter() {
+    const txtCounterResult = txtItemLimit - txtItem.value.length;
+    txtCounter.innerHTML = txtCounterResult;
+}
+
+----------------Scroll event
+
+window.addEventListener('scroll', function(event) {
+    console.log(window.scrollY);
+})
+
+--------------Page-loading events
+
+DOMContentLoaded(document) - fully created page with DOM, but resources may be unloaded yet
+load(window) - browser downloaded html and external files(styles, images...)
+beforeunload / unload - user is leaving the page
+
+document.readyState - loading condition(we have 3 diff. options):
+"loading" - understandable
+"interactive" - document is fully read
+"complete" - document is fully read + all the resources are downloaded
+
+----Practice part
+
+document.addEventListener('DOMContentLoaded', readyDOM);
+window.addEventListener('load', readyLoad);
+
+function readyDOM() {
+    console.log(document.readyState);
+    console.log('DOM is loaded!');
+}
+
+function readyLoad() {
+    console.log(document.readyState);
+    console.log('Page is loaded!');
+}
+
+window.addEventListener('beforeunload', beforeUnload);
+
+Highlight the text on the page & try to reload it
+
+function beforeUnload(event) {
+    event.preventDefault();
+    event.returnValue = '';
+}
+
+*If user has already left the page -> we can make browser do something
+
+window.addEventListener('unload', function(event) {
+    navigator.sendBeacon(url, data);
+});
 
 
+--------------------------Forms--------------------------
+
+----Taking all the forms on the page(collection):
+
+console.log(document.forms);
+
+const mainForm = document.forms[0];
+console.log(mainForm);
+
+const mainForm = document.forms.main;
+console.log(mainForm.elements);
+console.log(mainForm.nameInput);
+
+----Taking the parent of an element
+
+const mainFormInput = mainForm.nameInput;
+console.log(mainFormInput.form);
+
+----Taking the value of input/textarea
+
+const mainFormTextarea = mainForm.nameTextarea;
+!Can be changed(not only for read)
+
+console.log(mainFormInput.value);
+console.log(mainFormTextarea.value);
+console.log(mainFormFile.value);
 
 
+----Taking options of the checkbox/radiobuttons
 
+console.log(mainFormCheckbox.value);
+console.log(mainFormCheckbox.checked);
 
+----"<select>" options
+-select.options - collection of <option>'s
+-select.value - value of selected <option>
+-select.selectedIndex - number of selected <option>
 
+*To take text of selected option
 
+console.log(mainFormSelect.options[mainFormSelect.selectedIndex].text);
 
+----Select specific option
+
+mainFormSelect.options.selected = true;
+mainFormSelect.selectedIndex = 1;
+mainFormSelect.value = 2;
+
+----Add an option(new Option)
+Syntax: option = new Option(text, value, defaultSelected, selected);
+
+-defaultSelected - puts an HTML attr. "selected"
+-selected - if true, that elem is selected
+
+let newOption = new Option(...);
+mainFormSelect.append(newOption);
+
+----Case of "multiple"
+
+Take collections of select with "multiple"
+
+let selectedOptions = Array.from(mainFormSelect.options)
+    .filter(option => option.selected)
+    .map(option => option.value);
+
+--------------Events of form(focus & blur)
+
+const mainFormInput = mainForm.nameInput;
+
+mainFormInput.focus();
+mainFormInput.blur();
+
+mainFormInput.addEventListener('focus', function(e) {
+    mainFormInput.placeholder = '';
+});
+
+mainFormInput.addEventListener('blur', function(e) {
+    mainFormInput.placeholder = 'Input smth...';
+});
+
+*If u want to take current focused element
+
+console.log(document.activeElement);
+
+----Ascending events(focusin & focusout)
+
+Works similar to focus/blur, but gives the abillity to ascend
+
+----"Change" event
+
+It works out immediately after changing the element
+
+----"Input" event
+
+Works every time, when we change\type symbol in the field
+
+----"Cut, copy, paste" events
+
+Works every time, when something is copied, pasted...
+!Or you can stop user actions with event.preventDefault();
+
+----"Submit" (if u want to send the form)
+
+*If we want to send form every time user "blurs" it:
+
+mainFormInput.addEventListener("blur", function(e) {
+    mainForm.submit();
+});
 
 
 
@@ -1136,114 +1453,61 @@ console.log(elem);
 
 */
 
-const button = document.querySelector('.introduction__button');
+const mainForm = document.forms.main;
 
-// button.onclick = function() {
-//     console.log('Click happened');
+const mainFormInput = mainForm.nameInput;
+
+mainFormInput.addEventListener('focus', function(e) {
+    mainFormInput.placeholder = '';
+});
+
+mainFormInput.addEventListener('blur', function(e) {
+    mainFormInput.placeholder = 'Input smth...';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const introSearchBlock = document.querySelector('.introduction__search-form');
+// const buttonInput = document.querySelector('.open-search');
+// const introSearch = document.querySelector('.introduction__search');
+// const inputMain = document.querySelector('.introduction__search-input');
+// const inputText = document.querySelector('.input-counter span');
+
+// buttonInput.addEventListener('click', openInput);
+// document.addEventListener('click', openInput);
+
+// function openInput(event) {
+//     if(event.target.closest('.open-search')){
+//         introSearchBlock.classList.add('_active');
+//     }
+//     if(!event.target.closest('.introduction__search-form')){
+//         introSearchBlock.classList.remove('_active');
+//     }
 // }
 
-// function showConsole() {
-//     console.log('Click happened');
-// }
-
-// button.onclick = showConsole;
-
-//----addEventListener & removeEventListener
-
-// button.addEventListener('click', function(e) {
-//     console.log('click');
+// inputMain.addEventListener('keyup', seeTextCount);
+// inputMain.addEventListener('keydown', function(event) {
+//     if(event.repeat) seeTextCount();
 // });
 
-// button.addEventListener('click' showConsole);
-// button.removeEventListener('click' showConsole);
-
-//----Parameters
-
-// const options = {
-//     "capture": false, //specific phase
-//     "once": true, //automatically delete
-//     "passive": false //if true - never preventDefault()
-// };
-
-// button.addEventListener('click', showConsole, options);
-
-//----Object event
-
-function showConsole(event) {
-    // //Type of event
-    // console.log(event.type);
-    // //Object which called an event
-    // console.log(event.target);
-    // //Object to whict was tied specific listener
-    // console.log(event.currentTarget);
-    // //Cursor x position
-    // console.log(event.clientX);
-    // //Cursor y position
-    // console.log(event.clientY);
-
-    //All the details
-    console.log(event);
-}
-
-button.addEventListener('click', showConsole);
-
-//----Ascent and Descent
-
-//!If there are many listeners(element inside other element), then
-//!we can see how every listener reacts if we tap on the latest children(element)
-
-//*If we want to stop ascent, then we need to write(in the very child elem):
-//*event.stopPropagation()
-
-//!The descent gives us ability to override the order of acting in eventListeners
-//!if we type {"capture": true}, then this listener will take off first and then the next
-
-//----Event delegation
-
-//That thing is usable when we want to make many elements react on 
-//the same event similarly
-
-
-
-
-
-//Challenges from codewars
-
-// function descendingOrder(n) {
-//     let arr = String(n).split("").map((n) => {
-//         return Number(n);
-//     });
-//     arr.sort();
-//     arr.reverse();
-//     let str = arr.join("");
-//     let number = parseInt(str);
-//     return number;
+// function seeTextCount() {
+//     const numberOfSymbols = inputMain.value.length;
+//     inputText.innerHTML = numberOfSymbols; 
 // }
 
-// let result = descendingOrder(15);
-// console.log(result);
-
-
-// function duplicateCount(text){
-//     let counter = 0;
-//     let secondArr = [""];
-//     let arr = text.toLowerCase().split("");
-//     for(let i = 0; i < arr.length; i++) {
-//         secondFor: for (let j = i+1; j < arr.length; j++) {
-//             if(arr[i] == arr[j]) {
-//                 for (let k = 0; k < secondArr.length; k++) {
-//                     if(secondArr[k] == arr[j]) break secondFor;
-//                     else {
-//                         secondArr.push(arr[j]);
-//                         counter++;
-//                     }    
-//                 }
-//             }
-//         }
-//     }
-//     return counter;
-// }
-
-// let resultTwo = duplicateCount("ABBA");
-// console.log(resultTwo);
 

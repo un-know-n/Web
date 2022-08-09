@@ -11009,10 +11009,139 @@ main .introduction .introduction__title {
   font-size: 60px;
 }
 main .introduction .introduction__frame {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
   width: 100%;
-  height: 40vh;
+  height: 1000px;
   margin: 50px 0;
   background-color: transparent;
   border: 10px solid #7562E0;
   border-radius: 10px;
+}
+main .introduction .introduction__frame .menu {
+  display: inline-block;
+}
+main .introduction .introduction__frame .menu._active .menu__list {
+  display: block;
+}
+main .introduction .introduction__frame .menu._active .menu__button span:first-child {
+  display: none;
+}
+main .introduction .introduction__frame .menu._active .menu__button span:last-child {
+  display: block;
+}
+main .introduction .introduction__frame .menu__button span:first-child {
+  display: block;
+}
+main .introduction .introduction__frame .menu__button span:last-child {
+  display: none;
+}
+main .introduction .introduction__frame .menu__list {
+  display: none;
+  background-color: #77608d;
+  padding: 15px;
+}
+main .introduction .introduction__frame .menu__list li:not(:last-child) {
+  margin: 0px 0px 15px 0px;
+}
+main .introduction .introduction__frame .menu__link {
+  color: #fff;
+  font-size: 16px;
+}
+main .introduction .introduction__frame .menu__link:hover {
+  text-decoration: none;
+}
+main .introduction .introduction__frame .introduction__search-form {
+  display: inline-block;
+}
+main .introduction .introduction__frame .introduction__search-form._active .introduction__search {
+  display: block;
+}
+main .introduction .introduction__frame .introduction__search-form._active .open-search span:first-child {
+  display: none;
+}
+main .introduction .introduction__frame .introduction__search-form._active .open-search span:last-child {
+  display: block;
+}
+main .introduction .introduction__frame .introduction__search {
+  display: none;
+  background-color: #77608d;
+  padding: 15px;
+}
+main .introduction .introduction__frame .block-for-mouse {
+  padding: 15px;
+  font-size: 14px;
+  width: 200px;
+  height: 200px;
+  background-color: #7a956b;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  text-align: center;
+}
+main .introduction .introduction__frame .block-for-mouse span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .introduction .introduction__frame .textarea__item {
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  background-color: rgb(44, 43, 43);
+}
+main .introduction .introduction__frame .main-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .introduction .introduction__frame .main-form._active {
+  outline: 1px solid red;
+}
+main .introduction .introduction__frame .main-form__column {
+  flex: 0 1 50%;
+}
+main .introduction .introduction__frame .main-form__column:last-child {
+  flex: 1 1 auto;
+}
+main .introduction .introduction__frame .main-form__item {
+  margin: 0px 0px 25px 0px;
+}
+main .introduction .introduction__frame .main-form__label {
+  display: block;
+  margin: 0px 0px 10px 0px;
+}
+main .introduction .introduction__frame .main-form__input,
+main .introduction .introduction__frame .main-form__select,
+main .introduction .introduction__frame .main-form__textarea {
+  font-family: inherit;
+  min-height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  width: 250px;
+  padding: 0px 15px;
+  color: #fff;
+  background-color: rgb(48, 48, 48);
+  border: 1px solid #111;
+  border-radius: 3px;
+}
+main .introduction .introduction__frame .main-form__textarea {
+  padding: 10px 15px;
+  min-height: 100px;
+}
+main .introduction .introduction__frame .main-form__radio {
+  margin: 0px 0px 5px 0px;
+}
+main .introduction .introduction__frame .main-form__image {
+  margin: 10px 0px 0px 0px;
+}
+main .introduction .introduction__frame .main-form__image img {
+  width: 150px;
+}
+main .introduction .introduction__frame .main-form__error {
+  padding: 10px 0px 0px 0px;
+  color: red;
 }/*# sourceMappingURL=style.css.map */
