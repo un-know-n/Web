@@ -11144,4 +11144,35 @@ main .introduction .introduction__frame .main-form__image img {
 main .introduction .introduction__frame .main-form__error {
   padding: 10px 0px 0px 0px;
   color: red;
+}
+main .introduction .introduction__frame .block-preview {
+  width: 400px;
+  height: 100px;
+  background-color: #fff;
+}
+main .introduction .introduction__frame .tabs .tab {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 15px;
+  position: relative;
+  z-index: 5;
+}
+main .introduction .introduction__frame .tabs .whiteborder {
+  border: 1px solid red;
+}
+main .introduction .introduction__frame .tabs .tabContent {
+  width: 300px;
+  background-color: #fff;
+  height: 60px;
+  border: 1px solid red;
+  position: relative;
+  top: -1px;
+  z-index: 1;
+  padding: 10px;
+}
+main .introduction .introduction__frame .tabs .hide {
+  display: none;
+}
+main .introduction .introduction__frame .tabs .show {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

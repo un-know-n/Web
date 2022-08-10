@@ -836,10 +836,10 @@ the second one can return only one element
 
 !!!Attention "querySelectorAll" doesn't return a "live" collection
 
-We can find closest parent of the element:
+We can find closest block of the element:
 (difference between parentElement & closest is that
 the first one returns only immediate parent, meanwhile
-closest finds specific parent up to ierarchy)
+closest finds specific block up to ierarchy)
 
 ---------Check the CSS-Selector
 const elems = document.querySelectorAll('.session-list');
@@ -1146,8 +1146,8 @@ button.removeEventListener('click' showConsole);
 ----Parameters
 
 const options = {
-    "capture": false, //specific phase
-    "once": true, //automatically delete
+    "capture": false, //specific phase(connected with ascend & descent)
+    "once": true, //automatically delete the listener
     "passive": false //if true - never use preventDefault()
 };
 
@@ -1237,7 +1237,7 @@ mouseover / mouseout - shows over elem/get off it
 * for mouseover: .target - moved to element, .relatedTarget - from which passed(relatedTarget -> target)
 * for mouseout: .target - from which passed, .relatedTarget - moved to element(target -> relatedTarget)
 mouseenter / mouseleave - shows over elem/get off it
-!The difference is that they don't ascend(dont count entering on other elems);
+!The difference is that they(mouseenter / mouseleave) don't ascend(dont count entering on other elems);
 mousemove - every move of mouse over elem
 contextmenu - if u want to open context menu
 
@@ -1447,23 +1447,26 @@ mainFormInput.addEventListener("blur", function(e) {
 });
 
 
+???======================Filling in the gaps===============????
 
-
-
+let now = new Date();
+console.log(now);
+console.log(now.getMonth()); //counts from zero
+console.log(now.getFullYear());
+console.log(now.setDate(now.getDate() + 2));
 
 */
 
-const mainForm = document.forms.main;
+//Practice Part
 
-const mainFormInput = mainForm.nameInput;
 
-mainFormInput.addEventListener('focus', function(e) {
-    mainFormInput.placeholder = '';
-});
 
-mainFormInput.addEventListener('blur', function(e) {
-    mainFormInput.placeholder = 'Input smth...';
-});
+
+
+
+
+
+
 
 
 

@@ -261,8 +261,47 @@ main {
                 color: red;
             }
 
-            
+            .block-preview{
+                width: 400px;
+                height: 100px;
+                background-color: #fff;
+            }
+
+            .tabs {
+                .tab{
+                    display: inline-block;
+                    cursor: pointer;
+                    padding: 5px 15px;
+                    position: relative;
+                    z-index: 5;
+                }
+
+                .whiteborder{
+                    border: 1px solid red;
+
+                }
+
+                .tabContent{
+                    width: 300px;
+                    background-color: #fff;
+                    height: 60px;
+                    border: 1px solid red;
+                    position: relative;
+                    top: -1px;
+                    z-index: 1;
+                    padding: 10px;
+                }
+
+                .hide {
+                    display: none;
+                }
+
+                .show {
+                    display: block;
+                }
+            }
         }
     }
 }
+
 
