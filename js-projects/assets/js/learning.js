@@ -1449,32 +1449,274 @@ mainFormInput.addEventListener("blur", function(e) {
 
 ???======================Filling in the gaps===============????
 
+--------------------Dates--------------
+
 let now = new Date();
 console.log(now);
 console.log(now.getMonth()); //counts from zero
 console.log(now.getFullYear());
 console.log(now.setDate(now.getDate() + 2));
 
+-----------------Sorting the array--------------
+-----------High-order functions(every, some, find, filter, map, reduce...)
+All of the take the callback function:
+"function(elem, index, array)", but none of them changes
+the real array.
+
+let arr = [1, 2, 3, 4, 5, 6, 7];
+let flattened = [[0, 1], [2, 3], [4, 5]];
+let newArr = [];
+
+--------forEach
+arr.forEach(element => {
+    newArr.push(element * element);
+});
+
+newArr = arr.forEach(element => {
+    return element * element;
+}); //-----> undefiened
+
+-------map
+!It is different from forEach, it can return a value
+newArr = arr.map(elem => {
+    return elem * elem;
+});
+
+Real-word task, take response from JSON
+array = response.map(function(elem) {
+    return {
+        name: elem.name;
+        email: elem.email;
+    }
+});
+
+-------filter
+it must have function-predicat(return true or false)
+newArr = arr.filter(elem => {
+    return (elem > 5);
+});
+
+Real-word task, take response from JSON
+newArr = response.filter(elem => {
+    if(elem.isActive){
+        return {
+            name: elem.name;
+            email: elem.email;
+        }
+    }
+});
+
+---------every & some
+Every looks through all array and compare every value, if even 
+one of them doesnt apply, then it returns false to all array
+Some works in reverse way
+newArr = arr.some(elem => {
+    return elem > 6;
+});
+
+newArr = arr.every(elem => {
+    return elem > 0;
+}); 
+
+-----------reduce & reduceRight(the same)
+It calculates a value from entire array
+newArr = arr.reduce((sum, elem) => {
+    return sum += elem;
+}, 3); // initial for SUM!!!(we can also put ['text'] if sort an object with arrays)
+
+newArr = flattened.reduce((sum, elem) => {
+    return sum.concat(elem);
+});
+
+newArr = friend.reduce((sum, elem) => {
+    return sum.concat(elem.books);
+    //return [...sum, ...elem.books];
+}, ["1984"]);
+
+
+console.log(newArr);
+
+-----------------------Functions--------------------
+-----------------------Pseudo-array arguments
+
+function setAlphabet() {
+    its just an abject with keys and length
+    console.log(arguments);
+    console.log(arguments.length);
+    console.log(arguments.concat(['f', 'g'])); ----> error
+
+    let arr = [];
+
+    for (let i = 0; i < arguments.length; i++) {
+        arr[i] = arguments[i];
+    }
+
+    Another variants
+    let arr = [...arguments];
+    let arr = Array.prototype.slice.call(arguments);
+
+    console.log(arr.concat(['f', 'g']));
+}
+
+setAlphabet('a', 'b', 'c', 'd', 'e');
+
+-------------------------Named expression functions
+
+let f = function factorial(n) {
+    return n ? n * factorial(n - 1) : 1;
+}
+
+let g = f;
+f = null;
+
+console.log(g(5));
+
+-------------------------------'this' and call context
+function func(){
+    'use strict';
+    console.log(this);
+}
+
+func();
+
+---------------Object copy + plus internal objects - JSON.parse(JSON.stringify(object));
+
+-------------------------Closuring
+Closure is a func and all the variables that it can get
+
+All variables inside func are properties 
+of inner object "lexical environmnet",
+when starting function types every var., argument, func in here
+
+Every func has "lexical environmnet", it is created every 
+time the function called, also it has "scope", which looks through
+own "lexical environmnet" and if it doesnt find need variable
+it looks in parent "lexical environmnet";
+
+
+function sayHi(name) {
+    //LexicalEnvironment = {name: 'Jack', phrase: 'undefined'};
+    let phrase= 'Hello ' + name;
+    //LexicalEnvironment = {name: 'Jack', phrase: 'Hello Jack'};
+    console.log(phrase);
+}
+
+sayHi('Jack');
+
+----------------------------
+sum(1)(2);
+
+function sum(a){
+    return function(b){
+        return console.log(a + b);
+    }
+}
+----------------------------
+
+function makeCounter() {
+    let currentCount = 1;
+
+    return function(){
+        return currentCount++;
+    }
+}
+
+let counter = makeCounter();
+
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log('--------------------------');
+
+let secondCounter = makeCounter();
+
+console.log(secondCounter());
+console.log(secondCounter());
+
+------------------------------------
+
+const button = document.querySelectorAll('button');
+
+for(var i = 0; i < button.length; i++) {
+    button[i].innerHTML = i;
+    button[i].onclick = function(x){
+        return function(){
+            console.log(x);
+        }        
+    }(i);
+}
+
+-----------------------------------Module through Closuring
+
+
+
 */
 
 //Practice Part
 
 
+//Gradient generator------------------------------
+
+// let mainFrame = document.querySelector('.introduction__frame');
+// let button = document.querySelector('.project-one__button');
+// let firstProperty = document.querySelector('.first-prop');
+// let secondProperty = document.querySelector('.second-prop');
+// let property = document.querySelector('.property');
+// let propertyValue = property.textContent;
+
+// button.addEventListener('click', function(event) {
+//     firstProperty.innerHTML = createHex();
+//     secondProperty.innerHTML = createHex();
+
+//     propertyValue = property.textContent;
+
+//     mainFrame.style.cssText = `${propertyValue}`;
+
+//     console.log(propertyValue);
+// });
+
+// function createHex(){
+//     let hexArr = ['a', 'b', 'c', 'd', 'e', 'f', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+//     let hexChoice = '';
+
+//     for (let i = 0; i < 6; i++) {
+//         let random = Math.floor(Math.random() * hexArr.length);
+//         hexChoice += (hexArr[random]);
+        
+//     }
+    
+//     return hexChoice;
+// }
+
+//-----------------------------------------------------------
 
 
+//Calculator-------------------------------------------------
 
+// let mainInput = document.querySelector('.main-input');
+// let expression = '';
 
+// function print(number){
+//     if(mainInput.value == '0') {
+//         clearTheInput();
+//         expression += number;
+//     } else expression += number;
 
+//     mainInput.value = expression;
+// }
 
+// function clearTheInput() {
+//     expression = '';
+//     mainInput.value = expression;
+// }
 
+// function equals(){
+//     mainInput.value = eval(expression);
+//     expression = mainInput.value;
+// }
 
-
-
-
-
-
-
-
+//-----------------------------------------------------------
 
 
 

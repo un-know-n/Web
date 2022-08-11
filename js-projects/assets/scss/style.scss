@@ -86,7 +86,6 @@ header {
 
 // Main
 main {
-    margin-top: 100px;
 
     .introduction {
         display: flex;
@@ -267,38 +266,55 @@ main {
                 background-color: #fff;
             }
 
-            .tabs {
-                .tab{
-                    display: inline-block;
-                    cursor: pointer;
-                    padding: 5px 15px;
-                    position: relative;
-                    z-index: 5;
-                }
+            .project-one {
+                display: flex;
+                padding-top: 100px;
+                width: 100%;
+                max-width: 700px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
 
-                .whiteborder{
-                    border: 1px solid red;
+            .calculator {
+                display: flex;
+                padding-top: 100px;
+                width: 100%;
+                max-width: 300px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
 
-                }
+                .calculator-buttons {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+                    margin-top: 20px;
 
-                .tabContent{
-                    width: 300px;
-                    background-color: #fff;
-                    height: 60px;
-                    border: 1px solid red;
-                    position: relative;
-                    top: -1px;
-                    z-index: 1;
-                    padding: 10px;
-                }
+                    .ordinary-buttons {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                        align-items: center;
+                        justify-content: center;
+                    }
 
-                .hide {
-                    display: none;
-                }
+                    .special-buttons{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                    }
 
-                .show {
-                    display: block;
+                    .calculator-button{
+                        width: 50px;
+                        height: 50px;
+                        margin-right: 5px;
+                        margin-bottom: 5px;
+                    }
                 }
+                
+
             }
         }
     }

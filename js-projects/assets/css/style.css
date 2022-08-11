@@ -10992,9 +10992,6 @@ header .navbar .navbar-collapse .nav-link {
   padding-bottom: 0;
 }
 
-main {
-  margin-top: 100px;
-}
 main .introduction {
   display: flex;
   width: 100%;
@@ -11150,29 +11147,46 @@ main .introduction .introduction__frame .block-preview {
   height: 100px;
   background-color: #fff;
 }
-main .introduction .introduction__frame .tabs .tab {
-  display: inline-block;
-  cursor: pointer;
-  padding: 5px 15px;
-  position: relative;
-  z-index: 5;
+main .introduction .introduction__frame .project-one {
+  display: flex;
+  padding-top: 100px;
+  width: 100%;
+  max-width: 700px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-main .introduction .introduction__frame .tabs .whiteborder {
-  border: 1px solid red;
+main .introduction .introduction__frame .calculator {
+  display: flex;
+  padding-top: 100px;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-main .introduction .introduction__frame .tabs .tabContent {
-  width: 300px;
-  background-color: #fff;
-  height: 60px;
-  border: 1px solid red;
-  position: relative;
-  top: -1px;
-  z-index: 1;
-  padding: 10px;
+main .introduction .introduction__frame .calculator .calculator-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 20px;
 }
-main .introduction .introduction__frame .tabs .hide {
-  display: none;
+main .introduction .introduction__frame .calculator .calculator-buttons .ordinary-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
 }
-main .introduction .introduction__frame .tabs .show {
-  display: block;
+main .introduction .introduction__frame .calculator .calculator-buttons .special-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main .introduction .introduction__frame .calculator .calculator-buttons .calculator-button {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }/*# sourceMappingURL=style.css.map */
