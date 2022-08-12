@@ -1140,8 +1140,8 @@ button.addEventListener('click', function(e) {
     console.log('click');
 });
 
-button.addEventListener('click' showConsole);
-button.removeEventListener('click' showConsole);
+button.addEventListener('click', showConsole);
+button.removeEventListener('click', showConsole);
 
 ----Parameters
 
@@ -1647,12 +1647,193 @@ for(var i = 0; i < button.length; i++) {
 }
 
 -----------------------------------Module through Closuring
+Module is used to hide inner logic(like variables, functions, objects...),
+that's usable when we want to import our file without making a conflict
+of the already existing names
+(Anonymous self-executing function)
+
+Module with closuring - is a wrapping a pack of functional in one 
+momentally executing function
+
+(function (){
+    let msg = "hi";
+
+    function sayHi() {
+        console.log(msg);
+    }
+
+    sayHi();
+})();
+
+?Or type like that:
+
++(/!)function() {
+    console.log('hi');
+
+    *We also can return value like this:
+    return {
+        defaults: function() {//...}
+    }
+}();
+
+----------------------------------Context binding
+"this" - current object by calling through '.' || new object with 
+constructing by new
+
+There are 3 methods to point outthe context: call, apply, bind
+!bind doesnt execute the function, just takes context and 
+!returns the wrapper, which can be executed furtherly, 
+!but 'call & apply' take context and executes when created
+
+!call & apply almost same, but have different args. transfer,
+!also apply supports array of arguments, instead of pack of named params
+
+*With call you can write method once and then inherit it whereever u want to
+
+Syntax: func.call(object, arg1, arg2, ...); -> first argument - "this"
+
+----------CALL Part
+
+function showFullName(){
+    console.log(this.firstName + ' ' + this.lastName);
+}
+
+function showFullName(firstPart, lastPart){
+    console.log(this[firstPart] + ' ' + this[lastPart]);
+}
+
+let user = {
+    firstName: "Someone",
+    lastName: "Else",
+    patronym: "..."
+}
+
+user.showFullName(); --> wont work due to missing that func
+
+showFullName.call(user); //-> magic
+showFullName.call(user, 'firstName', 'lastName');
+showFullName.call(user, 'firstName', 'patronym');
+
+-----
+
+function doSomething() {
+    let args = Array.prototype.slice.call(arguments);
+    *We took method "slice" from Arrray obj. and executed
+    *that method with "call" in 'arguments' context
+    !It doesn't matter to which object function is applied
+    console.log(args);
+}
+
+doSomething('water', 'sand', 'sugar', 'salt');
+
+---------APPLY Part
+
+Syntax: func.apply(object, [arg1, arg2,  ...]);
+
+function sumValues() {
+    let arr = [...arguments];
+    let final = 0;
+    for (let i = 0; i < arr.length; i++) {
+        final += arr[i];
+    }
+    return final;
+
+    //OR:
+    //for (var i = 0, res = 0; i < arguments.length; res += arguments[i++]);
+}
+
+let numbers = [12, 24, 34, 345, 2134, 33, 23];
+
+let result = sumValues.apply(this, numbers);
+
+console.log(result);
+
+As it's already been said, we can use every method we want to:
+Math.max(1, 4, 5, 7);
+
+console.log(Math.max.apply(null, numbers));
+
+---------BIND Part
+
+Syntax: let wrapper = func.bind(context(thisArg), arg1, ..., argN); 
+'context' - context which applies to func; 'arg1, arg2' - addition args. 
+will be added to those, which are typed when func executed;
+
+!func.bind(context) == bind(func, context);
+
+----Losing context
+let user = {
+    userName: 'Someone', 
+    sayHi: function(){
+        console.log(this.userName);
+    }
+}
+
+setTimeout(user.sayHi, 1000);
+
+If we want to transfer method of an object to somewhere, 
+where it can be further executed(bind his context to him), 
+we need to use .bind()
+
+function someFunc(a, b){
+    console.log(this);
+    console.log(a + b);
+}
+
+let g = someFunc.bind('Context');
+g(1, 2);
+
+-----Modified(without losing context):
+
+let user = {
+    userName: 'Someone', 
+    sayHi: function(){
+        console.log(this.userName);
+    }
+}
+
+let wrapper = user.sayHi.bind(user);
+
+setTimeout(wrapper, 1000);
+
+----Another example:
+
+let user = {
+    data: [
+        {name: 'John'},
+        {name: 'Max'}
+    ], 
+    showFirst: function(){
+        console.log(this.data[0].name);
+    }
+}
+
+let button = document.querySelector('#button');
+button.addEventListener('click', user.showFirst.bind(user));
+
+----------------------------------Arguments binding(Currying)
+
+function multiply(a, b) {
+    return a * b;
+}
+
+let double = multiply.bind(multiply, 2);
+
+console.log(double(2));
+console.log(double(3));
+console.log(double(4));
+double - partial function from multiply
+
+
 
 
 
 */
 
 //Practice Part
+
+
+
 
 
 //Gradient generator------------------------------
@@ -1718,6 +1899,107 @@ for(var i = 0; i < button.length; i++) {
 
 //-----------------------------------------------------------
 
+// let newArr = [];
+// let flattened = [1, [1, 2], [[1, 3], [4, 5]], [[[1, 3], [4, 5]], [[1, 3], [4, 5]]]];
+
+// newArr = flattened.flat(Infinity);
+
+// console.log(newArr);
+
+//FlashCards-------------------------------------------------
+
+let saveButton = document.querySelector('#save_card');
+let closeButton = document.querySelector('#close_card_box');
+let headContainer = document.querySelector('.head-container');
+let flashcardsContainer = document.querySelector('#flashcards');
+
+console.log(headContainer);
+
+closeButton.addEventListener('click', function() {
+    headContainer.classList.remove('show');
+    headContainer.classList.add('hide');
+})
+
+function showFlashBox(){
+    headContainer.classList.remove('hide');
+    headContainer.classList.add('show');
+}
+
+function deleteCards(){
+    flashcardsContainer.innerHTML ='';
+}
+
+function createCard(){
+    let flashcardDiv = document.createElement('div');
+    let answer = document.createElement('h2');
+    let question = document.createElement('h2');
+    let flashcardDelete = document.createElement('i');
+
+    let answerText = document.querySelector('#question').textContent;
+    let questionText = document.querySelector('#answer').textContent;
+
+    flashcardDiv.className = 'flashcard';
+    flashcardDelete.className = 'fa-solid fa-minus';
+
+    question.setAttribute("style", "border-top:1px solid red; padding: 15px; margin-top:30px");
+    question.textContent = questionText;
+  
+    answer.setAttribute("style", "text-align:center; display:none; color:red");
+    answer.textContent = answerText;
+
+    flashcardDelete.addEventListener('click', function() {
+        flashcardDiv.remove;
+    });
+    
+    flashcardDiv.append(answer);
+    flashcardDiv.append(question);
+    flashcardDiv.append(flashcardDelete);
+
+    flashcardsContainer.append(flashcardDiv);
+
+
+}
+
+//-----------------------------------------------------------
+
+
+
+//Check the following:
+
+// console.log(3 ** 2);
+// let myPromise = new Promise();
+// myPromise.then();
+// myPromise.catch();
+// myPromise.finally();
+
+// let { a, b, ...c } = { a: 1, b: 2, c: "Hello World", d: 4 };
+// console.log(a); // 1
+// console.log(b); // 2
+// console.log(c); // { c: “Hello World”, d: 4 }
+
+//List of changes(ES6 - ES12):
+
+//Array.prototype.includes()
+//Async Functions
+//Asynchronous Iteration
+//Promise.prototype.finally
+//Object Rest Properties
+//Array.flat()
+//Array.flatmap()
+//String.trimStart/trimEnd
+//import()
+//globalThis
+//Nullish Coalescing Operator (??)
+//Optional Chaining Operator (?.)
+//replaceAll
+//Numeric separator
+//Private Methods
+//Promise.any()
+//
+//
+//
+//
+//
 
 
 
@@ -1727,32 +2009,6 @@ for(var i = 0; i < button.length; i++) {
 
 
 
-// const introSearchBlock = document.querySelector('.introduction__search-form');
-// const buttonInput = document.querySelector('.open-search');
-// const introSearch = document.querySelector('.introduction__search');
-// const inputMain = document.querySelector('.introduction__search-input');
-// const inputText = document.querySelector('.input-counter span');
 
-// buttonInput.addEventListener('click', openInput);
-// document.addEventListener('click', openInput);
-
-// function openInput(event) {
-//     if(event.target.closest('.open-search')){
-//         introSearchBlock.classList.add('_active');
-//     }
-//     if(!event.target.closest('.introduction__search-form')){
-//         introSearchBlock.classList.remove('_active');
-//     }
-// }
-
-// inputMain.addEventListener('keyup', seeTextCount);
-// inputMain.addEventListener('keydown', function(event) {
-//     if(event.repeat) seeTextCount();
-// });
-
-// function seeTextCount() {
-//     const numberOfSymbols = inputMain.value.length;
-//     inputText.innerHTML = numberOfSymbols; 
-// }
 
 

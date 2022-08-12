@@ -4,7 +4,6 @@
     <!-- default meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- document favicon in browser tab -->
     <link rel="icon" type="image/x-icon" href="assets/images/js.ico">
@@ -14,49 +13,34 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- title -->
-    <title>JS Projects</title>
+    <title>FlashCards</title>
 </head>
 <body>
     
     <!-- Header -->
-    <!-- <header class="header">
+    <header class="header">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a href="/" class="navbar-brand">JS Projects</a>
+                <a href="#" class="navbar-brand">FlashCards</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                 aria-controls="navbarContent" aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item me-2">
-                            <a href="/" class="nav-link active" aria-current="page">Home</a>
-                        </li>
-                        <li class="nav-item dropdown me-2">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Link
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Project 1</a></li>
-                              <li><a class="dropdown-item" href="#">Project 2</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Project 3(special)</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <button class="btn btn-outline-light add-button" onclick="showFlashBox()">Add Card</button>
+                    <button class="btn btn-outline-light delete-button" onclick="deleteCards()">Delete Cards</button>
                     <a href="https://un-know-n.github.io/about/" class="btn btn-outline-light" target="_blank">Author</a>
                 </div>
             </div>
         </nav>
-    </header> -->
+    </header>
 
     <!-- Main -->
     <main class="main">
         <div class="wrapper">
             <section class="introduction">
-                <h1 class="introduction__title">Main Page(very start)</h1>
-                <div class="introduction__frame">
+                
                     <!-- <button class="introduction__button btn btn-outline-light">Click on me!</button>
                     <button class="introduction__button btn btn-outline-light">Click on</button>
                     
@@ -184,8 +168,26 @@
                         </div>
                         
                     </div> -->
-
-                </div>
+                    
+                    <div class="head-container">
+                        <div id="create_card">
+                            <h2>Create Flashcard</h2>
+                            <label for="question">Question</label>
+                            <textarea id="question" maxlength="280"></textarea>
+                            <label for="answer" maxlength="280">Answer</label>
+                            <br>
+                            <textarea id="answer"></textarea>
+                            <div>
+                                <button id="save_card" onclick="createCard()">Save</button> 
+                                <button id="close_card_box">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-container">
+                        <div id="flashcards"></div>
+                    </div>
+                      
+                    
             </section>
         </div>
     </main>
