@@ -1680,15 +1680,15 @@ momentally executing function
 "this" - current object by calling through '.' || new object with 
 constructing by new
 
-There are 3 methods to point outthe context: call, apply, bind
+There are 3 methods to point out the context: call, apply, bind
 !bind doesnt execute the function, just takes context and 
 !returns the wrapper, which can be executed furtherly, 
 !but 'call & apply' take context and executes when created
 
 !call & apply almost same, but have different args. transfer,
-!also apply supports array of arguments, instead of pack of named params
+!apply supports array of arguments, instead of pack of named params
 
-*With call you can write method once and then inherit it whereever u want to
+*With call you can write method once and then inherit it wherever u want to
 
 Syntax: func.call(object, arg1, arg2, ...); -> first argument - "this"
 
@@ -1711,6 +1711,7 @@ let user = {
 user.showFullName(); --> wont work due to missing that func
 
 showFullName.call(user); //-> magic
+
 showFullName.call(user, 'firstName', 'lastName');
 showFullName.call(user, 'firstName', 'patronym');
 
@@ -1832,9 +1833,36 @@ double - partial function from multiply
 
 //Practice Part
 
+//Prototype Introduction------------------------------------
 
+//.prototype - it's inner subobject, which can be called with every func
+//It's usually used with function-constructor
+//Prototype allows us to save memory by transfering general functions
+//in it
+//U can save everything in prototype, but only functions are preferable,
+//bcause other vars will be general to every created object
 
+// function Car(name){
+//     this.name = name;
+//     this.isTurnOn = false;
+//     this.speed = 0;
+//     this.engine = {
+//         v: 1.6,
+//         horsesPower: 120,
+//         isTurnOn:false
+//     }
+// } 
 
+// Car.prototype.start = function() {
+//     this.isTurnOn = true;
+//     this.speed = 10;
+//     this.engine.isTurnOn = true;
+// }
+
+// let newCar = new Car('renault');
+// console.log(newCar);
+
+//------------------------------------------------
 
 //Gradient generator------------------------------
 
@@ -1908,60 +1936,145 @@ double - partial function from multiply
 
 //FlashCards-------------------------------------------------
 
-let saveButton = document.querySelector('#save_card');
-let closeButton = document.querySelector('#close_card_box');
-let headContainer = document.querySelector('.head-container');
-let flashcardsContainer = document.querySelector('#flashcards');
+const createCardBlock = document.getElementById('create_card');
+const flashcardsContainer = document.getElementById('flashcards');
+const answerTextArea = document.getElementById('answer');
+const questionTextArea = document.getElementById('question');
 
-console.log(headContainer);
+let contentArray = localStorage.getItem('items') ? 
+JSON.parse(localStorage.getItem('items')) : []; 
 
-closeButton.addEventListener('click', function() {
-    headContainer.classList.remove('show');
-    headContainer.classList.add('hide');
-})
+contentArray.forEach(cardMaker);
+
+function hideFlashBox(){
+    createCardBlock.className = 'hide';
+}
 
 function showFlashBox(){
-    headContainer.classList.remove('hide');
-    headContainer.classList.add('show');
+    createCardBlock.className = 'show';
 }
 
 function deleteCards(){
+    localStorage.clear();
     flashcardsContainer.innerHTML ='';
+    contentArray = [];
 }
 
-function createCard(){
+function addFlashCard(){
+    let flashcardInfo = {
+        'my_question': questionTextArea.value,
+        'my_answer': answerTextArea.value
+    }
+
+    contentArray.push(flashcardInfo);
+    localStorage.setItem('items', JSON.stringify(contentArray));
+
+    cardMaker(contentArray[contentArray.length - 1], contentArray.length - 1);
+    questionTextArea.value = '';
+    answerTextArea.value = '';
+}
+
+function cardMaker(card, currentIndex){    
     let flashcardDiv = document.createElement('div');
     let answer = document.createElement('h2');
     let question = document.createElement('h2');
     let flashcardDelete = document.createElement('i');
 
-    let answerText = document.querySelector('#question').textContent;
-    let questionText = document.querySelector('#answer').textContent;
-
     flashcardDiv.className = 'flashcard';
     flashcardDelete.className = 'fa-solid fa-minus';
 
     question.setAttribute("style", "border-top:1px solid red; padding: 15px; margin-top:30px");
-    question.textContent = questionText;
+    question.innerHTML = card.my_question;
   
-    answer.setAttribute("style", "text-align:center; display:none; color:red");
-    answer.textContent = answerText;
-
-    flashcardDelete.addEventListener('click', function() {
-        flashcardDiv.remove;
-    });
+    answer.setAttribute("style", "text-align:center; display:none; color:red; position:absolute; top:100px; left: 40%");
+    answer.innerHTML = card.my_answer;
     
     flashcardDiv.append(answer);
     flashcardDiv.append(question);
     flashcardDiv.append(flashcardDelete);
 
-    flashcardsContainer.append(flashcardDiv);
+    flashcardDiv.addEventListener("click", function(){
+        if(answer.style.display == "none"){
+            answer.style.display = "block";
+        } else {
+            answer.style.display = "none";
+        }
+    });
 
+    flashcardDelete.addEventListener('click', function() {
+        contentArray.splice(currentIndex, 1);
+        localStorage.setItem('items', JSON.stringify(contentArray));
+        flashcardDiv.remove();
+    });
 
+    flashcardsContainer.prepend(flashcardDiv);
 }
 
 //-----------------------------------------------------------
 
+//Timer------------------------------------------------------
+
+let timeBegan = null; //did the clock start
+let timerStopped = null; //at what time timer stopped
+let stoppedDuration = 0; //how long was the timer stopped
+let startInterval = null; //needed to stop the startInterval() method
+let flag = false; //control the start/stop of the timer;
+
+const timerContainer = document.querySelector('.timer-container');
+
+timerContainer.addEventListener('click', function(){
+    if(!flag) {
+        startTimer();
+        flag = true;
+    } else {
+        stopTimer();
+        flag = false;
+    }
+});
+
+timerContainer.addEventListener('dblclick', function(){
+    resetTimer();
+});
+
+function resetTimer(){
+    clearInterval(startInterval);
+    timeBegan = null;
+    timerStopped = null;
+    stoppedDuration = 0;
+    document.querySelector('.timer-container__display').innerHTML = '00 : 00 : 00';
+    flag = false;
+}
+
+function startTimer() {
+    if(timeBegan === null) timeBegan = new Date();
+
+    if(timerStopped !== null) stoppedDuration += (new Date() - timerStopped);
+
+    startInterval = setInterval(clockRunning, 10);
+}
+
+function stopTimer() {
+    timerStopped = new Date();
+    clearInterval(startInterval);
+}
+
+function clockRunning() {
+    let currentTime = new Date();
+    let timeElapsed = new Date(currentTime - timeBegan - stoppedDuration);
+
+    let minutes = timeElapsed.getUTCMinutes();
+    let seconds = timeElapsed.getUTCSeconds();
+    let milliseconds = timeElapsed.getUTCMilliseconds();
+
+    milliseconds = Math.floor(milliseconds / 10);
+
+    document.querySelector('.timer-container__display').innerHTML =
+    (minutes = minutes < 10 ? '0' + minutes:minutes) + ' : ' +
+    (seconds = seconds < 10 ? '0' + seconds:seconds) + ' : ' +
+    (milliseconds = milliseconds < 10 ? '0' + milliseconds:milliseconds);
+}
+
+//-----------------------------------------------------------
 
 
 //Check the following:

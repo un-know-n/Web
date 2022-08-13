@@ -10,6 +10,7 @@
 
     <!-- style linking -->
     <link rel="stylesheet" href="assets/css/libs/normalize.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- title -->
@@ -172,14 +173,17 @@
                     <div class="head-container">
                         <div id="create_card">
                             <h2>Create Flashcard</h2>
-                            <label for="question">Question</label>
-                            <textarea id="question" maxlength="280"></textarea>
-                            <label for="answer" maxlength="280">Answer</label>
-                            <br>
-                            <textarea id="answer"></textarea>
-                            <div>
-                                <button id="save_card" onclick="createCard()">Save</button> 
-                                <button id="close_card_box">Close</button>
+                            <div class="create_card__question-block inner-block">
+                                <p>Question:</p>
+                                <textarea id="question" maxlength="280"></textarea>
+                            </div>
+                            <div class="create_card__answer-block inner-block">
+                                <p>Answer:</p>
+                                <textarea id="answer" maxlength="280"></textarea>
+                            </div>
+                            <div class="inner-block_buttons">
+                                <button class="btn btn-success" id="save_card" onclick="addFlashCard()">Save</button> 
+                                <button class="btn btn-danger" id="close_card_box" onclick="hideFlashBox()">Close</button>
                             </div>
                         </div>
                     </div>
