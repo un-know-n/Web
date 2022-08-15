@@ -11010,6 +11010,20 @@ header .navbar .container .collapse {
   align-items: center;
   justify-content: flex-end;
 }
+header .navbar .container .collapse .search-box {
+  margin-right: 50px;
+  position: relative;
+}
+header .navbar .container .collapse .search-box input {
+  border-radius: 25px;
+  padding-left: 8px;
+}
+header .navbar .container .collapse .search-box i {
+  position: absolute;
+  top: 7px;
+  right: -15%;
+  color: #fff;
+}
 header .navbar .container .collapse button {
   margin-right: 10px;
 }
@@ -11301,4 +11315,11 @@ main .introduction .timer-container {
 }
 main .introduction .timer-container .timer-container__display {
   font-size: 62px;
+}
+main .introduction #typedtext {
+  font-size: 28px;
+}
+main .introduction #typedtext span {
+  -webkit-animation: blinker 1s linear infinite;
+          animation: blinker 1s linear infinite;
 }/*# sourceMappingURL=style.css.map */

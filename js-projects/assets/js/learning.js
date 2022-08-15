@@ -1827,23 +1827,134 @@ double - partial function from multiply
 
 _________________________EasyCode_course_________________________
 
+console.table({ name: "Someone", age: 30});
+
+true - 1, false - 0, null - 0, undefined - NaN
+
+--------------Template string(``)
+--------------Object
+
+const user = {
+    'user-address': {
+        city: 'Kharkiv'
+    }
+};
+let value = 'email';
+
+console.log(user['user-address']['city']);
+console.log(user['user-address'].city);
+console.log(user[value]);
+
+user.plan.basic = ...; ---> error
+
+user.plan = {};
+user.plan.basic = 'basic'; ---> true
+
+----------------Random things
+let value = 'A'.charCodeAt();
+console.log(value);
+
+Prototype Introduction
+
+.prototype - it's inner subobject, which can be called with every func
+It's usually used with function-constructor
+Prototype allows us to save memory by transfering general functions
+in it
+U can save everything in prototype, but only functions are preferable,
+bcause other vars will be general to every created object
+
+function Car(name){
+    this.name = name;
+    this.isTurnOn = false;
+    this.speed = 0;
+    this.engine = {
+        v: 1.6,
+        horsesPower: 120,
+        isTurnOn:false
+    }
+}
+
+Car.prototype.start = function() {
+    this.isTurnOn = true;
+    this.speed = 10;
+    this.engine.isTurnOn = true;
+}
+
+let newCar = new Car('renault');
+console.log(newCar);
+
+----------------
+
+----------------Switch-case + ternary operator
+statement ? if true : if false;
+statement ? if true : statement ? if true : if false;
+...
+
+let result = a > 0 ? b = a : b++;
+
+!Cant use 'if statements' with case:
+switch(variable) {
+    case 'string': 
+        do something;
+        break;
+    case 1:
+    case 2:
+        do something;
+        break;
+    case 
+    default:
+        do something;
+}
+
+-----------------Loops
+for..in(keys) - objects, for..of(values) - arrays, strings
+
+-----------------High-order func
+
+function foo(){...}
+foo();
+
+!Addind a field into a function(non preferable code), example that func is an object(first-class func)
+foo.field = 'something';
+console.log(foo.field);
+
+High-order func - is a func, that takes as params. other functions or return them
+
+Callback is used when u need to have a universal function, which takes a function from outer world and use it on her own
+If u do another way - u will bind yourself to the names of the functions.
+
+------------------Dictionary
+
+!Bad way:
+function question(job){
+    if(job === 'developer'){
+        return function(name){
+            return `${name}, what is JS?`
+        }
+    } 
+    if(job === 'teacher'){
+        return function(name){
+            return `${name}, what are u up to?`
+        }
+    }
+}
+const devQuestion = question('developer');
+console.log(devQuestion('Someone'));
 
 
+*Right way:
+function question(job){
+    const jobDictionary = {
+        developer: 'what is JS?', 
+        teacher: 'what are u up to?'
+    };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return function(name){
+        return `${name}, ${jobDictionary[job]}`;
+    }
+}
+const devQuestion = question('developer');
+console.log(devQuestion('Someone'));
 
 
 
@@ -1852,36 +1963,43 @@ _________________________EasyCode_course_________________________
 
 //Practice Part
 
-//Prototype Introduction------------------------------------
+// const arr = ['Someone', 'Another', 'Stranger', 'Smith'];
+// let resArr = mapClone(arr, seeAmount);
 
-//.prototype - it's inner subobject, which can be called with every func
-//It's usually used with function-constructor
-//Prototype allows us to save memory by transfering general functions
-//in it
-//U can save everything in prototype, but only functions are preferable,
-//bcause other vars will be general to every created object
+// console.log(resArr);
 
-// function Car(name){
-//     this.name = name;
-//     this.isTurnOn = false;
-//     this.speed = 0;
-//     this.engine = {
-//         v: 1.6,
-//         horsesPower: 120,
-//         isTurnOn:false
-//     }
+// function mapClone(array, func) {
+//   let result = [];
+//   for (let q = 0; q < array.length; q++) {
+//     result.push(func(arr[q]));
+//   }
+//   return result;
 // }
 
-// Car.prototype.start = function() {
-//     this.isTurnOn = true;
-//     this.speed = 10;
-//     this.engine.isTurnOn = true;
+// function seeAmount(array) {
+//   let amount = 0;
+//   for (let q = 0; q < array.length; q++) {
+//     if (q == array.length - 1) amount = ++q;
+//   }
+//   return amount;
 // }
 
-// let newCar = new Car('renault');
-// console.log(newCar);
+//----------------------------
 
-//------------------------------------------------
+//!!!Important:
+// function greeting(firstName) {
+//   return function (lastName) {
+//     return `Hello, ${firstName} ${lastName}`;
+//   };
+// }
+
+//const testGreeting = greeting('Someone');
+//const fullName = testGreeting('Else');
+
+// const testGreeting = greeting('Someone')('Else');
+// console.log(testGreeting);
+
+//----------------------------
 
 //Gradient generator------------------------------
 
@@ -2101,14 +2219,6 @@ function clockRunning() {
     ' : ' +
     (milliseconds = milliseconds < 10 ? '0' + milliseconds : milliseconds);
 }
-
-//-----------------------------------------------------------
-
-//Unsplash-API-----------------------------------------------
-
-//-----------------------------------------------------------
-
-//Typing-----------------------------------------------------
 
 //-----------------------------------------------------------
 
