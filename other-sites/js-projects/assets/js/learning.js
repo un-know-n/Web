@@ -612,8 +612,7 @@ let anotherArr = arr.concat('Added value');
 console.log(anotherArr); ---> [....., Added value]
 
 ?----Show the index
-Syntax: indexOf(item, from), lastIndexOf(right to left), includes(item, from) - true if right, 
-false if not;
+Syntax: indexOf(item, from), lastIndexOf(right to left), includes(item, from) - true if right, false if not;
 
 ?-----Search the array with specific queries(find & findIndex)
 Syntax: let result = arr.find(function(item, index, array) {
@@ -803,8 +802,7 @@ const parentNode = bodyElement.parentNode;(also previousSibling, nextSibling)
 -----Take collection of every child tag
 const bodyChildren = bodyElement.children;
 
-!To every method there's a way to see element, not node(firstElementChild,
-!lastElementChild...)
+!To every method there's a way to see element, not node(firstElementChild, lastElementChild...)
 
 -----------Search for random element
 Syntax: document.querySelectorAll(CSS);
@@ -1901,7 +1899,6 @@ switch(variable) {
     case 2:
         do something;
         break;
-    case 
     default:
         do something;
 }
@@ -1957,6 +1954,159 @@ const devQuestion = question('developer');
 console.log(devQuestion('Someone'));
 
 
+--------Chain methods:
+let str = "Hello world";
+const revStr = str.split('').reverse().join('');
+console.log(revStr);
+
+const prod3 = {...};
+
+*Attention:
+function getName(){
+    ...
+    return this;
+}
+
+prod3.getName().getPrice();
+
+!When we dont return a value in function, it returns undefined!!!(return this; with objects to create chains of object methods)
+
+-------------Losing context
+
+?It usually appears when we transfer methods into other functions which will be called with other context(setTimeout, setInterval ---> window context)
+
+-------------Arrow functions
+
+const singleDefArg = (x = 1) => x*2;
+const moreActions = (a, b) => {
+    a**a;
+    b++;
+    return a + b;
+}
+const returnObj = (str = '') => {
+    return {
+        value: str,
+        length: str.length
+    }
+}
+
+!Arrow functions doesnot have pseudo-array 'arguments'!!!
+!Arrow functions doesnot have their own call context (this)
+
+*Also arrow functions can repair context losing
+
+const obj = {
+    name: ...
+    age: ...
+    getAge() {
+        setTimeout(() => console.log(this));---> works
+    }
+}
+
+------------Arrays sorting
+
+const totalBalance = users.reduce((acc, user) => (acc += user.balance), 0);
+console.log(totalBalance);
+
+Forming ann object from array with reduce
+
+const usersObject = users.reduce((acc, user) => {
+    acc[user._id] = user; - id: {}
+    return acc; - every time return new object
+}, {} - start value(empty object)); 
+
+------------Object methods
+
+Not deep cody - obj.assing; deep copy - json.parse, json.stringify
+Object.assign({} - new empty obj, someObj - from what to copy, obj2, obj3... - concating objects with target object (if same properties it changes them to newest));
+
+json.stringify - conver obj/arr to JSON format
+json.parse - return back
+
+let keys = Object.keys(obj); ---> return keys of obj as array
+let values = Object.values(obj); ---> return vals of obj as array
+let entries = Object.entries(obj); ---> return array of arrays where key:value is one array ([['name', 'value'], ['age', 20]])
+
+let fromEntries = Object.fromEntries(entries); ---> reverse method Object.entries
+
+!------------Destructurization
+
+{} - object destruct, [] - arr destruct
+
+Gives us ability to decompose an element into its components
+We can do it with: objects, arrays, functions(if objects)
+
+const user = {
+    firstName: "Someone",
+    lastName: "Else",
+    info: {
+        work: 'SomeCompany',
+        skills: ['html', 'css']
+    }
+}
+
+const {firstName, lastName} = user; ---> create a const firstName
+console.log(firstName); ---> Someone
+
+const {age = 30} = user; ---> giving default value of non-existing field in obj
+
+const {firstName: name} = user; ---> create an alias of firstName(name), but we cant use firstName anymore
+
+const { info: {work, skills} } = user; ---> destruct of inner obj
+
+----Array destruct
+
+const colors = ['white', 'black', 'red'];
+const [w, b, , green = 'green'] = colors; ---> default green, non-existing red
+console.log(w, b, green);
+
+const nestedArr = ['hello world', ['key', 'value']];
+const [, [key, value]] = nestedArr; ---> destruct of nested arr
+console.log(key, value);
+
+?----Rest & Spread operators
+
+rest - rest from array, copy arr...
+spread - 
+
+const [color1, ...otherColors] = colors; ---> color1 - 'white'; otherColors - array of rest colors;
+
+const [...arr] = oldArr; ---> full copy of array
+const arr = [...oldArr]; ---> the same but as 'spread'
+
+const arr = ['someValue', ...oldArr, ...colors]; --->concat
+
+const newUser = {...user, age: 30}; ---> obj copy(NOT deep copy), + adding age value
+
+const {info: {skills: [html, css]}, } = newUser;
+console.log(html, css);
+
+function foo(x, y, ...others) {
+    console.log(arguments);
+    const [...args] = arguments;
+    console.log(others);
+}
+foo(...numbers);
+
+-----Destruct in functions
+
+function someFunc({lastName, firstName, info: {skills}} = {}) {
+    console.log(firstName, lastName);
+}
+someFunc(); ---> wont be an erroe bcs we have default empty obj
+someFunc(obj);
+
+!-------------AJAX
+
+
+
+
+
+
+
+
+
+
 
 
 */
@@ -2001,226 +2151,12 @@ console.log(devQuestion('Someone'));
 
 //----------------------------
 
-//Gradient generator------------------------------
-
-// let mainFrame = document.querySelector('.introduction__frame');
-// let button = document.querySelector('.project-one__button');
-// let firstProperty = document.querySelector('.first-prop');
-// let secondProperty = document.querySelector('.second-prop');
-// let property = document.querySelector('.property');
-// let propertyValue = property.textContent;
-
-// button.addEventListener('click', function(event) {
-//     firstProperty.innerHTML = createHex();
-//     secondProperty.innerHTML = createHex();
-
-//     propertyValue = property.textContent;
-
-//     mainFrame.style.cssText = `${propertyValue}`;
-
-//     console.log(propertyValue);
-// });
-
-// function createHex(){
-//     let hexArr = ['a', 'b', 'c', 'd', 'e', 'f', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
-//     let hexChoice = '';
-
-//     for (let i = 0; i < 6; i++) {
-//         let random = Math.floor(Math.random() * hexArr.length);
-//         hexChoice += (hexArr[random]);
-
-//     }
-
-//     return hexChoice;
-// }
-
-//-----------------------------------------------------------
-
-//Calculator-------------------------------------------------
-
-// let mainInput = document.querySelector('.main-input');
-// let expression = '';
-
-// function print(number){
-//     if(mainInput.value == '0') {
-//         clearTheInput();
-//         expression += number;
-//     } else expression += number;
-
-//     mainInput.value = expression;
-// }
-
-// function clearTheInput() {
-//     expression = '';
-//     mainInput.value = expression;
-// }
-
-// function equals(){
-//     mainInput.value = eval(expression);
-//     expression = mainInput.value;
-// }
-
-//-----------------------------------------------------------
-
 // let newArr = [];
 // let flattened = [1, [1, 2], [[1, 3], [4, 5]], [[[1, 3], [4, 5]], [[1, 3], [4, 5]]]];
 
 // newArr = flattened.flat(Infinity);
 
 // console.log(newArr);
-
-//FlashCards-------------------------------------------------
-
-const createCardBlock = document.getElementById('create_card');
-const flashcardsContainer = document.getElementById('flashcards');
-const answerTextArea = document.getElementById('answer');
-const questionTextArea = document.getElementById('question');
-
-let contentArray = localStorage.getItem('items')
-  ? JSON.parse(localStorage.getItem('items'))
-  : [];
-
-contentArray.forEach(cardMaker);
-
-function hideFlashBox() {
-  createCardBlock.className = 'hide';
-}
-
-function showFlashBox() {
-  createCardBlock.className = 'show';
-}
-
-function deleteCards() {
-  localStorage.clear();
-  flashcardsContainer.innerHTML = '';
-  contentArray = [];
-}
-
-function addFlashCard() {
-  let flashcardInfo = {
-    my_question: questionTextArea.value,
-    my_answer: answerTextArea.value,
-  };
-
-  contentArray.push(flashcardInfo);
-  localStorage.setItem('items', JSON.stringify(contentArray));
-
-  cardMaker(contentArray[contentArray.length - 1], contentArray.length - 1);
-  questionTextArea.value = '';
-  answerTextArea.value = '';
-}
-
-function cardMaker(card, currentIndex) {
-  let flashcardDiv = document.createElement('div');
-  let answer = document.createElement('h2');
-  let question = document.createElement('h2');
-  let flashcardDelete = document.createElement('i');
-
-  flashcardDiv.className = 'flashcard';
-  flashcardDelete.className = 'fa-solid fa-minus';
-
-  question.setAttribute(
-    'style',
-    'border-top:1px solid red; padding: 15px; margin-top:30px'
-  );
-  question.innerHTML = card.my_question;
-
-  answer.setAttribute(
-    'style',
-    'text-align:center; display:none; color:red; position:absolute; top:100px; left: 40%'
-  );
-  answer.innerHTML = card.my_answer;
-
-  flashcardDiv.append(answer);
-  flashcardDiv.append(question);
-  flashcardDiv.append(flashcardDelete);
-
-  flashcardDiv.addEventListener('click', function () {
-    if (answer.style.display == 'none') {
-      answer.style.display = 'block';
-    } else {
-      answer.style.display = 'none';
-    }
-  });
-
-  flashcardDelete.addEventListener('click', function () {
-    contentArray.splice(currentIndex, 1);
-    localStorage.setItem('items', JSON.stringify(contentArray));
-    flashcardDiv.remove();
-  });
-
-  flashcardsContainer.prepend(flashcardDiv);
-}
-
-//-----------------------------------------------------------
-
-//Timer------------------------------------------------------
-
-let timeBegan = null; //did the clock start
-let timerStopped = null; //at what time timer stopped
-let stoppedDuration = 0; //how long was the timer stopped
-let startInterval = null; //needed to stop the startInterval() method
-let flag = false; //control the start/stop of the timer;
-
-const timerContainer = document.querySelector('.timer-container');
-
-timerContainer.addEventListener('click', function () {
-  if (!flag) {
-    startTimer();
-    flag = true;
-  } else {
-    stopTimer();
-    flag = false;
-  }
-});
-
-timerContainer.addEventListener('dblclick', function () {
-  resetTimer();
-});
-
-function resetTimer() {
-  clearInterval(startInterval);
-  timeBegan = null;
-  timerStopped = null;
-  stoppedDuration = 0;
-  document.querySelector('.timer-container__display').innerHTML =
-    '00 : 00 : 00';
-  flag = false;
-}
-
-function startTimer() {
-  if (timeBegan === null) timeBegan = new Date();
-
-  if (timerStopped !== null) stoppedDuration += new Date() - timerStopped;
-
-  startInterval = setInterval(clockRunning, 10);
-}
-
-function stopTimer() {
-  timerStopped = new Date();
-  clearInterval(startInterval);
-}
-
-function clockRunning() {
-  let currentTime = new Date();
-  let timeElapsed = new Date(currentTime - timeBegan - stoppedDuration);
-
-  let minutes = timeElapsed.getUTCMinutes();
-  let seconds = timeElapsed.getUTCSeconds();
-  let milliseconds = timeElapsed.getUTCMilliseconds();
-
-  milliseconds = Math.floor(milliseconds / 10);
-
-  document.querySelector('.timer-container__display').innerHTML =
-    (minutes = minutes < 10 ? '0' + minutes : minutes) +
-    ' : ' +
-    (seconds = seconds < 10 ? '0' + seconds : seconds) +
-    ' : ' +
-    (milliseconds = milliseconds < 10 ? '0' + milliseconds : milliseconds);
-}
-
-//-----------------------------------------------------------
 
 //Check the following:
 

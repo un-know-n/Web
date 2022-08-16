@@ -11322,4 +11322,84 @@ main .introduction #typedtext {
 main .introduction #typedtext span {
   -webkit-animation: blinker 1s linear infinite;
           animation: blinker 1s linear infinite;
+}
+main .introduction .game-container {
+  position: relative;
+  margin: auto;
+  height: 350px;
+  width: 450px;
+}
+main .introduction .game-container .figure-container {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+main .introduction .game-container .figure-container .figure-part {
+  display: none;
+}
+main .introduction .game-container .wrong-letters-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+main .introduction .game-container .wrong-letters-container p {
+  margin: 0 0 5px;
+}
+main .introduction .game-container .wrong-letters-container span {
+  font-size: 20px;
+}
+main .introduction .game-container .word {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main .introduction .game-container .letter {
+  border-bottom: 3px solid #7562E0;
+  display: inline-flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  height: 50px;
+  width: 20px;
+}
+main .introduction .popup-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+main .introduction .popup-container .popup {
+  background: #77608d;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
+main .introduction .popup-container .popup button {
+  margin-top: 20px;
+}
+main .introduction .notification-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  position: fixed;
+  bottom: -60px;
+  transition: all 0.3s ease;
+}
+main .introduction .notification-container p {
+  margin: 0;
+}
+main .introduction .notification-container.show {
+  transform: translateY(-60px);
 }/*# sourceMappingURL=style.css.map */
