@@ -651,7 +651,7 @@ return an empty array []
 let resultOne = arr.find(function(item, index, array) {
     return item.age >= 18;
 });
-console.log(resultOne); ---> 2 objects
+console.log(resultOne); ---> 1 objects
 
 ----------------Sorting in the array
 Syntax: arr.sort(fn);
@@ -1154,18 +1154,22 @@ button.addEventListener('click', showConsole, options);
 ----Object event
 
 function showConsole(event) {
-    //Type of event
+    Type of event
     console.log(event.type);
-    //Object which called an event
+
+    Object which called an event
     console.log(event.target);
-    //Object to whict was tied specific listener
+
+    Object to whict was tied specific listener
     console.log(event.currentTarget);
-    //Cursor x position
+
+    Cursor x position
     console.log(event.clientX);
-    //Cursor y position
+
+    Cursor y position
     console.log(event.clientY);
 
-    //All the details
+    All the details
     console.log(event);
 
     console.log("Yay");
@@ -2098,18 +2102,212 @@ someFunc(obj);
 
 !-------------AJAX
 
+It gives us ability to speak with server without reloading page. Types of methods:
+-get(get data)
+-post(create data on server)
+-put(reload data on server)
+-delete(delete data on server)
 
+Different events to get data from server:
+-readyStateChange
+-load
+-error
 
+!Method .open() doesn't send request to server, it just sets it up. To send the request you need to use .send();
+*Also send takes body of request if u use 'post', 'delete'.., like .send(request_body);
+*To take the answer use .responseText
 
-
-
-
-
+!-------------Promises
 
 
 
 
 */
+
+// ------Practice with AJAX
+
+// const buttonReq = document.querySelector('.send-request');
+// const buttonAdd = document.querySelector('.add-post');
+// const responseDiv = document.querySelector('.get-response');
+
+// const defaultObject = {
+//   title: 'foo',
+//   body: 'bar',
+//   userId: 1,
+// };
+
+// buttonReq.addEventListener('click', (e) => {
+//   //   sendRequest((response) => console.log(response));
+//   sendRequest(renderPost);
+// });
+
+// buttonAdd.addEventListener('click', (e) => {
+//   createPost(defaultObject, (response) => {
+//     responseDiv.append(cardTemplate(response));
+//   });
+// });
+
+// function sendRequest(callback) {
+//   const xhr = new XMLHttpRequest();
+//   xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+//   xhr.addEventListener('load', () => {
+//     //   console.log('request loaded');
+//     // console.log(xhr.responseText);
+//     const response = JSON.parse(xhr.responseText);
+//     //console.log(response);
+//     callback(response);
+//   });
+
+//   xhr.addEventListener('error', () => {
+//     console.log('error');
+//   });
+
+//   xhr.send();
+// }
+
+// function createPost(body, callback) {
+//   const xhr = new XMLHttpRequest();
+//   xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts');
+//   xhr.addEventListener('load', () => {
+//     const response = JSON.parse(xhr.responseText);
+//     callback(response);
+//   });
+
+//   xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+
+//   xhr.addEventListener('error', () => {
+//     console.log('error');
+//   });
+//   xhr.send(JSON.stringify(body));
+// }
+
+// function renderPost(response) {
+//   //   const fragment = document.createDocumentFragment();
+//   response.forEach((post) => {
+//     responseDiv.append(cardTemplate(post));
+//   });
+// }
+
+// function universalHttpRequest({ method, url } = {}, callback, body) {
+//   try {
+//     const xhr = new XMLHttpRequest();
+//     xhr.open(method, url);
+//     xhr.addEventListener('load', () => {
+//       if (Math.floor(xhr.status / 100) !== 2) {
+//         callback(`Error. Status code: ${xhr.status}`, xhr);
+//         return;
+//       }
+//       const response = JSON.parse(xhr.responseText);
+//       callback(null, response);
+//     });
+//     xhr.addEventListener('error', () => {
+//       callback(`Error. Status code: ${xhr.status}`, xhr);
+//     });
+//     if (method !== 'GET') xhr.send(JSON.stringify(body));
+//     else xhr.send();
+//   } catch (error) {
+//     callback(error);
+//   }
+// }
+
+// function cardTemplate(post) {
+//   const card = document.createElement('div');
+//   const cardBody = document.createElement('div');
+//   const cardTitle = document.createElement('h5');
+//   const cardDesc = document.createElement('p');
+//   card.classList.add('card');
+//   cardBody.classList.add('card-body');
+//   cardTitle.classList.add('card-title');
+//   cardDesc.classList.add('card-text');
+//   cardTitle.style.color = '#000';
+//   cardDesc.style.color = '#000';
+
+//   cardTitle.innerHTML = post.title;
+//   cardDesc.innerHTML = post.body;
+
+//   cardBody.append(cardDesc);
+//   cardBody.prepend(cardTitle);
+//   card.append(cardBody);
+//   return card;
+// }
+
+// // universalHttpRequest(
+// //   { method: 'GET', url: 'https://jsonplaceholder.typicode.com/postss' },
+// //   (error, response) => {
+// //     if (error) {
+// //       console.log(error);
+// //       return;
+// //     } else console.log(response);
+// //   }
+// // );
+
+// //Creation of the universal object with pack of methods for future requests
+// function httpMethods() {
+//   return {
+//     get(url, callback) {
+//       try {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open('GET', url);
+//         xhr.addEventListener('load', () => {
+//           if (Math.floor(xhr.status / 100) !== 2) {
+//             callback(`Error. Status code: ${xhr.status}`, xhr);
+//             return;
+//           }
+//           const response = JSON.parse(xhr.responseText);
+//           callback(null, response);
+//         });
+//         xhr.addEventListener('error', () => {
+//           callback(`Error. Status code: ${xhr.status}`, xhr);
+//         });
+//         xhr.send();
+//       } catch (error) {
+//         callback(error);
+//       }
+//     },
+//     post(url, callback, body, headers) {
+//       try {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open('POST', url);
+//         xhr.addEventListener('load', () => {
+//           if (Math.floor(xhr.status / 100) !== 2) {
+//             callback(`Error. Status code: ${xhr.status}`, xhr);
+//             return;
+//           }
+//           const response = JSON.parse(xhr.responseText);
+//           callback(null, response);
+//         });
+
+//         if (headers) {
+//           Object.entries(headers).forEach(([key, value]) => {
+//             xhr.setRequestHeader(key, value);
+//           });
+//         }
+
+//         xhr.addEventListener('error', () => {
+//           callback(`Error. Status code: ${xhr.status}`, xhr);
+//         });
+//         xhr.send(JSON.stringify(body));
+//       } catch (error) {
+//         callback(error);
+//       }
+//     },
+//   };
+// }
+
+// const myHttp = httpMethods();
+// myHttp.post(
+//   'https://jsonplaceholder.typicode.com/posts',
+//   (error, response) => {
+//     if (error) {
+//       console.log(error);
+//       return;
+//     } else console.log(response);
+//   },
+//   defaultObject,
+//   { 'Content-type': 'application/json; charset=UTF-8' }
+// );
+
+//-------------------------------------------
 
 //Practice Part
 
