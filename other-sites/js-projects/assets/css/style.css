@@ -11419,4 +11419,76 @@ main .introduction .meal-container .flex form input {
 }
 main .introduction .meal-container .flex form button {
   margin-right: 20px;
+}
+main .introduction .meal-container #result-heading {
+  margin: 20px 0;
+}
+main .introduction .meal-container .meals {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+main .introduction .meal-container .meals .meal {
+  position: relative;
+  cursor: pointer;
+  height: 180px;
+  width: 180px;
+  text-align: center;
+  border: 4px #fff solid;
+  border-radius: 2px;
+}
+main .introduction .meal-container .meals .meal img {
+  width: 100%;
+  height: 100%;
+}
+main .introduction .meal-container .meals .meal .meal-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+main .introduction .meal-container .meals .meal .meal-info:hover {
+  opacity: 1;
+}
+main .introduction .meal-container .single-meal {
+  margin: 30px auto;
+  width: 70%;
+}
+main .introduction .meal-container .single-meal img {
+  width: 300px;
+  margin: 15px;
+  border: 4px #fff solid;
+  border-radius: 2px;
+}
+main .introduction .meal-container .single-meal p {
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+main .introduction .meal-container .single-meal ul {
+  padding-left: 0;
+  text-align: left;
+}
+main .introduction .meal-container .single-meal ul li {
+  border: 1px solid #ededed;
+  border-radius: 5px;
+  background-color: #fff;
+  display: inline-block;
+  color: #1a1a1a;
+  font-size: 12px;
+  padding: 5px;
+  margin: 0 5px 5px 0;
+}
+main .introduction .meal-container .single-meal-info {
+  margin: 20px;
+  padding: 10px;
+  border: 2px #77608d dashed;
+  border-radius: 10px;
 }/*# sourceMappingURL=style.css.map */
