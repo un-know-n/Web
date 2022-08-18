@@ -11402,4 +11402,21 @@ main .introduction .notification-container p {
 }
 main .introduction .notification-container.show {
   transform: translateY(-60px);
+}
+main .introduction .meal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+main .introduction .meal-container .flex {
+  display: flex;
+}
+main .introduction .meal-container .flex form input {
+  border-radius: 10px;
+  margin-right: 20px;
+}
+main .introduction .meal-container .flex form button {
+  margin-right: 20px;
 }/*# sourceMappingURL=style.css.map */

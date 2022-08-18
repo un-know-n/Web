@@ -2102,6 +2102,13 @@ someFunc(obj);
 
 !-------------AJAX
 
+Syntax: const xhr = new XMLHttpRequest();
+xhr.open(...);
+xhr.addEventListener('load', callback);
+xhr.addEventListener('error', callback);
+(if "POST" ---> xhr.setRequestHeaders(...));
+xhr.send(...);
+
 It gives us ability to speak with server without reloading page. Types of methods:
 -get(get data)
 -post(create data on server)
@@ -2117,12 +2124,362 @@ Different events to get data from server:
 *Also send takes body of request if u use 'post', 'delete'.., like .send(request_body);
 *To take the answer use .responseText
 
+Practice part is below(after theory)!!
+
 !-------------Promises
 
+We have many difficult moments when working with callbacks:
+callback hell - when one callback is put inside another one and so on...
 
+It would be better to use one exception handler for all the callbacks and give up the execution chain when error(instead of transfering the error to another callback)
 
+*Promise gives us ability to work easier with promises and leave the callback hell behind. Also it has one exception handler; we can call many async actions as a chain
+
+Syntax: const promise = new Promise((resolve, reject) => {});
+promise.then().catch();
+
+Attributes:
+-resolve - successful attempt
+-reject - bad attempt(error)
+
+new Promise() - takes callback as param, which itself takes two functions, one for successful atempt, another for error 
+
+After the operation in callback is done we can resolve or reject func
+
+.then() - takes callback which will take data from promise into resolve() || reject() function
+We can use chains with .then(), because every .then() is promise itself
+
+!Also promise will call reject() / resolved() only once guaranteed, two funcs cant be called
+
+!!!Resolve() & Reject() take only one argument, if you need to send complicated data - use objects
+
+*We take errors in .catch() methods, we need to type it in the end of the .then's chain (like: .then(...).then(...).catch(...));
+!If there will be any error .then will momentally transfer the mistake to the .catch() method
+
+?Also we can return promises in functions and then use them
+
+?Important: promise has method .finally(), which executes everytime we call promise(despite of mistakes / successful calls)
+
+*Promise.all can be used when we have all the data we need and want to call the promises one-by-one 
+
+Practice part is below(after theory)!!
+
+!-------------Fetch
+
+Syntax: fetch(url, body(if not "GET" request))
+.then(...).then(...).catch(...);
+
+Fetch is a improved version of ajax, it includes promises also. By default it sends a get request and returns a promise where we will have answer object(which will have all the methods to transfer the object in data we need)
+
+!To take the body of the answer u need to use a special method, depending on data given from server
+
+!-------------Async & await
+
+?It alows us to write async code in more sync style
+
+!Keyword "async" - translates the object/func and makes it return promise every time
+!Keyword "await" - freezes the actions until the asynchron code is done(we can use it everywhere, even if code is NOT asynchron)
+
+*If something bad happens (error occured) async moves it momentally to the .catch() method, but it has one advantage: it can catch default mistakes AND async mistakes, very useful stuff
+
+*You can also use try..catch with async/await to handle mistakes on your own
+
+_____________________ES6_webDev_course_________________
 
 */
+
+//--------Practice with Async & Await
+
+// function getPost(id) {
+//   return Promise.resolve().then(() => {
+//     const [userType, userId] = id.split('-');
+//     return fetch(`https://jsonplaceholder.typicode.com/posts/${userId}`).then(
+//       (response) => {
+//         return response.json();
+//       }
+//     );
+//   });
+// }
+
+// async function Example() {
+//   return 'Some data...';
+// }
+// Example().then((data) => console.log(data));
+
+// async function getPost(id) {
+//   try {
+//     const response = await fetch(
+//       `https://jsonplaceholder.typicode.com/posts/${id}`
+//     );
+//     //   console.log(response);
+
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//     return Promise.reject();
+//     //Or use that:
+//     // throw error;
+//   }
+// }
+
+// getPost(1)
+//   .then((data) => console.log(data))
+//   .catch((error) => console.log(error));
+
+//----Usage of Promise.all with Async/Await
+
+// async function getAll() {
+//   const [res1, res2] = await Promise.all([getPost(1), getPost(2)]);
+//   console.log(res1, res2);
+// }
+
+// getAll();
+
+//--------Practice with Fetch
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//   .then((response) => console.log(response))
+//   .catch((error) => console.log(error));
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//   .then((response) => {
+//     // console.log(response.json());
+//     return response.json();
+//   })
+//   .then((posts) => console.log(posts))
+//   .catch((error) => console.log(error));
+
+//----Working with fetch in wrapper
+
+// function getPost(id) {
+//   return new Promise((resolve, reject) => {
+//     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+//       .then((response) => {
+//         return response.json();
+//       })
+//       .then((posts) => resolve(posts))
+//       .catch((error) => reject(error));
+//   });
+// }
+
+// getPost(1)
+//   .then((post) => console.log(post))
+//   .catch((error) => console.log(error));
+
+//----Working with fetch itself
+
+// function getPost2(id) {
+//   const [userType, userId] = id.split('-');
+//   return fetch(`https://jsonplaceholder.typicode.com/posts/${userId}`).then(
+//     (response) => {
+//       return response.json();
+//     }
+//   );
+// }
+
+// getPost2('user-1')
+//   .then((post) => console.log(post))
+//   .catch((error) => console.log(error));
+
+//----Working with fetch in case of solving problems with Promise methods(just a replacement of try..catch)
+
+// function getPost3(id) {
+//   return Promise.resolve().then(() => {
+//     const [userType, userId] = id.split('-');
+//     return fetch(`https://jsonplaceholder.typicode.com/posts/${userId}`).then(
+//       (response) => {
+//         return response.json();
+//       }
+//     );
+//   });
+// }
+
+// getPost3(1)
+//   .then((post) => console.log(post))
+//   .catch((error) => console.log(error));
+
+//-------------------------------------------
+
+//--------Practice with Promises
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(Math.random());
+//   }, 1000);
+// });
+
+// console.log(promise);
+
+// promise
+//   .then((x) => {
+//     console.log(x);
+//     return x;
+//   })
+//   .then((y) => console.log(y))
+//   .catch((err) => console.log(err));
+
+//Promise remembers its state and returns the value
+// promise.then((z) => console.log(z));
+
+//----Promises with queries
+
+// function httpMethods() {
+//   return {
+//     get(url, callback) {
+//       try {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open('GET', url);
+//         xhr.addEventListener('load', () => {
+//           if (Math.floor(xhr.status / 100) !== 2) {
+//             callback(`Error. Status code: ${xhr.status}`, xhr);
+//             return;
+//           }
+//           const response = JSON.parse(xhr.responseText);
+//           callback(null, response);
+//         });
+//         xhr.addEventListener('error', () => {
+//           callback(`Error. Status code: ${xhr.status}`, xhr);
+//         });
+//         xhr.send();
+//       } catch (error) {
+//         callback(error);
+//       }
+//     },
+//     post(url, callback, body, headers) {
+//       try {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open('POST', url);
+//         xhr.addEventListener('load', () => {
+//           if (Math.floor(xhr.status / 100) !== 2) {
+//             callback(`Error. Status code: ${xhr.status}`, xhr);
+//             return;
+//           }
+//           const response = JSON.parse(xhr.responseText);
+//           callback(null, response);
+//         });
+
+//         if (headers) {
+//           Object.entries(headers).forEach(([key, value]) => {
+//             xhr.setRequestHeader(key, value);
+//           });
+//         }
+
+//         xhr.addEventListener('error', () => {
+//           callback(`Error. Status code: ${xhr.status}`, xhr);
+//         });
+//         xhr.send(JSON.stringify(body));
+//       } catch (error) {
+//         callback(error);
+//       }
+//     },
+//   };
+// }
+
+// const myHttp = httpMethods();
+
+// function getPost(id) {
+//   return new Promise((resolve, reject) => {
+//     myHttp.get(
+//       `https://jsonplaceholder.typicode.com/posts/${id}`,
+//       (error, response) => {
+//         if (error) {
+//           reject(error);
+//         }
+//         resolve(response);
+//       }
+//     );
+//   });
+// }
+
+// function getPostComments(post) {
+//   const { id } = post;
+//   return new Promise((resolve, reject) => {
+//     myHttp.get(
+//       `https://jsonplaceholder.typicode.com/comments?postId=${id}`,
+//       (error, response) => {
+//         if (error) {
+//           reject(error);
+//         }
+//         resolve({ post, comments: response });
+//       }
+//     );
+//   });
+// }
+
+// function getUserCreatedPost(data) {
+//   const {
+//     post: { userId },
+//   } = data;
+//   return new Promise((resolve, reject) => {
+//     myHttp.get(
+//       `https://jsonplaceholder.typicode.com/users/${userId}`,
+//       (error, response) => {
+//         if (error) {
+//           reject(error);
+//         }
+//         resolve({ ...data, user: response });
+//       }
+//     );
+//   });
+// }
+
+// getPost(1)
+//   .then((post) => getPostComments(post))
+//   .then((data) => getUserCreatedPost(data))
+//   .then((fullData) => console.log(fullData))
+//   .catch((error) => console.log(error))
+//   .finally(() => console.log('finally'));
+
+//----Usage of Promise.all
+
+// function getPost2(id) {
+//   return new Promise((resolve, reject) => {
+//     myHttp.get(
+//       `https://jsonplaceholder.typicode.com/posts/${id}`,
+//       (error, response) => {
+//         if (error) {
+//           reject(error);
+//         }
+//         resolve(response);
+//       }
+//     );
+//   });
+// }
+
+// function getPostComments2(id) {
+//   return new Promise((resolve, reject) => {
+//     myHttp.get(
+//       `https://jsonplaceholder.typicode.com/comments?postId=${id}`,
+//       (error, response) => {
+//         if (error) {
+//           reject(error);
+//         }
+//         resolve(response);
+//       }
+//     );
+//   });
+// }
+
+// function getUserCreatedPost2(userId) {
+//   return new Promise((resolve, reject) => {
+//     myHttp.get(
+//       `https://jsonplaceholder.typicode.com/users/${userId}`,
+//       (error, response) => {
+//         if (error) {
+//           reject(error);
+//         }
+//         resolve(response);
+//       }
+//     );
+//   });
+// }
+
+// Promise.all([getPost2(1), getPostComments2(1), getUserCreatedPost2(1)])
+//   .then(([post, comments, user]) => console.log(post, comments, user))
+//   .catch((error) => console.log(error));
+
+//-------------------------------------------
 
 // ------Practice with AJAX
 
@@ -2309,7 +2666,7 @@ Different events to get data from server:
 
 //-------------------------------------------
 
-//Practice Part
+//------------Practice Part (Basic JS)
 
 // const arr = ['Someone', 'Another', 'Stranger', 'Smith'];
 // let resArr = mapClone(arr, seeAmount);
