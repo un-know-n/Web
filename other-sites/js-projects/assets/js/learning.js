@@ -1586,14 +1586,9 @@ func();
 -------------------------Closuring
 Closure is a func and all the variables that it can get
 
-All variables inside func are properties 
-of inner object "lexical environmnet",
-when starting function types every var., argument, func in here
+All variables inside func are properties  of inner object "lexical environmnet", when starting function types every var., argument, func in here
 
-Every func has "lexical environmnet", it is created every 
-time the function called, also it has "scope", which looks through
-own "lexical environmnet" and if it doesnt find need variable
-it looks in parent "lexical environmnet";
+Every func has "lexical environmnet", it is created every  time the function called, also it has "scope", which looks through own "lexical environmnet" and if it doesnt find need variable it looks in parent "lexical environmnet";
 
 
 function sayHi(name) {
@@ -1649,13 +1644,9 @@ for(var i = 0; i < button.length; i++) {
 }
 
 -----------------------------------Module through Closuring
-Module is used to hide inner logic(like variables, functions, objects...),
-that's usable when we want to import our file without making a conflict
-of the already existing names
-(Anonymous self-executing function)
+Module is used to hide inner logic(like variables,  functions, objects...), that's usable when we want to import our file without making a conflict of the already existing names (Anonymous self-executing function)
 
-Module with closuring - is a wrapping a pack of functional in one 
-momentally executing function
+Module with closuring - is a wrapping a pack of functional in one momentally executing function
 
 (function (){
     let msg = "hi";
@@ -1679,8 +1670,7 @@ momentally executing function
 }();
 
 ----------------------------------Context binding
-"this" - current object by calling through '.' || new object with 
-constructing by new
+"this" - current object by calling through '.' || new object with constructing by new
 
 There are 3 methods to point out the context: call, apply, bind
 !bind doesnt execute the function, just takes context and 
@@ -2185,6 +2175,150 @@ Fetch is a improved version of ajax, it includes promises also. By default it se
 *You can also use try..catch with async/await to handle mistakes on your own
 
 _____________________ES6_webDev_course_________________
+
+-------------Closure
+
+!Closure is when you enclose some value from outer lexical environment and by that action you dont allow to destroy that value(variable, object...), because you are still using it
+
+?Simple words: the nested lexical environment closure (keeps) the outer environment from being garbage collected due to having references to the same environment as it needs it.
+
+-------Not sure about that explanation->
+
+It is an ability of language to create a private context for JS instance(function, object, class...; to create a variable with one owner)
+
+function userExample(defaultName) {
+  let _name = defaultName;
+
+  return {
+    get getName() {
+      return _name;
+    },
+
+    set setName(n) {
+      _name = n;
+    },
+  };
+}
+
+const user = userExample('Someone');
+console.log(user);
+console.log(user.getName);
+
+function Animal(type, defaultName = '') {
+  let _name = defaultName;
+
+  function rabbitRun() {
+    console.log('rabbit run VERY FAST');
+  }
+
+  function animalRun() {
+    console.log('animal run');
+  }
+
+  return class AnimalClass {
+    #speed = 20;
+
+    get name() {
+      return _name;
+    }
+
+    set name(n) {
+      _name = n;
+    }
+
+    run = type === 'rabbit' ? rabbitRun : animalRun;
+  };
+}
+
+const rabbitAnimal = new (Animal('rabbit', 'rabbitName'))();
+const commonAnimal = new (Animal('common', 'commonName'))();
+
+console.log(rabbitAnimal);
+console.log(commonAnimal);
+
+-------------Spread(decomposition)
+const num1 = [1, 2, 3, 4, 5];
+const num1 = [6, 7, 8, 9];
+console.log([...num1, ...num2]);
+
+let c = { ...A(obj), ...B(obj) }
+sum(...num1);
+
+-------------Rest(composition)
+
+function res(arg, ...REST){
+    console.log(arg, REST); - REST - array!
+}
+
+-------------Template string(Tagging)
+
+let name = "Someone";
+console.log(`Hello ${name}!`);
+function toUpperCase(litArr, value){
+    console.log(litArr, value);
+    return litArr[0] + value.toUpperCase() + litArr[1];
+}
+
+-------------Arrow func
+
+---IIFE --> (() => {..code..})();
+
+1)They take context automatically - you cant change it
+2)They dont have "arguments"
+3)Cant use with func-constructors & bind, call, apply
+
+-------------Object
+
+getter/setter - inside like method, outside like property
+
+let person ={
+    name, 
+    age,
+    get password(){
+        return this.name + this.age;
+    }
+}
+console.log(person.password);
+
+------------Class
+
+Names of get/set must not be similar to those in class 
+
+class Task {
+  static counter = 0;
+  constructor(title = Task.getDefaultTitle(), isCompleted = false) {
+    this.title = title;
+    this._isCompleted = isCompleted;
+    Task.counter += 1;
+  }
+  static getDefaultTitle() {
+    return 'Title';
+  }
+  completed() {
+    this._isCompleted = true;
+  }
+  get isCompleted() {
+    return this._isCompleted === true ? 'completed' : 'not completed';
+  }
+}
+
+let task1 = new Task('Learn ES6', false);
+task1.completed();
+console.log(task1, Task.counter);
+
+let task2 = new Task('Learn React', true);
+console.log(task2, Task.counter);
+console.log(task2.isCompleted, task2._isCompleted);
+
+let task3 = new Task(undefined, true);
+console.log(task3, Task.counter);
+
+---------------Inheritance
+
+
+
+
+
 
 */
 

@@ -132,7 +132,7 @@ main {
   .introduction {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 90%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -676,6 +676,94 @@ main {
         border: 2px #77608d dashed;
         border-radius: options.$default-border-radius;
       }
+    }
+
+    //---------------------------------
+
+    .filter-container {
+      width: 80vw;
+      max-width: 800px;
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .filter {
+        width: 100%;
+        padding: 4px 15px;
+        border-radius: options.$default-border-radius;
+      }
+    }
+
+    #post-container {
+      margin-bottom: 130px;
+
+      .post {
+        position: relative;
+        width: 100%;
+        max-width: 90vw;
+        margin-top: 30px;
+        background-color: #77608d;
+        border-radius: options.$default-border-radius;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+
+        .number {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          font-size: 21px;
+          background-color: #fff;
+          border-radius: 25px;
+          color: #111;
+          text-align: center;
+          top: -17px;
+          left: -17px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+    .loader {
+      opacity: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: center;
+      position: fixed;
+      bottom: 50px;
+      width: 100%;
+      transition: options.$default-transition;
+      z-index: 9999;
+
+      .circle {
+        background-color: #fff !important;
+        border-radius: 25px;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        animation: bounce 0.5s ease-in infinite;
+
+        &:nth-child(2) {
+          animation-delay: 0.1s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.2s;
+        }
+      }
+    }
+    .loader.show-loader {
+      opacity: 1;
     }
   }
 }

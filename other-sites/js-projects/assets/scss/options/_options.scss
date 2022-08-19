@@ -1,7 +1,7 @@
 // Colors
 $bg-color: #181824;
 $text-input-color: #93939a;
-$purple-color: #7562E0;
+$purple-color: #7562e0;
 $white-color: #fff;
 
 // Sizes
@@ -10,4 +10,16 @@ $normal-text-size: 18px;
 $subtitle-text-size: 24px;
 $title-text-size: 32px;
 $default-border-radius: 10px;
-$default-transition: all .4s ease;
+$default-transition: all 0.4s ease;
+
+//Animations
+@keyframes bounce {
+  from,
+  to {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}

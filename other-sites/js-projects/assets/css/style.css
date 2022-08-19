@@ -1,4 +1,20 @@
 @charset "UTF-8";
+@-webkit-keyframes bounce {
+  from, to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes bounce {
+  from, to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 /*!
  * Bootstrap  v5.2.0 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -11034,7 +11050,7 @@ main {
 main .introduction {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 90%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -11053,7 +11069,7 @@ main .introduction .introduction__frame {
   height: 1000px;
   margin: 50px 0;
   background-color: transparent;
-  border: 10px solid #7562E0;
+  border: 10px solid #7562e0;
   border-radius: 10px;
 }
 main .introduction .introduction__frame .menu {
@@ -11236,7 +11252,7 @@ main .introduction #create_card {
   text-align: left;
   padding: 20px;
   margin-top: 10px;
-  background: #7562E0;
+  background: #7562e0;
   border-radius: 10px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
 }
@@ -11286,7 +11302,7 @@ main .introduction #flashcards .flashcard {
   height: 200px;
   word-wrap: break-word;
   margin: 10px;
-  background: #7562E0;
+  background: #7562e0;
   cursor: pointer;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
   position: relative;
@@ -11311,7 +11327,7 @@ main .introduction .timer-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 7px dashed #7562E0;
+  border: 7px dashed #7562e0;
 }
 main .introduction .timer-container .timer-container__display {
   font-size: 62px;
@@ -11360,7 +11376,7 @@ main .introduction .game-container .word {
   transform: translateX(-50%);
 }
 main .introduction .game-container .letter {
-  border-bottom: 3px solid #7562E0;
+  border-bottom: 3px solid #7562e0;
   display: inline-flex;
   font-size: 30px;
   align-items: center;
@@ -11491,4 +11507,85 @@ main .introduction .meal-container .single-meal-info {
   padding: 10px;
   border: 2px #77608d dashed;
   border-radius: 10px;
+}
+main .introduction .filter-container {
+  width: 80vw;
+  max-width: 800px;
+}
+main .introduction .filter-container h1, main .introduction .filter-container .h1 {
+  margin-bottom: 20px;
+}
+main .introduction .filter-container .filter {
+  width: 100%;
+  padding: 4px 15px;
+  border-radius: 10px;
+}
+main .introduction #post-container {
+  margin-bottom: 130px;
+}
+main .introduction #post-container .post {
+  position: relative;
+  width: 100%;
+  max-width: 90vw;
+  margin-top: 30px;
+  background-color: #77608d;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+}
+main .introduction #post-container .post .number {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  font-size: 21px;
+  background-color: #fff;
+  border-radius: 25px;
+  color: #111;
+  text-align: center;
+  top: -17px;
+  left: -17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+}
+main .introduction .loader {
+  opacity: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  bottom: 50px;
+  width: 100%;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+main .introduction .loader .circle {
+  background-color: #fff !important;
+  border-radius: 25px;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  -webkit-animation: bounce 0.5s ease-in infinite;
+          animation: bounce 0.5s ease-in infinite;
+}
+main .introduction .loader .circle:nth-child(2) {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+main .introduction .loader .circle:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+main .introduction .loader.show-loader {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */
