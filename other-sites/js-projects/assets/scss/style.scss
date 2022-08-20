@@ -765,5 +765,61 @@ main {
     .loader.show-loader {
       opacity: 1;
     }
+
+    //---------------------------------
+
+    .draggable-list {
+      border: 1px solid #77608d;
+      padding: 0;
+
+      li {
+        display: flex;
+        flex: 1;
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #77608d;
+        }
+      }
+
+      .number {
+        background-color: #fff;
+        color: #1a1a1a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        height: 60px;
+        width: 60px;
+      }
+
+      .person-name {
+        margin: 0 20px 0 0;
+      }
+
+      li.right {
+        .person-name {
+          color: #7a956b;
+        }
+      }
+
+      li.wrong {
+        .person-name {
+          color: #924949;
+        }
+      }
+
+      li.over .draggable {
+        background-color: #ededed;
+      }
+
+      .draggable {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        flex: 1;
+      }
+    }
   }
 }

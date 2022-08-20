@@ -11588,4 +11588,45 @@ main .introduction .loader .circle:nth-child(3) {
 }
 main .introduction .loader.show-loader {
   opacity: 1;
+}
+main .introduction .draggable-list {
+  border: 1px solid #77608d;
+  padding: 0;
+}
+main .introduction .draggable-list li {
+  display: flex;
+  flex: 1;
+}
+main .introduction .draggable-list li:not(:last-of-type) {
+  border-bottom: 1px solid #77608d;
+}
+main .introduction .draggable-list .number {
+  background-color: #fff;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  height: 60px;
+  width: 60px;
+}
+main .introduction .draggable-list .person-name {
+  margin: 0 20px 0 0;
+}
+main .introduction .draggable-list li.right .person-name {
+  color: #7a956b;
+}
+main .introduction .draggable-list li.wrong .person-name {
+  color: #924949;
+}
+main .introduction .draggable-list li.over .draggable {
+  background-color: #ededed;
+}
+main .introduction .draggable-list .draggable {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  flex: 1;
 }/*# sourceMappingURL=style.css.map */
