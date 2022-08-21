@@ -2061,7 +2061,7 @@ console.log(key, value);
 ?----Rest & Spread operators
 
 rest - rest from array, copy arr...
-spread - 
+spread - all array to components
 
 const [color1, ...otherColors] = colors; ---> color1 - 'white'; otherColors - array of rest colors;
 
@@ -2182,6 +2182,11 @@ _____________________ES6_webDev_course_________________
 
 ?Simple words: the nested lexical environment closure (keeps) the outer environment from being garbage collected due to having references to the same environment as it needs it.
 
+-------From webDev
+
+Closure is when object of local variables 'Scope' of outer function is still alive, despite of ending of that function
+Inner function can call it anytime and take variable of outer function
+
 -------Not sure about that explanation->
 
 It is an ability of language to create a private context for JS instance(function, object, class...; to create a variable with one owner)
@@ -2253,7 +2258,7 @@ function res(arg, ...REST){
 -------------Template string(Tagging)
 
 let name = "Someone";
-console.log(`Hello ${name}!`);
+console.log(toUpperCase.`Hello ${name}!`);
 function toUpperCase(litArr, value){
     console.log(litArr, value);
     return litArr[0] + value.toUpperCase() + litArr[1];
@@ -2281,6 +2286,8 @@ let person ={
 console.log(person.password);
 
 ------------Class
+
+Classes are a syntax sugar, underneath its just a prototype
 
 Names of get/set must not be similar to those in class 
 
@@ -2315,10 +2322,247 @@ console.log(task3, Task.counter);
 
 ---------------Inheritance
 
+super() - includes functional from parent's class to children's
 
+class Task {
+  constructor(title) {
+    this.title = title;
+    this._isCompleted = false;
+  }
 
+  completed() {
+    this._isCompleted = true;
+  }
+}
 
+class SubTask extends Task {
+  constructor(title) {
+    super(title);
+  }
 
+  completed() {
+    super.completed();
+    console.log(`task '${this.title}' is completed`);
+  }
+}
+
+let task = new Task('Learn ReactJS');
+task.completed();
+let subtask = new SubTask('Learn ES6');
+subtask.completed();
+console.log(task);
+console.log(subtask);
+
+---------------Symbols
+
+Symbols are unique values, despite having mutual name they dont have the same value(you cant create two similar symbol)
+
+Symbol('name'); //---> doesnt exists in global scope(u cant call it)
+
+let symbol = Symbol('mySymbol');
+console.log(symbol);
+
+let symbol2 = Symbol('mySymbol');
+console.log(symbol === symbol2); //--->false
+
+Acces to symbols via link
+let symbol3 = Symbol.for('mySymbol');
+let symbol4 = Symbol.for('mySymbol');
+console.log(symbol3 === symbol4); //---> true
+
+let symbolName = Symbol.keyFor(symbol3);
+console.log(symbolName);
+
+Practical examples:
+
+let person = {
+  name: 'Jack',
+  age: 20,
+  [Symbol.for('password')]: 'Jack20',
+};
+
+console.log(person[Symbol.for('password')]);
+console.log(Object.getOwnPropertySymbols(person));
+
+----------------Iterators
+
+Iterable objects - they can be iterated in loop
+
+let generateNumbers = {
+  start: 1,
+  end: 10,
+};
+
+generateNumbers[Symbol.iterator] = function () {
+  let current = this.start;
+  let last = this.end;
+
+  return {
+    next() {
+      if (current <= last) {
+        return {
+          done: false,
+          value: current++,
+        };
+      } else {
+        return {
+          done: true,
+        };
+      }
+    },
+  };
+};
+
+for (let number of generateNumbers) {
+  console.log(number);
+}
+
+----------------Generators
+
+Their specialty is that they can stop at times and return calculated value and then continue the work
+yield - returns a temporary value
+
+iterator.next() ---> returns a value to the yield/end of the function;
+
+function* generate() {
+  try {
+    console.log('first step');
+    //   yield 1;
+    let res = (yield) * 2;
+    console.log('Result: ', res);
+  } catch (error) {
+    console.log('Custom error', error);
+  }
+}
+let iterator = generate();
+console.log(iterator.next());
+console.log(iterator.return()); //---> done: true
+console.log(iterator.throw(new Error('some error...'))); //---> throws an exception
+console.log(iterator.next(2));
+console.log(iterator);
+
+Another example:
+
+function* generateRange(start, end) {
+  let current = start;
+  while (current <= end) {
+    yield current++;
+  }
+}
+
+for (let number of generateRange(1, 10)) {
+  console.log(number);
+}
+
+---------------Set & Map(WeakMap & WeakSet)
+
+Map - universal collection
+In MAP - key can be random value
+
+Set(many values) - every value is unique, temporary collection
+
+---Map
+
+let map = new Map();
+map.set('str', 'string');
+map.set(1, 'number');
+map.set(true, 'boolean');
+
+let map = new Map([
+  ['str', 'string'],
+  [1, 'number'],
+  [true, 'boolean'],
+]);
+
+console.log(map.get(1));
+console.log(map.size);
+console.log(map.has('str'));
+console.log(map.delete(1));
+console.log(map.size);
+console.log(map.clear());
+console.log(map.size);
+
+*Map's iteration: keys(), values(), entries()
+
+---Set
+
+let jack = { name: 'jack' };
+let max = { name: 'max' };
+let leo = { name: 'leo' };
+
+let users = new Set();
+
+users.add(jack).add(max).add(leo).add(jack).add(leo);
+console.log(users.size);
+users.forEach((user) => console.log(user));
+
+!Set's methods: add(), delete(item), has(item), clear()
+
+---WeakMap & WeakSet
+
+!They allow garbage collector to do its job
+
+---------------Modules 
+ import/export - variable, func, class
+
+!Export modules:
+export let one = 1;
+let two = 2;
+let three = 3;
+export { two, three };
+
+export class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+export function sayHi() {
+  console.log('Hello');
+}
+
+*Renaming of exported modules
+
+export { one as once, two as twice };
+
+*Default export
+
+export default class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+import Person from './file.js';
+
+!Import modules:
+
+import { one, two } from './file.js';
+
+*Renaming of imported modules
+
+import { one as once, two as twice } from './file.js';
+
+*General import
+
+import * as numbers from './file.js';
+
+---------------Async & Await
+
+const fetchData = () => Promise.resolve({
+    data: ['jack', 'max', 'leo']
+})
+
+const getNamesData = () => {
+    fetchData.then((data) => {
+        console.log(data);
+        return 'done';
+    })
+}
+
+const getNamesData2 = async () => {
+    console.log(await fetchData());
+    return 'done';    
+}
 
 */
 
