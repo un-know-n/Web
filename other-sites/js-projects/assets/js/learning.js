@@ -1366,7 +1366,6 @@ console.log(mainFormInput.value);
 console.log(mainFormTextarea.value);
 console.log(mainFormFile.value);
 
-
 ----Taking options of the checkbox/radiobuttons
 
 console.log(mainFormCheckbox.value);
@@ -2123,7 +2122,7 @@ callback hell - when one callback is put inside another one and so on...
 
 It would be better to use one exception handler for all the callbacks and give up the execution chain when error(instead of transfering the error to another callback)
 
-*Promise gives us ability to work easier with promises and leave the callback hell behind. Also it has one exception handler; we can call many async actions as a chain
+*Promise gives us ability to work easier with callbacks and leaves the callback hell behind. Also it has one exception handler; we can call many async actions as a chain
 
 Syntax: const promise = new Promise((resolve, reject) => {});
 promise.then().catch();
@@ -2422,7 +2421,7 @@ for (let number of generateNumbers) {
 Their specialty is that they can stop at times and return calculated value and then continue the work
 yield - returns a temporary value
 
-iterator.next() ---> returns a value to the yield/end of the function;
+iterator.next() ---> returns a value from the yield/end of the function;
 
 function* generate() {
   try {
@@ -2456,10 +2455,10 @@ for (let number of generateRange(1, 10)) {
 
 ---------------Set & Map(WeakMap & WeakSet)
 
-Map - universal collection
+Map - universal collection(key, value)
 In MAP - key can be random value
 
-Set(many values) - every value is unique, temporary collection
+Set(unique_val) - every value is unique, temporary collection
 
 ---Map
 
@@ -2563,6 +2562,171 @@ const getNamesData2 = async () => {
     console.log(await fetchData());
     return 'done';    
 }
+
+?_________________ES7-ES9_webDev_course_______________
+
+------------------Object methods
+.values(), keys(), entries(), fromEntries() - most of them return array
+
+entries() ignore Symbol key, also it can deal with arrays
+
+const name = ['s', 'o', 'm', 'e'];
+console.log(Object.entries(name));
+
+0: ['0', 's']
+1: ['1', 'o']
+2: ['2', 'm']
+3: ['3', 'e']
+
+------------------Object.getOwnPropertyDescriptors()
+It returns all info about all properties of current object
+It allows to create small copies of objects and clone them creating new ones by the way(also copying getters/setters)
+
+const person = {
+    name: "max", 
+    age: 30,
+    set personName(name) {
+        this.name = name;
+    }
+    get password() {
+        return `${this.name}${this.age}`
+    }
+}
+
+console.log(person); ---> {name: "max", age: 30}
+
+---Get property descriptors:
+
+console.log(Object.getOwnPropertyDescriptors(person)); ---> all fields
+
+!Object.assign(...) or {destructurizing} doesnt copy getters/setters, it just turns it into default value
+
+TODO: Object copy with getters/setters
+
+const someObj = Object.defineProperties({}, Object.getOwnPropertyDescriptors(person));
+console.log(Object.getOwnPropertyDescriptors(someObj));
+
+-----------------Trailing commas & Exponentiation operator
+
+---Exponentiation operator
+
+console.log(Math.pow(7, 2));
+console.log(7**2);
+
+---Trailing commas
+
+const user = {
+    name: ...,
+    age:...,
+}
+
+------------------Async
+
+---Functions
+
+const fetchText = () => new Promise(resolve => {setTimeout(() => resolve('ES8'), 2000); })
+
+const showText = async () => {
+    const fetchedText = await fetchText();
+    console.log(`This is a feature of ${fetchedText}`);
+}
+
+showText.then(data => console.log(data));
+
+!Promise.all allows us to call two functions in one time, instead of waiting until one will finish it's job(in async):
+
+const showText = async () => {
+    const [fetchedDescrText, fetchedEsText] = await Promise.all([fetchDescrText(), fetchEsText()]);
+    return `${fetchedDescrText} ${fetchedEsText}`;
+}
+
+showText().then(data => console.log(data));
+
+---Async Errors Handling & Promise "finally"
+
+function showText = async () => {
+    try {
+        ....
+    } catch(error) {
+        ...
+    } finally {
+        console.log('finally...');
+    }
+}
+
+OR:
+
+function showText = async () => {
+    const fetchedText = await fetchText().catch(e => console.log(e)).finally(...);
+}
+
+?---Async Iterators 
+
+--For await..of
+
+const names = [
+    new Promise(resolve => resolve('Jack')),
+    new Promise(resolve => resolve('Max')),
+    new Promise(resolve => resolve('Leo')),
+]
+
+const showNames = async () => {
+    for await(name of names) {
+        console.log(name);
+    }
+}
+
+?---Async Generators
+
+async function* readLines(path) {
+    let file = await fileOpen(path);
+
+    try {
+        while (!file.EOF) {
+            yield await file.readLine();
+        }
+    } finally {
+        await file.close();
+    }
+}
+
+for await (const line of readLines(filePath)) {
+    console.log(line);
+}
+
+?---String Methods
+
+const str = "test";
+
+str.padStart(10, '~'); ---> '~~~~~~test'
+str.padEnd(10, '~'); ---> 'test~~~~~~'
+
+str.startsWith("t", 0); --->true
+str.endsWith("s", 4); ---> false
+
+str.trim(); ---> no whitespaces
+str.trimStart();
+str.trimEnd();
+
+-------------Function.toString() & Symbol description
+
+function test() {}
+test.toString(); ---> 'function test() {}'
+
+---Symbol description
+
+const mySymbol = Symbol('Symbol description');
+
+OLD:
+String(mySymbol) === 'Symbol(Symbol description)'; ---> true
+
+NEW:
+
+mySymbol.description === 'Symbol description'; ---> true
+
+?________________Vladylen_Minin_hard_js_part_______________
+
+
 
 */
 
