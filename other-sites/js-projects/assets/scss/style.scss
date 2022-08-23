@@ -821,5 +821,37 @@ main {
         flex: 1;
       }
     }
+
+    //---------------------------------
+
+    #canvas {
+      background-color: #ededed;
+      display: block;
+      border-radius: options.$default-border-radius;
+    }
+
+    .rules-btn {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+    }
+
+    .rules {
+      position: absolute;
+      z-index: 9999;
+      top: -21px;
+      left: 0;
+      background-color: #1a1a1a;
+      min-height: 100vh;
+      width: 400px;
+      padding: 20px;
+      text-align: left;
+      transform: translateX(-400px);
+      transition: 1s all ease-in;
+    }
+
+    .rules.show-rules {
+      transform: translateX(0);
+    }
   }
 }

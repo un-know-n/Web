@@ -2726,6 +2726,90 @@ mySymbol.description === 'Symbol description'; ---> true
 
 ?________________Vladylen_Minin_hard_js_part_______________
 
+!You can use inner functions if u want to return a wrapper( not exec the func momentally), also you can translate additional arguments in there('...args')
+
+----------------Prototype
+
+!Almost everything in JS ---- object(new String(...) ---> prototype - Object)
+
+const person = {
+    name: "...",
+    age: 23,
+    greet() {
+        console.log('Hello');
+    }
+}
+
+Object.prototype.sayHi = () => {
+    console.log('Hi');
+}
+
+const someObj = Object.create(person);
+console.log(someObj.sayHi());
+
+----------------Context
+
+const hello = () => console.log('Hello', this);
+
+const person = {
+  name: 'someone',
+  age: 30,
+  sayHello: hello,
+  sayHelloWindow: hello.bind(document),
+  logInfo() {
+    console.group(`${this.name} info:`);
+    console.log(`Name is ${this.name}`);
+    console.log(`Age is ${this.age}`);
+    console.groupEnd();
+  },
+};
+
+const someObj = {
+  name: 'another obj',
+  age: 42,
+};
+
+person.logInfo.bind(someObj)();
+
+---Another example
+const array = [1, 2, 3, 4, 5];
+
+Array.prototype.multBy = function (n) {
+  return this.map((item) => item * n);
+};
+
+console.log(array.multBy(3));
+
+----------------Closure
+
+?Custom bind method
+
+function logPerson(context) {
+  console.log(`Person: ${context.name}, ${context.age}, ${context.job}`);
+}
+
+const person1 = { name: 'Someone', age: 30, job: 'programmer' };
+
+*With apply:
+
+function bind (object, callback) {
+  return function (...args) {
+    callback.apply(object, args);
+  };
+};
+
+*Without apply:
+
+function bind(object, callback) {
+  let _this = object;
+  return function (...args) {
+    callback(_this, args);
+  };
+}
+
+const bindWrapper = bind(person1, logPerson);
+bindWrapper();
+
 
 
 */

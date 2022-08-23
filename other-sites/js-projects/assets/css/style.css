@@ -11629,4 +11629,30 @@ main .introduction .draggable-list .draggable {
   justify-content: space-between;
   padding: 15px;
   flex: 1;
+}
+main .introduction #canvas {
+  background-color: #ededed;
+  display: block;
+  border-radius: 10px;
+}
+main .introduction .rules-btn {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+main .introduction .rules {
+  position: absolute;
+  z-index: 9999;
+  top: -21px;
+  left: 0;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  width: 400px;
+  padding: 20px;
+  text-align: left;
+  transform: translateX(-400px);
+  transition: 1s all ease-in;
+}
+main .introduction .rules.show-rules {
+  transform: translateX(0);
 }/*# sourceMappingURL=style.css.map */
