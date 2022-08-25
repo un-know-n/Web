@@ -1459,8 +1459,10 @@ console.log(now.getFullYear());
 console.log(now.setDate(now.getDate() + 2));
 
 -----------------Sorting the array--------------
+
 -----------High-order functions(every, some, find, filter, map, reduce...)
-All of the take the callback function:
+
+All of them take the callback function:
 "function(elem, index, array)", but none of them changes
 the real array.
 
@@ -2270,6 +2272,7 @@ function toUpperCase(litArr, value){
 1)They take context automatically - you cant change it
 2)They dont have "arguments"
 3)Cant use with func-constructors & bind, call, apply
+4)Cant use 'new' & 'super()' with them
 
 -------------Object
 
@@ -2456,7 +2459,7 @@ for (let number of generateRange(1, 10)) {
 ---------------Set & Map(WeakMap & WeakSet)
 
 Map - universal collection(key, value)
-In MAP - key can be random value
+In MAP - key can be any value
 
 Set(unique_val) - every value is unique, temporary collection
 
@@ -2810,9 +2813,487 @@ function bind(object, callback) {
 const bindWrapper = bind(person1, logPerson);
 bindWrapper();
 
+---------------Event loop
+*Watch videos or read articles
 
+---------------Promises
 
+Promise.all - when all promises are done
+Promise.race - when first promise is done
+
+---------------Objects
+
+Syntax: Object.create({..prototype..}{..object..})
+
+!With Object.create() you cant iterate the fields without specific params - enumerable: true. Also without 'writable: true' you cant change the fields, 'configurable: true' = ability to delete the fields
+*By default all the params are FALSE
+
+for..in also returns written-by-us values from prototype
+
+const person = Object.create(
+  {
+    calculateAge() {
+      console.log(new Date().getFullYear() - this.birth);
+    },
+  },
+  {
+    name: {
+      value: 'Someone',
+      enumerable: true,
+      writable: true,
+      configurable: true,
+    },
+    birth: {
+      value: 2000,
+      enumerable: true,
+      writable: true,
+    },
+    age: {
+      get() {
+        return new Date().getFullYear() - this.birth;
+      },
+      set(value) {
+        return (this.birth = new Date().getFullYear() - value);
+      },
+    },
+  }
+);
+
+// console.log(person);
+
+for (const key in person) {
+  if (Object.hasOwnProperty.call(person, key)) {
+    console.log(key, person[key]); //---> return only own values(without prototype values)
+  }
+}
+
+----------------Clases
+
+!They allow us to create the objects in more comfortable way
+It adds the methods of class to its prototype
+If the variable is static - only class wields it(not its entity)
+*super(params) - allows to copy the parent's methods/values(super.voice() - call the exact method)
+
+const animal = {
+  name: 'animal',
+  age: 5,
+  hasTail: true,
+};
+
+class Animal {
+  static type = 'animal';
+
+  constructor(params) {
+    this.name = params.name;
+    this.age = params.age;
+    this.hasTail = params.hasTail;
+  }
+
+  voice() {
+    console.log('voice');
+  }
+}
+
+class Cat extends Animal {
+  static type = 'cat';
+
+  constructor(params) {
+    super(params);
+    this.color = params.color;
+  }
+
+  voice() {
+    super.voice();
+    console.log('Meow');
+  }
+
+  get ageInfo() {
+    return this.age * 7;
+  }
+
+  set ageInfo(newAge) {
+    this.age = newAge;
+  }
+}
+
+const cat = new Cat({ name: 'Cat', age: 7, hasTail: true, color: 'black' });
+
+const animal = new Animal({ name: 'animal', age: 5, hasTail: true });
+
+console.log(cat);
+
+--------------------Proxy
+
+!It gives us the ability to set the traps(proxy handlers) onto the objects, which we want to track
+*It automatically watches for object and all its params we want to use or get, if trap - executes its inner logic
+*We can use any object with proxy
+
+?Shorten the words: we can handle the classes/objects/functions how we want to(add new properties, track something, etc...)
+
+?---Objects in proxy
+
+const person = {
+  name: 'Someone',
+  age: 25,
+  job: 'fullstack',
+};
+
+const objectProxy = new Proxy(person, {
+  get(target, prop) {
+    console.log(`Getting prop ${prop}`);
+    return target[prop];
+  },
+  set(target, prop, value) {
+    if (prop in target) target[prop] = value;
+    else throw new Error(`There's no ${prop} defined`);
+  },
+  has(target, prop) {
+    return Object.keys(target).includes(prop) ? true : false;
+  },
+  deleteProperty(target, prop) {
+    console.log(`Deleting ${prop}`);
+    delete target[prop];
+    return true;
+  },
+});
+
+?---Functions in proxy
+
+const log = (text) => '[Log]: ' + text;
+
+const functionProxy = new Proxy(log, {
+  apply(target, thisArg, args) {
+    console.log('Calling function');
+    return target.apply(thisArg, args);
+  },
+});
+
+?---Classes in proxy
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+const PersonProxy = new Proxy(Person, {
+  construct(target, args) {
+    console.log('construct');
+    return new Proxy(new target(...args), {
+      get(t, prop) {
+        console.log(`Getting prop ${prop}`);
+        return t[prop];
+      },
+    });
+  },
+});
+
+const personInstance = new PersonProxy('Someone', 30);
+
+console.log(personInstance);
+
+-----------------Generators
+
+======================Theory END===================
 */
+
+//----------Proxy practice
+
+//!---Wrapper
+
+// const withDefaultValue = (target, defaultValue = 0) => {
+//   return new Proxy(target, {
+//     get: (obj, prop) => (prop in obj ? obj[prop] : defaultValue),
+//   });
+// };
+
+// const position = withDefaultValue(
+//   {
+//     x: 24,
+//     y: 42,
+//   },
+//   0
+// );
+
+// console.log(position);
+
+//!---Hidden properties
+
+// const withHiddenProps = (target, prefix = '_') => {
+//   return new Proxy(target, {
+//     has: (obj, prop) => prop in obj && !prop.startsWith(prefix),
+//     ownKeys: (obj) =>
+//       Reflect.ownKeys(obj).filter((opt) => !opt.startsWith(prefix)),
+//     get: (obj, prop, receiver) => (prop in receiver ? obj[prop] : undefined),
+//   });
+// };
+
+// const data = withHiddenProps({
+//   name: 'Someone',
+//   age: 25,
+//   _uid: '6416541681616',
+// });
+
+// console.log(data);
+// console.log(data._uid);
+
+//!---Optimization
+
+//Algorythm example
+
+// const index = {};
+// users.forEach((element) => (index[element.id] = element));
+// console.log(index);
+
+//--------------
+
+// const IndexedArray = new Proxy(Array, {
+//   construct(target, [args]) {
+//     const index = {};
+//     args.forEach((element) => {
+//       index[element.id] = element;
+//     });
+//     return new Proxy(new target(...args), {
+//       get(arr, prop) {
+//         switch (prop) {
+//           case 'push':
+//             return (item) => {
+//               index[item.id] = item;
+//               arr[prop].call(arr, item);
+//             };
+//           case 'findById':
+//             return (id) => index[id];
+//           default:
+//             return arr[prop];
+//         }
+//       },
+//     });
+//   },
+// });
+
+// const users = new IndexedArray([
+//   { id: 11, name: 'Vladilen', job: 'Fullstack', age: 25 },
+//   { id: 22, name: 'Elena', job: 'Student', age: 22 },
+//   { id: 33, name: 'Victor', job: 'Backend', age: 23 },
+//   { id: 44, name: 'Vasilisa', job: 'Teacher', age: 24 },
+// ]);
+
+// // console.log(users.push({ id: 55, name: 'Someone' }));
+// console.log(users.findById(11));
+
+//----------Proxy experience(begining)
+
+// const validator = {
+//   get(target, prop) {
+//     return prop in target ? target[prop] : `There is no ${prop} field`;
+//   },
+//   set(target, prop, value) {
+//     Reflect.set(target, prop, value);
+//   },
+// };
+
+// const form = {
+//   login: 'tester',
+//   password: '12345',
+// };
+
+// const formProxy = new Proxy(form, validator);
+
+// // console.log(formProxy);
+// // console.log(formProxy.login);
+// // console.log(formProxy['username']); //--->trap worked
+
+// function log(message) {
+//   console.log('[Log]: ', message);
+// }
+
+// const proxy = new Proxy(log, {
+//   apply(target, thisArg, thisArr) {
+//     if (thisArr.length === 1) {
+//       Reflect.apply(target, thisArg, thisArr);
+//     } else console.log('Not enough');
+//   },
+// });
+
+// proxy('Custom message');
+// proxy();
+
+//----------Reflect repeating
+
+//!It works like Object.create, gives us the ability to create instances with specific classes, values, prototypes
+// class Student {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   greet() {
+//     console.log(`Hello, my name is ${this.name}`);
+//   }
+// }
+
+// class ProtoStudent {
+//   university = 'Oxford';
+// }
+
+// const student = new Student('Someone');
+// const student = Reflect.construct(Student, ['Someone'], ProtoStudent);
+// const student = Reflect.construct(Student, ['Someone']);
+
+// Reflect.apply(student.greet, { name: 'Tester' }, []);
+
+// console.log(Reflect.ownKeys(student));
+
+// Reflect.preventExtensions(student); //--->prevent changing the fields
+
+// student.age = 25;
+
+// console.log(Reflect.isExtensible(student));
+
+// console.log(student);
+
+//--------Iterators / Generators repeating
+
+// const array = [1, 2, 3, 4];
+// const str = 'Hello';
+
+// console.log(array[Symbol.iterator]);
+// console.log(str[Symbol.iterator]);
+
+// const iter = array[Symbol.iterator]();
+// console.log(iter.next());
+
+//!For..of can be used to items, which have Symbol.iterator defined, or we can define it ourselves
+
+// for (const iterator of array) {
+//   console.log(iterator);
+// }
+
+// const countries = {
+//   values: ['ru', 'ua', 'kz', 'by'],
+//   [Symbol.iterator]() {
+//     let index = 0;
+//     return {
+//       next: () => {
+//         const value = this.values[index];
+//         index++;
+//         return {
+//           done: index > this.values.length,
+//           value,
+//         };
+//       },
+//     };
+//   },
+// };
+
+// for (const item of countries) {
+//   console.log(item);
+// }
+
+//---Generator
+
+// function* gen(num = 4) {
+//   for (let i = 0; i < num; i++) {
+//     yield i;
+//   }
+// }
+
+// // const iter = gen(3);
+// // console.log(iter.next());
+
+// for (const iter of gen(4)) {
+//   console.log(iter);
+// }
+
+//--------Symbol repeating
+
+// const symbol = Symbol('demo');
+// const other = Symbol('demo');
+
+// const obj = {
+//   name: 'Someone',
+//   [symbol]: 'meta',
+// };
+
+// console.log(obj[symbol]);
+
+//--------Practice Async & Await via fetch
+
+// const delay = (ms) => {
+//   return new Promise((resolve) => setTimeout(() => resolve(), ms));
+// };
+
+// const url = 'https://jsonplaceholder.typicode.com/todos/';
+
+// function fetchTodos() {
+//   return delay(1000)
+//     .then(() => fetch(url))
+//     .then((info) => info.json());
+// }
+
+// fetchTodos()
+//   .then((data) => console.log('Data:', data))
+//   .catch((error) => console.error(error));
+
+// const fetchAsyncTodos = async () => {
+//   await delay(500);
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     return console.log('Data:', data);
+//   } catch (error) {
+//     console.error(error);
+//   } finally {
+//     console.log('Finally');
+//   }
+// };
+
+// fetchAsyncTodos().catch((error) => console.error(error));
+
+//--------Practice with Clases
+
+// class Component {
+//   constructor(selector) {
+//     this.$el = document.querySelector(selector);
+//   }
+
+//   hide() {
+//     this.$el.style.display = 'none';
+//   }
+
+//   show() {
+//     this.$el.style.display = 'block';
+//   }
+// }
+
+// class Box extends Component {
+//   constructor(params) {
+//     super(params.selector);
+
+//     this.$el.style.width = this.$el.style.height = params.size + 'px';
+//     this.$el.style.background = params.color;
+//   }
+// }
+
+// class Circle extends Box {
+//   constructor(params) {
+//     super(params);
+//     this.$el.style.borderRadius = params.radius + '%';
+//   }
+// }
+
+// const box1 = new Box({
+//   selector: '#box1',
+//   size: 100,
+//   color: 'red',
+// });
+
+// const circle1 = new Circle({
+//   selector: '#circle1',
+//   size: 100,
+//   color: 'green',
+//   radius: 50,
+// });
 
 //--------Practice with Async & Await
 
