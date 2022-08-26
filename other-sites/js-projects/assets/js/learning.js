@@ -2993,7 +2993,152 @@ const personInstance = new PersonProxy('Someone', 30);
 
 console.log(personInstance);
 
------------------Generators
+-----------------Iterators
+
+!For..of can be used to items, which have Symbol.iterator defined, or we can define it ourselves
+*Generators by default have the Symbol.iterator
+
+const iterator = {
+  [Symbol.iterator](n = 10) {
+    let index = 0;
+    return {
+      next() {
+        if (index < n) {
+          return { value: ++index, done: false };
+        } else return { value: undefined, done: true };
+      },
+    };
+  },
+};
+
+for (let key of iterator) {
+  console.log(key);
+}
+
+------------------All about Map, Set, WeakMap, WeakSet
+
+---Map
+
+const obj = {
+  name: 'Someone',
+  age: 23,
+};
+
+const someArr = [
+  ['name', 'Someone'],
+  ['age', 23],
+];
+
+const map = new Map(someArr);
+
+map.set(obj, 'obj value').set(NaN, 'NaN???');
+
+// console.log(map.get(NaN));
+
+// for (const [key, value] of map.entries()) {
+//   console.log(key, value);
+// }
+
+// map.forEach((item, key, map) => console.log(item));
+
+// const array = Array.from(map);
+// console.log(array);
+
+const mapObj = Object.fromEntries(map.entries());
+console.log(mapObj);
+
+---Set
+
+function uniqueValues(array) {
+  return [...new Set(array)].sort((a, b) => a - b);
+}
+
+console.log(
+  uniqueValues([1, 2, 2, 3, 5, 7, 4, 6, 4, 6, 3, 6, 3, 6, 3, 6, 4, 5, 2, 6])
+);
+
+---WeakMap
+
+!In WeakMap keys - only objects
+*Methods: get, set, delete, has
+
+let obj = {
+  name: 'weakmap',
+};
+
+const map = new WeakMap([[obj, 'obj data']]);
+
+obj = null;
+
+console.log(map);
+
+*Practical example:
+
+const cache = new WeakMap();
+
+function cacheUser(user) {
+  if (!cache.has(user)) {
+    cache.set(user, Date.now());
+  }
+  return cache.get(user);
+}
+
+let user1 = { name: 'user1' };
+
+cacheUser(user1);
+
+user1 = null;
+
+console.log(cache.has(user1));
+
+---WeakSet
+
+!In WeakSet values - only objects
+*Methods: add, delete, has
+
+?------------------Local storage
+
+*It works only with strings
+
+const myNumber = 1234;
+
+// localStorage.setItem('number', myNumber); //--->wrong
+localStorage.setItem('number', myNumber.toString());
+
+localStorage.removeItem('number');
+
+localStorage.clear(); //--->full cleaning
+
+console.log(localStorage.getItem('number'));
+
+---Localst with Objects
+
+const obj = {
+  name: 'Someone',
+  age: 20,
+};
+
+localStorage.setItem('person', JSON.stringify(obj));
+
+const raw = JSON.parse(localStorage.getItem('person'));
+raw.name = 'Noname';
+console.log(raw);
+
+---Localst syncing
+
+localStorage.setItem('temp', Date.now().toString());
+
+//!Sync many tabs onto one(about localStorage)
+
+window.addEventListener('storage', (event) => {
+  console.log(event);
+}); //---> works only in another tab
+
+// window.onstorage = () => {} //---->another variant
+
+?---LocalSt differences
+
+*LocalSt vs cookies: 1)much bigger than cookies (5mb) 2)cookies go to server, localst only on your machine
 
 ======================Theory END===================
 */
@@ -3162,8 +3307,6 @@ console.log(personInstance);
 
 // const iter = array[Symbol.iterator]();
 // console.log(iter.next());
-
-//!For..of can be used to items, which have Symbol.iterator defined, or we can define it ourselves
 
 // for (const iterator of array) {
 //   console.log(iterator);
