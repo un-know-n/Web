@@ -3033,16 +3033,16 @@ const map = new Map(someArr);
 
 map.set(obj, 'obj value').set(NaN, 'NaN???');
 
-// console.log(map.get(NaN));
+console.log(map.get(NaN));
 
-// for (const [key, value] of map.entries()) {
-//   console.log(key, value);
-// }
+for (const [key, value] of map.entries()) {
+  console.log(key, value);
+}
 
-// map.forEach((item, key, map) => console.log(item));
+map.forEach((item, key, map) => console.log(item));
 
-// const array = Array.from(map);
-// console.log(array);
+const array = Array.from(map);
+console.log(array);
 
 const mapObj = Object.fromEntries(map.entries());
 console.log(mapObj);
@@ -3139,6 +3139,152 @@ window.addEventListener('storage', (event) => {
 ?---LocalSt differences
 
 *LocalSt vs cookies: 1)much bigger than cookies (5mb) 2)cookies go to server, localst only on your machine
+
+TODO: ------------Regular Expressions
+
+RegExp - is a way to find mathes of given template with text
+RegExp are sensitive to register
+
+. - any one symbol (i. - finds i + plus any symbol after i)
+[] - any from them, ranges ([Ii]. - looks for I or i, with any other symbol) ([abcd] = [a-d] - range from a to d) ([0-9].[0-9] = 4a5)
+() - group or give condition ( (\s|-) )
+$ - end of the line (\.$ - finds every row that ends with dot at the end of the line)
+\ - reverting the spec symbols
+^ - start of the line (if [^..] - not some symbols) (^[^b] - not b symbol in the start)
+\d - any numeric symbol (\d\d\d - any 3 numeric symbols)
+\D - anything except numeric symbols
+\s - only spaces
+\S - anything except spaces
+\w - any letter
+\W - anything except letter
+\b - borders of the word
+\B - inner borders of the word
+
+?---Flags in RegExp(add letters to the end of regexp)
+
+/i - no difference in register
+/g - all the matches (without it - only first one)
+/m - manylines mode
+/s - 'dotall' mode (written below)
+/u - fully unicode support
+/y - search on given position (using lastIndex)
+
+?---Quantification
+
+expression{n-times} (\b\w{3}\b = \b\w\w\w\b - looks for word from 3 letters)
+
+expression{4,6} (look from 4 to 6 times) (\we{1,2} - find any letter with 1 or 2 e)
+
+* - from zero and higher (bi* - b or bi or biii...)
++ - from one and higher (bi+ - bi or biiii...)
+? - 1 or 0 (bi? - b or bi)
+
+?---New abilities of RegExp in ECMAScript
+
+---'dotAll'
+Flag (/s) gives ability to work correctly with new line: /one.two/s.test('one\ntwo'); ---> true
+
+---Named groups (?<name>...)
+
+const regExp = /(\d{4})-(\d{2})-(\d{2})/; --> work with dates (groups are undefined)
+
+const regExp = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+
+const result = regExp.exec('2019-08-23');
+
+console.log(result); -->['2019-08-23', '2019', '08', '23', index: 0, input: '2019-08-23', groups: {…}]
+
+console.log(result.groups); --> {year: '2019', month: '08', day: '23'}
+
+---Named groups and replace
+
+const str = 'Someone Else';
+
+const repl = /(?<firstName>[a-zA-z]+)\s(?<lastName>[a-zA-z]+$)/u;
+
+const newStr = str.replace(repl, '$<lastName> $<firstName>');
+
+console.log(newStr);
+
+---Logical using named groups inside RegExp
+
+let sameWords = /(?<fruit>apple|orange) === \k<fruit>/u;
+
+sameWords.test('orange === orange'); //true
+sameWords.test('orange === apple'); //false
+
+---Lookbehind
+
+(?<=[symbol]) ---> positive lookbehind
+(?>![symbol]) ---> negative lookbehind
+
+/(?<=#).+/.test('#frontend'); //true
+/(?<=#).+/.test('frontend'); //false
+
+'#frontend'.match(/(?<=#).+/)[0]; ---> 'frontend'
+
+?_______________JS-Under-The-Hood_________________
+
+-------------Thread & Call Stack-----------
+
+---------Thread of execution
+1)JS is a single-threaded language
+2)Single sequential flow of control
+3)JS is a synchronous language with asynchronous capabilities
+4)A thread has a call stack & memory
+
+---------The Call Stack
+1)Stack of functions to be executed
+2)Manages execution context
+3)Stacks are LIFO(last in, first out)
+
+-------------Execution Context--------------
+
+----------Execution Context Phases
+
+---Memory Creation Phase:
+1)Create the global object(browser = window, Node.js = global)
+2)Create the 'this' object and bind it to the global object
+3)Setup memory heap for storing variables and function references
+4)Store functions and variables in global execution context and set to 'undefined'
+
+---Execution Phase:
+1)Execute code line by line
+2)Create a new execution context for each function call
+
+!let and const create a new scope to hoist their values(they are blockscoped, not accessible), that's why get an error when try to call it before init
+
+------------Async JS, Task Queeu & Event Loop--------------
+
+Everything about Event Loop cycle, WEB API's, Call Queue and Call Stack(too long to note in details, watch the videos):
+1)Async func from Call Stack -> WEB API's
+2)WEB API's register a callback -> Call Queue(first in, first out)
+3)Wait when Call Stack is empty -> move callback to Call Stack
+4)Execute the callback
+
+Working with promises:
+
+*It doesn't put into Call Queue, instead it's being put into a Microtask Queue, that has higher priority than Call Queue and it doesn't have to wait until the iteration ends in Event Loop
+
+------------Memory Storage-------------
+
+There's two places we can store the data in: Stack and the Heap
+
+---Data Types
+
+Primitive Types: stored directly in the STACK, where it is accessed from (String, Number, Boolean...)
+
+Reference Types: stored in the HEAP and accessed by reference (Arrays, Functions, Objects)
+
+------------JS Engine Overview(V8)---------------
+
+That is a software component that executes JS code, each browser uses a specific JS engine. Overview:
+
+1)Source code
+2)Parser (check if the code is valid)
+3)Abstract syntax tree(AST) (a tree of nodes, like a huge object)
+4)Interpreter
+5)Bytecode
 
 ======================Theory END===================
 */
