@@ -2548,6 +2548,29 @@ import { one as once, two as twice } from './file.js';
 
 import * as numbers from './file.js';
 
+?---Import & Export of modules in general object
+
+!This method is very useful as it is flexible and comfortable, when working with huge amount of functions 
+
+!In outer file:
+const helpers = {
+  getValue2() {...},
+  mapArray() {...},
+  p: 5566,
+}
+
+export const getValue = helpers.getValue2;
+export const mapArray = helpers.mapArray;
+export const p = helpers.p;
+
+!In inner file:
+
+import { getValue, p } from './file.js';
+
+!In html file(attention):
+
+<script type="module" src="..."></script>
+
 ---------------Async & Await
 
 const fetchData = () => Promise.resolve({
@@ -2928,7 +2951,7 @@ console.log(cat);
 *It automatically watches for object and all its params we want to use or get, if trap - executes its inner logic
 *We can use any object with proxy
 
-?Shorten the words: we can handle the classes/objects/functions how we want to(add new properties, track something, etc...)
+?Shorten the words: we can handle the creation or calling of the classes/objects/functions how we want to(add new properties, track something, etc...)
 
 ?---Objects in proxy
 
@@ -3128,13 +3151,13 @@ console.log(raw);
 
 localStorage.setItem('temp', Date.now().toString());
 
-//!Sync many tabs onto one(about localStorage)
+!Sync many tabs onto one(about localStorage)
 
 window.addEventListener('storage', (event) => {
   console.log(event);
 }); //---> works only in another tab
 
-// window.onstorage = () => {} //---->another variant
+window.onstorage = () => {} //---->another variant
 
 ?---LocalSt differences
 
@@ -3285,6 +3308,77 @@ That is a software component that executes JS code, each browser uses a specific
 3)Abstract syntax tree(AST) (a tree of nodes, like a huge object)
 4)Interpreter
 5)Bytecode
+
+?_____________Related-Questions___________
+
+new ... - constructor of ...
+{} || [] - literal of ...
+
+!Class is just a synt sugar over function-constructors, underneath its just built over prototypes(done to make objects faster and more comfortable)
+
+-------------Prototype vs __proto__----------------
+
+!!!!!!!Prototype - of current object, __proto__ - of object, by help of which was created current object
+
+?(__proto__ - every object, prototype - class or function(not array function))
+
+*__proto__ of every object refers to prototype of a class(function-constructor), which has created that object(someObj.__proto__ === Object.prototype)
+
+Why does the __proto__ needed?
+Its needed to work with prototypes, when object cant find method/variable in its lex. env. it goes by link(__proto__) to its prototype(which created that object) and looks for that variable/method inside that prototype
+
+!Every object has __proto__ (arrays, numbers, strings, boolean, functions, classes)
+
+!Almost every time __proto__ is an object (By the way, __proto__ from different in TYPE object - absolutely different, if the objects are the same in TYPE - __proto__'s are the same)
+
+!Every prototype is an independent object itself, with certain params and methods
+*If u are calling primitive type(numbers, strings, boolean) like an object, then memory creates a temporary object-version of that type
+
+const someObj = {};
+const age = 18;
+console.log(someObj.__proto__ === Object.prototype); ---> true
+console.log(age.__proto__ === Number.prototype); ---> true
+
+function someFunc() {}
+console.log(someFunc.__proto__ === Function.prototype); ---> true
+
+--------LocalStorage, SessionStorage, Cookies---------
+
+*LocalSt - never expires, size 10mb, html5, only in browser, accessible from any window
+*SessionSt - expires on tab close, size 5mb, html5, only in browser, accessible from current tab
+*Cookies - manually expires, size 4kb, html5/4, in browser/server, accessible from any window
+
+
+---Local (already noted)
+---Session (methods same as localSt)
+
+const name = 'Someone';
+
+sessionStorage.setItem('nameStorage', name);
+const nameStorage = sessionStorage.getItem('nameStorage');
+sessionStorage.removeItem('nameStorage');
+
+console.log(nameStorage);
+
+?---Cookies(read more on learn.javascript)
+
+const name = 'Someone';
+
+document.cookie = name;
+
+*cookie will be deleted in 1 hour
+document.cookie = 'user=John; max-age=3600';
+
+*delete cookie right now
+document.cookie = 'user=John; max-age=0';
+
+*+1 day before expiring
+let date = new Date(Date.now() + 86400e3);
+date = date.toUTCString();
+document.cookie = 'user=John; expires=' + date;
+
+*when on site.com cookie will be available to every subdomain of *.site.com:
+document.cookie = "user=John; domain=site.com"
 
 ======================Theory END===================
 */
