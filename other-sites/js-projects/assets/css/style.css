@@ -11655,4 +11655,85 @@ main .introduction .rules {
 }
 main .introduction .rules.show-rules {
   transform: translateX(0);
+}
+main .introduction .keyboard {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: all 0.4s ease;
+  padding: 5px 0;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  background: #77608d;
+  opacity: 0.8;
+  z-index: 9999;
+}
+main .introduction .keyboard--hidden {
+  bottom: -100%;
+}
+main .introduction .keyboard__keys {
+  text-align: center;
+}
+main .introduction .keyboard__key {
+  height: 45px;
+  width: 6%;
+  max-width: 90px;
+  margin: 3px;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+main .introduction .keyboard__key:active {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+main .introduction .keyboard__key--wide {
+  width: 12%;
+}
+main .introduction .keyboard__key--extra-wide {
+  width: 36%;
+  max-width: 500px;
+}
+main .introduction .keyboard__key--activatable::after {
+  content: "";
+  position: absolute;
+  z-index: 9999;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+main .introduction .keyboard__key--active::after {
+  background: #7a956b;
+}
+main .introduction .keyboard__key--dark {
+  background: rgba(0, 0, 0, 0.3);
+}
+main .introduction #mainTextarea {
+  padding: 5px 15px;
+  background-color: #77608d;
+  border-radius: 10px;
+  resize: none;
+}
+main .introduction #mainTextarea::-moz-placeholder {
+  color: #fff;
+}
+main .introduction #mainTextarea:-ms-input-placeholder {
+  color: #fff;
+}
+main .introduction #mainTextarea::placeholder {
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

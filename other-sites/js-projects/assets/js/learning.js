@@ -3165,6 +3165,8 @@ window.onstorage = () => {} //---->another variant
 
 TODO: ------------Regular Expressions
 
+*All the methods to work with RegExps: match(regexp), matchAll(regexp), split(regexp|substr, limiter), search(regexp), replace(regexp), regexp.exec(str), regexp.test(str)
+
 RegExp - is a way to find mathes of given template with text
 RegExp are sensitive to register
 
@@ -3308,6 +3310,8 @@ That is a software component that executes JS code, each browser uses a specific
 3)Abstract syntax tree(AST) (a tree of nodes, like a huge object)
 4)Interpreter
 5)Bytecode
+6)Bytecode type feedback (if not - deoptimization)
+7)Optimized code to 010101010
 
 ?_____________Related-Questions___________
 
@@ -3382,6 +3386,37 @@ document.cookie = "user=John; domain=site.com"
 
 ======================Theory END===================
 */
+
+//----------Remember those things
+
+//! Object cant be translated to string by default(without using JSON.stringify())
+
+// let dwayne = {};
+// let daniel = {
+//   firstName: 'Daniel',
+// };
+// let jason = {
+//   key: 'Jason',
+// };
+
+// dwayne[daniel] = 123;
+// dwayne[jason] = 456;
+
+//What will console output?
+// console.log(dwayne[daniel]);
+// console.log(dwayne);
+
+//* All of that because will be translated in strings like [object Object]!!!!
+
+//[object Object] = 123 ---> [object Object] = 456 thats why
+
+//! They are never similar! (---> false)
+// console.log([2] == [2]);
+// console.log([2] === [2]);
+// console.log({ a: 1 } == { a: 1 });
+// console.log({ a: 1 } === { a: 1 });
+// console.log(NaN === NaN);
+// console.log(null === undefined);
 
 //----------Proxy practice
 
@@ -4234,8 +4269,3 @@ document.cookie = "user=John; domain=site.com"
 //Numeric separator
 //Private Methods
 //Promise.any()
-//
-//
-//
-//
-//
