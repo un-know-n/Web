@@ -2324,7 +2324,7 @@ console.log(task3, Task.counter);
 
 ---------------Inheritance
 
-super() - includes functional from parent's class to children's
+super() - traslates the arguments from children class to parent's
 
 class Task {
   constructor(title) {
@@ -2527,7 +2527,7 @@ export function sayHi() {
 
 export { one as once, two as twice };
 
-*Default export
+*Default export(names can be changed)
 
 export default class Person {
   constructor(name) {
@@ -3281,9 +3281,9 @@ sameWords.test('orange === apple'); //false
 
 ------------Async JS, Task Queeu & Event Loop--------------
 
-Everything about Event Loop cycle, WEB API's, Call Queue and Call Stack(too long to note in details, watch the videos):
+Everything about Event Loop cycle, WEB API's, Callback Queue and Call Stack(too long to note in details, watch the videos):
 1)Async func from Call Stack -> WEB API's
-2)WEB API's register a callback -> Call Queue(first in, first out)
+2)WEB API's register a callback -> Callback Queue(first in, first out)
 3)Wait when Call Stack is empty -> move callback to Call Stack
 4)Execute the callback
 
