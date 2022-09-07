@@ -211,165 +211,165 @@ console.log(Student.getRole('stud@mail'));
 
 //------------GridView vidget
 
-class GridView {
-  /**
-   * Properties
-   * @param [array] _tableClass - css classes, desing
-   * @param [array] data - external data
-   * @param [array] _attributes - manage what to output
-   * @param [array] _element - where to output table
-   * @param [array] _header - header of the table
-   * @param [array] _headerClass - css classes of the header
-   */
+// class GridView {
+//   /**
+//    * Properties
+//    * @param [array] _tableClass - css classes, desing
+//    * @param [array] data - external data
+//    * @param [array] _attributes - manage what to output
+//    * @param [array] _element - where to output table
+//    * @param [array] _header - header of the table
+//    * @param [array] _headerClass - css classes of the header
+//    */
 
-  constructor() {
-    this._header = '';
-    this._headerClass = [];
-    this._tableClass = [];
-    this._element = 'section';
-    this.attribute = [];
-  }
+//   constructor() {
+//     this._header = '';
+//     this._headerClass = [];
+//     this._tableClass = [];
+//     this._element = 'section';
+//     this.attribute = [];
+//   }
 
-  /**
-   * Method to set header of the table
-   * ---input params
-   */
+//   /**
+//    * Method to set header of the table
+//    * ---input params
+//    */
 
-  setHeader(header) {
-    if ((typeof header === 'string') & (header.trim() !== '')) {
-      this._header = header.trim();
-      return true;
-    }
-    return false;
-  }
+//   setHeader(header) {
+//     if ((typeof header === 'string') & (header.trim() !== '')) {
+//       this._header = header.trim();
+//       return true;
+//     }
+//     return false;
+//   }
 
-  /**
-   * Method to set the styles of the header
-   * ---input params
-   */
+//   /**
+//    * Method to set the styles of the header
+//    * ---input params
+//    */
 
-  setHeaderClass(headerClass) {
-    if (typeof headerClass === 'object') {
-      this._headerClass = headerClass;
-      return true;
-    }
-    return false;
-  }
+//   setHeaderClass(headerClass) {
+//     if (typeof headerClass === 'object') {
+//       this._headerClass = headerClass;
+//       return true;
+//     }
+//     return false;
+//   }
 
-  /**
-   * Method to set the element
-   * ---input params
-   */
+//   /**
+//    * Method to set the element
+//    * ---input params
+//    */
 
-  setElement(element) {
-    if (document.querySelector(element)) {
-      this.element = document.querySelector(element);
-      return true;
-    }
-    return false;
-  }
+//   setElement(element) {
+//     if (document.querySelector(element)) {
+//       this.element = document.querySelector(element);
+//       return true;
+//     }
+//     return false;
+//   }
 
-  /**
-   * Method to show GridViewTable
-   * ---input params
-   */
+//   /**
+//    * Method to show GridViewTable
+//    * ---input params
+//    */
 
-  render(data) {
-    this.setElement(data.element);
-    this.setHeaderClass(data.headerClass);
-    this.setHeader(data.header);
-    this.data = data.data;
-    this.attribute = data.attribute;
+//   render(data) {
+//     this.setElement(data.element);
+//     this.setHeaderClass(data.headerClass);
+//     this.setHeader(data.header);
+//     this.data = data.data;
+//     this.attribute = data.attribute;
 
-    //To show the main header
-    if (this._header) {
-      const header = document.createElement('h1');
-      header.textContent = this._header;
-      this._headerClass.forEach((cssClass) => {
-        header.classList.add(cssClass);
-      });
-      document.querySelector(this._element).append(header);
-    }
+//     //To show the main header
+//     if (this._header) {
+//       const header = document.createElement('h1');
+//       header.textContent = this._header;
+//       this._headerClass.forEach((cssClass) => {
+//         header.classList.add(cssClass);
+//       });
+//       document.querySelector(this._element).append(header);
+//     }
 
-    //To show the table
-    const table = document.createElement('table');
-    this._tableClass.forEach((cssClass) => {
-      table.classList.add(cssClass);
-    });
+//     //To show the table
+//     const table = document.createElement('table');
+//     this._tableClass.forEach((cssClass) => {
+//       table.classList.add(cssClass);
+//     });
 
-    //To create the table header
-    let trHeader = document.createElement('tr');
-    for (let key in this.attribute) {
-      let th = document.createElement('th');
-      if (this.attribute[key].label) {
-        th.innerHTML = this.attribute[key].label;
-      } else th.innerHTML = key;
-      trHeader.append(th);
-    }
-    table.append(trHeader);
+//     //To create the table header
+//     let trHeader = document.createElement('tr');
+//     for (let key in this.attribute) {
+//       let th = document.createElement('th');
+//       if (this.attribute[key].label) {
+//         th.innerHTML = this.attribute[key].label;
+//       } else th.innerHTML = key;
+//       trHeader.append(th);
+//     }
+//     table.append(trHeader);
 
-    //To draw the table
-    for (let i = 0; i < this.data.length; i++) {
-      let dataArr = this.data[i];
-      let tr = document.createElement('tr');
-      for (let key in this.attribute) {
-        let td = document.createElement('td');
-        let value = dataArr[key];
+//     //To draw the table
+//     for (let i = 0; i < this.data.length; i++) {
+//       let dataArr = this.data[i];
+//       let tr = document.createElement('tr');
+//       for (let key in this.attribute) {
+//         let td = document.createElement('td');
+//         let value = dataArr[key];
 
-        if (this.attribute[key].value)
-          value = this.attribute[key].value(dataArr);
+//         if (this.attribute[key].value)
+//           value = this.attribute[key].value(dataArr);
 
-        if (this.attribute[key].src) td.innerHTML = value;
-        else td.textContent = value;
-        tr.append(td);
-      }
-      table.append(tr);
-    }
-    document.querySelector(this._element).append(table);
-  }
-}
+//         if (this.attribute[key].src) td.innerHTML = value;
+//         else td.textContent = value;
+//         tr.append(td);
+//       }
+//       table.append(tr);
+//     }
+//     document.querySelector(this._element).append(table);
+//   }
+// }
 
-const dataExample = [
-  {
-    company: 'Company <b>1</b>',
-    chef: 'Chef 1',
-    country: 'Germany',
-  },
-  {
-    company: 'Company 2',
-    chef: 'Chef 2',
-    country: 'Mexico',
-  },
-  {
-    company: 'Company 3',
-    chef: 'Chef 3',
-    country: 'Austria',
-  },
-  {
-    company: 'Company 4',
-    chef: 'Chef 4',
-    country: 'Canada',
-  },
-];
+// const dataExample = [
+//   {
+//     company: 'Company <b>1</b>',
+//     chef: 'Chef 1',
+//     country: 'Germany',
+//   },
+//   {
+//     company: 'Company 2',
+//     chef: 'Chef 2',
+//     country: 'Mexico',
+//   },
+//   {
+//     company: 'Company 3',
+//     chef: 'Chef 3',
+//     country: 'Austria',
+//   },
+//   {
+//     company: 'Company 4',
+//     chef: 'Chef 4',
+//     country: 'Canada',
+//   },
+// ];
 
-let gridView = new GridView();
-const data = {
-  element: 'section',
-  header: 'Hello',
-  headerClass: ['header', 'site-header'],
-  attribute: {
-    company: {
-      label: 'Company',
-      src: 'html',
-    },
-    chef: {
-      label: 'Director',
-    },
-    country: {
-      label: 'Country',
-      value: (data) => data['country'],
-    },
-  },
-  data: dataExample,
-};
-gridView.render(data);
+// let gridView = new GridView();
+// const data = {
+//   element: 'section',
+//   header: 'Hello',
+//   headerClass: ['header', 'site-header'],
+//   attribute: {
+//     company: {
+//       label: 'Company',
+//       src: 'html',
+//     },
+//     chef: {
+//       label: 'Director',
+//     },
+//     country: {
+//       label: 'Country',
+//       value: (data) => data['country'],
+//     },
+//   },
+//   data: dataExample,
+// };
+// gridView.render(data);

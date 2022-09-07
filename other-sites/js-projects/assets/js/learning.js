@@ -113,14 +113,13 @@ Operator (&&) - return first "false" or last value
 priority of && is higher than ||
 operator ! has the highest priority
 
-----------------------------------------------------------------
+------------------------------------------------------------
 
-operator ?? compares first value with undefined / null, and returns
-first if false, second - if true
+operator ?? compares first value with undefined / null, and returns first if false, second - if true
 
 console.log(name ?? "No name"); ---> No name
 
-----------------------------------------------------------------
+------------------------------------------------------------
 
 console.log(!false && 11 || 18 && !''); ---> 11
 
@@ -1115,7 +1114,7 @@ const elem = document.elementFromPoint(100, 100);
 console.log(elem);
 
 
-========================Session #7=============================
+========================Session #7=======================
 
 ------------------------Events-------------------------------
 
@@ -2571,6 +2570,30 @@ import { getValue, p } from './file.js';
 
 <script type="module" src="..."></script>
 
+?---Dynamical imports(Interesting)
+
+(async () => {
+  const module = await import('./module.js');
+  console.log(module);
+  console.log(module.SECRET_KEY);
+
+  const Person = module.default;
+
+  const person = new Person('Someone');
+})();
+
+File 'module.js' at the same time
+
+console.log('Something');
+const privateKey = 'private';
+export const SECRET_KEY = 42;
+
+export default class Person {
+  constructor (name) {
+    this.name = name;
+  }
+}
+
 ---------------Async & Await
 
 const fetchData = () => Promise.resolve({
@@ -2843,6 +2866,28 @@ bindWrapper();
 
 Promise.all - when all promises are done
 Promise.race - when first promise is done
+Promise.any - when first promise is done
+Promise.allSettled - return an array of objects, where it is info about their completion/rejection
+
+function createPromise(value, delay_ms){
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(value);
+    }, delay_ms);
+  });
+};
+
+const p1 = createPromise(1, 250);
+const p2 = createPromise(2, 700);
+const p3 = createPromise(3, 500);
+
+async function start() {
+  const res = await Promise.all([p1, p2, p3]); --> [1, 2, 3]
+  const res = await Promise.any([p1, p2, p3]); --> 3
+  const res = await Promise.allSettled([p1, p2, p3]); --> [{status: 'fulfilled', value: 1}, ...]
+  const res = await Promise.race([p1, p2, p3]); --> 3
+
+}
 
 ---------------Objects
 
@@ -3320,6 +3365,27 @@ new ... - constructor of ...
 
 !Class is just a synt sugar over function-constructors, underneath its just built over prototypes(done to make objects faster and more comfortable)
 
+-------------Private in classes--------------
+
+class Person {
+  birthYear = 1999;
+
+  get #age() {
+    return this.#getYear() - this.birthYear;
+  }
+
+  logAge() {
+    return this.#age;
+  }
+
+  #getYear() {
+    return new Date().getFullYear();
+  }
+}
+
+const person = new Person();
+person.logAge();
+
 -------------Prototype vs __proto__----------------
 
 !!!!!!!Prototype - of current object, __proto__ - of object, by help of which was created current object
@@ -3383,6 +3449,55 @@ document.cookie = 'user=John; expires=' + date;
 
 *when on site.com cookie will be available to every subdomain of *.site.com:
 document.cookie = "user=John; domain=site.com"
+
+?---WeakRef & Finalizators(not sure)
+
+It can be used to free the memory from worked out objects, useful when working with huge objects
+
+function func() {
+  const person = new WeakRef({
+    name: 'Person',
+  });
+  console.log(person.deref().name);
+}
+
+// TODO: event listener must work when gar. collector has deleted the object
+const registry = new FinalizationRegistry((value) => {
+  console.log('Garbage cleared: ', value);
+});
+
+async function start() {
+  // await new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(func());
+  //   }, 200);
+  // });
+  // await new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(func());
+  //   }, 200);
+  // }); // ---> not sure if it will work, because gar. collector could delete its refs from memory
+
+  const ref = new WeakRef({ a: 24 });
+  registry.register(ref, 'myWeakRef');
+}
+
+//Example:
+
+const listenersRegistry = new FinalizationRegistry(
+  ({ target, wrapper, type }) => {
+    target.removeEventListener(type, wrapper);
+  }
+);
+
+function addWeakListener(target, type, callback) {
+  const wr = new WeakRef(callback);
+  const wrapper = (event) => wr.deref()?.(event);
+  listenersRegistry.register(callback, { target, wrapper, type });
+  target.addEventListener(type, wrapper);
+}
+
+addWeakListener(document, 'click', () => console.log('Clicked'));
 
 ======================Theory END===================
 */
