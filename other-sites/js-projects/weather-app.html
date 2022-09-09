@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- default meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- document favicon in browser tab -->
+    <link rel="icon" type="image/x-icon" href="assets/images/js.ico" />
+
+    <!-- style linking -->
+    <link rel="stylesheet" href="assets/css/libs/normalize.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- title -->
+    <title>Default page</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a href="/" class="navbar-brand">Learning</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <a
+              href="https://un-know-n.github.io/about/"
+              class="btn btn-outline-light"
+              target="_blank"
+              >Author</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="wrapper">
+        <section class="introduction">
+          <div class="search__wrapper">
+            <div class="search__container">
+              <input
+                type="search"
+                class="search__input"
+                placeholder="Look for the weather in your city..."
+              />
+            </div>
+            <button
+              id="search-button"
+              type="button"
+              class="btn btn-primary search__button"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="weather__wrapper">
+            <!-- <div class="weather__row">
+              <div class="weather__first-col">
+                <div class="city-name">Los-Angeles</div>
+                <div class="country-name">USA</div>
+                <div class="day">Wed</div>
+              </div>
+              <div class="weather__second-col">
+                <div class="current-condition">Sunny</div>
+                <div class="current-temperature">70</div>
+                <div class="suntimes">
+                  <div class="sunrise">
+                    <i class="fa-light fa-sunrise"></i> - 6.43 am
+                  </div>
+                  <div class="sunset">sunset - 7.52 pm</div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="weather__footer">
+            <!-- <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div>
+            <div class="weather__item">
+              <div class="day">Wed</div>
+              <div class="date">02.05.2022</div>
+              <div class="temperature-range">
+                <div class="low">70</div>
+                <div class="high">93</div>
+              </div>
+              <div class="condition">Sunny</div>
+            </div> -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/weather-app.js"></script>
+  </body>
+</html>
