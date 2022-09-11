@@ -3,10 +3,6 @@ const searchBtn = document.querySelector('.search__button');
 
 const options = {
   method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': 'f073c32f9bmsh225f7f58264df0ap1a886fjsn6d9157fd4b6c',
-    'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com',
-  },
 };
 
 //Functions
