@@ -49,6 +49,23 @@
 //   ).length;
 // }
 
+// function duplicateCount(text) {
+//   return new Set(text.toLowerCase().match(/(.)(?=.*\1)/gi)).size;
+// }
+
+// function duplicateCount(text) {
+//   text = text.toLowerCase();
+//   return [...new Set(text.split(''))].filter(
+//     (c, i) => text.lastIndexOf(c) > text.indexOf(c)
+//   ).length;
+// }
+
+// function duplicateCount(text){
+//   return (
+//     text.toLowerCase().split('').sort().join('').match(/(.)\1+/g)||[]
+//   ).length;
+// }
+
 // let resultTwo = duplicateCount('Indivisibilities');
 // console.log(resultTwo);
 
