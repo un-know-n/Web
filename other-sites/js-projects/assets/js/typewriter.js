@@ -1,20 +1,25 @@
-//Typewriter-------------------------------------------------
+// Main variables and params
 
-let quoteArray = [];
-let index = 0;
+const quoteArray = [];
+const index = 0;
 let textPosition = 0;
 let flag = true;
-let destination = document.getElementById('typedtext');
+const destination = document.getElementById('typedtext');
 
+/**
+ * Request to the API to get one random quote
+ *
+ */
 function loadQuote() {
   const url = 'https://api.quotable.io/random';
 
   fetch(url)
     .then((response) => {
       if (response.ok) return response.json();
-      else console.log(response.status);
+      throw new Error(response.status);
     })
     .then((data) => {
+      // Write the quote to the array
       quoteArray[index] = data.content;
     });
 }
@@ -26,12 +31,17 @@ function typeWriter() {
     flag = false;
   }
 
-  destination.innerHTML =
-    quoteArray[index].substring(0, textPosition) + '<span>&#9646;</span>';
+  // Assign the quote to the DOM
+  destination.innerHTML = `${quoteArray[index].substring(
+    0,
+    textPosition,
+  )}<span>&#9646;</span>`;
 
-  if (textPosition++ != quoteArray[index].length)
+  // Move the position cursor to the next letter
+  if (textPosition++ !== quoteArray[index].length) {
     setTimeout('typeWriter()', 100);
-  else {
+  } else {
+    // Create a new quote
     quoteArray[index] = ' ';
     setTimeout('typeWriter()', 3000);
     textPosition = 0;
@@ -40,5 +50,3 @@ function typeWriter() {
 }
 
 typeWriter();
-
-//-----------------------------------------------------------

@@ -1,3 +1,10 @@
+/* eslint-disable func-names */
+/* eslint-disable new-cap */
+/* eslint-disable consistent-return */
+/* eslint-disable no-continue */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
 const array = [1, 4, 5, 3, 2, 6, 9, 7, 8, 10, 11];
 const hugeArray = [
   20, 64, -46, 56, 59, 16, -37, -11, 40, 28, 2, 42, -31, -20, 19, 26, -35, 99,
@@ -6,9 +13,9 @@ const hugeArray = [
 ];
 let counter = 0;
 
-//--------------Search-----------------
+// --------------Search-----------------
 
-//--------Linear search(most inefficient)
+// --------Linear search(most inefficient)
 
 const linearSearch = (array, item) => {
   for (let i = 0; i < array.length; i++) {
@@ -22,7 +29,7 @@ const linearSearch = (array, item) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//-------Binary search(only sorted array!!!)
+// -------Binary search(only sorted array!!!)
 
 const binarySearch = (sortedArray, item) => {
   let start = 0;
@@ -53,9 +60,9 @@ const binarySearch = (sortedArray, item) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//----------------Sort---------------
+// ----------------Sort---------------
 
-//-------Selection sort(3-4 times faster than bubble sort)
+// -------Selection sort(3-4 times faster than bubble sort)
 
 const selectionSort = (array) => {
   for (let i = 0; i < array.length; i++) {
@@ -66,7 +73,7 @@ const selectionSort = (array) => {
         counter += 1;
       }
     }
-    let temp = array[i];
+    const temp = array[i];
     array[i] = array[indexMin];
     array[indexMin] = temp;
   }
@@ -77,14 +84,14 @@ const selectionSort = (array) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//-------Bubble sort(most inefficient)
+// -------Bubble sort(most inefficient)
 
 const bubbleSort = (array) => {
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (array[j + 1] < array[j]) {
         counter += 1;
-        let temp = array[j];
+        const temp = array[j];
         array[j] = array[j + 1];
         array[j + 1] = temp;
       }
@@ -97,13 +104,13 @@ const bubbleSort = (array) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//---------Shaker sort(the same as bubble sort)
+// ---------Shaker sort(the same as bubble sort)
 
 const shakerSort = (array) => {
-  let i = 0,
-    j = array.length - 1,
-    s = true,
-    t;
+  let i = 0;
+  let j = array.length - 1;
+  let s = true;
+  let t;
   while (i < j && s) {
     s = false;
     for (let k = i; k < j; k++) {
@@ -137,7 +144,7 @@ const shakerSort = (array) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//-------Comb sort(update version of bubble sort, as efficient as Selection sort)
+// -------Comb sort(update version of bubble sort, as efficient as Selection sort)
 
 function combSort(array) {
   const factor = 1.247;
@@ -147,7 +154,7 @@ function combSort(array) {
     for (let i = 0; i < array.length; i++) {
       if (array[i] > array[i + step]) {
         counter += 1;
-        let temp = array[i];
+        const temp = array[i];
         array[i] = array[i + step];
         array[i + step] = temp;
       }
@@ -159,7 +166,7 @@ function combSort(array) {
     for (let j = 0; j < array.length - i; j++) {
       if (array[j + 1] < array[j]) {
         counter += 1;
-        let temp = array[j];
+        const temp = array[j];
         array[j] = array[j + 1];
         array[j + 1] = temp;
       }
@@ -172,12 +179,12 @@ function combSort(array) {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//-------Insertion sort(almost same to bubble sort)
+// -------Insertion sort(almost same to bubble sort)
 
 const insertionSort = (array) => {
   for (let i = 0; i < array.length; i++) {
-    let index = i - 1,
-      temp = array[i];
+    let index = i - 1;
+    const temp = array[i];
     counter += 1;
     while (index >= 0 && array[index] > temp) {
       array[index + 1] = array[index];
@@ -192,11 +199,12 @@ const insertionSort = (array) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//-------Merge sort (three times faster than bubble sort)
+// -------Merge sort (three times faster than bubble sort)
 
 const merge = (arrFirst, arrSecond) => {
   const arrSort = [];
-  let i = (j = 0);
+  let i = 0;
+  let j = 0;
 
   // compare two arrays, pushing the pointers by the way
   while (i < arrFirst.length && j < arrSecond.length) {
@@ -209,9 +217,9 @@ const merge = (arrFirst, arrSecond) => {
 };
 
 const mergeSort = (arr) => {
-  //Look if the data is correct
+  // Look if the data is correct
   if (!arr || !arr.length) return null;
-  //If the array contains one element - just return it
+  // If the array contains one element - just return it
   if (arr.length <= 1) return arr;
 
   // Looking for the middle of the array and divide it on half, also push it to different arrays
@@ -219,7 +227,7 @@ const mergeSort = (arr) => {
   const arrLeft = arr.slice(0, middle);
   const arrRight = arr.slice(middle);
 
-  //For new arrays call the sort and return the whole array again
+  // For new arrays call the sort and return the whole array again
   return merge(mergeSort(arrLeft), mergeSort(arrRight));
 };
 
@@ -227,9 +235,9 @@ const mergeSort = (arr) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//-------Quick sort(Hoar's sort)
+// -------Quick sort(Hoar's sort)
 
-//Recursion template
+// Recursion template
 // const factorial = (n) => {
 //   if (n === 1) return n;
 //   return n * factorial(n - 1);
@@ -243,14 +251,14 @@ const mergeSort = (arr) => {
 // };
 
 // console.log(fibonachi(8));
-//End of template
+// End of template
 
 const quickSort = (array) => {
   if (array.length <= 1) return array;
-  let pivotIndex = Math.floor(array.length / 2);
-  let pivot = array[pivotIndex];
-  let less = [];
-  let greater = [];
+  const pivotIndex = Math.floor(array.length / 2);
+  const pivot = array[pivotIndex];
+  const less = [];
+  const greater = [];
   for (let i = 0; i < array.length; i++) {
     counter += 1;
     if (i === pivotIndex) continue;
@@ -264,9 +272,9 @@ const quickSort = (array) => {
 // console.log('Counter: ', counter);
 // counter = 0;
 
-//--------------------Graphs---------------------
+// --------------------Graphs---------------------
 
-//----------Search in wide
+// ----------Search in wide
 // const graph = {};
 // graph.a = ['b', 'c'];
 // graph.b = ['f'];
@@ -282,13 +290,13 @@ const wideSearch = (graph, start, end) => {
     const current = queue.shift();
     if (!graph[current]) graph[current] = [];
     if (graph[current].includes(end)) return true;
-    else queue = [...queue, ...graph[current]];
+    queue = [...queue, ...graph[current]];
   }
 };
 
 // console.log(wideSearch(graph, 'a', 'g'));
 
-//------------------Trees------------------
+// ------------------Trees------------------
 
 const tree = [
   {
@@ -343,7 +351,7 @@ const recursiveTree = (tree) => {
 const iterativeTree = (tree) => {
   if (!tree.length) return 0;
   let sum = 0;
-  let stack = [];
+  const stack = [];
   tree.forEach((node) => stack.push(node));
   while (stack.length) {
     const node = stack.pop();
@@ -358,7 +366,7 @@ const iterativeTree = (tree) => {
 // console.log(recursiveTree(tree));
 // console.log(iterativeTree(tree));
 
-//---------Cash some data-----------
+// ---------Cash some data-----------
 
 const cashFunction = (fn) => {
   const cash = {};
@@ -366,18 +374,17 @@ const cashFunction = (fn) => {
     if (cash[n]) {
       console.log('Taken from the cash: ', cash[n]);
       return cash[n];
-    } else {
-      let result = fn(n);
-      console.log('Calculated for the first time: ', result);
-      cash[n] = result;
-      return result;
     }
+    const result = fn(n);
+    console.log('Calculated for the first time: ', result);
+    cash[n] = result;
+    return result;
   };
 };
 
 const factorial = (n) => {
   let result = 1;
-  while (n != 1) {
+  while (n !== 1) {
     result *= n;
     n--;
   }
@@ -393,7 +400,7 @@ const cashFactorial = cashFunction(factorial);
 // cashFactorial(5);
 // cashFactorial(5);
 
-//---------Simple Linked List realization
+// ---------Simple Linked List realization
 
 class LinkedList {
   constructor() {
@@ -402,23 +409,23 @@ class LinkedList {
   }
 
   add(value) {
-    //if we have no node, then the root will be our first node
+    // if we have no node, then the root will be our first node
     if (this.size === 0) {
       this.root = new Node(value);
       this.size += 1;
       return true;
     }
-    //take the very first node
+    // take the very first node
     let node = this.root;
-    //Iteration while we have nodes in list
+    // Iteration while we have nodes in list
     while (node.next) {
       node = node.next;
     }
-    //creation of the new node
-    let newNode = new Node(value);
-    //assign the new node to the end of the list
+    // creation of the new node
+    const newNode = new Node(value);
+    // assign the new node to the end of the list
     node.next = newNode;
-    //increment the size of the list
+    // increment the size of the list
     this.size += 1;
   }
 
@@ -427,10 +434,10 @@ class LinkedList {
   }
 
   print() {
-    let result = [];
-    //take the very first node
+    const result = [];
+    // take the very first node
     let node = this.root;
-    //while we have node, push it to resulting array
+    // while we have node, push it to resulting array
     while (node) {
       result.push(node.value);
       node = node.next;
@@ -456,7 +463,7 @@ class Node {
 // list.print();
 // console.log(list);
 
-//---------Simple Binary Tree realization
+// ---------Simple Binary Tree realization
 
 class BinaryTree {
   constructor() {
@@ -468,7 +475,7 @@ class BinaryTree {
       this.root = new treeNode(value);
     } else {
       let node = this.root;
-      let newNode = new treeNode(value);
+      const newNode = new treeNode(value);
       while (node) {
         if (value > node.value) {
           if (!node.right) break;
@@ -508,20 +515,19 @@ class treeNode {
 // binaryTree.add(4);
 // binaryTree.print();
 
-//---------Rewriting part
+// ---------Rewriting part
 
-//Binary search in recursive way
+// Binary search in recursive way
 
 const recursiveBinarySearch = (array, item, start, end) => {
-  let middle = Math.floor((start + end) / 2);
+  const middle = Math.floor((start + end) / 2);
   counter += 1;
   if (counter > array.length) return -1;
   if (item === array[middle]) return middle;
   if (item < array[middle]) {
     return recursiveBinarySearch(array, item, start, middle - 1);
-  } else {
-    return recursiveBinarySearch(array, item, middle + 1, end);
   }
+  return recursiveBinarySearch(array, item, middle + 1, end);
 };
 
 // console.log(

@@ -1,19 +1,28 @@
+/* eslint-disable no-unused-vars */
+// Main variables and params
 const postsContainer = document.getElementById('post-container');
 const loading = document.querySelector('.loader');
 const filter = document.getElementById('filter');
 
-let limit = 5;
+const limit = 5;
 let page = 1;
 
-//Fetch posts from API
+/**
+ * Fetch posts from API and translate it to JSON format
+ *
+ * @return {promise} response The response from server
+ */
 async function getPosts() {
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`
+    `https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`,
   ).then((info) => info.json());
   return response;
 }
 
-//Show posts in DOM
+/**
+ * Render posts to DOM
+ *
+ */
 async function showPosts() {
   const posts = await getPosts();
   posts.forEach((post) => {
@@ -32,7 +41,10 @@ async function showPosts() {
   });
 }
 
-//Show more posts
+/**
+ * Show more posts and increase page counter
+ *
+ */
 function showLoading() {
   loading.classList.add('show-loader');
 
@@ -46,7 +58,11 @@ function showLoading() {
   }, 1000);
 }
 
-//Filter posts
+/**
+ * Filter posts from input value
+ *
+ * @param {event} e The event depending on eventHandler
+ */
 function filterPosts(e) {
   const term = e.target.value.toUpperCase();
   const posts = document.querySelectorAll('.post');
@@ -63,12 +79,16 @@ function filterPosts(e) {
 
 showPosts();
 
+// Event Listeners
+
+// Show more posts depending on users current position
 window.addEventListener('scroll', () => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-  if (scrollTop + clientHeight == scrollHeight) {
+  if (scrollTop + clientHeight === scrollHeight) {
     showLoading();
   }
 });
 
+// Filter the posts
 filter.addEventListener('input', filterPosts);

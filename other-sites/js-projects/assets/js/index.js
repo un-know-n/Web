@@ -1,4 +1,4 @@
-//------Initial logic or NPM modules testing
+// ------Initial logic or NPM modules testing
 
 // import { each } from '../../node_modules/lodash';
 // const { each } = require('lodash');

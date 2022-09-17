@@ -1,35 +1,58 @@
-//Gradient generator------------------------------
+// Main variables and params
+const mainFrame = document.querySelector('.introduction__frame');
+const button = document.querySelector('.project-one__button');
+const firstProperty = document.querySelector('.first-prop');
+const secondProperty = document.querySelector('.second-prop');
+const property = document.querySelector('.property');
+let propertyValue = property.textContent;
 
-// let mainFrame = document.querySelector('.introduction__frame');
-// let button = document.querySelector('.project-one__button');
-// let firstProperty = document.querySelector('.first-prop');
-// let secondProperty = document.querySelector('.second-prop');
-// let property = document.querySelector('.property');
-// let propertyValue = property.textContent;
+/**
+ * Creates and return pseudo-random hex value
+ *
+ * @return {string} hex-value Return the pseudo-random hex value
+ */
+function createHex() {
+  const hexArr = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+  ];
 
-// button.addEventListener('click', function(event) {
-//     firstProperty.innerHTML = createHex();
-//     secondProperty.innerHTML = createHex();
+  let hexChoice = '';
 
-//     propertyValue = property.textContent;
+  // Making the random hex value
+  for (let i = 0; i < 6; i++) {
+    const random = Math.floor(Math.random() * hexArr.length);
+    hexChoice += hexArr[random];
+  }
 
-//     mainFrame.style.cssText = `${propertyValue}`;
+  return hexChoice;
+}
 
-//     console.log(propertyValue);
-// });
+// Event listeners
 
-// function createHex(){
-//     let hexArr = ['a', 'b', 'c', 'd', 'e', 'f', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// Listener to the main button item
+button.addEventListener('click', () => {
+  firstProperty.innerHTML = createHex();
+  secondProperty.innerHTML = createHex();
 
-//     let hexChoice = '';
+  // Display the hex value on the screen
+  propertyValue = property.textContent;
 
-//     for (let i = 0; i < 6; i++) {
-//         let random = Math.floor(Math.random() * hexArr.length);
-//         hexChoice += (hexArr[random]);
+  // Assign the hex value to the css styles
+  mainFrame.style.cssText = `${propertyValue}`;
 
-//     }
-
-//     return hexChoice;
-// }
-
-//-----------------------------------------------------------
+  console.log(propertyValue);
+});

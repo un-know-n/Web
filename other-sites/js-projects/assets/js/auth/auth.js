@@ -1,3 +1,9 @@
+/**
+ * Create the authorization form and return it
+ *
+ * @export
+ * @return {string} The DOM carcas of the auth form
+ */
 export function getAuthForm() {
   return `
     <form class="mui-form" id="auth-form">
@@ -31,6 +37,14 @@ export function getAuthForm() {
   `;
 }
 
+/**
+ * Request to server with data from inputs and response with idToken
+ *
+ * @export
+ * @param {string} email
+ * @param {string} password
+ * @return {string} The idToken from the response
+ */
 export function authWithEmailAndPassword(email, password) {
   const apk = 'AIzaSyBq8Ixgo7APATgapYHHZOFnvvhKONdV8bQ';
   return fetch(
@@ -38,14 +52,14 @@ export function authWithEmailAndPassword(email, password) {
     {
       method: 'POST',
       body: JSON.stringify({
-        email: email,
-        password: password,
+        email,
+        password,
         returnSecureToken: true,
       }),
       headers: {
         'Content-Type': 'application/json',
       },
-    }
+    },
   )
     .then((response) => response.json())
     .then((data) => data.idToken);

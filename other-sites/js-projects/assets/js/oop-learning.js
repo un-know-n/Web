@@ -1,10 +1,9 @@
-'use strict';
 /*
 ===================Theory part===============
 
 We started to use it, because progs. become harder every day, so we've found the way to make them faster, but OOP is just a tool, and you need to use a right one
 
-!What is important: 
+!What is important:
 !- abstractions(instances): parameters(props, methods)
 !- decomposition on modules(instances splitting)
 
@@ -207,9 +206,9 @@ console.log(Student.getRole('stud@mail'));
 ==================END==============
 */
 
-//Practice with OOP (may be returned to the theory part)
+// Practice with OOP (may be returned to the theory part)
 
-//------------GridView vidget
+// ------------GridView vidget
 
 // class GridView {
 //   /**

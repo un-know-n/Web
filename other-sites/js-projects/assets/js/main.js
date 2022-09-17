@@ -1,6 +1,6 @@
-//Challenges from codewars---------------------------------
+// Challenges from codewars---------------------------------
 
-//-----------Descending Order----------
+// -----------Descending Order----------
 
 // function descendingOrder(n) {
 //     let arr = String(n)
@@ -18,7 +18,7 @@
 // let result = descendingOrder(15);
 // console.log(result);
 
-//-----------Duplicate Count----------
+// -----------Duplicate Count----------
 
 // function duplicateCount(text) {
 //   let arr = text.toLowerCase().split('').sort();
@@ -69,7 +69,7 @@
 // let resultTwo = duplicateCount('Indivisibilities');
 // console.log(resultTwo);
 
-//---------------Array.diff-----------------
+// ---------------Array.diff-----------------
 
 // function arrayDiff(a, b) {
 //   let result = [];
@@ -105,7 +105,7 @@
 
 //-----------------------------------------
 
-//------------String ends with-------------
+// ------------String ends with-------------
 
 // function solution(str, ending) {
 //   let counter = 0;
@@ -125,13 +125,13 @@
 //   return str.substr(-ending.length) == ending;
 // }
 
-//const solution = (str, ending) => str.endsWith(ending);
+// const solution = (str, ending) => str.endsWith(ending);
 
-//console.log(solution('abcabc', 'bc'));
+// console.log(solution('abcabc', 'bc'));
 
 //-----------------------------------------
 
-//List Filtering---------------------------
+// List Filtering---------------------------
 
 // function filter_list(array) {
 //   return array.filter((item) => typeof item === 'number');
@@ -145,7 +145,7 @@
 
 //-----------------------------------------
 
-//Split Strings----------------------------
+// Split Strings----------------------------
 
 // function solution(str) {
 //   if (str) {
@@ -172,7 +172,7 @@
 
 //-----------------------------------------
 
-//Human Readable Time----------------------
+// Human Readable Time----------------------
 
 // function humanReadable(seconds) {
 //   let hours = 0,
@@ -219,7 +219,7 @@
 
 //-----------------------------------------
 
-//Stop Spinning My Words!------------------
+// Stop Spinning My Words!------------------
 
 // function spinWords(string) {
 //   return string
@@ -248,7 +248,7 @@
 
 //-----------------------------------------
 
-//Sum of Digits/Digital Root---------------
+// Sum of Digits/Digital Root---------------
 
 // function digitalRoot(n) {
 //   let temp = n.toString();
@@ -296,7 +296,7 @@
 //-----------------------------------------
 //-----------------------------------------
 //-----------------------------------------
-//Server-try--------------------------------------------
+// Server-try--------------------------------------------
 
 // let http = require('http');
 

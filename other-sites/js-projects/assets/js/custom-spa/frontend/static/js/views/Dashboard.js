@@ -1,11 +1,26 @@
+/* eslint-disable import/extensions */
+/* eslint-disable class-methods-use-this */
 import AbstractView from './AbstractView.js';
 
+/**
+ * Stands for generating the dashboard page
+ *
+ * @export
+ * @class Dashboard
+ * @extends {AbstractView}
+ */
 export default class Dashboard extends AbstractView {
   constructor() {
     super();
     this.setTitle('Dashboard');
   }
 
+  /**
+   * Return the DOM of the page
+   *
+   * @return {string}
+   * @memberof Dashboard
+   */
   async getHTML() {
     return `
             <h1>Welcome back</h1>

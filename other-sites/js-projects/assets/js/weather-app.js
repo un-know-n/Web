@@ -1,29 +1,34 @@
-//Params
+//Params and main variables
 const searchBtn = document.querySelector('.search__button');
 
 const options = {
   method: 'GET',
+  //Need to type your own API keys
 };
 
 //Functions
-
 const getWeather = async () => {
   const value = await document.querySelector('.search__input').value;
 
   console.log(value);
 
   if (value.trim()) {
+    //Request to the yahoo-weather API
     const fetchResponse = await fetch(
       `https://yahoo-weather5.p.rapidapi.com/weather?location=${value}&format=json&u=f`,
       options
     )
       .then((response) => {
         console.log(response);
+
+        //Check if the response has acceptable status
         if (Math.floor(response.status / 2) === 2 || response.status === 200)
           return response.json();
       })
       .then((data) => {
         console.log(data);
+
+        //Making the one weather item block
         const weatherItem = data.forecasts.map((item) => {
           return `
            <div class="weather__item">
@@ -37,7 +42,7 @@ const getWeather = async () => {
            `;
         });
 
-        // console.log(weatherItem);
+        //Assigning the item to the main container
         document.querySelector('.weather__wrapper').innerHTML = `
         <div class="weather__row">
           <div class="weather__first-col">
@@ -56,6 +61,7 @@ const getWeather = async () => {
         </div>
       `;
 
+        //Assigning all the items to the footer
         document.querySelector('.weather__footer').innerHTML = `
           ${weatherItem.join('')}
       `;
@@ -65,5 +71,4 @@ const getWeather = async () => {
 };
 
 //Event Listeners
-
 searchBtn.addEventListener('click', getWeather);

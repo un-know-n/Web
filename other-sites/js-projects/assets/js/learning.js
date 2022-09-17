@@ -235,7 +235,7 @@ multiply(2, 2);
 let getMsg = (text, name) => text + ' ' + name + '!';
 console.log(getMsg('Hello', 'World'));
 
-Arrow function returns value every time, though it's not written
+If the code is in one line without brackets --> arrow function returns value every time, though you don't need to write it
 
 --------------Planing of setTimeout & setInterval
 setTimeout(func or code, timeout(ms), params);
@@ -734,10 +734,15 @@ arr.forEach((item, index, array) => {
 Reduce is more complicated than map, or loops, but similar to them
 We use it to calculate some value from the entire array. Example:
 
+previousValue - calculated value
+previousValue = arr[0] (if we haven't typed ourselves another val.)
+
+?Every returned item is written inside previousValue!!!
+
 let arrOne = [1, 2, 3, 4];
 let result = arrOne.reduce(function(previousValue, item, index, array) {
     return item + previousValue;
-}, 0 - '[initial]');
+}, 0 - 'previousValue = arr[0]');
 console.log(result); ---> 10
 
 reduceRight works similarly, but from the right to the left
@@ -3355,7 +3360,7 @@ That is a software component that executes JS code, each browser uses a specific
 3)Abstract syntax tree(AST) (a tree of nodes, like a huge object)
 4)Interpreter
 5)Bytecode
-6)Bytecode type feedback (if not - deoptimization)
+6)Bytecode type feedback - optimization (if not - deoptimization)
 7)Optimized code to 010101010
 
 ?_____________Related-Questions___________
@@ -3498,6 +3503,47 @@ function addWeakListener(target, type, callback) {
 }
 
 addWeakListener(document, 'click', () => console.log('Clicked'));
+
+?---------------Gaps------------------
+
+--------------Optional chaining(always use)
+!Works with properties and methods
+
+const auto = {
+  brand: 'someBrand',
+  model: 'ModelX',
+  details: {
+    color: 'red',
+    year: 2022,
+    //stock: true,
+  },
+  someFunc() {
+    console.log('Something');
+  }
+};
+
+const cars = [auto];
+
+cars.forEach((car) => {
+  console.log(
+    `${car?.brand}, ${car?.model}, ${car?.details?.year}, ${car?.details?.stock}`
+  );
+});
+
+auto.someFunc?.();
+
+console.log(auto?.['brand']);
+
+--------------------Drag and drop API
+
+*dragstart - when you've started dragging(essential, as it gives you the dataTransfer property - it is going to specify what data is dragged)
+
+*event.dataTransfer.setData(MIME type, elem. id);
+event.dataTransfer.setData('text/plain', draggableElement.id) - to take data later and know which element is being dragged
+
+*dragover - if u need to use styles (event.preventDefault() - read the docs, as why it is needed)
+*drop - elem is dropped to specific zone (event.preventDefault())
+event.dataTransfer.getData('text/plain');
 
 ======================Theory END===================
 */
