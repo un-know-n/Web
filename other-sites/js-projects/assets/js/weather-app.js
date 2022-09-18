@@ -1,36 +1,38 @@
-//Params and main variables
+/* eslint-disable no-unused-vars */
+/* eslint-disable consistent-return */
+// Params and main variables
 const searchBtn = document.querySelector('.search__button');
 
 const options = {
   method: 'GET',
-  //Need to type your own API keys
+  // Need to type your own API keys
 };
 
-//Functions
+// Functions
 const getWeather = async () => {
   const value = await document.querySelector('.search__input').value;
 
   console.log(value);
 
   if (value.trim()) {
-    //Request to the yahoo-weather API
+    // Request to the yahoo-weather API
     const fetchResponse = await fetch(
       `https://yahoo-weather5.p.rapidapi.com/weather?location=${value}&format=json&u=f`,
-      options
+      options,
     )
       .then((response) => {
         console.log(response);
 
-        //Check if the response has acceptable status
+        // Check if the response has acceptable status
         if (Math.floor(response.status / 2) === 2 || response.status === 200)
           return response.json();
       })
       .then((data) => {
         console.log(data);
 
-        //Making the one weather item block
-        const weatherItem = data.forecasts.map((item) => {
-          return `
+        // Making the one weather item block
+        const weatherItem = data.forecasts.map(
+          (item) => `
            <div class="weather__item">
                <div class="day">${item.day}</div>
                <div class="temperature-range">
@@ -39,10 +41,10 @@ const getWeather = async () => {
                </div>
                <div class="condition">${item.text}</div>
              </div>
-           `;
-        });
+           `,
+        );
 
-        //Assigning the item to the main container
+        // Assigning the item to the main container
         document.querySelector('.weather__wrapper').innerHTML = `
         <div class="weather__row">
           <div class="weather__first-col">
@@ -61,7 +63,7 @@ const getWeather = async () => {
         </div>
       `;
 
-        //Assigning all the items to the footer
+        // Assigning all the items to the footer
         document.querySelector('.weather__footer').innerHTML = `
           ${weatherItem.join('')}
       `;
@@ -70,5 +72,5 @@ const getWeather = async () => {
   }
 };
 
-//Event Listeners
+// Event Listeners
 searchBtn.addEventListener('click', getWeather);

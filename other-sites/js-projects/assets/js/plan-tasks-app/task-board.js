@@ -1,5 +1,8 @@
-import TasksAPI from './api/TasksAPI.js';
-import { generateId } from './api/TasksAPI.js';
+/* eslint-disable import/extensions */
+/* eslint-disable no-new */
+// Module import
+// import TasksAPI from './api/TasksAPI.js';
+// import { generateId } from './api/TasksAPI.js';
 import TasksView from './view/TasksView.js';
 
 // generateId();
@@ -14,4 +17,5 @@ import TasksView from './view/TasksView.js';
 //   position: 0,
 // });
 
+// Create a new taskboard
 new TasksView(document.querySelector('.kanban'));

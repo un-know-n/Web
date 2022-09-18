@@ -1,8 +1,5 @@
-'use strict';
-
 /*
 ____________Freelancer-life-style course____________
-
 
 =====================Session #1=======================
 
@@ -20,7 +17,7 @@ const smth = {
 smth.age = 18;
 console.log(smth);
 
-types: undefined, null, boolean, number, BigInt, string, 
+types: undefined, null, boolean, number, BigInt, string,
 symbol, object, function;
 
 const bigInt = 34712534752136451287345n;
@@ -317,7 +314,7 @@ console.log(userInfo);
 
 Also we can change values of constant objects
 
-But duplicating objects is complicated, as example of 
+But duplicating objects is complicated, as example of
 NOT DUPLICATION:
 
 let userInfo = {
@@ -374,7 +371,6 @@ userInfo = null;
 user.showInfo(); ---> it will work if use "this", instead of object name,
 because we tie our output to the object name
 
-
 let userInfo = {
     name: "someone",
     age: 30,
@@ -413,7 +409,6 @@ function UserInfo(name) {
 let userInfo = new UserInfo('Someone');
 
 console.log(userInfo.age);
-
 
 ====================Session #3================
 
@@ -514,7 +509,6 @@ Syntax: str.indexOf(substr, pos); --- returns position where match was found or 
 Syntax: str.includes(substr, pos);
 .....
 
-
 let text = "Something!";
 console.log(text.indexOf('ome')); ---> 1
 
@@ -589,7 +583,7 @@ Syntax: arr.splice(index, deleteCount, elem1, ...., elemN);
 Delete element
 arr.splice(1, 1);
 
-Add element 
+Add element
 arr.splice(1, 0, '23', '43');
 
 Delete from the end
@@ -639,12 +633,12 @@ Syntax: let result = arr.filter(function(item, index, array) {
     2)returns empty array if nothing is found
 });
 
-.find() will look and stop after the first match, whereas, .filter() 
+.find() will look and stop after the first match, whereas, .filter()
 will continue searching through the entire array
 
 The main difference between them is that "find" returns an object,
 but "filter" returns an array of objects.
-And if search fails, find will return undefined while filter will 
+And if search fails, find will return undefined while filter will
 return an empty array []
 
 let resultOne = arr.find(function(item, index, array) {
@@ -687,7 +681,7 @@ let result = arr.map(function(item, index, array) {
 console.log(result); ---> ["H", "W"];
 
 ---------------Usage of split & join
-"Split" can translate string into array with specific separator, 
+"Split" can translate string into array with specific separator,
 also we can stricly define number of elements in array;
 
 let str = 'Lorem,ipsum,dolor';
@@ -797,8 +791,8 @@ const childNodes = bodyElement.childNodes;
 console.log(bodyElement.hasChildNodes());
 
 !!Attention: childNodes is similar to array, but it's not,
-!it's a collection, pseudo-array. The difference is that methods 
-!of an array won't work with that(understandable), and we can use 
+!it's a collection, pseudo-array. The difference is that methods
+!of an array won't work with that(understandable), and we can use
 !for...of with collection
 
 const parentNode = bodyElement.parentNode;(also previousSibling, nextSibling)
@@ -828,8 +822,8 @@ const subItems = subList[0].querySelectorAll('li');
 Difference between querySelectorAll & querySelector is that
 the second one can return only one element
 
-!!!So, there's a few methods that we can use too(use everything with 
-!!!"document. "!!!): 
+!!!So, there's a few methods that we can use too(use everything with
+!!!"document. "!!!):
 *They return a "live" collection
 -getElementById(id);
 -getElementsByClassName(className);
@@ -861,7 +855,7 @@ textElement.innerHTML = `<p>${textElementContent}</p>
 <p>Also something new....</p>`;
 
 --------------Outer HTML
-!!Difference between inner & outer is that "outer" takes whole 
+!!Difference between inner & outer is that "outer" takes whole
 !element, but "inner" takes only inner part
 
 textElement.outerHTML = "Something new...";
@@ -873,7 +867,7 @@ const textElement = document.querySelector(...);
 const textElementContent = textElement.textContent;
 console.log(..); --> only text
 
-The "data" property gives us abillity to take text from the 
+The "data" property gives us abillity to take text from the
 comments in HTML
 
 const getComment = textElement.nextSibling;
@@ -1118,7 +1112,6 @@ const getItemCoords = item.getBoundingClientRect() + window.pageYOffset;
 const elem = document.elementFromPoint(100, 100);
 console.log(elem);
 
-
 ========================Session #7=======================
 
 ------------------------Events-------------------------------
@@ -1194,7 +1187,7 @@ button.addEventListener('click', showConsole);
 
 ----Event delegation
 
-That thing is usable when we want to make many elements react on 
+That thing is usable when we want to make many elements react on
 the same event similarly
 
 !Wrong way:
@@ -1220,7 +1213,7 @@ document.addEventListener('click', menu);
 function menu(event) {
     if (event.target.closest('.menu__button')) {
         menuBody.classList.toggle('_active');
-    } 
+    }
     if (!event.target.closest('.menu')) {
         menuBody.classList.remove('_active');
     }
@@ -1228,7 +1221,7 @@ function menu(event) {
 
 ----Default browser actions
 
-! event.preventDefault(); - gives us abillity to discard default 
+! event.preventDefault(); - gives us abillity to discard default
 ! browser actions (or "return false;" if .onclick)
 ? Also we can use it to forbid user do something(send form, etc...)
 
@@ -1255,7 +1248,7 @@ dblclick - understandable
 const blockForMouse = document.querySelector('.block-for-mouse');
 
 blockForMouse.addEventListener('mousemove', function(event) {
-    blockForMouse.innerHTML = 
+    blockForMouse.innerHTML =
     `clientX: ${event.clientX} <br> clientY: ${event.clientY}`;
 })
 
@@ -1274,7 +1267,7 @@ blockForMouse.addEventListener('mouseout', function(event) {
 });
 
 ----Keyboard events(keydown & keyup)
-Also usable: event.code(depends on pressed key) 
+Also usable: event.code(depends on pressed key)
 & event.key(depends on sys language)
 event.repeat - if key is pressed many times
 
@@ -1341,7 +1334,6 @@ function beforeUnload(event) {
 window.addEventListener('unload', function(event) {
     navigator.sendBeacon(url, data);
 });
-
 
 --------------------------Forms--------------------------
 
@@ -1451,7 +1443,6 @@ mainFormInput.addEventListener("blur", function(e) {
     mainForm.submit();
 });
 
-
 ???======================Filling in the gaps===============????
 
 --------------------Dates--------------
@@ -1514,7 +1505,7 @@ newArr = response.filter(elem => {
 });
 
 ---------every & some
-Every looks through all array and compare every value, if even 
+Every looks through all array and compare every value, if even
 one of them doesnt apply, then it returns false to all array
 Some works in reverse way
 newArr = arr.some(elem => {
@@ -1523,7 +1514,7 @@ newArr = arr.some(elem => {
 
 newArr = arr.every(elem => {
     return elem > 0;
-}); 
+});
 
 -----------reduce & reduceRight(the same)
 It calculates a value from entire array
@@ -1539,7 +1530,6 @@ newArr = friend.reduce((sum, elem) => {
     return sum.concat(elem.books);
     //return [...sum, ...elem.books];
 }, ["1984"]);
-
 
 console.log(newArr);
 
@@ -1595,7 +1585,6 @@ All variables inside func are properties  of inner object "lexical environmnet",
 
 Every func has "lexical environmnet", it is created every  time the function called, also it has "scope", which looks through own "lexical environmnet" and if it doesnt find need variable it looks in parent "lexical environmnet";
 
-
 function sayHi(name) {
     //LexicalEnvironment = {name: 'Jack', phrase: 'undefined'};
     let phrase= 'Hello ' + name;
@@ -1644,7 +1633,7 @@ for(var i = 0; i < button.length; i++) {
     button[i].onclick = function(x){
         return function(){
             console.log(x);
-        }        
+        }
     }(i);
 }
 
@@ -1678,8 +1667,8 @@ Module with closuring - is a wrapping a pack of functional in one momentally exe
 "this" - current object by calling through '.' || new object with constructing by new
 
 There are 3 methods to point out the context: call, apply, bind
-!bind doesnt execute the function, just takes context and 
-!returns the wrapper, which can be executed furtherly, 
+!bind doesnt execute the function, just takes context and
+!returns the wrapper, which can be executed furtherly,
 !but 'call & apply' take context and executes when created
 
 !call & apply almost same, but have different args. transfer,
@@ -1753,15 +1742,15 @@ console.log(Math.max.apply(null, numbers));
 
 ---------BIND Part
 
-Syntax: let wrapper = func.bind(context(thisArg), arg1, ..., argN); 
-'context' - context which applies to func; 'arg1, arg2' - addition args. 
+Syntax: let wrapper = func.bind(context(thisArg), arg1, ..., argN);
+'context' - context which applies to func; 'arg1, arg2' - addition args.
 will be added to those, which are typed when func executed;
 
 !func.bind(context) == bind(func, context);
 
 ----Losing context
 let user = {
-    userName: 'Someone', 
+    userName: 'Someone',
     sayHi: function(){
         console.log(this.userName);
     }
@@ -1769,8 +1758,8 @@ let user = {
 
 setTimeout(user.sayHi, 1000);
 
-If we want to transfer method of an object to somewhere, 
-where it can be further executed(bind his context to him), 
+If we want to transfer method of an object to somewhere,
+where it can be further executed(bind his context to him),
 we need to use .bind()
 
 function someFunc(a, b){
@@ -1784,7 +1773,7 @@ g(1, 2);
 -----Modified(without losing context):
 
 let user = {
-    userName: 'Someone', 
+    userName: 'Someone',
     sayHi: function(){
         console.log(this.userName);
     }
@@ -1800,7 +1789,7 @@ let user = {
     data: [
         {name: 'John'},
         {name: 'Max'}
-    ], 
+    ],
     showFirst: function(){
         console.log(this.data[0].name);
     }
@@ -1891,7 +1880,7 @@ let result = a > 0 ? b = a : b++;
 
 !Cant use 'if statements' with case:
 switch(variable) {
-    case 'string': 
+    case 'string':
         do something;
         break;
     case 1:
@@ -1927,7 +1916,7 @@ function question(job){
         return function(name){
             return `${name}, what is JS?`
         }
-    } 
+    }
     if(job === 'teacher'){
         return function(name){
             return `${name}, what are u up to?`
@@ -1937,11 +1926,10 @@ function question(job){
 const devQuestion = question('developer');
 console.log(devQuestion('Someone'));
 
-
 *Right way:
 function question(job){
     const jobDictionary = {
-        developer: 'what is JS?', 
+        developer: 'what is JS?',
         teacher: 'what are u up to?'
     };
 
@@ -1951,7 +1939,6 @@ function question(job){
 }
 const devQuestion = question('developer');
 console.log(devQuestion('Someone'));
-
 
 --------Chain methods:
 let str = "Hello world";
@@ -2012,7 +1999,7 @@ Forming ann object from array with reduce
 const usersObject = users.reduce((acc, user) => {
     acc[user._id] = user; - id: {}
     return acc; - every time return new object
-}, {} - start value(empty object)); 
+}, {} - start value(empty object));
 
 ------------Object methods
 
@@ -2137,7 +2124,7 @@ Attributes:
 -resolve - successful attempt
 -reject - bad attempt(error)
 
-new Promise() - takes callback as param, which itself takes two functions, one for successful atempt, another for error 
+new Promise() - takes callback as param, which itself takes two functions, one for successful atempt, another for error
 
 After the operation in callback is done we can resolve or reject func
 
@@ -2155,7 +2142,7 @@ We can use chains with .then(), because every .then() is promise itself
 
 ?Important: promise has method .finally(), which executes everytime we call promise(despite of mistakes / successful calls)
 
-*Promise.all can be used when we have all the data we need and want to call the promises one-by-one 
+*Promise.all can be used when we have all the data we need and want to call the promises one-by-one
 
 Practice part is below(after theory)!!
 
@@ -2283,7 +2270,7 @@ function toUpperCase(litArr, value){
 getter/setter - inside like method, outside like property
 
 let person ={
-    name, 
+    name,
     age,
     get password(){
         return this.name + this.age;
@@ -2295,7 +2282,7 @@ console.log(person.password);
 
 Classes are a syntax sugar, underneath its just a prototype
 
-Names of get/set must not be similar to those in class 
+Names of get/set must not be similar to those in class
 
 class Task {
   static counter = 0;
@@ -2508,7 +2495,7 @@ users.forEach((user) => console.log(user));
 
 !They allow garbage collector to do its job
 
----------------Modules 
+---------------Modules
  import/export - variable, func, class
 
 !Export modules:
@@ -2554,7 +2541,7 @@ import * as numbers from './file.js';
 
 ?---Import & Export of modules in general object
 
-!This method is very useful as it is flexible and comfortable, when working with huge amount of functions 
+!This method is very useful as it is flexible and comfortable, when working with huge amount of functions
 
 !In outer file:
 const helpers = {
@@ -2614,7 +2601,7 @@ const getNamesData = () => {
 
 const getNamesData2 = async () => {
     console.log(await fetchData());
-    return 'done';    
+    return 'done';
 }
 
 ?_________________ES7-ES9_webDev_course_______________
@@ -2637,7 +2624,7 @@ It returns all info about all properties of current object
 It allows to create small copies of objects and clone them creating new ones by the way(also copying getters/setters)
 
 const person = {
-    name: "max", 
+    name: "max",
     age: 30,
     set personName(name) {
         this.name = name;
@@ -2714,7 +2701,7 @@ function showText = async () => {
     const fetchedText = await fetchText().catch(e => console.log(e)).finally(...);
 }
 
-?---Async Iterators 
+?---Async Iterators
 
 --For await..of
 
@@ -3423,7 +3410,6 @@ console.log(someFunc.__proto__ === Function.prototype); ---> true
 *SessionSt - expires on tab close, size 5mb, html5, only in browser, accessible from current tab
 *Cookies - manually expires, size 4kb, html5/4, in browser/server, accessible from any window
 
-
 ---Local (already noted)
 ---Session (methods same as localSt)
 
@@ -3548,7 +3534,7 @@ event.dataTransfer.getData('text/plain');
 ======================Theory END===================
 */
 
-//----------Remember those things
+// ----------Remember those things
 
 //! Object cant be translated to string by default(without using JSON.stringify())
 
@@ -3563,13 +3549,13 @@ event.dataTransfer.getData('text/plain');
 // dwayne[daniel] = 123;
 // dwayne[jason] = 456;
 
-//What will console output?
+// What will console output?
 // console.log(dwayne[daniel]);
 // console.log(dwayne);
 
 //* All of that because will be translated in strings like [object Object]!!!!
 
-//[object Object] = 123 ---> [object Object] = 456 thats why
+// [object Object] = 123 ---> [object Object] = 456 thats why
 
 //! They are never similar! (---> false)
 // console.log([2] == [2]);
@@ -3579,9 +3565,9 @@ event.dataTransfer.getData('text/plain');
 // console.log(NaN === NaN);
 // console.log(null === undefined);
 
-//----------Proxy practice
+// ----------Proxy practice
 
-//!---Wrapper
+//! ---Wrapper
 
 // const withDefaultValue = (target, defaultValue = 0) => {
 //   return new Proxy(target, {
@@ -3599,7 +3585,7 @@ event.dataTransfer.getData('text/plain');
 
 // console.log(position);
 
-//!---Hidden properties
+//! ---Hidden properties
 
 // const withHiddenProps = (target, prefix = '_') => {
 //   return new Proxy(target, {
@@ -3619,9 +3605,9 @@ event.dataTransfer.getData('text/plain');
 // console.log(data);
 // console.log(data._uid);
 
-//!---Optimization
+//! ---Optimization
 
-//Algorythm example
+// Algorythm example
 
 // const index = {};
 // users.forEach((element) => (index[element.id] = element));
@@ -3663,7 +3649,7 @@ event.dataTransfer.getData('text/plain');
 // // console.log(users.push({ id: 55, name: 'Someone' }));
 // console.log(users.findById(11));
 
-//----------Proxy experience(begining)
+// ----------Proxy experience(begining)
 
 // const validator = {
 //   get(target, prop) {
@@ -3700,9 +3686,9 @@ event.dataTransfer.getData('text/plain');
 // proxy('Custom message');
 // proxy();
 
-//----------Reflect repeating
+// ----------Reflect repeating
 
-//!It works like Object.create, gives us the ability to create instances with specific classes, values, prototypes
+//! It works like Object.create, gives us the ability to create instances with specific classes, values, prototypes
 // class Student {
 //   constructor(name) {
 //     this.name = name;
@@ -3733,7 +3719,7 @@ event.dataTransfer.getData('text/plain');
 
 // console.log(student);
 
-//--------Iterators / Generators repeating
+// --------Iterators / Generators repeating
 
 // const array = [1, 2, 3, 4];
 // const str = 'Hello';
@@ -3769,7 +3755,7 @@ event.dataTransfer.getData('text/plain');
 //   console.log(item);
 // }
 
-//---Generator
+// ---Generator
 
 // function* gen(num = 4) {
 //   for (let i = 0; i < num; i++) {
@@ -3784,7 +3770,7 @@ event.dataTransfer.getData('text/plain');
 //   console.log(iter);
 // }
 
-//--------Symbol repeating
+// --------Symbol repeating
 
 // const symbol = Symbol('demo');
 // const other = Symbol('demo');
@@ -3796,7 +3782,7 @@ event.dataTransfer.getData('text/plain');
 
 // console.log(obj[symbol]);
 
-//--------Practice Async & Await via fetch
+// --------Practice Async & Await via fetch
 
 // const delay = (ms) => {
 //   return new Promise((resolve) => setTimeout(() => resolve(), ms));
@@ -3829,7 +3815,7 @@ event.dataTransfer.getData('text/plain');
 
 // fetchAsyncTodos().catch((error) => console.error(error));
 
-//--------Practice with Clases
+// --------Practice with Clases
 
 // class Component {
 //   constructor(selector) {
@@ -3874,7 +3860,7 @@ event.dataTransfer.getData('text/plain');
 //   radius: 50,
 // });
 
-//--------Practice with Async & Await
+// --------Practice with Async & Await
 
 // function getPost(id) {
 //   return Promise.resolve().then(() => {
@@ -3913,7 +3899,7 @@ event.dataTransfer.getData('text/plain');
 //   .then((data) => console.log(data))
 //   .catch((error) => console.log(error));
 
-//----Usage of Promise.all with Async/Await
+// ----Usage of Promise.all with Async/Await
 
 // async function getAll() {
 //   const [res1, res2] = await Promise.all([getPost(1), getPost(2)]);
@@ -3922,7 +3908,7 @@ event.dataTransfer.getData('text/plain');
 
 // getAll();
 
-//--------Practice with Fetch
+// --------Practice with Fetch
 
 // fetch('https://jsonplaceholder.typicode.com/posts')
 //   .then((response) => console.log(response))
@@ -3936,7 +3922,7 @@ event.dataTransfer.getData('text/plain');
 //   .then((posts) => console.log(posts))
 //   .catch((error) => console.log(error));
 
-//----Working with fetch in wrapper
+// ----Working with fetch in wrapper
 
 // function getPost(id) {
 //   return new Promise((resolve, reject) => {
@@ -3953,7 +3939,7 @@ event.dataTransfer.getData('text/plain');
 //   .then((post) => console.log(post))
 //   .catch((error) => console.log(error));
 
-//----Working with fetch itself
+// ----Working with fetch itself
 
 // function getPost2(id) {
 //   const [userType, userId] = id.split('-');
@@ -3968,7 +3954,7 @@ event.dataTransfer.getData('text/plain');
 //   .then((post) => console.log(post))
 //   .catch((error) => console.log(error));
 
-//----Working with fetch in case of solving problems with Promise methods(just a replacement of try..catch)
+// ----Working with fetch in case of solving problems with Promise methods(just a replacement of try..catch)
 
 // function getPost3(id) {
 //   return Promise.resolve().then(() => {
@@ -3987,7 +3973,7 @@ event.dataTransfer.getData('text/plain');
 
 //-------------------------------------------
 
-//--------Practice with Promises
+// --------Practice with Promises
 
 // const promise = new Promise((resolve, reject) => {
 //   setTimeout(() => {
@@ -4005,10 +3991,10 @@ event.dataTransfer.getData('text/plain');
 //   .then((y) => console.log(y))
 //   .catch((err) => console.log(err));
 
-//Promise remembers its state and returns the value
+// Promise remembers its state and returns the value
 // promise.then((z) => console.log(z));
 
-//----Promises with queries
+// ----Promises with queries
 
 // function httpMethods() {
 //   return {
@@ -4117,7 +4103,7 @@ event.dataTransfer.getData('text/plain');
 //   .catch((error) => console.log(error))
 //   .finally(() => console.log('finally'));
 
-//----Usage of Promise.all
+// ----Usage of Promise.all
 
 // function getPost2(id) {
 //   return new Promise((resolve, reject) => {
@@ -4352,7 +4338,7 @@ event.dataTransfer.getData('text/plain');
 
 //-------------------------------------------
 
-//------------Practice Part (Basic JS)
+// ------------Practice Part (Basic JS)
 
 // const arr = ['Someone', 'Another', 'Stranger', 'Smith'];
 // let resArr = mapClone(arr, seeAmount);
@@ -4377,15 +4363,15 @@ event.dataTransfer.getData('text/plain');
 
 //----------------------------
 
-//!!!Important:
+//! !!Important:
 // function greeting(firstName) {
 //   return function (lastName) {
 //     return `Hello, ${firstName} ${lastName}`;
 //   };
 // }
 
-//const testGreeting = greeting('Someone');
-//const fullName = testGreeting('Else');
+// const testGreeting = greeting('Someone');
+// const fullName = testGreeting('Else');
 
 // const testGreeting = greeting('Someone')('Else');
 // console.log(testGreeting);
@@ -4399,7 +4385,7 @@ event.dataTransfer.getData('text/plain');
 
 // console.log(newArr);
 
-//Check the following:
+// Check the following:
 
 // console.log(3 ** 2);
 // let myPromise = new Promise();
@@ -4412,21 +4398,21 @@ event.dataTransfer.getData('text/plain');
 // console.log(b); // 2
 // console.log(c); // { c: “Hello World”, d: 4 }
 
-//List of changes(ES6 - ES12):
+// List of changes(ES6 - ES12):
 
-//Array.prototype.includes()
-//Async Functions
-//Asynchronous Iteration
-//Promise.prototype.finally
-//Object Rest Properties
-//Array.flat()
-//Array.flatmap()
-//String.trimStart/trimEnd
-//import()
-//globalThis
-//Nullish Coalescing Operator (??)
-//Optional Chaining Operator (?.)
-//replaceAll
-//Numeric separator
-//Private Methods
-//Promise.any()
+// Array.prototype.includes()
+// Async Functions
+// Asynchronous Iteration
+// Promise.prototype.finally
+// Object Rest Properties
+// Array.flat()
+// Array.flatmap()
+// String.trimStart/trimEnd
+// import()
+// globalThis
+// Nullish Coalescing Operator (??)
+// Optional Chaining Operator (?.)
+// replaceAll
+// Numeric separator
+// Private Methods
+// Promise.any()

@@ -1,3 +1,4 @@
+// Main variables and params
 const wordEl = document.getElementById('word');
 const wrongLettersEl = document.getElementById('wrong-letters');
 const playAgainBtn = document.querySelector('.play-again');
@@ -22,7 +23,11 @@ let selectedWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
 const correctLetters = [];
 const wrongLetters = [];
 
-//Show the hidden word
+/**
+ * Display the letter of the hidden word in the DOM
+ * and check if the user has already spelt the right word
+ *
+ */
 function displayWord() {
   wordEl.innerHTML = `
   ${selectedWord
@@ -31,26 +36,36 @@ function displayWord() {
       (letter) =>
         `<span class=letter>${
           correctLetters.includes(letter) ? letter : ''
-        }</span>`
+        }</span>`,
     )
     .join('')}
   `;
+
+  // Take the whole entered word
   const innerWord = wordEl.innerText.replace(/\n/g, '');
 
+  // If user has entered word correctly
   if (innerWord === selectedWord) {
-    finalMessage.innerText = 'Congrats';
+    finalMessage.innerText = 'Congratulations! You won!';
     popup.style.display = 'flex';
   }
 }
 
-//Update wrong letters array and display them
+/**
+ * Update wrong letters array, display the wrong letters and
+ * check if the user has already made the max. number of mistakes
+ *
+ */
 function updateWrongLetterEl() {
+  // Change block, depending on its state
   wrongLettersEl.innerHTML = `
   ${wrongLetters.length > 0 ? '<p>Wrong:</p>' : ''}
   ${wrongLetters.map((letter) => `<span>${letter}</span>`)}
   `;
 
+  // Display the part of the figure on the page
   figureParts.forEach((part, index) => {
+    // Number of errors in the word
     const errors = wrongLetters.length;
     if (index < errors) {
       part.style.display = 'block';
@@ -59,13 +74,17 @@ function updateWrongLetterEl() {
     }
   });
 
+  // If the figure is whole, then the game is lost
   if (wrongLetters.length === figureParts.length) {
-    finalMessage.innerText = 'Sorry, u lost';
+    finalMessage.innerText = 'Sorry, you lost';
     popup.style.display = 'flex';
   }
 }
 
-//Show notification
+/**
+ * Show notification if the key was already typed
+ *
+ */
 function showNotification() {
   notification.classList.add('show');
   setTimeout(() => {
@@ -73,33 +92,41 @@ function showNotification() {
   }, 2000);
 }
 
-//Keydown letter press
+// Event Listeners
+
+// Keydown letter press
 window.addEventListener('keydown', (e) => {
+  // If the key is a letter
   if (e.code >= 'KeyA' && e.code <= 'KeyZ') {
-    // console.log('yup');
+    // Transfer it to lower case
     const letter = e.key.toLowerCase();
+    // If we have that letter in the word
     if (selectedWord.includes(letter)) {
+      // If it hadn't already been typed
       if (!correctLetters.includes(letter)) {
         correctLetters.push(letter);
         displayWord();
       } else {
         showNotification();
       }
-    } else {
-      if (!wrongLetters.includes(letter)) {
-        wrongLetters.push(letter);
-
-        updateWrongLetterEl();
-      } else showNotification();
-    }
+      // If we dont have that wrong letter
+    } else if (!wrongLetters.includes(letter)) {
+      wrongLetters.push(letter);
+      updateWrongLetterEl();
+    } else showNotification();
   }
 });
 
-//Restart game and play again
+// Restart game and play again
 playAgainBtn.addEventListener('click', () => {
+  // Clear the arrays
   correctLetters.splice(0);
   wrongLetters.splice(0);
+
+  // Take the selected word
   selectedWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+
+  // Display it
   displayWord();
   updateWrongLetterEl();
   popup.style.display = 'none';

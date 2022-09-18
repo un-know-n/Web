@@ -1,6 +1,16 @@
+/* eslint-disable import/extensions */
+/* eslint-disable eqeqeq */
+/* eslint-disable object-shorthand */
+// Module import
 import NotesView from './NotesView.js';
 import NotesAPI from './NotesAPI.js';
 
+/**
+ * Stands for configuring the main parts of the app
+ *
+ * @export
+ * @class App
+ */
 export default class App {
   constructor(root) {
     this.notes = [];
@@ -10,6 +20,11 @@ export default class App {
     this._refreshNotes();
   }
 
+  /**
+   * See renewed notes
+   *
+   * @memberof App
+   */
   _refreshNotes() {
     const notes = NotesAPI.getAllNotes();
     this._setNotes(notes);
@@ -19,46 +34,72 @@ export default class App {
     }
   }
 
+  /**
+   * Show the notes to the screen
+   *
+   * @param {*} notes
+   * @memberof App
+   */
   _setNotes(notes) {
     this.notes = notes;
     this.view.updateNoteList(notes);
     this.view.updateNotePreviewVisibility(notes.length > 0);
   }
 
+  /**
+   * Set the active note, which will be shown as the first one
+   *
+   * @param {*} note
+   * @memberof App
+   */
   _setActiveNote(note) {
     this.activeNote = note;
     this.view.updateActiveNote(note);
   }
 
+  /**
+   * Custom functions to operate the notes
+   *
+   * @return {Object} Object with all custom functions to manage
+   * the notes
+   * @memberof App
+   */
   _handlers() {
     return {
       onNoteSelect: (noteId) => {
-        // console.log(`Note ${noteId} selected`);
+        // Select the note by id
         const selectedNote = this.notes.find((note) => note.id == noteId);
+
+        // Make this note active
         this._setActiveNote(selectedNote);
       },
       onNoteDelete: (noteId) => {
-        // console.log(`Note ${noteId} deleted`);
+        // Delete current note
         NotesAPI.deleteNote(noteId);
+
+        // Refresh the notes
         this._refreshNotes();
       },
       onNoteAdd: () => {
-        // console.log('Note added');
+        // Create a new note with default text
         const newNote = {
           title: 'New Note',
           body: 'Take note...',
         };
 
+        // Save the notes and refresh them
         NotesAPI.saveNotes(newNote);
         this._refreshNotes();
       },
       onNoteEdit: (title, body) => {
-        // console.log(title, body);
+        // Save current note
         NotesAPI.saveNotes({
           id: this.activeNote.id,
           title: title,
           body: body,
         });
+
+        // Refresh the notes
         this._refreshNotes();
       },
     };
